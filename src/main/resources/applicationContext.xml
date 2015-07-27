@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 系统整体配置 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation=" http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 定义全局配置文件 -->
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:applicationContext.properties"/>
+    </bean>
+
+    <!-- 国际化信息配置 -->
+    <bean id="messageSource"
+          class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basename" value="classpath:com/cn/resource/messages_zh_CN"/>
+        <property name="useCodeAsDefaultMessage" value="true"/>
+    </bean>
+
+    <!-- web服务模块配置 -->
+    <!-- import resource="spring-webservice.xml"/-->
+    <!-- JMS模块配置 -->
+    <!-- import resource="spring-jms.xml" /-->
+
+    <!-- 系统模块配置 -->
+    <import resource="spring-common.xml"/>
+    <!-- JSON模块配置 -->
+    <import resource="spring-json.xml"/>
+    <!-- 密文模块配置 -->
+    <import resource="spring-crypto.xml"/>
+    <!-- 用户及权限模块配置 -->
+    <import resource="spring-security.xml"/>
+    <!-- 接口模块配置 -->
+    <import resource="spring-integration.xml"/>
+    <!-- 传感控制模块配置 -->
+    <import resource="spring-iot.xml"/>
+    <!-- Socket端口模块配置 -->
+    <import resource="spring-ip.xml"/>
+    <!-- 消息事件模块配置 -->
+    <import resource="spring-event.xml"/>
+    <!-- FTP发送模块配置 -->
+    <import resource="spring-ftp.xml"/>
+    <!-- Struts2模块配置 -->
+    <import resource="spring-struts2.xml"/>
+    <!-- 任务调度模块配置 -->
+    <import resource="spring-quartz.xml"/>
+    <!-- 视频编码模块配置 -->
+    <import resource="spring-encoder.xml"/>
+
+    <!-- XMPP消息模块配置 -->
+    <!--import resource="spring-xmpp.xml"/-->
+
+    <!-- Kafka分布式消息系统模块配置 -->
+    <!-- import resource="spring-kafka.xml" / -->
+
+    <!-- Cassandra分布式非关系数据库模块配置 -->
+    <!--  import resource="spring-cassandra.xml" / -->
+
+
+</beans>

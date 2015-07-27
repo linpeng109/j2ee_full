@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:si="http://www.springframework.org/schema/integration"
+	xmlns:event="http://www.springframework.org/schema/integration/event"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+		http://www.springframework.org/schema/integration/event http://www.springframework.org/schema/integration/event/spring-integration-event.xsd">
+
+	<!-- 文件路径处理 -->
+	<bean id="filePathAction" class="com.cn.encoder.FilePathAction"
+		scope="step">
+		<property name="outputPath">
+			<value>${video.output.path}</value>
+		</property>
+	</bean>
+
+	<!-- 获取视频文件信息 -->
+	<bean id="getInfoAction" class="com.cn.encoder.GetInfoAction">
+		<property name="command">
+			<value>${mplayer.command}</value>
+		</property>
+		<property name="parameterLine">
+			<value>${getInfo.parameterLine}</value>
+		</property>
+	</bean>
+
+	<!-- AVI视频编码 -->
+	<bean id="aviAction" class="com.cn.encoder.AviAction">
+		<property name="command">
+			<value>${mencoder.command}</value>
+		</property>
+		<property name="parameterLine">
+			<value>${avi.parameterLine}</value>
+		</property>
+	</bean>
+
+	<!-- INDEX视频编码 -->
+	<bean id="indexAction" class="com.cn.encoder.IndexAction">
+		<property name="command">
+			<value>${mencoder.command}</value>
+		</property>
+		<property name="parameterLine">
+			<value>${index.parameterLine}</value>
+		</property>
+	</bean>
+
+	<!-- FLV视频编码器模块 -->
+	<bean id="flvAction" class="com.cn.encoder.FlvAction">
+		<property name="command">
+			<value>${ffmpeg.command}</value>
+		</property>
+		<property name="parameterLine">
+			<value>${flv.parameterLine}</value>
+		</property>
+	</bean>
+
+	<!-- 视频截图模块 -->
+	<bean id="captureAction" class="com.cn.encoder.CaptureAction">
+		<property name="command">
+			<value>${ffmpeg.command}</value>
+		</property>
+		<property name="parameterLine">
+			<value>${capture.parameterLine}</value>
+		</property>
+		<property name="captureTimes">
+			<value>${capture.captureTimes}</value>
+		</property>
+	</bean>
+
+	<!-- 截图编码器模块 -->
+	<bean id="pictureAction" class="com.cn.encoder.PictureAction">
+		<property name="command">
+			<value>${imageMagick.command}</value>
+		</property>
+		<property name="parameterLine">
+			<value>${picture.parameterLine}</value>
+		</property>
+		<property name="pictureOutputPath">
+			<value>${picture.output.path}</value>
+		</property>
+	</bean>
+
+	<!-- Script脚本写入 -->
+	<bean id="writeToScriptAction" class="com.cn.encoder.WriteToScriptAction">
+		<property name="outputPath">
+			<value>${script.output.path}</value>
+		</property>
+	</bean>
+
+	<!-- 执行脚本 -->
+	<bean id="executeScriptAction" class="com.cn.encoder.ExecuteScriptAction" />
+
+	<!-- XML记录写入 -->
+	<bean id="writeToXMLAction" class="com.cn.encoder.WriteToXMLAction"
+		scope="step">
+		<property name="outputPath">
+			<value>${xml.output.path}</value>
+		</property>
+	</bean>
+
+	<!-- 清理中间文件 -->
+	<bean id="cleanAction" class="com.cn.encoder.CleanAction" />
+
+	<si:channel id="filePathInput" />
+
+	<si:service-activator id="filePath" ref="filePathAction" 
+		method="execute" input-channel="filePathInput" output-channel="logger" />
+
+
+
+</beans>
