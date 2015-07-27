@@ -42,8 +42,8 @@ version = '2015.07.28_j2ee_full_Venus'
 repositories {
     mavenCentral()
     ivy {
-        //url("/home/linpeng109/workset/ivy_repository")
-        url("d:/ivy_repository")
+        url("/home/linpeng109/workspace/ivy_repository")
+        //url("d:/ivy_repository")
     }
 }
 
