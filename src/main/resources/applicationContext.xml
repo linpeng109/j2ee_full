@@ -43,6 +43,8 @@
     <import resource="spring-ftp.xml"/>
     <!-- Struts2模块配置 -->
     <import resource="spring-struts2.xml"/>
+    <!-- 数据源及实体类配置 -->
+    <import resource="spring-dao.xml" />
     <!-- 任务调度模块配置 -->
     <import resource="spring-quartz.xml"/>
     <!-- 视频编码模块配置 -->
