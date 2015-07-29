@@ -20,7 +20,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
- * È¨ÏŞÁĞ±í
+ * æƒé™åˆ—è¡¨
  */
 @Entity
 @Table(name = "authority")
@@ -30,7 +30,7 @@ import org.hibernate.annotations.GenericGenerator;
 public class Authority {
 
 	/**
-	 * È¨ÏŞID
+	 * æƒé™ID
 	 */
 	@Id
 	@GeneratedValue(generator = "system-uuid")
@@ -38,37 +38,37 @@ public class Authority {
 	private String authorityId;
 
 	/**
-	 * È¨ÏŞÃèÊö
+	 * æƒé™æè¿°
 	 */
 	@Column(name = "authorityDescription", length = 200)
 	private String authorityDescription;
 
 	/**
-	 * È¨ÏŞ×Ö·û´®/Ë÷Òı
+	 * æƒé™å­—ç¬¦ä¸²/ç´¢å¼•
 	 */
 	@Column(name = "authorityString", length = 100)
 	private String authorityString;
 
 	/**
-	 * È¨ÏŞ¹ıÆÚÈÕÆÚ
+	 * æƒé™è¿‡æœŸæ—¥æœŸ
 	 */
 	@Column(name = "authorityExpireDate")
 	private Date authorityExpireDate;
 
 	/**
-	 * È¨ÏŞ×´Ì¬
+	 * æƒé™çŠ¶æ€
 	 */
 	@Column(name = "authorityStatus")
 	private int authorityStatus;
 
 	/**
-	 * ÓÃ»§_È¨ÏŞ¶ÔÓ¦¹ØÏµ×é/È¨ÏŞÉ¾³ıÔòÓÃ»§_È¨ÏŞ¶ÔÓ¦¹ØÏµÉ¾³ı/ÑÓÊ±¼ÓÔØ
+	 * ç”¨æˆ·_æƒé™å¯¹åº”å…³ç³»ç»„/æƒé™åˆ é™¤åˆ™ç”¨æˆ·_æƒé™å¯¹åº”å…³ç³»åˆ é™¤/å»¶æ—¶åŠ è½½
 	 */
 	@OneToMany(cascade = { CascadeType.ALL }, mappedBy = "authority", fetch = FetchType.LAZY)
 	private List<UserBase_Authority> userBase_authority = new ArrayList<UserBase_Authority>();
 
 	/**
-	 * ¹¹Ôìº¯Êı
+	 * æ„é€ å‡½æ•°
 	 */
 	public Authority() {
 		super();
