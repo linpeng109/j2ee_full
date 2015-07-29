@@ -1,7 +1,7 @@
 <ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="config/ehcache.xsd">
 
-    <diskStore path="d:/workdir/cache/ehcache"/>
+    <diskStore path="/home/linpeng109/workset/workdir/ehcache"/>
 
     <defaultCache maxElementsInMemory="1000" eternal="false"
                   timeToIdleSeconds="120" timeToLiveSeconds="120" overflowToDisk="true"

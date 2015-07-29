@@ -1,12 +1,11 @@
 package com.cn.dao.interceptor;
 
-import java.io.Serializable;
-
+import com.cn.dao.entity.UserBase;
 import org.apache.log4j.Logger;
 import org.hibernate.EmptyInterceptor;
 import org.hibernate.type.Type;
 
-import com.cn.entity.UserBase;
+import java.io.Serializable;
 
 
 @SuppressWarnings("serial")

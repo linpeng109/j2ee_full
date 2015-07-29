@@ -36,7 +36,7 @@ buildscript {
 version = '2015.07.28_j2ee_full_Venus'
 
 /**
- * °üÒÀÀµ¿âÃèÊö
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  */
 repositories {
     mavenCentral()
@@ -47,7 +47,7 @@ repositories {
 }
 
 /**
- * °üÒÀÀµĞÔÃèÊö
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  */
 dependencies {
     /**
@@ -217,7 +217,7 @@ dependencies {
      */
     compile("org.springframework.data:spring-data-redis:1.5.1.RELEASE")
 
-    /*×ÔÎ¬»¤*/
+    /*ï¿½ï¿½Î¬ï¿½ï¿½*/
     compile("org.springframework.flex:spring-flex-core:1.5.3.RELEASE")
 
     /**
@@ -310,8 +310,8 @@ dependencies {
     /**
      * Xml Apis
      */
-    def xmlApiVersion='2.0.2'
-    compile("xml-apis:xml-apis:$xmlApiVersion")
+    //def xmlApiVersion='1.4.01'
+    //testCompile("xml-apis:xml-apis:$xmlApiVersion")
 
     /**
      * JUnit is a unit testing framework for Java, created by Erich Gamma and Kent Beck.
@@ -354,30 +354,30 @@ configurations {
     //compile.exclude module: "tomcat-catalina"
 }
 
-/*Ô´´úÂëÅäÖÃ */
+/*Ô´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 sourceSets {
 
 }
 
 /**
- * jar°üÅäÖÃ
+ * jarï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  */
 jar {
     baseName = 'j2ee_min'
     version = '2015.06.12'
 }
 
-/*war°üÅäÖÃ*/
+/*warï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 
 /**
- * tomcat pluginÅäÖÃ
+ * tomcat pluginï¿½ï¿½ï¿½ï¿½
  */
 tomcat {
 
 }
 
 /**
- * ´´½¨sourceSetsÄ¿Â¼½á¹¹
+ * ï¿½ï¿½ï¿½ï¿½sourceSetsÄ¿Â¼ï¿½á¹¹
  */
 task createSourceSets {
     war.each {
