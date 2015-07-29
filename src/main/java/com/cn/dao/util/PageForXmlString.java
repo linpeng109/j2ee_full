@@ -7,7 +7,7 @@ import org.springframework.flex.core.io.AmfCreator;
 import org.springframework.flex.core.io.AmfProperty;
 
 /**
- * Êı¾İÁĞ±í·â×°
+ * æ•°æ®åˆ—è¡¨å°è£…
  * 
  * @author linp
  * 
@@ -17,48 +17,48 @@ import org.springframework.flex.core.io.AmfProperty;
 public class PageForXmlString implements Serializable {
 
 	/**
-	 * Êı¾İÁĞ±íµÄxml×Ö·û´®
+	 * æ•°æ®åˆ—è¡¨çš„xmlå­—ç¬¦ä¸²
 	 */
 	private String listXmlString;
 
 	/**
-	 * Ã¿Ò³Êı¾İÁ¿
+	 * æ¯é¡µæ•°æ®é‡
 	 */
 	private int pageSize;
 
 	/**
-	 * µ±Ç°Ò³
+	 * å½“å‰é¡µ
 	 */
 	private int pageCurrent;
 
 	/**
-	 * Êı¾İ×ÜÁ¿
+	 * æ•°æ®æ€»é‡
 	 */
 	private int total;
 
 	/**
-	 * Ê×Ò³
+	 * é¦–é¡µ
 	 * 
 	 */
 	private int pageFirst = 0;
 
 	/**
-	 * Ä©Ò³
+	 * æœ«é¡µ
 	 */
 	private int pageLast;
 
 	/**
-	 * ×ÜÒ³Êı
+	 * æ€»é¡µæ•°
 	 */
 	private int pageTotal;
 
 	/**
-	 * Êı¾İÒ³ÁĞ±í
+	 * æ•°æ®é¡µåˆ—è¡¨
 	 */
 	private ArrayList<Integer> pageList;
 
 	/**
-	 * ¹¹Ôìº¯Êı
+	 * æ„é€ å‡½æ•°
 	 * 
 	 * @param listXmlString
 	 * @param pageSize
@@ -76,12 +76,12 @@ public class PageForXmlString implements Serializable {
 		this.setTotal(total);
 
 		/**
-		 * È·¶¨Ê×Ò³
+		 * ç¡®å®šé¦–é¡µ
 		 */
 		this.pageFirst = 0;
 
 		/**
-		 * È·¶¨Ä©Ò³
+		 * ç¡®å®šæœ«é¡µ
 		 */
 		if (total % pageSize == 0) {
 			this.pageLast = total / pageSize - 1;
@@ -90,7 +90,7 @@ public class PageForXmlString implements Serializable {
 		}
 
 		/**
-		 * È·¶¨µ±Ç°Ò³
+		 * ç¡®å®šå½“å‰é¡µ
 		 */
 		if (pageCurrent < 0) {
 			this.pageCurrent = 0;
@@ -101,7 +101,7 @@ public class PageForXmlString implements Serializable {
 		}
 
 		/**
-		 * È·¶¨Ò³ÃæÊıÁĞ±í£¬ÁĞ³öµ±Ç°Ò³¸½½üµÄ10¸öÊı¾İÒ³
+		 * ç¡®å®šé¡µé¢æ•°åˆ—è¡¨ï¼Œåˆ—å‡ºå½“å‰é¡µé™„è¿‘çš„10ä¸ªæ•°æ®é¡µ
 		 */
 		int lastPageNumList = this.pageCurrent + 4;
 		if (lastPageNumList > this.pageLast) {
@@ -119,7 +119,7 @@ public class PageForXmlString implements Serializable {
 		}
 
 		/**
-		 * È·¶¨×ÜÒ³Êı
+		 * ç¡®å®šæ€»é¡µæ•°
 		 */
 		this.pageTotal = pageLast - pageFirst;
 	}

@@ -20,24 +20,24 @@ import org.hibernate.metadata.ClassMetadata;
 import org.hibernate.transform.Transformers;
 
 /**
- * Í¨ÓÃÊı¾İ²éÑ¯¶ÔÏó
+ * é€šç”¨æ•°æ®æŸ¥è¯¢å¯¹è±¡
  * 
  * @author Administrator
  * 
  */
 public class HibernateDAO {
 	/**
-	 * ÈÕÖ¾
+	 * æ—¥å¿—
 	 */
 	public Logger logger = Logger.getLogger(HibernateDAO.class);
 
 	/**
-	 * ÒÀÀµ×¢Èësession¹¤³§ÊµÀı
+	 * ä¾èµ–æ³¨å…¥sessionå·¥å‚å®ä¾‹
 	 */
 	public SessionFactory sessionFactory;
 
 	/**
-	 * ¹¹Ôìº¯Êı
+	 * æ„é€ å‡½æ•°
 	 */
 	public HibernateDAO() {
 		super();
@@ -45,9 +45,9 @@ public class HibernateDAO {
 	}
 
 	/**
-	 * ÎŞÌõ¼ş¼ÆÊı²éÑ¯
+	 * æ— æ¡ä»¶è®¡æ•°æŸ¥è¯¢
 	 * 
-	 * @param clazz²éÑ¯ÊµÌåÀà
+	 * @param clazzæŸ¥è¯¢å®ä½“ç±»
 	 * @param isCached
 	 * @return
 	 */
@@ -62,10 +62,10 @@ public class HibernateDAO {
 	}
 
 	/**
-	 * ÓĞÌõ¼ş¼ÆÊı²éÑ¯
+	 * æœ‰æ¡ä»¶è®¡æ•°æŸ¥è¯¢
 	 * 
-	 * @param clazz²éÑ¯ÊµÌåÀà
-	 * @param criterion²éÑ¯Ìõ¼ş
+	 * @param clazzæŸ¥è¯¢å®ä½“ç±»
+	 * @param criterionæŸ¥è¯¢æ¡ä»¶
 	 * @return
 	 */
 	public <T> int countByCriteria(Class<T> clazz, Criterion criterion,
@@ -81,10 +81,10 @@ public class HibernateDAO {
 	}
 
 	/**
-	 * È«²¿²éÑ¯
+	 * å…¨éƒ¨æŸ¥è¯¢
 	 * 
-	 * @param clazz²éÑ¯ÊµÌåÀà
-	 * @param isCachedÊÇ·ñ»º´æ
+	 * @param clazzæŸ¥è¯¢å®ä½“ç±»
+	 * @param isCachedæ˜¯å¦ç¼“å­˜
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
@@ -98,11 +98,11 @@ public class HibernateDAO {
 	}
 
 	/**
-	 * Ìõ¼ş²éÑ¯
+	 * æ¡ä»¶æŸ¥è¯¢
 	 * 
-	 * @param clazz²éÑ¯ÊµÌåÀà
-	 * @param criterion²éÑ¯Ìõ¼ş
-	 * @param isCachedÊÇ·ñ»º´æ
+	 * @param clazzæŸ¥è¯¢å®ä½“ç±»
+	 * @param criterionæŸ¥è¯¢æ¡ä»¶
+	 * @param isCachedæ˜¯å¦ç¼“å­˜
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
@@ -117,9 +117,9 @@ public class HibernateDAO {
 	}
 
 	/**
-	 * ×Ö¶Î²éÑ¯
+	 * å­—æ®µæŸ¥è¯¢
 	 * 
-	 * @param clazz²éÑ¯ÊµÌåÀà
+	 * @param clazzæŸ¥è¯¢å®ä½“ç±»
 	 * @return
 	 */
 	public <T> String[] listByFieldNames(Class<T> clazz) {
@@ -138,9 +138,9 @@ public class HibernateDAO {
 	}
 
 	/**
-	 * ¸ù¾İid²éÑ¯
+	 * æ ¹æ®idæŸ¥è¯¢
 	 * 
-	 * @param clazz²éÑ¯ÊµÌåÀà
+	 * @param clazzæŸ¥è¯¢å®ä½“ç±»
 	 * @param id
 	 * @param isCached
 	 * @return
@@ -157,9 +157,9 @@ public class HibernateDAO {
 	}
 
 	/**
-	 * Ô­Êı¾İ²éÑ¯
+	 * åŸæ•°æ®æŸ¥è¯¢
 	 * 
-	 * @param clazz²éÑ¯ÊµÌåÀà
+	 * @param clazzæŸ¥è¯¢å®ä½“ç±»
 	 * @return
 	 */
 	public <T> ClassMetadata listByMetaData(Class<T> clazz) {
@@ -170,22 +170,22 @@ public class HibernateDAO {
 	}
 
 	/**
-	 * ·ÖÒ³²éÑ¯
+	 * åˆ†é¡µæŸ¥è¯¢
 	 * 
-	 * @param clazz²éÑ¯ÊµÌåÀà
-	 * @param pageSizeÃ¿Ò³Êı¾İÁ¿
-	 * @param pageCurrentµ±Ç°Ò³
-	 * @param isCachedÊÇ·ñ»º´æ
+	 * @param clazzæŸ¥è¯¢å®ä½“ç±»
+	 * @param pageSizeæ¯é¡µæ•°æ®é‡
+	 * @param pageCurrentå½“å‰é¡µ
+	 * @param isCachedæ˜¯å¦ç¼“å­˜
 	 * @return
 	 */
 	public <T> List<T> listByPage(Class<T> clazz, int pageSize,
 			int pageCurrent, boolean isCached) {
 		/**
-		 * »ñÈ¡»á»°
+		 * è·å–ä¼šè¯
 		 */
 		Session session = sessionFactory.getCurrentSession();
 		/**
-		 * Ìõ¼ş²éÑ¯
+		 * æ¡ä»¶æŸ¥è¯¢
 		 */
 		Criteria criteria = session.createCriteria(clazz);
 		criteria.setFirstResult(pageCurrent * pageSize);
@@ -197,23 +197,23 @@ public class HibernateDAO {
 	}
 
 	/**
-	 * ·ÖÒ³Ìõ¼ş²éÑ¯
+	 * åˆ†é¡µæ¡ä»¶æŸ¥è¯¢
 	 * 
-	 * @param clazzÊµÌåÀà
-	 * @param criterion²éÑ¯Ìõ¼ş
-	 * @param pageSizeÃ¿Ò³Êı¾İÁ¿
-	 * @param pageCurrentµ±Ç°Ò³
-	 * @param isCachedÊÇ·ñ»º´æ
+	 * @param clazzå®ä½“ç±»
+	 * @param criterionæŸ¥è¯¢æ¡ä»¶
+	 * @param pageSizeæ¯é¡µæ•°æ®é‡
+	 * @param pageCurrentå½“å‰é¡µ
+	 * @param isCachedæ˜¯å¦ç¼“å­˜
 	 * @return
 	 */
 	public <T> List<T> listByPageByCriteria(Class<T> clazz,
 			Criterion criterion, int pageSize, int pageCurrent, boolean isCached) {
 		/**
-		 * »ñÈ¡»á»°
+		 * è·å–ä¼šè¯
 		 */
 		Session session = sessionFactory.getCurrentSession();
 		/**
-		 * Ìõ¼ş²éÑ¯
+		 * æ¡ä»¶æŸ¥è¯¢
 		 */
 		Criteria criteria = session.createCriteria(clazz);
 		criteria.setCacheable(isCached);
@@ -226,24 +226,24 @@ public class HibernateDAO {
 	}
 
 	/**
-	 * ·ÖÒ³ÀëÏßÄ£ºı²éÑ¯
+	 * åˆ†é¡µç¦»çº¿æ¨¡ç³ŠæŸ¥è¯¢
 	 * 
-	 * @param clazzÊµÌåÀà
-	 * @param detachedCriteriaÀëÏß²éÑ¯
-	 * @param pageSizeÃ¿Ò³Êı¾İÁ¿
-	 * @param pageCurrentµ±Ç°Ò³
-	 * @param isCachedÊÇ·ñ»º´æ
+	 * @param clazzå®ä½“ç±»
+	 * @param detachedCriteriaç¦»çº¿æŸ¥è¯¢
+	 * @param pageSizeæ¯é¡µæ•°æ®é‡
+	 * @param pageCurrentå½“å‰é¡µ
+	 * @param isCachedæ˜¯å¦ç¼“å­˜
 	 * @return
 	 */
 	public <T> List<T> listByPageByDetachedCriteria(
 			DetachedCriteria detachedCriteria, int pageSize, int pageCurrent,
 			boolean isCached) {
 		/**
-		 * »ñÈ¡»á»°
+		 * è·å–ä¼šè¯
 		 */
 		Session session = sessionFactory.getCurrentSession();
 		/**
-		 * Ìõ¼ş²éÑ¯
+		 * æ¡ä»¶æŸ¥è¯¢
 		 */
 		Criteria criteria = detachedCriteria.getExecutableCriteria(session);
 
@@ -256,22 +256,22 @@ public class HibernateDAO {
 	}
 
 	/**
-	 * ÊµÀı²éÑ¯
+	 * å®ä¾‹æŸ¥è¯¢
 	 * 
-	 * @param entity²éÑ¯ÊµÀı
-	 * @param pageSizeÃ¿Ò³Êı¾İÁ¿
-	 * @param pageCurrentµ±Ç°Ò³
-	 * @param isCachedÊÇ·ñ»º´æ
+	 * @param entityæŸ¥è¯¢å®ä¾‹
+	 * @param pageSizeæ¯é¡µæ•°æ®é‡
+	 * @param pageCurrentå½“å‰é¡µ
+	 * @param isCachedæ˜¯å¦ç¼“å­˜
 	 * @return
 	 */
 	public <T> List<T> listByPageByExample(Example example, int pageSize,
 			int pageCurrent, boolean isCached) {
 		/**
-		 * ´´½¨»á»°
+		 * åˆ›å»ºä¼šè¯
 		 */
 		Session session = sessionFactory.getCurrentSession();
 		/**
-		 * Ìõ¼ş²éÑ¯
+		 * æ¡ä»¶æŸ¥è¯¢
 		 */
 		Criteria criteria = session.createCriteria(example.getClass());
 		criteria.setCacheable(isCached);
@@ -284,31 +284,31 @@ public class HibernateDAO {
 	}
 
 	/**
-	 * HQLÓï¾ä²éÑ¯
+	 * HQLè¯­å¥æŸ¥è¯¢
 	 * 
 	 * @param <T>
 	 * 
-	 * @param hql²éÑ¯×Ö·û´®
-	 * @param pageSizeÃ¿Ò³Êı¾İÁ¿
-	 * @param pageCurrentµ±Ç°Ò³
-	 * @param isCachedÊÇ·ñ»º´æ
+	 * @param hqlæŸ¥è¯¢å­—ç¬¦ä¸²
+	 * @param pageSizeæ¯é¡µæ•°æ®é‡
+	 * @param pageCurrentå½“å‰é¡µ
+	 * @param isCachedæ˜¯å¦ç¼“å­˜
 	 * @return
 	 */
 	public <T> List<T> listByPageByHQL(String hql, int pageSize,
 			int pageCurrent, boolean isCached) {
 		/**
-		 * »ñÈ¡»á»°
+		 * è·å–ä¼šè¯
 		 */
 		Session session = sessionFactory.getCurrentSession();
 		/**
-		 * »ñÈ¡²éÑ¯
+		 * è·å–æŸ¥è¯¢
 		 */
 		Query query = session.createQuery(hql);
 		query.setFirstResult(pageCurrent * pageSize);
 		query.setMaxResults(pageSize);
 		query.setCacheable(isCached);
 		/**
-		 * »ñÈ¡ÁĞ±í
+		 * è·å–åˆ—è¡¨
 		 */
 		@SuppressWarnings("unchecked")
 		List<T> result = query.list();
@@ -316,13 +316,13 @@ public class HibernateDAO {
 	}
 
 	/**
-	 * ÁªºÏ²éÑ¯
+	 * è”åˆæŸ¥è¯¢
 	 * 
 	 * @param clazz
 	 * @param projection
-	 * @param pageSizeÃ¿Ò³Êı¾İÁ¿
-	 * @param pageCurrentµ±Ç°Ò³
-	 * @param isCachedÊÇ·ñ»º´æ
+	 * @param pageSizeæ¯é¡µæ•°æ®é‡
+	 * @param pageCurrentå½“å‰é¡µ
+	 * @param isCachedæ˜¯å¦ç¼“å­˜
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
@@ -340,7 +340,7 @@ public class HibernateDAO {
 		int size = propertyNames.length;
 
 		/**
-		 * ²ÎÊı¼ì²â
+		 * å‚æ•°æ£€æµ‹
 		 */
 		if (operators.length != size || values.length == size
 				|| orderProperties.length != descFlags.length) {
@@ -352,7 +352,7 @@ public class HibernateDAO {
 		}
 
 		/**
-		 * ´¦Àí²Ù×÷·ûºÅ
+		 * å¤„ç†æ“ä½œç¬¦å·
 		 */
 		for (int i = 0; i < size; ++i) {
 			if (operators[i].equals(QueryParam.OPERATOR_EQ)) {
@@ -373,23 +373,23 @@ public class HibernateDAO {
 	}
 
 	/**
-	 * ±¨±í²éÑ¯
+	 * æŠ¥è¡¨æŸ¥è¯¢
 	 * 
-	 * @param clazz²éÑ¯ÊµÌåÀà
-	 * @param projectionÍ¶Ó°²éÑ¯
-	 * @param pageSizeÃ¿Ò³Êı¾İÁ¿
-	 * @param pageCurrentµ±Ç°Ò³
-	 * @param isCachedÊÇ·ñ»º´æ
+	 * @param clazzæŸ¥è¯¢å®ä½“ç±»
+	 * @param projectionæŠ•å½±æŸ¥è¯¢
+	 * @param pageSizeæ¯é¡µæ•°æ®é‡
+	 * @param pageCurrentå½“å‰é¡µ
+	 * @param isCachedæ˜¯å¦ç¼“å­˜
 	 * @return
 	 */
 	public <T> List<T> listByProjection(Class<?> clazz, Projection projection,
 			int pageSize, int pageCurrent, boolean isCached) {
 		/**
-		 * »ñÈ¡»á»°
+		 * è·å–ä¼šè¯
 		 */
 		Session session = sessionFactory.getCurrentSession();
 		/**
-		 * Í¶Ó°²éÑ¯
+		 * æŠ•å½±æŸ¥è¯¢
 		 */
 		Criteria criteria = session.createCriteria(clazz);
 		criteria.setCacheable(isCached);
@@ -402,9 +402,9 @@ public class HibernateDAO {
 	}
 
 	/**
-	 * É¾³ı¶ÔÏó
+	 * åˆ é™¤å¯¹è±¡
 	 * 
-	 * @param entity²éÑ¯ÊµÌå
+	 * @param entityæŸ¥è¯¢å®ä½“
 	 * @return
 	 */
 	public String removeByEntity(final Object entity) {
@@ -415,9 +415,9 @@ public class HibernateDAO {
 	}
 
 	/**
-	 * ¸ù¾İId„h³ı
+	 * æ ¹æ®Idåˆªé™¤
 	 * 
-	 * @param clazzÊµÌåÀà
+	 * @param clazzå®ä½“ç±»
 	 * @param id
 	 */
 	public <T> String removeById(Class<T> clazz, Object id) {
@@ -430,9 +430,9 @@ public class HibernateDAO {
 	}
 
 	/**
-	 * Í¨¹ıentity²åÈë»ò¸üĞÂÊı¾İ
+	 * é€šè¿‡entityæ’å…¥æˆ–æ›´æ–°æ•°æ®
 	 * 
-	 * @param entityÊµÌåÀàÊµÀı
+	 * @param entityå®ä½“ç±»å®ä¾‹
 	 * @return
 	 */
 	public <T> String saveOrUpdate(T entity) {
@@ -444,7 +444,7 @@ public class HibernateDAO {
 	}
 
 	/**
-	 * Í¨¹ıSQLÓï¾ä±£´æ»ò¸üĞÂÊı¾İ
+	 * é€šè¿‡SQLè¯­å¥ä¿å­˜æˆ–æ›´æ–°æ•°æ®
 	 * 
 	 * @param sqlString
 	 */
@@ -456,7 +456,7 @@ public class HibernateDAO {
 	}
 
 	/**
-	 * Í¨¹ıHQLÓï¾ä±£´æ»ò¸üĞÂÊı¾İ
+	 * é€šè¿‡HQLè¯­å¥ä¿å­˜æˆ–æ›´æ–°æ•°æ®
 	 * 
 	 * @param saveOrUpdateHqlString
 	 * @return
@@ -469,7 +469,7 @@ public class HibernateDAO {
 	}
 
 	/**
-	 * SQLÓï¾ä²éÑ¯
+	 * SQLè¯­å¥æŸ¥è¯¢
 	 * 
 	 * @param listSqlString
 	 * @return
@@ -487,7 +487,7 @@ public class HibernateDAO {
 	}
 
 	/**
-	 * HQLÓï¾ä²éÑ¯
+	 * HQLè¯­å¥æŸ¥è¯¢
 	 * 
 	 * @param listHqlString
 	 * @return
