@@ -1,21 +1,14 @@
 package com.cn.entity;
 
-import javax.persistence.Cacheable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.Table;
-
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.search.annotations.DocumentId;
 
+import javax.persistence.*;
+
 /**
- * рухкап╠М
+ * О©╫О©╫О©╫О©╫О©╫п╠О©╫
  */
 @Entity
 @Table(name = "artist")
