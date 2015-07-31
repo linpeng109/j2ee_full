@@ -8,7 +8,7 @@ apply plugin: 'com.bmuschko.cargo'
 apply plugin: 'com.bmuschko.cargo-base'
 
 /**
- * tomcaÃèÊö
+ * tomca
  */
 buildscript {
     repositories {
@@ -21,7 +21,7 @@ buildscript {
 }
 
 /**
- * cargoÃèÊö
+ * cargo
  */
 buildscript {
     repositories {
@@ -37,7 +37,7 @@ buildscript {
 version = '2015.07.28_j2ee_full_Venus'
 
 /**
- * °üÒÀÀµ¿âÃèÊö
+ *
  */
 repositories {
     mavenCentral()
@@ -48,7 +48,7 @@ repositories {
 }
 
 /**
- * °üÒÀÀµĞÔÃèÊö
+ * ä¾èµ–æ€§æè¿°
  */
 dependencies {
     /**
@@ -215,7 +215,7 @@ dependencies {
      */
     compile("org.springframework.data:spring-data-redis:1.5.1.RELEASE")
 
-    /*×ÔÎ¬»¤*/
+    /*ï¿½ï¿½Î¬ï¿½ï¿½*/
     compile("org.springframework.flex:spring-flex-core:1.5.3.RELEASE")
 
     /**
@@ -349,30 +349,30 @@ configurations {
     //compile.exclude module: "tomcat-catalina"
 }
 
-/*Ô´´úÂëÅäÖÃ */
+/*Ô´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 sourceSets {
 
 }
 
 /**
- * jar°üÅäÖÃ
+ * jarï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  */
 jar {
     baseName = 'j2ee_min'
     version = '2015.06.12'
 }
 
-/*war°üÅäÖÃ*/
+/*warï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 
 /**
- * tomcat pluginÅäÖÃ
+ * tomcat pluginï¿½ï¿½ï¿½ï¿½
  */
 tomcat {
 
 }
 
 /**
- * ´´½¨sourceSetsÄ¿Â¼½á¹¹
+ * ï¿½ï¿½ï¿½ï¿½sourceSetsÄ¿Â¼ï¿½á¹¹
  */
 task createSourceSets {
     war.each {
