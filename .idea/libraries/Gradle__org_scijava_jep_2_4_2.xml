@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.scijava:jep:2.4.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.scijava/jep/2.4.2/ca59efad5a610d3f7841e474096293189215996c/jep-2.4.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.scijava/jep/2.4.2/b995e19dcdbfa858b2f31c6ca77705c11e032379/jep-2.4.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

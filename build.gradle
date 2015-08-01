@@ -8,7 +8,7 @@ apply plugin: 'com.bmuschko.cargo'
 apply plugin: 'com.bmuschko.cargo-base'
 
 /**
- * tomcaÃèÊö
+ * tomcaæè¿°
  */
 buildscript {
     repositories {
@@ -21,7 +21,7 @@ buildscript {
 }
 
 /**
- * cargoÃèÊö
+ * cargoæè¿°
  */
 buildscript {
     repositories {
@@ -34,10 +34,11 @@ buildscript {
 }
 
 //sourceCompatibility = 1.5
-version = '2015.07.28_j2ee_full_Venus'
+sourceCompatibility = JavaVersion.VERSION_1_8
+version = '2015.07.28_j2ee_full'
 
 /**
- * °üÒÀÀµ¿âÃèÊö
+ * åŒ…ä¾èµ–åº“æè¿°
  */
 repositories {
     mavenCentral()
@@ -48,7 +49,7 @@ repositories {
 }
 
 /**
- * °üÒÀÀµĞÔÃèÊö
+ * åŒ…ä¾èµ–æ€§æè¿°
  */
 dependencies {
     /**
@@ -181,7 +182,9 @@ dependencies {
      * Enterprise Job Scheduler
      */
     def quartzVersion = '2.2.1'
-    compile("org.quartz-scheduler:quartz:$quartzVersion")
+    compile("org.quartz-scheduler:quartz:$quartzVersion"){
+        exclude(group:'c3p0',module:'c3p0')
+    }
 
     /**
      * Spring Framework
@@ -215,7 +218,7 @@ dependencies {
      */
     compile("org.springframework.data:spring-data-redis:1.5.1.RELEASE")
 
-    /*×ÔÎ¬»¤*/
+    /*è‡ªç»´æŠ¤*/
     compile("org.springframework.flex:spring-flex-core:1.5.3.RELEASE")
 
     /**
@@ -306,13 +309,13 @@ dependencies {
     compile("com.google.zxing:core:$zxingVersion",
             "com.google.zxing:javase:$zxingVersion")
 
-    compile("xml-apis:xml-apis:2.0.2")
+    testCompile("xml-apis:xml-apis:1.4.01")
 
     /**
      * JUnit is a unit testing framework for Java, created by Erich Gamma and Kent Beck.
      */
     def junitVersion = '4.12'
-    testCompile("junit:junit:$junitVersion")
+    //testCompile("junit:junit:$junitVersion")
 
     /**
      * Tomcat-embed plugin
@@ -328,7 +331,6 @@ dependencies {
     def cargoVersion = '1.4.15'
     cargo("org.codehaus.cargo:cargo-core-uberjar:$cargoVersion",
             "org.codehaus.cargo:cargo-ant:$cargoVersion")
-
 
 }
 
@@ -347,32 +349,35 @@ configurations {
     compile.exclude module: "jasper-compiler"
     compile.exclude module: "jasper-runtime"
     //compile.exclude module: "tomcat-catalina"
+    compile.resolutionStrategy.force('xml-apis:xml-apis:1.4.01')
+    testRuntime.resolutionStrategy.force('xml-apis:xml-apis:1.4.01')
 }
 
-/*Ô´´úÂëÅäÖÃ */
+/*æºä»£ç é…ç½® */
 sourceSets {
 
 }
 
 /**
- * jar°üÅäÖÃ
+ * jaråŒ…é…ç½®
  */
 jar {
-    baseName = 'j2ee_min'
+    baseName = 'j2ee_full'
     version = '2015.06.12'
 }
 
-/*war°üÅäÖÃ*/
+/*waråŒ…é…ç½®*/
 
 /**
- * tomcat pluginÅäÖÃ
+ * tomcat pluginé…ç½®
  */
 tomcat {
 
 }
-
+test {
+}
 /**
- * ´´½¨sourceSetsÄ¿Â¼½á¹¹
+ * åˆ›å»ºsourceSetsç›®å½•ç»“æ„
  */
 task createSourceSets {
     war.each {
