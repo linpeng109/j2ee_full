@@ -38,7 +38,7 @@ public class FTPServer {
 	private String ftpServerID;
 	
 	/**
-	 * ç”¨æˆ·æ‰€å¯¹åº”çš„ç”¨æˆ·_æƒé™å¯¹åº”å…³ç³»è¡¨/ç”¨æˆ·åˆ é™¤åˆ™ç”¨æˆ·_æƒé™å¯¹åº”å…³ç³»åˆ é™¤/å»¶æ—¶åŠ è½½
+	 * ÓÃ»§Ëù¶ÔÓ¦µÄÓÃ»§_È¨ÏŞ¶ÔÓ¦¹ØÏµ±í/ÓÃ»§É¾³ıÔòÓÃ»§_È¨ÏŞ¶ÔÓ¦¹ØÏµÉ¾³ı/ÑÓÊ±¼ÓÔØ
 	 */
 	@OneToMany(cascade = { CascadeType.ALL }, mappedBy = "ftpServer", fetch = FetchType.LAZY)
 	private List<Music> musics = new ArrayList<Music>();

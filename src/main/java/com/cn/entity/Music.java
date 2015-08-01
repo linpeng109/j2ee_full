@@ -37,7 +37,7 @@ public class Music {
 	private String musicID;
 	
 	/**
-	 * 瀵瑰簲鍏崇郴鎵�灞炵殑鐢ㄦ埛
+	 * 对应关系所属的用户
 	 */
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.EAGER)
 	@JoinColumn(name = "ftpServer")

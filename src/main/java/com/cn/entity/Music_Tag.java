@@ -24,7 +24,7 @@ import org.hibernate.annotations.GenericGenerator;
 public class Music_Tag {
 	
 	/**
-	 * 鐢ㄦ埛_鏉冮檺瀵瑰簲鍏崇郴ID
+	 * 用户_权限对应关系ID
 	 */
 	@Id
 	@GeneratedValue(generator = "system-uuid")
@@ -32,14 +32,14 @@ public class Music_Tag {
 	private String music_tag_Id;
 
 	/**
-	 * 瀵瑰簲鍏崇郴鎵�灞炵殑鐢ㄦ埛
+	 * 对应关系所属的用户
 	 */
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.EAGER)
 	@JoinColumn(name = "musicId")
 	private Music music;
 
 	/**
-	 * 瀵瑰簲鍏崇郴鎵�灞炵殑鏉冮檺
+	 * 对应关系所属的权限
 	 */
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.EAGER)
 	@JoinColumn(name = "ranklistId")

@@ -15,7 +15,7 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.search.annotations.DocumentId;
 
 /**
- * 鑹轰汉鍒楄〃
+ * 艺人列表
  */
 @Entity
 @Table(name = "artist")

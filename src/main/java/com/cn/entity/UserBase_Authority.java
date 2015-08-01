@@ -16,7 +16,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
- * ç”¨æˆ·_æƒé™å¯¹åº”å…³ç³»åˆ—è¡¨
+ * ÓÃ»§_È¨ÏŞ¶ÔÓ¦¹ØÏµÁĞ±í
  * 
  */
 @Entity
@@ -27,7 +27,7 @@ import org.hibernate.annotations.GenericGenerator;
 public class UserBase_Authority {
 
 	/**
-	 * ç”¨æˆ·_æƒé™å¯¹åº”å…³ç³»ID
+	 * ÓÃ»§_È¨ÏŞ¶ÔÓ¦¹ØÏµID
 	 */
 	@Id
 	@GeneratedValue(generator = "system-uuid")
@@ -35,21 +35,21 @@ public class UserBase_Authority {
 	private String userBase_authority_Id;
 
 	/**
-	 * å¯¹åº”å…³ç³»æ‰€å±çš„ç”¨æˆ·
+	 * ¶ÔÓ¦¹ØÏµËùÊôµÄÓÃ»§
 	 */
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.EAGER)
 	@JoinColumn(name = "userId")
 	private UserBase userBase;
 
 	/**
-	 * å¯¹åº”å…³ç³»æ‰€å±çš„æƒé™
+	 * ¶ÔÓ¦¹ØÏµËùÊôµÄÈ¨ÏŞ
 	 */
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.EAGER)
 	@JoinColumn(name = "authorityId")
 	private Authority authority;
 
 	/**
-	 * æ„é€ å‡½æ•°
+	 * ¹¹Ôìº¯Êı
 	 */
 	public UserBase_Authority() {
 		super();

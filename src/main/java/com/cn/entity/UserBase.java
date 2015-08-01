@@ -24,7 +24,7 @@ import org.hibernate.annotations.Type;
 import org.hibernate.search.annotations.DocumentId;
 
 /**
- * ç”¨æˆ·ï¼ˆåŸºç±»ï¼‰åˆ—è¡¨
+ * ÓÃ»§£¨»ùÀà£©ÁĞ±í
  */
 @Entity
 @Table(name = "userbase", indexes = { @Index(columnList = "userType"),
@@ -36,7 +36,7 @@ import org.hibernate.search.annotations.DocumentId;
 public class UserBase {
 
 	/**
-	 * ç”¨æˆ·ID
+	 * ÓÃ»§ID
 	 */
 	@Id
 	@GeneratedValue(generator = "system-uuid")
@@ -45,66 +45,66 @@ public class UserBase {
 	private String userId;
 
 	/**
-	 * ä»åŸºç¡€ä¿¡æ¯ä¸­åŒæ­¥è¿‡æ¥id
+	 * ´Ó»ù´¡ĞÅÏ¢ÖĞÍ¬²½¹ıÀ´id
 	 */
 	@Column(name = "jichuId", length = 50)
 	private String jichuId;
 
 	/**
-	 * ç”¨æˆ·ç±»åˆ« Admin æ™®é€šç®¡ç†å‘˜,superAdmin è¶…çº§ç®¡ç†å‘˜,shopAdmin ç½‘ç‚¹ç®¡ç†å‘˜
-	 * ,shopBusinessç½‘ç‚¹ä¸šåŠ¡å‘˜,contraAdminå•†é“ºç®¡ç†å‘˜
+	 * ÓÃ»§Àà±ğ Admin ÆÕÍ¨¹ÜÀíÔ±,superAdmin ³¬¼¶¹ÜÀíÔ±,shopAdmin Íøµã¹ÜÀíÔ±
+	 * ,shopBusinessÍøµãÒµÎñÔ±,contraAdminÉÌÆÌ¹ÜÀíÔ±
 	 */
 	@Column(name = "userType", length = 50)
 	private String userType;
 
 	/**
-	 * ç”¨æˆ·åç§°
+	 * ÓÃ»§Ãû³Æ
 	 */
 	@Column(name = "userName", length = 32, unique = true)
 	private String userName;
 
 	/**
-	 * ç”¨æˆ·å£ä»¤
+	 * ÓÃ»§¿ÚÁî
 	 */
 	@Column(name = "passWord", length = 32)
 	private String passWord;
 
 	/**
-	 * ç”¨æˆ·åˆ›å»ºæ—¶é—´
+	 * ÓÃ»§´´½¨Ê±¼ä
 	 */
 	@Column(name = "createDate")
 	@Type(type = "java.util.Date")
 	private Date createDate;
 
 	/**
-	 * ç”¨æˆ·æ˜¯å¦å¯ç”¨
+	 * ÓÃ»§ÊÇ·ñ¿ÉÓÃ
 	 */
 	@Column(name = "enabled")
 	@Type(type = "java.lang.Boolean")
 	private boolean enable;
 
 	/**
-	 * ç”¨æˆ·æ˜¯å¦é”å®š
+	 * ÓÃ»§ÊÇ·ñËø¶¨
 	 */
 	@Column(name = "nonLocked")
 	@Type(type = "java.lang.Boolean")
 	private boolean nonLocked;
 
 	/**
-	 * FTPå†™æƒé™
+	 * FTPĞ´È¨ÏŞ
 	 */
 	@Column(name = "writepermission")
 	@Type(type = "java.lang.Boolean")
 	private boolean writepermission;
 
 	/**
-	 * ç”¨æˆ·æ‰€å¯¹åº”çš„ç”¨æˆ·_æƒé™å¯¹åº”å…³ç³»è¡¨/ç”¨æˆ·åˆ é™¤åˆ™ç”¨æˆ·_æƒé™å¯¹åº”å…³ç³»åˆ é™¤/å»¶æ—¶åŠ è½½
+	 * ÓÃ»§Ëù¶ÔÓ¦µÄÓÃ»§_È¨ÏŞ¶ÔÓ¦¹ØÏµ±í/ÓÃ»§É¾³ıÔòÓÃ»§_È¨ÏŞ¶ÔÓ¦¹ØÏµÉ¾³ı/ÑÓÊ±¼ÓÔØ
 	 */
 	@OneToMany(cascade = { CascadeType.ALL }, mappedBy = "userBase", fetch = FetchType.LAZY)
 	private List<UserBase_Authority> userBase_authoritys = new ArrayList<UserBase_Authority>();
 
 	/**
-	 * æ„é€ å‡½æ•°
+	 * ¹¹Ôìº¯Êı
 	 */
 	public UserBase() {
 		this.enable = true;
