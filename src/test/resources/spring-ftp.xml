@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:beans="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+    <!-- FTP服务器配置 -->
+    <server xmlns="http://mina.apache.org/ftpserver/spring/v1"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://mina.apache.org/ftpserver/spring/v1 http://mina.apache.org/ftpserver/ftpserver-1.0.xsd"
+            id="ftpServer" anon-enabled="true" max-logins="200">
+        <listeners>
+            <nio-listener name="default" port="8800">
+            </nio-listener>
+        </listeners>
+        <ftplets>
+            <ftplet name="ftpletList">
+                <beans:ref bean="fileUpdateEndFtplet"/>
+            </ftplet>
+        </ftplets>
+
+        <!--FTP用户管理——使用文本文件管理用户 -->
+        <file-user-manager file="ftpserver.properties"
+                           encrypt-passwords="clear"/>
+    </server>
+
+    <!-- ftp服务器启动控制 -->
+    <bean id="ftpServerFactory" class="com.cn.ftp.FtpServerFactory"
+          init-method="ftpServerInitialized" destroy-method="ftpServerDestroyed">
+        <property name="server" ref="ftpServer"/>
+    </bean>
+
+    <!-- FTP服务器端处理模块 -->
+    <bean id="fileUpdateEndFtplet" class="com.cn.ftp.ftplet.FileUpdateEndFtplet">
+        <beans:property name="filePathChannel" ref="filePathChannel"/>
+    </bean>
+
+    <!-- 配置FTP的sessionFactory -->
+    <!-- bean id="ftpSessionFactory" class="org.springframework.integration.ftp.session.DefaultFtpSessionFactory">
+        <property name="host" value="localhost" /> <property name="port" value="22"
+        /> <property name="username" value="abcd" /> <property name="password" value="abcd"
+        /> <property name="clientMode" value="0" /> <property name="fileType" value="2"
+        /> <property name="bufferSize" value="100000" /> </bean -->
+
+    <!-- 配置ftp入港通道适配器 -->
+    <!-- <ftp:inbound-channel-adapter id="ftpInbound" channel="inFtpChannel"
+        session-factory="ftpSessionFactory" charset="UTF-8" auto-create-local-directory="true"
+        delete-remote-files="false" filename-pattern="*.txt" remote-directory="/"
+        local-directory="d:/workdir/abcd"> </ftp:inbound-channel-adapter> -->
+
+    <!-- ftp入港通道 -->
+    <!-- <si:channel id="inFtpChannel" /> -->
+
+    <!-- ftp离港通道 -->
+    <!-- si:channel id="outFtpChannel" / -->
+
+    <!-- 配置ftp离港通道适配器 -->
+    <!-- ftp:outbound-channel-adapter id="ftpOutbound" channel="outFtpChannel"
+        session-factory="ftpSessionFactory" charset="UTF-8" remote-directory="/"
+        / -->
+
+
+</beans>
