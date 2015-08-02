@@ -1,4 +1,4 @@
-package com.cn.entity;
+package com.cn.dao.entity;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -9,31 +9,27 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "mixedmusic")
+@Table(name = "transcation")
 @GenericGenerator(name = "system-uuid", strategy = "uuid")
 @Cacheable
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @Inheritance(strategy = InheritanceType.JOINED)
-public class MixedMusic {
+public class Transcation {
 	
 	/**
 	 * ID
 	 */
 	@Id
 	@GeneratedValue(generator = "system-uuid")
-	@Column(name = "mixedMusicID", length = 32)
-	@DocumentId(name = "mixedMusicID")
-	private String mixedMusicID;
-
-	public String getMixedMusicID() {
-		return mixedMusicID;
-	}
-
-	public void setMixedMusicID(String mixedMusicID) {
-		this.mixedMusicID = mixedMusicID;
-	}
+	@Column(name = "transcationID", length = 32)
+	@DocumentId(name = "transcationID")
+	private String transcationID;
 	
-	
-	
+	/**
+	 * 对应关系所属的权限
+	 */
+	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.EAGER)
+	@JoinColumn(name = "userFansID")
+	private UserFans userFans;
 
 }

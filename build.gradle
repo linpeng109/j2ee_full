@@ -8,7 +8,11 @@ apply plugin: 'com.bmuschko.cargo'
 apply plugin: 'com.bmuschko.cargo-base'
 
 /**
+<<<<<<< HEAD
  * tomca描述
+=======
+ * Gradle plugin supporting deployment of your web application to an embedded Tomcat web container.
+>>>>>>> master
  */
 buildscript {
     repositories {
@@ -21,8 +25,8 @@ buildscript {
 }
 
 /**
- * cargo描述
- */
+ * Gradle plugin that provides deployment capabilities to local and remote containers via Cargo.
+*/
 buildscript {
     repositories {
         jcenter()
@@ -33,7 +37,6 @@ buildscript {
     }
 }
 
-//sourceCompatibility = 1.5
 sourceCompatibility = JavaVersion.VERSION_1_8
 version = '2015.07.28_j2ee_full'
 
@@ -218,7 +221,6 @@ dependencies {
      */
     compile("org.springframework.data:spring-data-redis:1.5.1.RELEASE")
 
-    /*自维护*/
     compile("org.springframework.flex:spring-flex-core:1.5.3.RELEASE")
 
     /**
@@ -309,8 +311,6 @@ dependencies {
     compile("com.google.zxing:core:$zxingVersion",
             "com.google.zxing:javase:$zxingVersion")
 
-    testCompile("xml-apis:xml-apis:1.4.01")
-
     /**
      * JUnit is a unit testing framework for Java, created by Erich Gamma and Kent Beck.
      */
@@ -366,10 +366,12 @@ jar {
     version = '2015.06.12'
 }
 
-/*war包配置*/
-
 /**
  * tomcat plugin配置
+ */
+
+/**
+ * tomcat plugin
  */
 tomcat {
 

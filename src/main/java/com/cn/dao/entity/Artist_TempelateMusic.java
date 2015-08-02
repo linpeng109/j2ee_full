@@ -1,22 +1,15 @@
-package com.cn.entity;
-
-import javax.persistence.Cacheable;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+package com.cn.dao.entity;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.search.annotations.DocumentId;
 
+import javax.persistence.*;
 
+/**
+ * 鑹轰汉-妯℃澘姝屾洸瀵瑰簲鍏崇郴鍒楄〃
+ */
 @Entity
 @Table(name = "artist_tempelatemusic")
 @GenericGenerator(name = "system-uuid", strategy = "uuid")
@@ -35,14 +28,14 @@ public class Artist_TempelateMusic {
 	
 	
 	/**
-	 * 对应关系所属的用户
+	 * 瀵瑰簲鍏崇郴鎵�灞炵殑鐢ㄦ埛
 	 */
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.EAGER)
 	@JoinColumn(name = "artistId")
 	private Artist artist;
 
 	/**
-	 * 对应关系所属的权限
+	 * 瀵瑰簲鍏崇郴鎵�灞炵殑鏉冮檺
 	 */
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.EAGER)
 	@JoinColumn(name = "tempelateMusicId")

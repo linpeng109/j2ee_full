@@ -10,8 +10,7 @@ public class TestBase extends TestCase {
     private static Logger logger = Logger.getLogger(TestBase.class);
 
     public void testLog() {
-        ApplicationContext
-                context = new ClassPathXmlApplicationContext("applicationContext.xml");
+
         logger.debug("TestBase is running!");
     }
 }

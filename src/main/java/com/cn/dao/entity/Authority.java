@@ -1,26 +1,17 @@
-package com.cn.entity;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.List;
-
-import javax.persistence.Cacheable;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+package com.cn.dao.entity;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.GenericGenerator;
 
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
+
 /**
- * È¨ÏŞÁĞ±í
+ * æƒé™åˆ—è¡¨
  */
 @Entity
 @Table(name = "authority")
@@ -30,7 +21,7 @@ import org.hibernate.annotations.GenericGenerator;
 public class Authority {
 
 	/**
-	 * È¨ÏŞID
+	 * æƒé™ID
 	 */
 	@Id
 	@GeneratedValue(generator = "system-uuid")
@@ -38,37 +29,37 @@ public class Authority {
 	private String authorityId;
 
 	/**
-	 * È¨ÏŞÃèÊö
+	 * æƒé™æè¿°
 	 */
 	@Column(name = "authorityDescription", length = 200)
 	private String authorityDescription;
 
 	/**
-	 * È¨ÏŞ×Ö·û´®/Ë÷Òı
+	 * æƒé™å­—ç¬¦ä¸²/ç´¢å¼•
 	 */
 	@Column(name = "authorityString", length = 100)
 	private String authorityString;
 
 	/**
-	 * È¨ÏŞ¹ıÆÚÈÕÆÚ
+	 * æƒé™è¿‡æœŸæ—¥æœŸ
 	 */
 	@Column(name = "authorityExpireDate")
 	private Date authorityExpireDate;
 
 	/**
-	 * È¨ÏŞ×´Ì¬
+	 * æƒé™çŠ¶æ€
 	 */
 	@Column(name = "authorityStatus")
 	private int authorityStatus;
 
 	/**
-	 * ÓÃ»§_È¨ÏŞ¶ÔÓ¦¹ØÏµ×é/È¨ÏŞÉ¾³ıÔòÓÃ»§_È¨ÏŞ¶ÔÓ¦¹ØÏµÉ¾³ı/ÑÓÊ±¼ÓÔØ
+	 * ç”¨æˆ·_æƒé™å¯¹åº”å…³ç³»ç»„/æƒé™åˆ é™¤åˆ™ç”¨æˆ·_æƒé™å¯¹åº”å…³ç³»åˆ é™¤/å»¶æ—¶åŠ è½½
 	 */
 	@OneToMany(cascade = { CascadeType.ALL }, mappedBy = "authority", fetch = FetchType.LAZY)
 	private List<UserBase_Authority> userBase_authority = new ArrayList<UserBase_Authority>();
 
 	/**
-	 * ¹¹Ôìº¯Êı
+	 * æ„é€ å‡½æ•°
 	 */
 	public Authority() {
 		super();

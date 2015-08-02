@@ -1,19 +1,10 @@
-package com.cn.entity;
-
-import javax.persistence.Cacheable;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+package com.cn.dao.entity;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 
 
 @Entity
@@ -24,7 +15,7 @@ import org.hibernate.annotations.GenericGenerator;
 public class Music_Tag {
 	
 	/**
-	 * 用户_权限对应关系ID
+	 * 鐢ㄦ埛_鏉冮檺瀵瑰簲鍏崇郴ID
 	 */
 	@Id
 	@GeneratedValue(generator = "system-uuid")
@@ -32,14 +23,14 @@ public class Music_Tag {
 	private String music_tag_Id;
 
 	/**
-	 * 对应关系所属的用户
+	 * 瀵瑰簲鍏崇郴鎵�灞炵殑鐢ㄦ埛
 	 */
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.EAGER)
 	@JoinColumn(name = "musicId")
 	private Music music;
 
 	/**
-	 * 对应关系所属的权限
+	 * 瀵瑰簲鍏崇郴鎵�灞炵殑鏉冮檺
 	 */
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.EAGER)
 	@JoinColumn(name = "ranklistId")
