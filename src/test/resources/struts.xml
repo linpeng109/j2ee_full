@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="GBK" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <!--加入Action配置文件 -->
+    <include file="struts-action.xml"/>
+    <!--容器定义-->
+    <constant name="struts.objectFactory"
+              value="org.apache.struts2.spring.StrutsSpringObjectFactory"/>
+    <constant name="struts.objectFactory.spring.useClassCache"
+              value="true"/>
+    <!--multipart文件上传解析器-->
+    <constant name="struts.multipart.parser" value="jakarta"/>
+    <!--post提交编码-->
+    <constant name="struts.i18n.encoding" value="GBK"/>
+    <!--multipart文件上传保存目录-->
+    <constant name="struts.multipart.saveDir" value="d:/workdir/tmp"/>
+    <!--multipart文件上传最大值-->
+    <constant name="struts.multipart.maxSize" value="500000000"/>
+    <!--是否开启altSyntax语法-->
+    <constant name="struts.tag.altSyntax" value="true"/>
+    <!--本地化资源文件配置-->
+    <constant name="struts.custom.i18n.resources" value="com/cn/resource/messages"/>
+</struts>
