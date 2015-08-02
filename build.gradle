@@ -8,7 +8,7 @@ apply plugin: 'com.bmuschko.cargo'
 apply plugin: 'com.bmuschko.cargo-base'
 
 /**
- * tomca描述
+ * Gradle plugin supporting deployment of your web application to an embedded Tomcat web container.
  */
 buildscript {
     repositories {
@@ -16,24 +16,22 @@ buildscript {
     }
 
     dependencies {
-        classpath('com.bmuschko:gradle-tomcat-plugin:2.2.1')
+        classpath('com.bmuschko:gradle-tomcat-plugin:2.2.2')
     }
 }
 
 /**
- * cargo描述
+ * Gradle plugin that provides deployment capabilities to local and remote containers via Cargo.
  */
 buildscript {
     repositories {
         jcenter()
     }
-
     dependencies {
-        classpath('com.bmuschko:gradle-cargo-plugin:2.1')
+        classpath('com.bmuschko:gradle-cargo-plugin:2.1.1')
     }
 }
 
-//sourceCompatibility = 1.5
 sourceCompatibility = JavaVersion.VERSION_1_8
 version = '2015.07.28_j2ee_full'
 
@@ -55,18 +53,21 @@ dependencies {
     /**
      * An implementation of the SOAP ("Simple Object Access Protocol") submission to W3C.
      */
-    compile("axis:axis:1.4")
-    compile("axis:axis-jaxrpc:1.4")
+    def axisVersion='1.4'
+    compile("axis:axis:$axisVersion")
+    compile("axis:axis-jaxrpc:$axisVersion")
 
     /**
      * Puts together an ActiveMQ jar bundle
      */
-    compile("org.apache.activemq:activemq-all:5.11.1")
+    def activemqVersion='5.11.1'
+    compile("org.apache.activemq:activemq-all:$activemqVersion")
 
     /**
      * Apache CXF Distribution
      */
-    compile("org.apache.cxf:apache-cxf:3.1.1") {
+    def apacheCxfVersion='3.1.1'
+    compile("org.apache.cxf:apache-cxf:$apacheCxfVersion") {
         exclude(module: 'slf4j-jdk14')
         exclude(module: 'jetty')
         exclude(module: 'javax.servlet-api')
@@ -101,7 +102,7 @@ dependencies {
      *  The Apache Cassandra Project develops a highly scalable second-generation distributed database, bringing
      *  together Dynamo's fully distributed design and Bigtable's ColumnFamily-based data model.
      */
-    def cassandraVersion = '2.2.0-rc2'
+    def cassandraVersion = '2.2.0'
     compile("org.apache.cassandra:cassandra-all:$cassandraVersion") {
         exclude(module: 'logback-classic')
     }
@@ -218,7 +219,6 @@ dependencies {
      */
     compile("org.springframework.data:spring-data-redis:1.5.1.RELEASE")
 
-    /*自维护*/
     compile("org.springframework.flex:spring-flex-core:1.5.3.RELEASE")
 
     /**
@@ -247,14 +247,12 @@ dependencies {
     /**
      * Spring.security Framework
      */
-    def springSecurityVersion = '4.0.1.RELEASE'
+    def springSecurityVersion = '4.0.2.RELEASE'
     compile("org.springframework.security:spring-security-core:$springSecurityVersion",
             "org.springframework.security:spring-security-web:$springSecurityVersion",
             "org.springframework.security:spring-security-taglibs:$springSecurityVersion",
             "org.springframework.security:spring-security-config:$springSecurityVersion",
-            "org.springframework.security:spring-security-cas:$springSecurityVersion",
-            "org.springframework.security:spring-security-samples-cas:3.0.7.RELEASE",
-            "org.springframework.security:spring-security-cas-client:3.0.7.RELEASE")
+            "org.springframework.security:spring-security-cas:$springSecurityVersion")
 
     /**
      * Spring Web Services is a product of the Spring community focused on creating document-driven Web services.
@@ -300,7 +298,8 @@ dependencies {
     /**
      * RXTX is a native lib providing serial and parallel communication for the Java Development Toolkit (JDK).
      */
-    compile("org.rxtx:rxtx:2.1.7")
+    def rxtxVerion='2.1.7'
+    compile("org.rxtx:rxtx:$rxtxVerion")
 
     /**
      * Core barcode encoding/decoding library
@@ -309,7 +308,6 @@ dependencies {
     compile("com.google.zxing:core:$zxingVersion",
             "com.google.zxing:javase:$zxingVersion")
 
-    testCompile("xml-apis:xml-apis:1.4.01")
 
     /**
      * JUnit is a unit testing framework for Java, created by Erich Gamma and Kent Beck.
@@ -366,10 +364,12 @@ jar {
     version = '2015.06.12'
 }
 
-/*war包配置*/
-
 /**
  * tomcat plugin配置
+ */
+
+/**
+ * tomcat plugin
  */
 tomcat {
 

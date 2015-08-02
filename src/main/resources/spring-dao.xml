@@ -99,7 +99,7 @@
 		</property>
 
 		<!--实体类位置 -->
-		<property name="packagesToScan" value="com.cn.entity" />
+		<property name="packagesToScan" value="com.cn.dao.entity" />
 
 		<!-- 拦截器 -->
 		<property name="entityInterceptor">

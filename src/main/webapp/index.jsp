@@ -5,9 +5,9 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <title>J2ee基础技术平台（简化版）测试页面</title>
+    <title>J2ee基础技术平台（完整版）测试页面</title>
 </head>
 <body bgcolor="#ffffff">
-<h2>J2ee基础技术平台（简化版）测试页面</h2>
+<h2>J2ee基础技术平台（完整版）测试页面</h2>
 </body>
 </html>

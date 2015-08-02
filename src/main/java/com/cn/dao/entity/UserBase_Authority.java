@@ -1,22 +1,13 @@
-package com.cn.entity;
-
-import javax.persistence.Cacheable;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+package com.cn.dao.entity;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.GenericGenerator;
 
+import javax.persistence.*;
+
 /**
- * ÓÃ»§_È¨ÏŞ¶ÔÓ¦¹ØÏµÁĞ±í
+ * ç”¨æˆ·_æƒé™å¯¹åº”å…³ç³»åˆ—è¡¨
  * 
  */
 @Entity
@@ -27,7 +18,7 @@ import org.hibernate.annotations.GenericGenerator;
 public class UserBase_Authority {
 
 	/**
-	 * ÓÃ»§_È¨ÏŞ¶ÔÓ¦¹ØÏµID
+	 * ç”¨æˆ·_æƒé™å¯¹åº”å…³ç³»ID
 	 */
 	@Id
 	@GeneratedValue(generator = "system-uuid")
@@ -35,21 +26,21 @@ public class UserBase_Authority {
 	private String userBase_authority_Id;
 
 	/**
-	 * ¶ÔÓ¦¹ØÏµËùÊôµÄÓÃ»§
+	 * å¯¹åº”å…³ç³»æ‰€å±çš„ç”¨æˆ·
 	 */
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.EAGER)
 	@JoinColumn(name = "userId")
 	private UserBase userBase;
 
 	/**
-	 * ¶ÔÓ¦¹ØÏµËùÊôµÄÈ¨ÏŞ
+	 * å¯¹åº”å…³ç³»æ‰€å±çš„æƒé™
 	 */
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.EAGER)
 	@JoinColumn(name = "authorityId")
 	private Authority authority;
 
 	/**
-	 * ¹¹Ôìº¯Êı
+	 * æ„é€ å‡½æ•°
 	 */
 	public UserBase_Authority() {
 		super();

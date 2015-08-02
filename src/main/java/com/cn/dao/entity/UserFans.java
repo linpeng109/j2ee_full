@@ -1,20 +1,12 @@
-package com.cn.entity;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.Cacheable;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+package com.cn.dao.entity;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -27,7 +19,7 @@ public class UserFans extends UserBase {
 	
 	
 	/**
-	 * ÓÃ»§Ëù¶ÔÓ¦µÄÓÃ»§_È¨ÏŞ¶ÔÓ¦¹ØÏµ±í/ÓÃ»§É¾³ıÔòÓÃ»§_È¨ÏŞ¶ÔÓ¦¹ØÏµÉ¾³ı/ÑÓÊ±¼ÓÔØ
+	 * ç”¨æˆ·æ‰€å¯¹åº”çš„ç”¨æˆ·_æƒé™å¯¹åº”å…³ç³»è¡¨/ç”¨æˆ·åˆ é™¤åˆ™ç”¨æˆ·_æƒé™å¯¹åº”å…³ç³»åˆ é™¤/å»¶æ—¶åŠ è½½
 	 */
 	@OneToMany(cascade = { CascadeType.ALL }, mappedBy = "userFans", fetch = FetchType.LAZY)
 	private List<Transcation> transcations = new ArrayList<Transcation>();

@@ -1,21 +1,4 @@
-package com.cn.entity;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-import javax.persistence.Cacheable;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Index;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+package com.cn.dao.entity;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -23,8 +6,13 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 import org.hibernate.search.annotations.DocumentId;
 
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 /**
- * ÓÃ»§£¨»ùÀà£©ÁĞ±í
+ * ç”¨æˆ·ï¼ˆåŸºç±»ï¼‰åˆ—è¡¨
  */
 @Entity
 @Table(name = "userbase", indexes = { @Index(columnList = "userType"),
@@ -36,7 +24,7 @@ import org.hibernate.search.annotations.DocumentId;
 public class UserBase {
 
 	/**
-	 * ÓÃ»§ID
+	 * ç”¨æˆ·ID
 	 */
 	@Id
 	@GeneratedValue(generator = "system-uuid")
@@ -45,66 +33,66 @@ public class UserBase {
 	private String userId;
 
 	/**
-	 * ´Ó»ù´¡ĞÅÏ¢ÖĞÍ¬²½¹ıÀ´id
+	 * ä»åŸºç¡€ä¿¡æ¯ä¸­åŒæ­¥è¿‡æ¥id
 	 */
 	@Column(name = "jichuId", length = 50)
 	private String jichuId;
 
 	/**
-	 * ÓÃ»§Àà±ğ Admin ÆÕÍ¨¹ÜÀíÔ±,superAdmin ³¬¼¶¹ÜÀíÔ±,shopAdmin Íøµã¹ÜÀíÔ±
-	 * ,shopBusinessÍøµãÒµÎñÔ±,contraAdminÉÌÆÌ¹ÜÀíÔ±
+	 * ç”¨æˆ·ç±»åˆ« Admin æ™®é€šç®¡ç†å‘˜,superAdmin è¶…çº§ç®¡ç†å‘˜,shopAdmin ç½‘ç‚¹ç®¡ç†å‘˜
+	 * ,shopBusinessç½‘ç‚¹ä¸šåŠ¡å‘˜,contraAdminå•†é“ºç®¡ç†å‘˜
 	 */
 	@Column(name = "userType", length = 50)
 	private String userType;
 
 	/**
-	 * ÓÃ»§Ãû³Æ
+	 * ç”¨æˆ·åç§°
 	 */
 	@Column(name = "userName", length = 32, unique = true)
 	private String userName;
 
 	/**
-	 * ÓÃ»§¿ÚÁî
+	 * ç”¨æˆ·å£ä»¤
 	 */
 	@Column(name = "passWord", length = 32)
 	private String passWord;
 
 	/**
-	 * ÓÃ»§´´½¨Ê±¼ä
+	 * ç”¨æˆ·åˆ›å»ºæ—¶é—´
 	 */
 	@Column(name = "createDate")
 	@Type(type = "java.util.Date")
 	private Date createDate;
 
 	/**
-	 * ÓÃ»§ÊÇ·ñ¿ÉÓÃ
+	 * ç”¨æˆ·æ˜¯å¦å¯ç”¨
 	 */
 	@Column(name = "enabled")
 	@Type(type = "java.lang.Boolean")
 	private boolean enable;
 
 	/**
-	 * ÓÃ»§ÊÇ·ñËø¶¨
+	 * ç”¨æˆ·æ˜¯å¦é”å®š
 	 */
 	@Column(name = "nonLocked")
 	@Type(type = "java.lang.Boolean")
 	private boolean nonLocked;
 
 	/**
-	 * FTPĞ´È¨ÏŞ
+	 * FTPå†™æƒé™
 	 */
 	@Column(name = "writepermission")
 	@Type(type = "java.lang.Boolean")
 	private boolean writepermission;
 
 	/**
-	 * ÓÃ»§Ëù¶ÔÓ¦µÄÓÃ»§_È¨ÏŞ¶ÔÓ¦¹ØÏµ±í/ÓÃ»§É¾³ıÔòÓÃ»§_È¨ÏŞ¶ÔÓ¦¹ØÏµÉ¾³ı/ÑÓÊ±¼ÓÔØ
+	 * ç”¨æˆ·æ‰€å¯¹åº”çš„ç”¨æˆ·_æƒé™å¯¹åº”å…³ç³»è¡¨/ç”¨æˆ·åˆ é™¤åˆ™ç”¨æˆ·_æƒé™å¯¹åº”å…³ç³»åˆ é™¤/å»¶æ—¶åŠ è½½
 	 */
 	@OneToMany(cascade = { CascadeType.ALL }, mappedBy = "userBase", fetch = FetchType.LAZY)
 	private List<UserBase_Authority> userBase_authoritys = new ArrayList<UserBase_Authority>();
 
 	/**
-	 * ¹¹Ôìº¯Êı
+	 * æ„é€ å‡½æ•°
 	 */
 	public UserBase() {
 		this.enable = true;
