@@ -1,0 +1,6 @@
+#ignore these files
+.idea/*
+.gradle/*
+build/*
+logs/*
+*.*~
