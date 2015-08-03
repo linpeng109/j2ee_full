@@ -32,22 +32,22 @@ buildscript {
     }
 }
 
-sourceCompatibility = JavaVersion.VERSION_1_8
-version = '2015.07.28_j2ee_full'
+//sourceCompatibility = 1.5
+version = '2015.07.28_j2ee_full_Venus'
 
 /**
- * 包依赖库描述
+ * ������������
  */
 repositories {
     mavenCentral()
     ivy {
-        //url("/home/linpeng109/workset/ivy_repository")
-        url("d:/ivy_repository")
+        url("/home/linpeng109/workset/ivy_repository")
+        //url("d:/ivy_repository")
     }
 }
 
 /**
- * 包依赖性描述
+ * ������������
  */
 dependencies {
     /**
@@ -183,9 +183,7 @@ dependencies {
      * Enterprise Job Scheduler
      */
     def quartzVersion = '2.2.1'
-    compile("org.quartz-scheduler:quartz:$quartzVersion"){
-        exclude(group:'c3p0',module:'c3p0')
-    }
+    compile("org.quartz-scheduler:quartz:$quartzVersion")
 
     /**
      * Spring Framework
@@ -219,6 +217,7 @@ dependencies {
      */
     compile("org.springframework.data:spring-data-redis:1.5.1.RELEASE")
 
+    /*��ά��*/
     compile("org.springframework.flex:spring-flex-core:1.5.3.RELEASE")
 
     /**
@@ -308,12 +307,17 @@ dependencies {
     compile("com.google.zxing:core:$zxingVersion",
             "com.google.zxing:javase:$zxingVersion")
 
+    /**
+     * Xml Apis
+     */
+    //def xmlApiVersion='1.4.01'
+    //testCompile("xml-apis:xml-apis:$xmlApiVersion")
 
     /**
      * JUnit is a unit testing framework for Java, created by Erich Gamma and Kent Beck.
      */
     def junitVersion = '4.12'
-    //testCompile("junit:junit:$junitVersion")
+    testCompile("junit:junit:$junitVersion")
 
     /**
      * Tomcat-embed plugin
@@ -329,6 +333,7 @@ dependencies {
     def cargoVersion = '1.4.15'
     cargo("org.codehaus.cargo:cargo-core-uberjar:$cargoVersion",
             "org.codehaus.cargo:cargo-ant:$cargoVersion")
+
 
 }
 
@@ -351,33 +356,30 @@ configurations {
     testRuntime.resolutionStrategy.force('xml-apis:xml-apis:1.4.01')
 }
 
-/*源代码配置 */
+/*Դ�������� */
 sourceSets {
 
 }
 
 /**
- * jar包配置
+ * jar������
  */
 jar {
-    baseName = 'j2ee_full'
+    baseName = 'j2ee_min'
     version = '2015.06.12'
 }
 
-/**
- * tomcat plugin配置
- */
+/*war������*/
 
 /**
- * tomcat plugin
+ * tomcat plugin����
  */
 tomcat {
 
 }
-test {
-}
+
 /**
- * 创建sourceSets目录结构
+ * ����sourceSetsĿ¼�ṹ
  */
 task createSourceSets {
     war.each {
