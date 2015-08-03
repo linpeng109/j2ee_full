@@ -32,11 +32,8 @@ buildscript {
     }
 }
 
-<<<<<<< HEAD
-//sourceCompatibility = 1.5
-=======
 sourceCompatibility = JavaVersion.VERSION_1_8
->>>>>>> Jupiter
+
 version = '2015.07.28_j2ee_full'
 
 /**
@@ -50,13 +47,9 @@ repositories {
     }
 }
 
-<<<<<<< HEAD
 /**
  *
  */
-=======
-
->>>>>>> Jupiter
 dependencies {
     /**
      * An implementation of the SOAP ("Simple Object Access Protocol") submission to W3C.
@@ -230,16 +223,14 @@ dependencies {
     def springDataRedisVersion = '1.5.1.RELEASE'
     compile("org.springframework.data:spring-data-redis:$springDataRedisVersion")
 
-<<<<<<< HEAD
-    /*��ά��*/
     compile("org.springframework.flex:spring-flex-core:1.5.3.RELEASE")
-=======
+
     /**
      *
      */
     def springFlexCoreVersion='1.5.3.RELEASE'
     compile("org.springframework.flex:spring-flex-core:$springFlexCoreVersion")
->>>>>>> Jupiter
+
 
     /**
      * Spring Integration Framework
@@ -369,12 +360,6 @@ configurations {
     compile.exclude module: "jasper-compiler"
     compile.exclude module: "jasper-runtime"
     //compile.exclude module: "tomcat-catalina"
-<<<<<<< HEAD
-
-}
-
-/*Դ�������� */
-=======
     compile.resolutionStrategy.force('xml-apis:xml-apis:1.4.01')
     testRuntime.resolutionStrategy.force('xml-apis:xml-apis:1.4.01')
 }
@@ -382,37 +367,27 @@ configurations {
 /**
  *
  */
->>>>>>> Jupiter
 sourceSets {
 
 }
 
 /**
-<<<<<<< HEAD
- * jar������
-=======
- * jar
->>>>>>> Jupiter
+ *
  */
 jar {
     baseName = 'j2ee_min'
     version = '2015.06.12'
 }
 
-<<<<<<< HEAD
-/*war������*/
-=======
->>>>>>> Jupiter
-
 /**
- * tomcat plugin����
+ * tomcat plugin
  */
 tomcat {
 
 }
 
 /**
- * ����sourceSetsĿ¼�ṹ
+ *
  */
 task createSourceSets {
     war.each {
