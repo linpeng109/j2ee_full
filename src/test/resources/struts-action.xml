@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="GBK" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="action" extends="struts-default">
+
+        <!--定义默认的拦截栈堆 -->
+        <default-interceptor-ref name="defaultStack"/>
+
+        <!--默认首页配置 -->
+        <default-action-ref name="index"/>
+
+        <!--全局结果码 -->
+        <global-results>
+            <result name="error" type="dispatcher">
+                <param name="location">/error.jsp</param>
+            </result>
+            <result name="login" type="dispatcher">
+                <param name="location">/login.jsp</param>
+            </result>
+            <result name="wait" type="dispatcher">
+                <param name="location">/wait.jsp</param>
+            </result>
+        </global-results>
+
+        <!--全局异常处理设置 -->
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception"
+                               result="error"/>
+        </global-exception-mappings>
+
+        <!--首页处理 -->
+        <action name="index" class="com.opensymphony.xwork2.ActionSupport">
+            <result name="success" type="dispatcher">index.jsp</result>
+        </action>
+
+        <!-- HelloWorld -->
+        <action name="helloWorld" class="helloWorldAction" method="hello">
+            <result name="success" type="dispatcher">index.jsp</result>
+        </action>
+    </package>
+</struts>
