@@ -32,11 +32,11 @@ buildscript {
     }
 }
 
-//sourceCompatibility = 1.5
+sourceCompatibility = JavaVersion.VERSION_1_8
 version = '2015.07.28_j2ee_full_Venus'
 
 /**
- * ������������
+ *
  */
 repositories {
     mavenCentral()
@@ -46,27 +46,25 @@ repositories {
     }
 }
 
-/**
- * ������������
- */
+
 dependencies {
     /**
      * An implementation of the SOAP ("Simple Object Access Protocol") submission to W3C.
      */
-    def axisVersion='1.4'
+    def axisVersion = '1.4'
     compile("axis:axis:$axisVersion")
     compile("axis:axis-jaxrpc:$axisVersion")
 
     /**
      * Puts together an ActiveMQ jar bundle
      */
-    def activemqVersion='5.11.1'
+    def activemqVersion = '5.11.1'
     compile("org.apache.activemq:activemq-all:$activemqVersion")
 
     /**
      * Apache CXF Distribution
      */
-    def apacheCxfVersion='3.1.1'
+    def apacheCxfVersion = '3.1.1'
     compile("org.apache.cxf:apache-cxf:$apacheCxfVersion") {
         exclude(module: 'slf4j-jdk14')
         exclude(module: 'jetty')
@@ -93,7 +91,6 @@ dependencies {
     compile("org.apache.flex.blazeds:flex-messaging-core:$blazedsVersion",
             "org.apache.flex.blazeds:flex-messaging-common:$blazedsVersion",
             "org.apache.flex.blazeds:flex-messaging-opt:$blazedsVersion",
-            //"org.apache.flex.blazeds:flex-messaging-opt-tomcat7:$blazedsVersion",
             "org.apache.flex.blazeds:flex-messaging-proxy:$blazedsVersion",
             "org.apache.flex.blazeds:flex-messaging-remoting:$blazedsVersion",
             "org.apache.flex.blazeds:blazeds:$blazedsVersion")
@@ -110,19 +107,22 @@ dependencies {
     /**
      * Code generation library with shaded ASM dependecies
      */
-    compile("cglib:cglib-nodep:3.1")
+    def cglibVersion = '3.1'
+    compile("cglib:cglib-nodep:$cglibVersion")
 
     /**
      * Apache FtpServer
      */
-    compile("org.apache.ftpserver:ftpserver:1.0.6") {
+    def ftpserverVersion = '1.0.6'
+    compile("org.apache.ftpserver:ftpserver:$ftpserverVersion") {
         exclude(module: 'slf4j-log4j12')
     }
 
     /**
      * A library for testing websites programmatically
      */
-    compile("org.httpunit:httpunit:1.7.2") {
+    def httpunitVersion = '1.7.2'
+    compile("org.httpunit:httpunit:$httpunitVersion") {
         exclude(module: 'servlet-api')
     }
 
@@ -169,7 +169,8 @@ dependencies {
     /**
      * MySQL JDBC Type 4 driver
      */
-    compile("mysql:mysql-connector-java:5.1.36")
+    def mysqlConnectorJavaVersion = '5.1.36'
+    compile("mysql:mysql-connector-java:$mysqlConnectorJavaVersion")
 
     /**
      * Apache POI - Java API To Access Microsoft Format Files
@@ -210,15 +211,20 @@ dependencies {
     /**
      * Cassandra Support for Spring Data
      */
-    compile("org.springframework.data:spring-data-cassandra:1.2.1.RELEASE")
+    def springDataCassandraVersion = '1.2.1.RELEASE'
+    compile("org.springframework.data:spring-data-cassandra:$springDataCassandraVersion")
 
     /**
      * Spring Data Redis
      */
-    compile("org.springframework.data:spring-data-redis:1.5.1.RELEASE")
+    def springDataRedisVersion = '1.5.1.RELEASE'
+    compile("org.springframework.data:spring-data-redis:$springDataRedisVersion")
 
-    /*��ά��*/
-    compile("org.springframework.flex:spring-flex-core:1.5.3.RELEASE")
+    /**
+     *
+     */
+    def springFlexCoreVersion='1.5.3.RELEASE'
+    compile("org.springframework.flex:spring-flex-core:$springFlexCoreVersion")
 
     /**
      * Spring Integration Framework
@@ -280,12 +286,14 @@ dependencies {
     /**
      * xbean-spring provides a schema-driven proprietary namespace handler for spring contexts
      */
-    compile("org.apache.xbean:xbean-spring:4.3")
+    def xbeanSpringVersion = '4.3'
+    compile("org.apache.xbean:xbean-spring:$xbeanSpringVersion")
 
     /**
      * Xerces2 is the next generation of high performance, fully compliant XML parsers in the Apache Xerces family.
      */
-    compile("xerces:xercesImpl:2.11.0")
+    def xercesImpVersion = '2.11.0'
+    compile("xerces:xercesImpl:$xercesImpVersion")
 
     /**
      * XStream extension for Hibernate 3/4 to untie Java objects from Hibernate.
@@ -297,7 +305,7 @@ dependencies {
     /**
      * RXTX is a native lib providing serial and parallel communication for the Java Development Toolkit (JDK).
      */
-    def rxtxVerion='2.1.7'
+    def rxtxVerion = '2.1.7'
     compile("org.rxtx:rxtx:$rxtxVerion")
 
     /**
@@ -306,12 +314,6 @@ dependencies {
     def zxingVersion = '3.2.0'
     compile("com.google.zxing:core:$zxingVersion",
             "com.google.zxing:javase:$zxingVersion")
-
-    /**
-     * Xml Apis
-     */
-    //def xmlApiVersion='1.4.01'
-    //testCompile("xml-apis:xml-apis:$xmlApiVersion")
 
     /**
      * JUnit is a unit testing framework for Java, created by Erich Gamma and Kent Beck.
@@ -356,20 +358,21 @@ configurations {
     testRuntime.resolutionStrategy.force('xml-apis:xml-apis:1.4.01')
 }
 
-/*Դ�������� */
+/**
+ *
+ */
 sourceSets {
 
 }
 
 /**
- * jar������
+ * jar
  */
 jar {
     baseName = 'j2ee_min'
     version = '2015.06.12'
 }
 
-/*war������*/
 
 /**
  * tomcat plugin����
