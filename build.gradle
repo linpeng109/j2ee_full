@@ -33,7 +33,7 @@ buildscript {
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
-version = '2015.07.28_j2ee_full_Venus'
+version = '2015.07.28_j2ee_full'
 
 /**
  *
