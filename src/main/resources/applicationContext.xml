@@ -57,7 +57,7 @@
     <!-- import resource="spring-kafka.xml" / -->
 
     <!-- Cassandra分布式非关系数据库模块配置 -->
-    <!--  import resource="spring-cassandra.xml" / -->
+    <import resource="spring-cassandra.xml" />
 
 
 </beans>

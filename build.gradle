@@ -360,7 +360,9 @@ configurations {
     compile.exclude module: "jasper-compiler"
     compile.exclude module: "jasper-runtime"
     //compile.exclude module: "tomcat-catalina"
+    runtime.resolutionStrategy.force("org.bouncycastle:bcprov-jdk15on:1.52")
     compile.resolutionStrategy.force('xml-apis:xml-apis:1.4.01')
+    runtime.resolutionStrategy.force('xml-apis:xml-apis:1.4.01')
     testRuntime.resolutionStrategy.force('xml-apis:xml-apis:1.4.01')
 }
 
