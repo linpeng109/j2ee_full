@@ -42,8 +42,8 @@ version = '2015.07.28_j2ee_full'
 repositories {
     mavenCentral()
     ivy {
-        url("/home/linpeng109/workset/ivy_repository")
-        //url("d:/ivy_repository")
+        // url("/home/linpeng109/workset/ivy_repository")
+        url("d:/ivy_repository")
     }
 }
 
@@ -106,6 +106,9 @@ dependencies {
     compile("org.apache.cassandra:cassandra-all:$cassandraVersion") {
         exclude(module: 'logback-classic')
     }
+
+    def c3p0Version='0.9.5.1'
+    compile("com.mchange:c3p0:$c3p0Version")
 
     /**
      * Code generation library with shaded ASM dependecies
