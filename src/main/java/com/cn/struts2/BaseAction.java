@@ -3,6 +3,7 @@ package com.cn.struts2;
 import com.cn.common.DateModule;
 import com.cn.common.RandomModule;
 import com.cn.crypto.CryptoModule;
+import com.cn.dao.util.HibernateDAO;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.StrutsStatics;
@@ -29,39 +30,37 @@ public abstract class BaseAction extends ActionSupport implements
         ApplicationContextAware {
 
     /**
-     * 获取Spring容器
-     */
-    private ApplicationContext applicationContext;
-
-    /**
-     * 获取Struts2容器
-     */
-    private ActionContext context;
-
-    /**
-     * 获取http请求的request
-     */
-    private HttpServletRequest request;
-
-    /**
-     * 获取http请求的response
-     */
-    private HttpServletResponse response;
-
-    /**
      * 依赖注入获得时间操作模块实例
      */
     public DateModule dateModule;
-
     /**
      * 依赖注入获得随机数操作模块实例
      */
     public RandomModule randomModule;
-
     /**
      * 依赖注入获得加密解密模块实例
      */
     public CryptoModule cryptoModule;
+    /**
+     * 依赖注入获取hibernateDAO模块实例
+     */
+    public HibernateDAO hibernateDAO;
+    /**
+     * 获取Spring容器
+     */
+    private ApplicationContext applicationContext;
+    /**
+     * 获取Struts2容器
+     */
+    private ActionContext context;
+    /**
+     * 获取http请求的request
+     */
+    private HttpServletRequest request;
+    /**
+     * 获取http请求的response
+     */
+    private HttpServletResponse response;
 
     /**
      * 构造函数
@@ -69,11 +68,27 @@ public abstract class BaseAction extends ActionSupport implements
     public BaseAction() {
     }
 
+    public HibernateDAO getHibernateDAO() {
+        return hibernateDAO;
+    }
+
+    public void setHibernateDAO(HibernateDAO hibernateDAO) {
+        this.hibernateDAO = hibernateDAO;
+    }
+
     /**
      * @return the applicationContext
      */
     public ApplicationContext getApplicationContext() {
         return applicationContext;
+    }
+
+    /**
+     * @param applicationContext the applicationContext to set
+     */
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) {
+        this.applicationContext = applicationContext;
     }
 
     /**
@@ -108,16 +123,32 @@ public abstract class BaseAction extends ActionSupport implements
         return context;
     }
 
+    public void setContext(ActionContext context) {
+        this.context = context;
+    }
+
     public CryptoModule getCryptoModule() {
         return cryptoModule;
+    }
+
+    public void setCryptoModule(CryptoModule cryptoModule) {
+        this.cryptoModule = cryptoModule;
     }
 
     public DateModule getDateModule() {
         return dateModule;
     }
 
+    public void setDateModule(DateModule dateModule) {
+        this.dateModule = dateModule;
+    }
+
     public RandomModule getRandomModule() {
         return randomModule;
+    }
+
+    public void setRandomModule(RandomModule randomModule) {
+        this.randomModule = randomModule;
     }
 
     public HttpServletRequest getRequest() {
@@ -126,38 +157,14 @@ public abstract class BaseAction extends ActionSupport implements
         return request;
     }
 
+    public void setRequest(HttpServletRequest request) {
+        this.request = request;
+    }
+
     public HttpServletResponse getResponse() {
         response = (HttpServletResponse) getContext().get(
                 StrutsStatics.HTTP_RESPONSE);
         return response;
-    }
-
-    /**
-     * @param applicationContext the applicationContext to set
-     */
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) {
-        this.applicationContext = applicationContext;
-    }
-
-    public void setContext(ActionContext context) {
-        this.context = context;
-    }
-
-    public void setCryptoModule(CryptoModule cryptoModule) {
-        this.cryptoModule = cryptoModule;
-    }
-
-    public void setDateModule(DateModule dateModule) {
-        this.dateModule = dateModule;
-    }
-
-    public void setRandomModule(RandomModule randomModule) {
-        this.randomModule = randomModule;
-    }
-
-    public void setRequest(HttpServletRequest request) {
-        this.request = request;
     }
 
     public void setResponse(HttpServletResponse response) {

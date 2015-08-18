@@ -1,4 +1,4 @@
-package test.dao;
+package test.struts;
 
 import com.cn.struts2.HelloWorldAction;
 import org.apache.log4j.Logger;
@@ -10,15 +10,15 @@ import javax.annotation.Resource;
 /**
  * Created by linpeng109 on 15-7-29.
  */
-public class TestDao extends TestBase {
+public class TestStruts extends TestBase {
 
-    private static Logger logger = Logger.getLogger(TestDao.class);
+    private static Logger logger = Logger.getLogger(TestStruts.class);
 
     @Resource
     private HelloWorldAction helloWorldAction;
 
     @Test
-    public void insert() {
+    public void hello() {
         logger.debug("TestDao is starting......");
         helloWorldAction.hello();
     }

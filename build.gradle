@@ -42,8 +42,8 @@ version = '2015.07.28_j2ee_full'
 repositories {
     mavenCentral()
     ivy {
-         url("/home/linpeng109/workset/ivy_repository")
-       // url("d:/ivy_repository")
+        url("/home/linpeng109/workset/ivy_repository")
+        // url("d:/ivy_repository")
     }
 }
 
@@ -66,8 +66,9 @@ dependencies {
 
     /**
      * Apache CXF Distribution
+     * 3.1.1
      */
-    def apacheCxfVersion = '3.1.1'
+    def apacheCxfVersion = '3.1.2'
     compile("org.apache.cxf:apache-cxf:$apacheCxfVersion") {
         exclude(module: 'slf4j-jdk14')
         exclude(module: 'jetty')
@@ -78,19 +79,22 @@ dependencies {
     /**
      * Java Servlet API
      */
-    providedCompile("javax.servlet:javax.servlet-api:3.1.0")
+    def servletVersion = '3.1.0'
+    providedCompile("javax.servlet:javax.servlet-api:$servletVersion")
 
     /**
      * The Bouncy Castle Crypto package is a Java implementation of cryptographic algorithms.
      * This jar contains JCE provider and lightweight API for the Bouncy Castle Cryptography
      * APIs for JDK 1.5 to JDK 1.8.
      */
-    compile("org.bouncycastle:bcprov-jdk15on:1.52")
+    def bcprovVersion = '1.52'
+    compile("org.bouncycastle:bcprov-jdk15on:$bcprovVersion")
 
     /**
      * Flex Messaging
+     * 4.7.0
      */
-    def blazedsVersion = '4.7.0'
+    def blazedsVersion = '4.7.1'
     compile("org.apache.flex.blazeds:flex-messaging-core:$blazedsVersion",
             "org.apache.flex.blazeds:flex-messaging-common:$blazedsVersion",
             "org.apache.flex.blazeds:flex-messaging-opt:$blazedsVersion",
@@ -107,7 +111,10 @@ dependencies {
         exclude(module: 'logback-classic')
     }
 
-    def c3p0Version='0.9.5.1'
+    /**
+     * a JDBC Connection pooling / Statement caching library
+     */
+    def c3p0Version = '0.9.5.1'
     compile("com.mchange:c3p0:$c3p0Version")
 
     /**
@@ -134,8 +141,9 @@ dependencies {
 
     /**
      * The core O/RM functionality as provided by Hibernate
+     * 5.0.0.CR2
      */
-    def hibernateVersion = '5.0.0.CR2'
+    def hibernateVersion = '5.0.0.CR4'
     compile("org.hibernate:hibernate-core:$hibernateVersion",
             "org.hibernate:hibernate-c3p0:$hibernateVersion",
             "org.hibernate:hibernate-ehcache:$hibernateVersion",
@@ -149,28 +157,33 @@ dependencies {
      * Javassist (JAVA programming ASSISTant) makes Java bytecode manipulation simple.
      * It is a class library for editing bytecodes in Java.
      */
-    compile("org.javassist:javassist:3.20.0-GA")
+    def javassistVersion = '3.20.0-GA'
+    compile("org.javassist:javassist:$javassistVersion")
 
     /**
      * Jaxen is a universal Java XPath engine.
      */
-    compile("jaxen:jaxen:1.1.6")
+    def jaxenVersion = '1.1.6'
+    compile("jaxen:jaxen:$jaxenVersion")
 
     /**
      * JEP is a Java library for parsing and evaluating mathematical expressions.
      */
-    compile("org.scijava:jep:2.4.2")
+    def jepVersion = '2.4.2'
+    compile("org.scijava:jep:$jepVersion")
 
     /**
      * jPOS is an ISO-8583 based financial transaction library/framework that can be customized
      * and extended in order to implement financial interchanges.
      */
-    compile("org.jpos:jpos:2.0.2")
+    def jposVersion = '2.0.2'
+    compile("org.jpos:jpos:$jposVersion")
 
     /**
      * JSON is a light-weight, language independent, data interchange format.
      */
-    compile("org.json:json:20141113")
+    def jsonVersion = '20141113'
+    compile("org.json:json:$jsonVersion")
 
     /**
      * MySQL JDBC Type 4 driver
@@ -194,8 +207,9 @@ dependencies {
 
     /**
      * Spring Framework
+     * 4.1.7.RELEASE
      */
-    def springVersion = '4.1.7.RELEASE'
+    def springVersion = '4.2.0.RELEASE'
     compile("org.springframework:spring-core:$springVersion",
             "org.springframework:spring-context:$springVersion",
             "org.springframework:spring-context-support:$springVersion",
@@ -209,8 +223,9 @@ dependencies {
 
     /**
      * spring.batch
+     * 3.0.4.RELEASE
      */
-    def springbatchVersion = '3.0.4.RELEASE'
+    def springbatchVersion = '3.0.5.RELEASE'
     compile("org.springframework.batch:spring-batch-core:$springbatchVersion",
             "org.springframework.batch:spring-batch-test:$springbatchVersion")
 
@@ -222,14 +237,13 @@ dependencies {
 
     /**
      * Spring Data Redis
+     * 1.5.1.RELEASE
      */
-    def springDataRedisVersion = '1.5.1.RELEASE'
+    def springDataRedisVersion = '1.5.2.RELEASE'
     compile("org.springframework.data:spring-data-redis:$springDataRedisVersion")
 
-    compile("org.springframework.flex:spring-flex-core:1.5.3.RELEASE")
-
     /**
-     *
+     * Spring Support for Flex
      */
     def springFlexCoreVersion = '1.5.3.RELEASE'
     compile("org.springframework.flex:spring-flex-core:$springFlexCoreVersion")
@@ -331,8 +345,9 @@ dependencies {
 
     /**
      * Tomcat-embed plugin
+     * 7.0.63
      */
-    def tomcatVersion = '7.0.63'
+    def tomcatVersion = '8.0.24'
     tomcat("org.apache.tomcat.embed:tomcat-embed-core:$tomcatVersion",
             "org.apache.tomcat.embed:tomcat-embed-logging-juli:$tomcatVersion",
             "org.apache.tomcat.embed:tomcat-embed-jasper:$tomcatVersion")

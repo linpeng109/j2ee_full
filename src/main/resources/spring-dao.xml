@@ -120,7 +120,7 @@
 		proxy-target-class="true" />
 
 	<!--实体类操作模块 -->
-	<bean id="hibernateDao" class="com.cn.dao.util.HibernateDAO">
+	<bean id="hibernateDAO" class="com.cn.dao.util.HibernateDAO">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 </beans>

@@ -6,6 +6,9 @@
 
     <!--Action基类 -->
     <bean id="baseAction" class="com.cn.struts2.BaseAction" abstract="true">
+        <property name="hibernateDAO">
+            <ref bean="hibernateDAO"/>
+        </property>
         <property name="dateModule">
             <ref bean="dateModule"/>
         </property>
@@ -17,5 +20,5 @@
         </property>
     </bean>
 
-    <bean id="helloWorldAction" class="com.cn.struts2.HelloWorldAction"/>
+    <bean id="helloWorldAction" class="com.cn.struts2.HelloWorldAction" parent="baseAction"/>
 </beans>
