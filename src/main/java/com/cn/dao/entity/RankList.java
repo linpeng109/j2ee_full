@@ -15,25 +15,23 @@ import javax.persistence.*;
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @Inheritance(strategy = InheritanceType.JOINED)
 public class RankList {
-	
-	/**
-	 * ID
-	 */
-	@Id
-	@GeneratedValue(generator = "system-uuid")
-	@Column(name = "ranklistID", length = 32)
-	@DocumentId(name = "ranklistID")
-	private String ranklistID;
 
-	public String getRanklistID() {
-		return ranklistID;
-	}
+    /**
+     * ID
+     */
+    @Id
+    @GeneratedValue(generator = "system-uuid")
+    @Column(name = "ranklistID", length = 32)
+    @DocumentId(name = "ranklistID")
+    private String ranklistID;
 
-	public void setRanklistID(String ranklistID) {
-		this.ranklistID = ranklistID;
-	}
-	
-	
-	
+    public String getRanklistID() {
+        return ranklistID;
+    }
+
+    public void setRanklistID(String ranklistID) {
+        this.ranklistID = ranklistID;
+    }
+
 
 }

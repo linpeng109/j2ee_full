@@ -14,7 +14,6 @@ import javax.persistence.*;
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @Inheritance(strategy = InheritanceType.JOINED)
 public class UserAdmin extends UserBase {
-	
-	
+
 
 }

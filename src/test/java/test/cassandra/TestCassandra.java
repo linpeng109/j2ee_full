@@ -3,10 +3,9 @@ package test.cassandra;
 import com.cn.cassandra.tables.Person;
 import com.cn.common.RandomModule;
 import com.cn.common.implement.RandomModuleImpl;
-import com.datastax.driver.core.Token;
+import com.datastax.driver.core.querybuilder.Ordering;
 import com.datastax.driver.core.querybuilder.QueryBuilder;
 import com.datastax.driver.core.querybuilder.Select;
-import org.apache.cassandra.service.pager.QueryPagers;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.springframework.data.cassandra.core.CassandraTemplate;
@@ -20,7 +19,7 @@ import java.util.UUID;
  * Created by linpeng109 on 15-8-13.
  */
 public class TestCassandra extends TestBase {
-    private Logger logger = Logger.getLogger(TestCassandra.class);
+    final Logger logger = Logger.getLogger(TestCassandra.class);
 
     @Resource
     public CassandraTemplate cassandraTemplate;
@@ -41,19 +40,18 @@ public class TestCassandra extends TestBase {
 
     }
 
-    // @Test
+    @Test
     public void testCassandraTemplateCount() {
         long size = cassandraTemplate.count("person");
         logger.debug(String.format("The person table size is [%s] ", size));
     }
 
     @Test
-    public void testCassandraTemplateByLimt() {
+    public void testCassandraTemplateSelectByLimt() {
 
         Select select = QueryBuilder.select().from("person");
-
+//        select.orderBy(QueryBuilder.asc("id"));
         select.limit(100);
-
         List<Person> list = cassandraTemplate.select(select, Person.class);
         for (int i = 0; i < list.size(); ++i) {
             Person person = list.get(i);
@@ -62,7 +60,7 @@ public class TestCassandra extends TestBase {
 
     }
 
-    //@Test
+    @Test
     public void testCassandraTemplateSelectOne() {
         Select select = QueryBuilder.select().from("person");
         UUID uuid = UUID.fromString("ee0bad9f-06f0-4a3a-bf7d-40985678278a");

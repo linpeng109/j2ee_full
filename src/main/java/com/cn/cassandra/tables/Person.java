@@ -13,8 +13,10 @@ public class Person {
 
     @PrimaryKey
     private UUID id;
+
     @Column(value = "name")
     private String name;
+
     @Column(value = "age")
     private int age;
     @Column(value = "address")

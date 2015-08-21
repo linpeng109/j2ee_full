@@ -15,41 +15,38 @@ import javax.persistence.*;
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Music {
-	
-	/**
-	 * ID
-	 */
-	@Id
-	@GeneratedValue(generator = "system-uuid")
-	@Column(name = "musicID", length = 32)
-	@DocumentId(name = "musicID")
-	private String musicID;
-	
-	/**
-	 * 对应关系所属的用户
-	 */
-	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.EAGER)
-	@JoinColumn(name = "ftpServer")
-	private FTPServer ftpServer;
 
-	public String getMusicID() {
-		return musicID;
-	}
+    /**
+     * ID
+     */
+    @Id
+    @GeneratedValue(generator = "system-uuid")
+    @Column(name = "musicID", length = 32)
+    @DocumentId(name = "musicID")
+    private String musicID;
 
-	public void setMusicID(String musicID) {
-		this.musicID = musicID;
-	}
+    /**
+     * 对应关系所属的用户
+     */
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "ftpServer")
+    private FTPServer ftpServer;
 
-	public FTPServer getFtpServer() {
-		return ftpServer;
-	}
+    public String getMusicID() {
+        return musicID;
+    }
 
-	public void setFtpServer(FTPServer ftpServer) {
-		this.ftpServer = ftpServer;
-	}
-	
-	
-	
-	
+    public void setMusicID(String musicID) {
+        this.musicID = musicID;
+    }
+
+    public FTPServer getFtpServer() {
+        return ftpServer;
+    }
+
+    public void setFtpServer(FTPServer ftpServer) {
+        this.ftpServer = ftpServer;
+    }
+
 
 }

@@ -15,24 +15,23 @@ import javax.persistence.*;
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Tag {
 
-	
-	/**
-	 * ID
-	 */
-	@Id
-	@GeneratedValue(generator = "system-uuid")
-	@Column(name = "tagID", length = 32)
-	@DocumentId(name = "tagID")
-	private String tagID;
 
-	public String getTagID() {
-		return tagID;
-	}
+    /**
+     * ID
+     */
+    @Id
+    @GeneratedValue(generator = "system-uuid")
+    @Column(name = "tagID", length = 32)
+    @DocumentId(name = "tagID")
+    private String tagID;
 
-	public void setTagID(String tagID) {
-		this.tagID = tagID;
-	}
-	
-	
-	
+    public String getTagID() {
+        return tagID;
+    }
+
+    public void setTagID(String tagID) {
+        this.tagID = tagID;
+    }
+
+
 }

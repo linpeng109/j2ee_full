@@ -17,25 +17,23 @@ import javax.persistence.*;
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Artist {
-	
-	/**
-	 * ID
-	 */
-	@Id
-	@GeneratedValue(generator = "system-uuid")
-	@Column(name = "artistID", length = 32)
-	@DocumentId(name = "artistID")
-	private String artistID;
 
-	public String getArtistID() {
-		return artistID;
-	}
+    /**
+     * ID
+     */
+    @Id
+    @GeneratedValue(generator = "system-uuid")
+    @Column(name = "artistID", length = 32)
+    @DocumentId(name = "artistID")
+    private String artistID;
 
-	public void setArtistID(String artistID) {
-		this.artistID = artistID;
-	}
-	
-	
-	
+    public String getArtistID() {
+        return artistID;
+    }
+
+    public void setArtistID(String artistID) {
+        this.artistID = artistID;
+    }
+
 
 }

@@ -14,57 +14,54 @@ import javax.persistence.*;
 @Cacheable
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class UserFans_MixedMusic {
-	
-	/**
-	 * ID
-	 */
-	@Id
-	@GeneratedValue(generator = "system-uuid")
-	@Column(name = "userFans_MixedMusicID", length = 32)
-	@DocumentId(name = "userFans_MixedMusicID")
-	private String userFans_MixedMusicID;
-	
-	
-	/**
-	 * 对应关系所属的用户
-	 */
-	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.EAGER)
-	@JoinColumn(name = "userId")
-	private UserFans userFans;
 
-	/**
-	 * 对应关系所属的权限
-	 */
-	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.EAGER)
-	@JoinColumn(name = "mixedMusicID")
-	private MixedMusic mixedMusic;
+    /**
+     * ID
+     */
+    @Id
+    @GeneratedValue(generator = "system-uuid")
+    @Column(name = "userFans_MixedMusicID", length = 32)
+    @DocumentId(name = "userFans_MixedMusicID")
+    private String userFans_MixedMusicID;
 
-	public String getUserFans_MixedMusicID() {
-		return userFans_MixedMusicID;
-	}
 
-	public UserFans getUserFans() {
-		return userFans;
-	}
+    /**
+     * 对应关系所属的用户
+     */
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "userId")
+    private UserFans userFans;
 
-	public MixedMusic getMixedMusic() {
-		return mixedMusic;
-	}
+    /**
+     * 对应关系所属的权限
+     */
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "mixedMusicID")
+    private MixedMusic mixedMusic;
 
-	public void setUserFans_MixedMusicID(String userFans_MixedMusicID) {
-		this.userFans_MixedMusicID = userFans_MixedMusicID;
-	}
+    public String getUserFans_MixedMusicID() {
+        return userFans_MixedMusicID;
+    }
 
-	public void setUserFans(UserFans userFans) {
-		this.userFans = userFans;
-	}
+    public UserFans getUserFans() {
+        return userFans;
+    }
 
-	public void setMixedMusic(MixedMusic mixedMusic) {
-		this.mixedMusic = mixedMusic;
-	}
-	
-	
-	
-	
+    public MixedMusic getMixedMusic() {
+        return mixedMusic;
+    }
+
+    public void setUserFans_MixedMusicID(String userFans_MixedMusicID) {
+        this.userFans_MixedMusicID = userFans_MixedMusicID;
+    }
+
+    public void setUserFans(UserFans userFans) {
+        this.userFans = userFans;
+    }
+
+    public void setMixedMusic(MixedMusic mixedMusic) {
+        this.mixedMusic = mixedMusic;
+    }
+
 
 }

@@ -1,8 +1,7 @@
 <%@page contentType="text/html; charset=UTF-8" %>
-<%@taglib prefix="s"
-          uri="/struts-tags.tld" %>
-<%@taglib prefix="security"
-          uri="/WEB-INF/classes/com/cn/resource/security.tld" %>
+<%@taglib prefix="s" uri="/struts-tags" %>
+<%@taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+
 <html>
 <head>
     <!-- 2010-03-30修改获得用户权限字符串的方法 -->
@@ -14,7 +13,7 @@
 当前登录用户信息:<br/>
 
 <!-- 如果是匿名用户登录，则显示以下内容 -->
-<security:authorize ifNotGranted="ROLE_ADMIN, ROLE_GUEST, ROLE_USER">
+<security:authorize access="hasRole('ROLE_ADMIN')">
     匿名用户 <p/>
 </security:authorize>
 

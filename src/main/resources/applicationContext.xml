@@ -44,7 +44,9 @@
     <!-- Struts2模块配置 -->
     <import resource="spring-struts2.xml"/>
     <!-- 数据源及实体类配置 -->
-    <import resource="spring-dao.xml" />
+    <import resource="spring-dao.xml"/>
+    <!-- 全文检索模块配置 -->
+    <import resource="spring-search.xml"/>
     <!-- 任务调度模块配置 -->
     <import resource="spring-quartz.xml"/>
     <!-- 视频编码模块配置 -->
@@ -57,7 +59,7 @@
     <!-- import resource="spring-kafka.xml" / -->
 
     <!-- Cassandra分布式非关系数据库模块配置 -->
-    <import resource="spring-cassandra.xml" />
+    <import resource="spring-cassandra.xml"/>
 
 
 </beans>

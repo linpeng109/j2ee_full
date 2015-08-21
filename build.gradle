@@ -67,6 +67,7 @@ dependencies {
     /**
      * Apache CXF Distribution
      * 3.1.1
+     * 3.1.2
      */
     def apacheCxfVersion = '3.1.2'
     compile("org.apache.cxf:apache-cxf:$apacheCxfVersion") {
@@ -79,20 +80,23 @@ dependencies {
     /**
      * Java Servlet API
      */
-    def servletVersion = '3.1.0'
-    providedCompile("javax.servlet:javax.servlet-api:$servletVersion")
+    //def servletVersion = '3.1.0'
+    //providedCompile("javax.servlet:javax.servlet-api:$servletVersion")
+
+    compile("org.apache.tomcat:tomcat-servlet-api:8.0.24")
 
     /**
      * The Bouncy Castle Crypto package is a Java implementation of cryptographic algorithms.
      * This jar contains JCE provider and lightweight API for the Bouncy Castle Cryptography
      * APIs for JDK 1.5 to JDK 1.8.
      */
-    def bcprovVersion = '1.52'
-    compile("org.bouncycastle:bcprov-jdk15on:$bcprovVersion")
+    //def bcprovVersion = '1.52'
+    //compile("org.bouncycastle:bcprov-jdk15on:$bcprovVersion")
 
     /**
      * Flex Messaging
      * 4.7.0
+     * 4.7.1
      */
     def blazedsVersion = '4.7.1'
     compile("org.apache.flex.blazeds:flex-messaging-core:$blazedsVersion",
@@ -142,6 +146,7 @@ dependencies {
     /**
      * The core O/RM functionality as provided by Hibernate
      * 5.0.0.CR2
+     * 5.0.0.CR4
      */
     def hibernateVersion = '5.0.0.CR4'
     compile("org.hibernate:hibernate-core:$hibernateVersion",
@@ -149,9 +154,14 @@ dependencies {
             "org.hibernate:hibernate-ehcache:$hibernateVersion",
             "org.hibernate:hibernate-entitymanager:$hibernateVersion",
             "org.hibernate:hibernate-envers:$hibernateVersion",
-            "org.hibernate:hibernate-testing:$hibernateVersion",
-            "org.hibernate:hibernate-search-engine:5.3.0.Final",
-            "org.hibernate:hibernate-oscache:3.6.10.Final")
+            "org.hibernate:hibernate-testing:$hibernateVersion")
+
+    /**
+     * Hibernate Search integration with Hibernate Core
+     * 5.4.0.CR2
+     */
+    def hibernateSearchVersion='5.4.0.CR2'
+    compile("org.hibernate:hibernate-search-orm:$hibernateSearchVersion")
 
     /**
      * Javassist (JAVA programming ASSISTant) makes Java bytecode manipulation simple.
@@ -208,6 +218,7 @@ dependencies {
     /**
      * Spring Framework
      * 4.1.7.RELEASE
+     * 4.2.0.RELEASE
      */
     def springVersion = '4.2.0.RELEASE'
     compile("org.springframework:spring-core:$springVersion",
@@ -224,6 +235,7 @@ dependencies {
     /**
      * spring.batch
      * 3.0.4.RELEASE
+     * 3.0.5.RELEASE
      */
     def springbatchVersion = '3.0.5.RELEASE'
     compile("org.springframework.batch:spring-batch-core:$springbatchVersion",
@@ -238,6 +250,7 @@ dependencies {
     /**
      * Spring Data Redis
      * 1.5.1.RELEASE
+     * 1.5.2.RELEASE
      */
     def springDataRedisVersion = '1.5.2.RELEASE'
     compile("org.springframework.data:spring-data-redis:$springDataRedisVersion")
@@ -346,11 +359,15 @@ dependencies {
     /**
      * Tomcat-embed plugin
      * 7.0.63
+     * 8.0.24
      */
     def tomcatVersion = '8.0.24'
     tomcat("org.apache.tomcat.embed:tomcat-embed-core:$tomcatVersion",
             "org.apache.tomcat.embed:tomcat-embed-logging-juli:$tomcatVersion",
-            "org.apache.tomcat.embed:tomcat-embed-jasper:$tomcatVersion")
+            "org.apache.tomcat.embed:tomcat-embed-jasper:$tomcatVersion",
+            "org.apache.tomcat.embed:tomcat-embed-websocket:$tomcatVersion",
+            "org.apache.tomcat.embed:tomcat-embed-logging-log4j:$tomcatVersion",
+            "org.apache.tomcat.embed:tomcat-embed-el:$tomcatVersion")
 
     /**
      * The Cargo Core Uberjar
@@ -369,15 +386,13 @@ configurations {
     //compile.exclude module: "logback-classic"
     //compile.exclude module: "slf4j-jdk14"
     compile.exclude module: "slf4j-log4j12"
-    //compile.exclude module: "jetty"
-    //compile.exclude module: "jetty-util"
     compile.exclude module: "jsp-2.1"
     compile.exclude module: "jsp-api-2.1"
     //compile.exclude module: "servlet-api-2.1"
     compile.exclude module: "jasper-compiler"
     compile.exclude module: "jasper-runtime"
     //compile.exclude module: "tomcat-catalina"
-    runtime.resolutionStrategy.force("org.bouncycastle:bcprov-jdk15on:1.52")
+    // runtime.resolutionStrategy.force("org.bouncycastle:bcprov-jdk15on:1.52")
     compile.resolutionStrategy.force('xml-apis:xml-apis:1.4.01')
     runtime.resolutionStrategy.force('xml-apis:xml-apis:1.4.01')
     testRuntime.resolutionStrategy.force('xml-apis:xml-apis:1.4.01')

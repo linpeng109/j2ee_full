@@ -8,21 +8,20 @@ import org.hibernate.type.Type;
 import java.io.Serializable;
 
 
-@SuppressWarnings("serial")
 public class UserBaseSaveOrUpdateInterceptor extends EmptyInterceptor {
-	private static Logger logger = Logger
-			.getLogger(UserBaseSaveOrUpdateInterceptor.class);
+    private final Logger logger = Logger
+            .getLogger(UserBaseSaveOrUpdateInterceptor.class);
 
-	@Override
-	public boolean onSave(Object entity, Serializable id, Object[] state,
-			String[] propertyNames, Type[] types) {
-		if (entity instanceof UserBase) {
-			String message = ((UserBase) entity).getUserName()
-					+ " will be created!";
-			logger.debug(message);
-		}
-		return super.onSave(entity, id, state, propertyNames, types);
-	}
-	
-	
+    @Override
+    public boolean onSave(Object entity, Serializable id, Object[] state,
+                          String[] propertyNames, Type[] types) {
+        if (entity instanceof UserBase) {
+            String message = "user=" + ((UserBase) entity).getUserName()
+                    + " will be created!";
+            logger.debug(String.format("SaveOrUpdateInterceptor is running,The data is [%s]", message));
+        }
+        return super.onSave(entity, id, state, propertyNames, types);
+    }
+
+
 }

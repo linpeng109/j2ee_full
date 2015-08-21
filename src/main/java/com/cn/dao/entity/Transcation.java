@@ -15,21 +15,21 @@ import javax.persistence.*;
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Transcation {
-	
-	/**
-	 * ID
-	 */
-	@Id
-	@GeneratedValue(generator = "system-uuid")
-	@Column(name = "transcationID", length = 32)
-	@DocumentId(name = "transcationID")
-	private String transcationID;
-	
-	/**
-	 * 对应关系所属的权限
-	 */
-	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.EAGER)
-	@JoinColumn(name = "userFansID")
-	private UserFans userFans;
+
+    /**
+     * ID
+     */
+    @Id
+    @GeneratedValue(generator = "system-uuid")
+    @Column(name = "transcationID", length = 32)
+    @DocumentId(name = "transcationID")
+    private String transcationID;
+
+    /**
+     * 对应关系所属的权限
+     */
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "userFansID")
+    private UserFans userFans;
 
 }

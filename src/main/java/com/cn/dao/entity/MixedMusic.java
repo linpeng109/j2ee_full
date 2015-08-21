@@ -15,25 +15,23 @@ import javax.persistence.*;
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @Inheritance(strategy = InheritanceType.JOINED)
 public class MixedMusic {
-	
-	/**
-	 * ID
-	 */
-	@Id
-	@GeneratedValue(generator = "system-uuid")
-	@Column(name = "mixedMusicID", length = 32)
-	@DocumentId(name = "mixedMusicID")
-	private String mixedMusicID;
 
-	public String getMixedMusicID() {
-		return mixedMusicID;
-	}
+    /**
+     * ID
+     */
+    @Id
+    @GeneratedValue(generator = "system-uuid")
+    @Column(name = "mixedMusicID", length = 32)
+    @DocumentId(name = "mixedMusicID")
+    private String mixedMusicID;
 
-	public void setMixedMusicID(String mixedMusicID) {
-		this.mixedMusicID = mixedMusicID;
-	}
-	
-	
-	
+    public String getMixedMusicID() {
+        return mixedMusicID;
+    }
+
+    public void setMixedMusicID(String mixedMusicID) {
+        this.mixedMusicID = mixedMusicID;
+    }
+
 
 }
