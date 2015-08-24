@@ -5,7 +5,6 @@ import org.hibernate.*;
 import org.hibernate.criterion.*;
 import org.hibernate.metadata.ClassMetadata;
 import org.hibernate.transform.Transformers;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 

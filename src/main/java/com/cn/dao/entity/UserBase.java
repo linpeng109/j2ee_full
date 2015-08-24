@@ -51,13 +51,14 @@ public class UserBase {
      * 用户名称
      */
     @Column(name = "userName", length = 32, unique = true)
-    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+    @Field(index=Index.YES, analyze=Analyze.YES, store=Store.YES)
     private String userName;
 
     /**
      * 用户口令
      */
     @Column(name = "passWord", length = 32)
+    @Field(index=Index.YES, analyze=Analyze.YES, store=Store.NO)
     private String passWord;
 
     /**
@@ -65,6 +66,7 @@ public class UserBase {
      */
     @Column(name = "createDate")
     @Type(type = "java.util.Date")
+    @Field(index= Index.YES, analyze=Analyze.YES, store=Store.NO)
     private Date createDate;
 
     /**

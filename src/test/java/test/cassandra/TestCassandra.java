@@ -3,7 +3,6 @@ package test.cassandra;
 import com.cn.cassandra.tables.Person;
 import com.cn.common.RandomModule;
 import com.cn.common.implement.RandomModuleImpl;
-import com.datastax.driver.core.querybuilder.Ordering;
 import com.datastax.driver.core.querybuilder.QueryBuilder;
 import com.datastax.driver.core.querybuilder.Select;
 import org.apache.log4j.Logger;

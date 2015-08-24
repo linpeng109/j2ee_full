@@ -160,7 +160,7 @@ dependencies {
      * Hibernate Search integration with Hibernate Core
      * 5.4.0.CR2
      */
-    def hibernateSearchVersion='5.4.0.CR2'
+    def hibernateSearchVersion = '5.4.0.CR2'
     compile("org.hibernate:hibernate-search-orm:$hibernateSearchVersion")
 
     /**
@@ -194,6 +194,14 @@ dependencies {
      */
     def jsonVersion = '20141113'
     compile("org.json:json:$jsonVersion")
+
+
+    def luceneVersion = '4.10.4'
+    compile("org.apache.lucene:lucene-core:$luceneVersion",
+            "org.apache.lucene:lucene-analyzers-common:$luceneVersion",
+            "org.apache.lucene:lucene-queryparser:$luceneVersion",
+            "org.apache.lucene:lucene-test-framework:$luceneVersion",
+            "org.apache.lucene:lucene-analyzers-smartcn:$luceneVersion")
 
     /**
      * MySQL JDBC Type 4 driver
@@ -396,6 +404,9 @@ configurations {
     compile.resolutionStrategy.force('xml-apis:xml-apis:1.4.01')
     runtime.resolutionStrategy.force('xml-apis:xml-apis:1.4.01')
     testRuntime.resolutionStrategy.force('xml-apis:xml-apis:1.4.01')
+//    compile.resolutionStrategy.force('org.hibernate:hibernate-search-orm:5.4.0.CR2')
+//    runtime.resolutionStrategy.force('org.hibernate:hibernate-search-orm:5.4.0.CR2')
+//    testRuntime.resolutionStrategy.force('org.hibernate:hibernate-search-orm:5.4.0.CR2')
 }
 
 /**

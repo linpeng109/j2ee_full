@@ -21,4 +21,5 @@
     </bean>
 
     <bean id="helloWorldAction" class="com.cn.struts2.HelloWorldAction" parent="baseAction"/>
+    <bean id="initializeAction" class="com.cn.struts2.InitializeAction" parent="baseAction"/>
 </beans>

@@ -1,7 +1,6 @@
 package test;
 
 import junit.framework.TestCase;
-import org.hibernate.FlushMode;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.junit.runner.RunWith;
@@ -23,10 +22,11 @@ public abstract class TestBase extends TestCase {
 
     @Override
     public void setUp() throws Exception {
-        session = sessionFactory.openSession();
-        session.setFlushMode(FlushMode.ALWAYS);
-        TransactionSynchronizationManager.bindResource(sessionFactory,
-                new SessionHolder(session));
+        if (TransactionSynchronizationManager.getResource(sessionFactory) == null) {
+            session = sessionFactory.openSession();
+            TransactionSynchronizationManager.bindResource(sessionFactory,
+                    new SessionHolder(session));
+        }
     }
 
     @Override
@@ -34,7 +34,6 @@ public abstract class TestBase extends TestCase {
         SessionHolder holder = (SessionHolder) TransactionSynchronizationManager
                 .getResource(sessionFactory);
         session = holder.getSession();
-        session.flush();
         TransactionSynchronizationManager.unbindResource(sessionFactory);
         SessionFactoryUtils.closeSession(session);
     }
