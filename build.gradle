@@ -195,7 +195,10 @@ dependencies {
     def jsonVersion = '20141113'
     compile("org.json:json:$jsonVersion")
 
-
+    /**
+     * Apache Lucene Java Core
+     * '4.10.4'
+     */
     def luceneVersion = '4.10.4'
     compile("org.apache.lucene:lucene-core:$luceneVersion",
             "org.apache.lucene:lucene-analyzers-common:$luceneVersion",
