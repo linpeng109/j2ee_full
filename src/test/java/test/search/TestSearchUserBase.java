@@ -20,13 +20,13 @@ public class TestSearchUserBase extends TestBase {
     @Resource
     public SearchModule searchModule;
 
-    @Test
+//    @Test
     public void testRebuildSearch() throws InterruptedException {
         searchModule.searchByRebuild();
     }
 
     @Test
     public void testWildSearch() throws IOException {
-        searchModule.searchByWildCard("userName", "*林*");
+        searchModule.searchByWildCard("userName", "*b*");
     }
 }

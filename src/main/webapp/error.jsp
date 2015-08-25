@@ -1,6 +1,6 @@
 <%@page contentType="text/html; charset=UTF-8" %>
-<%@taglib prefix="s" uri="/struts-tags" %>
-<%@taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@taglib prefix="struts" uri="struts-tags" %>
+<%@taglib prefix="security" uri="security-tags" %>
 
 <html>
 <head>

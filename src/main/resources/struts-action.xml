@@ -4,6 +4,7 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
+    <!-- STRUTS2处理 -->
     <package name="action" extends="struts-default">
 
         <!--定义默认的拦截栈堆 -->
@@ -41,4 +42,27 @@
             <result name="success" type="dispatcher">index.jsp</result>
         </action>
     </package>
+
+    <!-- JSON处理 -->
+    <package name="json" extends="json-default">
+        <result-types>
+            <result-type name="json" class="org.apache.struts2.json.JSONResult"/>
+        </result-types>
+        <interceptors>
+            <interceptor name="json" class="org.apache.struts2.json.JSONInterceptor"/>
+        </interceptors>
+
+        <!-- HelloWorld -->
+        <action name="jsonHelloWorld" class="helloWorldAction" method="hello">
+            <result name="success" type="json">
+                <param name="includeProperties">firstWord</param>
+            </result>
+        </action>
+        <action name="jsonUserBaseAction" class="userBaseAction">
+            <result name="success" type="json">
+                <param name="includeProperties">list\[\d+\]\.userBase_authoritys\[\d+\]\.authority.authorityString</param>
+            </result>
+        </action>
+    </package>
+
 </struts>
