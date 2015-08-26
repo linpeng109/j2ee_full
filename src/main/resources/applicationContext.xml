@@ -60,6 +60,8 @@
 
     <!-- Cassandra分布式非关系数据库模块配置 -->
     <import resource="spring-cassandra.xml"/>
+    <!-- HTTP模块配置 -->
+    <import resource="spring-http.xml"/>
 
 
 </beans>
