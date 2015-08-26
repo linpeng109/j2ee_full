@@ -1,4 +1,5 @@
 #ignore these files
+*.hprof
 .idea/*
 .gradle/*
 build/*
