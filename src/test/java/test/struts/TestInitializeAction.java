@@ -46,9 +46,9 @@ public class TestInitializeAction extends TestBase {
 
     @Test
     public void init() {
-//        testInitializeAuthority();
-//        testInitializeABCD();
-//        testInitializeUserBase(1000);
+        testInitializeAuthority();
+        testInitializeABCD();
+        testInitializeUserBase(1000);
     }
 
 }

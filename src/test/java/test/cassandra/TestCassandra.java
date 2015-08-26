@@ -49,7 +49,6 @@ public class TestCassandra extends TestBase {
     public void testCassandraTemplateSelectByLimt() {
 
         Select select = QueryBuilder.select().from("person");
-//        select.orderBy(QueryBuilder.asc("id"));
         select.limit(100);
         List<Person> list = cassandraTemplate.select(select, Person.class);
         for (int i = 0; i < list.size(); ++i) {
@@ -59,7 +58,7 @@ public class TestCassandra extends TestBase {
 
     }
 
-    @Test
+    //@Test
     public void testCassandraTemplateSelectOne() {
         Select select = QueryBuilder.select().from("person");
         UUID uuid = UUID.fromString("ee0bad9f-06f0-4a3a-bf7d-40985678278a");

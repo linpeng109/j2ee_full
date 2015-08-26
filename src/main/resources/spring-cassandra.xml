@@ -4,10 +4,10 @@
        xmlns:cassandra="http://www.springframework.org/schema/data/cassandra"
        xsi:schemaLocation="http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 		http://www.springframework.org/schema/data/cassandra http://www.springframework.org/schema/data/cassandra/spring-cassandra-1.0.xsd">
-    <cassandra:cluster contact-points="192.168.0.109" port="9042" username="root" password="admin"/>
+    <cassandra:cluster contact-points="115.182.16.111" port="9042"/>
     <cassandra:mapping/>
     <cassandra:converter/>
-    <cassandra:session keyspace-name="j2ee_full_cassandra"/>
+    <cassandra:session keyspace-name="j2ee_cassandra"/>
     <cassandra:template id="cassandraTemplate"/>
     <cassandra:repositories base-package="com.cn.cassandra.tables"/>
 </beans>
