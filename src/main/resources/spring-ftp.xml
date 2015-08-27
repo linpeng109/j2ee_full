@@ -10,7 +10,7 @@
             xsi:schemaLocation="http://mina.apache.org/ftpserver/spring/v1 http://mina.apache.org/ftpserver/ftpserver-1.0.xsd"
             id="ftpServer" anon-enabled="true" max-logins="200">
         <listeners>
-            <nio-listener name="default" port="8880">
+            <nio-listener name="default" port="8800">
             </nio-listener>
         </listeners>
         <ftplets>

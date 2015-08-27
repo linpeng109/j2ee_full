@@ -13,7 +13,7 @@
 
 
     <http:inbound-gateway request-channel="requestChannel" auto-startup="true" error-channel="error"
-                          supported-methods="GET,POST" request-timeout="1000" path="/httpInbound"/>
+                          supported-methods="GET,POST" request-timeout="5000" />
     <si:service-activator input-channel="requestChannel" output-channel="httpPaserOneOutChannel" ref="httpPaserOne"
                           method="handler"/>
     <si:channel id="httpPaserOneOutChannel"/>

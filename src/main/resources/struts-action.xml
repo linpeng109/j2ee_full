@@ -60,7 +60,13 @@
         </action>
         <action name="jsonUserBaseAction" class="userBaseAction">
             <result name="success" type="json">
-                <param name="includeProperties">list\[\d+\]\.userBase_authoritys\[\d+\]\.authority.authorityString</param>
+                <param name="includeProperties">
+                    list\[\d+\]\.userId,
+                    list\[\d+\]\.userName,
+                    list\[\d+\]\.createDate,
+                    list\[\d+\]\.userBase_authoritys\[\d+\]\.authority,
+                    list\[\d+\]\.userBase_authoritys\[\d+\]\.authority.authorityString
+                </param>
             </result>
         </action>
     </package>
