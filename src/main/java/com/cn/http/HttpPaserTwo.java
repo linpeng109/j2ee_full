@@ -17,10 +17,10 @@ public class HttpPaserTwo {
      * @return
      */
     public Message<String> handler(Message<String> msg) {
-        String payload = msg.getPayload();
+        String payload = msg.getPayload() + "2";
         logger.debug(payload);
         Message<String> result = MessageBuilder
-                .withPayload(payload + "_2")
+                .withPayload(payload)
                 .copyHeaders(msg.getHeaders())
                 .build();
         return result;

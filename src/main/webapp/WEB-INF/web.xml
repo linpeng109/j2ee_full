@@ -72,13 +72,13 @@
     </servlet>
 
     <!-- Spring-integration-http -->
-    <!--
+
     <servlet>
         <servlet-name>HttpRequestHandlerServlet</servlet-name>
         <servlet-class>org.springframework.web.context.support.HttpRequestHandlerServlet</servlet-class>
     </servlet>
 
--->
+
 
     <!-- SERVLET映射 -->
 
@@ -92,12 +92,12 @@
         <servlet-name>DWRServlet</servlet-name>
         <url-pattern>/dwr/*</url-pattern>
     </servlet-mapping>
-    <!--
+
     <servlet-mapping>
         <servlet-name>HttpRequestHandlerServlet</servlet-name>
         <url-pattern>/http/*</url-pattern>
     </servlet-mapping>
--->
+
     <!-- FILTER映射（注意保持顺序） -->
     <filter-mapping>
         <filter-name>springSecurityFilterChain</filter-name>

@@ -371,8 +371,9 @@ dependencies {
      * Tomcat-embed plugin
      * 7.0.63
      * 8.0.24
+     * 8.0.26
      */
-    def tomcatVersion = '8.0.24'
+    def tomcatVersion = '8.0.26'
     tomcat("org.apache.tomcat.embed:tomcat-embed-core:$tomcatVersion",
             "org.apache.tomcat.embed:tomcat-embed-logging-juli:$tomcatVersion",
             "org.apache.tomcat.embed:tomcat-embed-jasper:$tomcatVersion",

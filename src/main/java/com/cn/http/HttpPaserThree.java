@@ -5,24 +5,25 @@ import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
 
 /**
- * Created by linpeng109 on 15-8-26.
+ * Created by linpeng109 on 15-8-28.
  */
-public class HttpPaserOne {
+public class HttpPaserThree {
     /**
      *
      */
-    final Logger logger = Logger.getLogger(HttpPaserOne.class);
+    final Logger logger = Logger.getLogger(HttpPaserThree.class);
 
     /**
      * @return
      */
     public Message<String> handler(Message<String> msg) {
-        String payload = msg.getPayload() + "1";
+        String payload = msg.getPayload() + "3";
         logger.debug(payload);
         Message<String> result = MessageBuilder
                 .withPayload(payload)
                 .copyHeaders(msg.getHeaders())
                 .build();
+
         return result;
     }
 }
