@@ -13,14 +13,13 @@
     <bean id="httpPaserThree" class="com.cn.http.HttpPaserThree"/>
 
 
-    <http:inbound-gateway request-channel="httpPaserOneInputChannel" auto-startup="true" error-channel="error"
-                          supported-methods="GET,POST" request-timeout="5000"/>
+    <http:inbound-gateway id="httpInboundGateway" request-channel="httpPaserOneInputChannel" auto-startup="true"
+                          error-channel="error" supported-methods="GET,POST" request-timeout="5000"/>
 
 
     <si:channel id="httpPaserOneInputChannel"/>
     <si:service-activator input-channel="httpPaserOneInputChannel" output-channel="httpPaserTwoInputChannel"
-                          ref="httpPaserOne"
-                          method="handler"/>
+                          ref="httpPaserOne" method="handler"/>
 
     <!--
     <si:publish-subscribe-channel id="routInputChannel"/>
@@ -29,8 +28,7 @@
         <si:mapping value="2" channel="httpPaserTwoInputChannel"/>
         <si:mapping value="3" channel="httpPaserThreeInputChannel"/>
     </si:header-value-router>
--->
-
+    -->
 
     <si:channel id="httpPaserTwoInputChannel"/>
     <si:service-activator input-channel="httpPaserTwoInputChannel" output-channel="httpPaserThreeInputChannel"

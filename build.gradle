@@ -395,22 +395,14 @@ dependencies {
  * configurations
  */
 configurations {
-    //compile.exclude module: "logback-classic"
-    //compile.exclude module: "slf4j-jdk14"
     compile.exclude module: "slf4j-log4j12"
     compile.exclude module: "jsp-2.1"
     compile.exclude module: "jsp-api-2.1"
-    //compile.exclude module: "servlet-api-2.1"
     compile.exclude module: "jasper-compiler"
     compile.exclude module: "jasper-runtime"
-    //compile.exclude module: "tomcat-catalina"
-    // runtime.resolutionStrategy.force("org.bouncycastle:bcprov-jdk15on:1.52")
     compile.resolutionStrategy.force('xml-apis:xml-apis:1.4.01')
     runtime.resolutionStrategy.force('xml-apis:xml-apis:1.4.01')
     testRuntime.resolutionStrategy.force('xml-apis:xml-apis:1.4.01')
-//    compile.resolutionStrategy.force('org.hibernate:hibernate-search-orm:5.4.0.CR2')
-//    runtime.resolutionStrategy.force('org.hibernate:hibernate-search-orm:5.4.0.CR2')
-//    testRuntime.resolutionStrategy.force('org.hibernate:hibernate-search-orm:5.4.0.CR2')
 }
 
 /**

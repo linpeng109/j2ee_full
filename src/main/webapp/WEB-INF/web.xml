@@ -72,30 +72,25 @@
     </servlet>
 
     <!-- Spring-integration-http -->
-
     <servlet>
-        <servlet-name>HttpRequestHandlerServlet</servlet-name>
+        <servlet-name>httpInboundGateway</servlet-name>
         <servlet-class>org.springframework.web.context.support.HttpRequestHandlerServlet</servlet-class>
     </servlet>
 
-
+    <servlet-mapping>
+        <servlet-name>httpInboundGateway</servlet-name>
+        <url-pattern>/remoting/AccountService</url-pattern>
+    </servlet-mapping>
 
     <!-- SERVLET映射 -->
-
     <servlet-mapping>
         <servlet-name>CXFServlet</servlet-name>
         <url-pattern>/cxf/*</url-pattern>
     </servlet-mapping>
 
-
     <servlet-mapping>
         <servlet-name>DWRServlet</servlet-name>
         <url-pattern>/dwr/*</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>HttpRequestHandlerServlet</servlet-name>
-        <url-pattern>/http/*</url-pattern>
     </servlet-mapping>
 
     <!-- FILTER映射（注意保持顺序） -->
