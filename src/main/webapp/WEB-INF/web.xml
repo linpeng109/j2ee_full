@@ -27,7 +27,7 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
-    <!-- -->
+    <!-- spring容器与request请求绑定-->
     <listener>
         <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
     </listener>
@@ -76,18 +76,18 @@
         </init-param>
     </servlet>
 
-    <!-- Spring-integration-http -->
+    <!-- Spring-integration:REST -->
     <servlet>
         <servlet-name>httpInboundGateway</servlet-name>
         <servlet-class>org.springframework.web.context.support.HttpRequestHandlerServlet</servlet-class>
     </servlet>
 
+    <!-- SERVLET映射 -->
     <servlet-mapping>
         <servlet-name>httpInboundGateway</servlet-name>
         <url-pattern>/remoting/AccountService</url-pattern>
     </servlet-mapping>
 
-    <!-- SERVLET映射 -->
     <servlet-mapping>
         <servlet-name>CXFServlet</servlet-name>
         <url-pattern>/cxf/*</url-pattern>

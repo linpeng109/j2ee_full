@@ -9,26 +9,29 @@ apply plugin: 'com.bmuschko.cargo-base'
 
 /**
  * Gradle plugin supporting deployment of your web application to an embedded Tomcat web container.
+ * 2.2.2
  */
 buildscript {
     repositories {
         jcenter()
     }
-
+    def gradleTomcatPluginVersion='2.2.2'
     dependencies {
-        classpath('com.bmuschko:gradle-tomcat-plugin:2.2.2')
+        classpath("com.bmuschko:gradle-tomcat-plugin:$gradleTomcatPluginVersion")
     }
 }
 
 /**
  * Gradle plugin that provides deployment capabilities to local and remote containers via Cargo.
+ * 2.1.1
  */
 buildscript {
     repositories {
         jcenter()
     }
+    def gradleCargoPluginVersion='2.1.1'
     dependencies {
-        classpath('com.bmuschko:gradle-cargo-plugin:2.1.1')
+        classpath("com.bmuschko:gradle-cargo-plugin:$gradleCargoPluginVersion")
     }
 }
 
@@ -40,6 +43,7 @@ version = '2015.07.28_j2ee_full'
  *
  */
 repositories {
+    jcenter()
     mavenCentral()
     ivy {
         url("/home/linpeng109/workset/ivy_repository")
@@ -48,11 +52,12 @@ repositories {
 }
 
 /**
- *
+ * Dependencies
  */
 dependencies {
     /**
      * An implementation of the SOAP ("Simple Object Access Protocol") submission to W3C.
+     * 1.4
      */
     def axisVersion = '1.4'
     compile("axis:axis:$axisVersion")
@@ -60,6 +65,8 @@ dependencies {
 
     /**
      * Puts together an ActiveMQ jar bundle
+     * 5.11.1
+     * 5.12.0
      */
     def activemqVersion = '5.11.1'
     compile("org.apache.activemq:activemq-all:$activemqVersion")
@@ -79,19 +86,11 @@ dependencies {
 
     /**
      * Java Servlet API
+     * 8.0.24
+     * 8.0.26
      */
-    //def servletVersion = '3.1.0'
-    //providedCompile("javax.servlet:javax.servlet-api:$servletVersion")
-
-    compile("org.apache.tomcat:tomcat-servlet-api:8.0.24")
-
-    /**
-     * The Bouncy Castle Crypto package is a Java implementation of cryptographic algorithms.
-     * This jar contains JCE provider and lightweight API for the Bouncy Castle Cryptography
-     * APIs for JDK 1.5 to JDK 1.8.
-     */
-    //def bcprovVersion = '1.52'
-    //compile("org.bouncycastle:bcprov-jdk15on:$bcprovVersion")
+    def tomcatServletApiVersion='8.0.26'
+    compile("org.apache.tomcat:tomcat-servlet-api:$tomcatServletApiVersion")
 
     /**
      * Flex Messaging
@@ -109,6 +108,7 @@ dependencies {
     /**
      *  The Apache Cassandra Project develops a highly scalable second-generation distributed database, bringing
      *  together Dynamo's fully distributed design and Bigtable's ColumnFamily-based data model.
+     *  2.2.0
      */
     def cassandraVersion = '2.2.0'
     compile("org.apache.cassandra:cassandra-all:$cassandraVersion") {
@@ -117,18 +117,21 @@ dependencies {
 
     /**
      * a JDBC Connection pooling / Statement caching library
+     * 0.9.5.1
      */
     def c3p0Version = '0.9.5.1'
     compile("com.mchange:c3p0:$c3p0Version")
 
     /**
      * Code generation library with shaded ASM dependecies
+     * 3.1
      */
     def cglibVersion = '3.1'
     compile("cglib:cglib-nodep:$cglibVersion")
 
     /**
      * Apache FtpServer
+     * 1.0.6
      */
     def ftpserverVersion = '1.0.6'
     compile("org.apache.ftpserver:ftpserver:$ftpserverVersion") {
@@ -137,6 +140,7 @@ dependencies {
 
     /**
      * A library for testing websites programmatically
+     * 1.7.2
      */
     def httpunitVersion = '1.7.2'
     compile("org.httpunit:httpunit:$httpunitVersion") {
@@ -147,8 +151,9 @@ dependencies {
      * The core O/RM functionality as provided by Hibernate
      * 5.0.0.CR2
      * 5.0.0.CR4
+     * 5.0.0.Final
      */
-    def hibernateVersion = '5.0.0.CR4'
+    def hibernateVersion = '5.0.0.Final'
     compile("org.hibernate:hibernate-core:$hibernateVersion",
             "org.hibernate:hibernate-c3p0:$hibernateVersion",
             "org.hibernate:hibernate-ehcache:$hibernateVersion",
@@ -166,18 +171,21 @@ dependencies {
     /**
      * Javassist (JAVA programming ASSISTant) makes Java bytecode manipulation simple.
      * It is a class library for editing bytecodes in Java.
+     * 3.20.0-GA
      */
     def javassistVersion = '3.20.0-GA'
     compile("org.javassist:javassist:$javassistVersion")
 
     /**
      * Jaxen is a universal Java XPath engine.
+     * 1.1.6
      */
     def jaxenVersion = '1.1.6'
     compile("jaxen:jaxen:$jaxenVersion")
 
     /**
      * JEP is a Java library for parsing and evaluating mathematical expressions.
+     * 2.4.2
      */
     def jepVersion = '2.4.2'
     compile("org.scijava:jep:$jepVersion")
@@ -185,12 +193,14 @@ dependencies {
     /**
      * jPOS is an ISO-8583 based financial transaction library/framework that can be customized
      * and extended in order to implement financial interchanges.
+     * 2.0.2
      */
     def jposVersion = '2.0.2'
     compile("org.jpos:jpos:$jposVersion")
 
     /**
      * JSON is a light-weight, language independent, data interchange format.
+     * 20141113
      */
     def jsonVersion = '20141113'
     compile("org.json:json:$jsonVersion")
@@ -208,12 +218,14 @@ dependencies {
 
     /**
      * MySQL JDBC Type 4 driver
+     * 5.1.36
      */
     def mysqlConnectorJavaVersion = '5.1.36'
     compile("mysql:mysql-connector-java:$mysqlConnectorJavaVersion")
 
     /**
      * Apache POI - Java API To Access Microsoft Format Files
+     * 3.12
      */
     def poiVersion = '3.12'
     compile("org.apache.poi:poi:$poiVersion",
@@ -222,6 +234,7 @@ dependencies {
 
     /**
      * Enterprise Job Scheduler
+     * 2.2.1
      */
     def quartzVersion = '2.2.1'
     compile("org.quartz-scheduler:quartz:$quartzVersion")
@@ -254,6 +267,7 @@ dependencies {
 
     /**
      * Cassandra Support for Spring Data
+     * 1.2.2.RELEASE
      */
     def springDataCassandraVersion = '1.2.2.RELEASE'
     compile("org.springframework.data:spring-data-cassandra:$springDataCassandraVersion")
@@ -274,6 +288,7 @@ dependencies {
 
     /**
      * Spring Integration Framework
+     * 4.1.6.RELEASE
      */
     def springIntegrationVersion = '4.1.6.RELEASE'
     compile("org.springframework.integration:spring-integration-core:$springIntegrationVersion",
@@ -297,6 +312,7 @@ dependencies {
 
     /**
      * Spring.security Framework
+     * 4.0.2.RELEASE
      */
     def springSecurityVersion = '4.0.2.RELEASE'
     compile("org.springframework.security:spring-security-core:$springSecurityVersion",
@@ -307,12 +323,14 @@ dependencies {
 
     /**
      * Spring Web Services is a product of the Spring community focused on creating document-driven Web services.
+     * 2.1.4.RELEASE
      */
     def springwsVersion = '2.1.4.RELEASE'
     compile("org.springframework.ws:spring-ws:$springwsVersion")
 
     /**
      * JCL 1.1.1 implemented over SLF4J
+     * 1.7.12
      */
     def slf4jVersion = '1.7.12'
     compile("org.slf4j:jcl-over-slf4j:$slf4jVersion",
@@ -320,6 +338,7 @@ dependencies {
 
     /**
      * Struts2 Framework
+     * 2.3.24
      */
     def struts2Version = '2.3.24'
     compile("org.apache.struts:struts2-core:$struts2Version",
@@ -331,18 +350,21 @@ dependencies {
 
     /**
      * xbean-spring provides a schema-driven proprietary namespace handler for spring contexts
+     * 4.3
      */
     def xbeanSpringVersion = '4.3'
     compile("org.apache.xbean:xbean-spring:$xbeanSpringVersion")
 
     /**
      * Xerces2 is the next generation of high performance, fully compliant XML parsers in the Apache Xerces family.
+     * 2.11.0
      */
     def xercesImpVersion = '2.11.0'
     compile("xerces:xercesImpl:$xercesImpVersion")
 
     /**
      * XStream extension for Hibernate 3/4 to untie Java objects from Hibernate.
+     * 1.4.8
      */
     def xstreamVersion = '1.4.8'
     compile("com.thoughtworks.xstream:xstream:$xstreamVersion",
@@ -350,19 +372,23 @@ dependencies {
 
     /**
      * RXTX is a native lib providing serial and parallel communication for the Java Development Toolkit (JDK).
+     * 2.1.7
      */
     def rxtxVerion = '2.1.7'
     compile("org.rxtx:rxtx:$rxtxVerion")
 
     /**
      * Core barcode encoding/decoding library
+     * 3.2.0
+     * 3.2.1
      */
-    def zxingVersion = '3.2.0'
+    def zxingVersion = '3.2.1'
     compile("com.google.zxing:core:$zxingVersion",
             "com.google.zxing:javase:$zxingVersion")
 
     /**
      * JUnit is a unit testing framework for Java, created by Erich Gamma and Kent Beck.
+     * 4.12
      */
     def junitVersion = '4.12'
     testCompile("junit:junit:$junitVersion")
@@ -383,6 +409,7 @@ dependencies {
 
     /**
      * The Cargo Core Uberjar
+     * 1.4.15
      */
     def cargoVersion = '1.4.15'
     cargo("org.codehaus.cargo:cargo-core-uberjar:$cargoVersion",
@@ -392,7 +419,7 @@ dependencies {
 }
 
 /**
- * configurations
+ * configurations for projects
  */
 configurations {
     compile.exclude module: "slf4j-log4j12"
@@ -406,7 +433,7 @@ configurations {
 }
 
 /**
- *
+ * sourceSets setup
  */
 sourceSets {
     main {
@@ -424,7 +451,7 @@ sourceSets {
 }
 
 /**
- *
+ * jar plugin setup
  */
 jar {
     baseName = 'j2ee_min'
@@ -439,7 +466,7 @@ tomcat {
 }
 
 /**
- *
+ * create SourceSets
  */
 task createSourceSets {
     war.each {

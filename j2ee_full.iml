@@ -16,7 +16,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="Gradle: axis:axis:1.4" level="project" />
     <orderEntry type="library" exported="" name="Gradle: axis:axis-jaxrpc:1.4" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: org.apache.activemq:activemq-all:5.11.1" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.apache.cassandra:cassandra-all:2.2.0" level="project" />
     <orderEntry type="library" exported="" name="Gradle: cglib:cglib-nodep:3.1" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.httpunit:httpunit:1.7.2" level="project" />
@@ -66,8 +65,6 @@
     <orderEntry type="library" exported="" name="Gradle: com.thoughtworks.xstream:xstream:1.4.8" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.thoughtworks.xstream:xstream-hibernate:1.4.8" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.rxtx:rxtx:2.1.7" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: com.google.zxing:core:3.2.0" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: com.google.zxing:javase:3.2.0" level="project" />
     <orderEntry type="library" exported="" name="Gradle: axis:axis-saaj:1.4" level="project" />
     <orderEntry type="library" exported="" name="Gradle: axis:axis-wsdl4j:1.5.1" level="project" />
     <orderEntry type="library" exported="" name="Gradle: commons-discovery:commons-discovery:0.2" level="project" />
@@ -259,22 +256,6 @@
     <orderEntry type="library" name="Gradle: org.apache.flex.blazeds:flex-messaging-proxy:4.7.1" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.flex.blazeds:flex-messaging-remoting:4.7.1" level="project" />
     <orderEntry type="library" name="Gradle: com.mchange:c3p0:0.9.5.1" level="project" />
-    <orderEntry type="library" name="Gradle: org.hibernate:hibernate-core:5.0.0.CR4" level="project" />
-    <orderEntry type="library" name="Gradle: org.hibernate:hibernate-c3p0:5.0.0.CR4" level="project" />
-    <orderEntry type="library" name="Gradle: org.hibernate:hibernate-ehcache:5.0.0.CR4" level="project" />
-    <orderEntry type="library" name="Gradle: org.hibernate:hibernate-entitymanager:5.0.0.CR4" level="project" />
-    <orderEntry type="library" name="Gradle: org.hibernate:hibernate-envers:5.0.0.CR4" level="project" />
-    <orderEntry type="library" name="Gradle: org.hibernate:hibernate-testing:5.0.0.CR4" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-core:4.2.0.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-context:4.2.0.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-context-support:4.2.0.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-jms:4.2.0.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-orm:4.2.0.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-test:4.2.0.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-web:4.2.0.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-webmvc:4.2.0.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-instrument-tomcat:4.2.0.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-messaging:4.2.0.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.batch:spring-batch-core:3.0.5.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.batch:spring-batch-test:3.0.5.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.data:spring-data-redis:1.5.2.RELEASE" level="project" />
@@ -366,14 +347,8 @@
     <orderEntry type="library" name="Gradle: org.opensaml:opensaml-storage-api:3.1.1" level="project" />
     <orderEntry type="library" name="Gradle: org.opensaml:opensaml-soap-impl:3.1.1" level="project" />
     <orderEntry type="library" name="Gradle: org.opensaml:opensaml-messaging-api:3.1.1" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-beans:4.2.0.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-aop:4.2.0.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-tx:4.2.0.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-jdbc:4.2.0.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-expression:4.2.0.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.batch:spring-batch-infrastructure:3.0.5.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.bouncycastle:bcprov-jdk15on:1.51" level="project" />
-    <orderEntry type="library" name="Gradle: org.apache.tomcat:tomcat-servlet-api:8.0.24" level="project" />
     <orderEntry type="library" name="Gradle: org.hibernate:hibernate-search-orm:5.4.0.CR2" level="project" />
     <orderEntry type="library" name="Gradle: org.hibernate:hibernate-search-engine:5.4.0.CR2" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.lucene:lucene-facet:4.10.4" level="project" />
@@ -388,5 +363,31 @@
     <orderEntry type="library" name="Gradle: org.apache.lucene:lucene-codecs:4.10.4" level="project" />
     <orderEntry type="library" name="Gradle: com.carrotsearch.randomizedtesting:junit4-ant:2.1.6" level="project" />
     <orderEntry type="library" name="Gradle: com.carrotsearch.randomizedtesting:randomizedtesting-runner:2.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.zxing:core:3.2.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.zxing:javase:3.2.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.beust:jcommander:1.48" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-core:4.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-context:4.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-context-support:4.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-jms:4.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-orm:4.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-test:4.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-web:4.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-webmvc:4.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-instrument-tomcat:4.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-messaging:4.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-beans:4.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-aop:4.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-tx:4.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-jdbc:4.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-expression:4.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.activemq:activemq-all:5.11.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.tomcat:tomcat-servlet-api:8.0.24" level="project" />
+    <orderEntry type="library" name="Gradle: org.hibernate:hibernate-core:5.0.0.CR4" level="project" />
+    <orderEntry type="library" name="Gradle: org.hibernate:hibernate-c3p0:5.0.0.CR4" level="project" />
+    <orderEntry type="library" name="Gradle: org.hibernate:hibernate-ehcache:5.0.0.CR4" level="project" />
+    <orderEntry type="library" name="Gradle: org.hibernate:hibernate-entitymanager:5.0.0.CR4" level="project" />
+    <orderEntry type="library" name="Gradle: org.hibernate:hibernate-envers:5.0.0.CR4" level="project" />
+    <orderEntry type="library" name="Gradle: org.hibernate:hibernate-testing:5.0.0.CR4" level="project" />
   </component>
 </module>

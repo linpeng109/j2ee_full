@@ -7,6 +7,7 @@ import com.datastax.driver.core.querybuilder.QueryBuilder;
 import com.datastax.driver.core.querybuilder.Select;
 import org.apache.log4j.Logger;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.cassandra.core.CassandraTemplate;
 import test.TestBase;
 
@@ -20,7 +21,7 @@ import java.util.UUID;
 public class TestCassandra extends TestBase {
     final Logger logger = Logger.getLogger(TestCassandra.class);
 
-    @Resource
+    @Autowired
     public CassandraTemplate cassandraTemplate;
 
     //@Test
@@ -45,7 +46,7 @@ public class TestCassandra extends TestBase {
         logger.debug(String.format("The person table size is [%s] ", size));
     }
 
-    @Test
+    //@Test
     public void testCassandraTemplateSelectByLimt() {
 
         Select select = QueryBuilder.select().from("person");
