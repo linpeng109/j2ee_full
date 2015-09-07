@@ -46,7 +46,7 @@ repositories {
     jcenter()
     mavenCentral()
     ivy {
-        url("/home/linpeng109/workset/ivy_repository")
+        url("/home/jupiter/workset/ivy_repository")
         // url("d:/ivy_repository")
     }
 }
@@ -153,7 +153,7 @@ dependencies {
      * 5.0.0.CR4
      * 5.0.0.Final
      */
-    def hibernateVersion = '5.0.0.Final'
+    def hibernateVersion = '5.0.1.Final'
     compile("org.hibernate:hibernate-core:$hibernateVersion",
             "org.hibernate:hibernate-c3p0:$hibernateVersion",
             "org.hibernate:hibernate-ehcache:$hibernateVersion",

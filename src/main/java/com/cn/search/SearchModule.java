@@ -40,7 +40,7 @@ public class SearchModule {
      */
 //    @Test
     public void searchByWildCard(String fieldName, String searchString) throws IOException {
-        String searchDir = "/home/linpeng109/workset/workdir/search/com.cn.dao.entity.UserBase";
+        String searchDir = "/home/jupiter/workset/workdir/search/com.cn.dao.entity.UserBase";
 //        Path searchPath = Paths.get(searchDir);
         Directory directory = FSDirectory.open(new File(searchDir));
         IndexReader reader = DirectoryReader.open(directory);
