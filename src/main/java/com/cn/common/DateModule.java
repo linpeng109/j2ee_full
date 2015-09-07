@@ -3,6 +3,10 @@ package com.cn.common;
 import java.text.ParseException;
 import java.util.Date;
 
+
+
+
+
 public interface DateModule {
     /**
      * convertToDate 将字符串转换成日期类型
