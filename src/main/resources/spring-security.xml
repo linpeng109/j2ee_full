@@ -5,7 +5,7 @@
 	http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 
     <security:http>
-        <security:csrf disable="true"/>
+        <security:csrf disabled="true"/>
         <security:anonymous enabled="false"/>
         <security:form-login default-target-url="/index.jsp"
                              login-page="/login.jsp"/>

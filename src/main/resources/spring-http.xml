@@ -13,13 +13,13 @@
     <bean id="httpPaserThree" class="com.cn.http.HttpPaserThree"/>
 
 
-    <http:inbound-gateway id="httpInboundGateway" request-channel="httpPaserOneInputChannel" auto-startup="true"
+    <http:inbound-gateway id="httpInboundGateway" request-channel="requestChannel" reply-channel="replyChannel"
                           error-channel="error" supported-methods="GET,POST" request-timeout="5000"/>
+    <si:channel id="requestChannel"/>
+    <si:channel id="replyChannel"/>
 
-
-    <si:channel id="httpPaserOneInputChannel"/>
-    <si:service-activator input-channel="httpPaserOneInputChannel" output-channel="httpPaserTwoInputChannel"
-                          ref="httpPaserOne" method="handler"/>
+    <si:service-activator ref="httpPaserOne" method="handler" input-channel="requestChannel"
+                          output-channel="httpPaserTwoInputChannel"/>
 
     <!--
     <si:publish-subscribe-channel id="routInputChannel"/>
@@ -31,11 +31,10 @@
     -->
 
     <si:channel id="httpPaserTwoInputChannel"/>
-    <si:service-activator input-channel="httpPaserTwoInputChannel" output-channel="httpPaserThreeInputChannel"
-                          ref="httpPaserTwo"
-                          method="handler"/>
+    <si:service-activator ref="httpPaserTwo" method="handler" input-channel="httpPaserTwoInputChannel"
+                          output-channel="httpPaserThreeInputChannel"/>
 
     <si:channel id="httpPaserThreeInputChannel"/>
-    <si:service-activator input-channel="httpPaserThreeInputChannel" output-channel="logger" ref="httpPaserThree"
-                          method="handler"/>
+    <si:service-activator ref="httpPaserThree" method="handler" input-channel="httpPaserThreeInputChannel"
+                          output-channel="replyChannel"/>
 </beans>
