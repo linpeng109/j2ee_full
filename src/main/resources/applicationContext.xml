@@ -53,7 +53,7 @@
     <import resource="spring-encoder.xml"/>
 
     <!-- XMPP消息模块配置 -->
-    <!--import resource="spring-xmpp.xml"/-->
+    <!--import resource="spring-xmpp.xml"/ -->
 
     <!-- Kafka分布式消息系统模块配置 -->
     <!-- import resource="spring-kafka.xml" / -->

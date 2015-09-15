@@ -15,15 +15,15 @@ import javax.annotation.Resource;
 public class TestHttp extends TestBase {
     final Logger logger = Logger.getLogger(TestHttp.class);
     @Resource
-    private MessageChannel httpPaserOneInputChannel;
+    private MessageChannel httpPaserTwoInputChannel;
 
     @Test
     public void testRequestChannel() {
-        Message<String> message = MessageBuilder
-                .withPayload("Test httpPaser ")
-                .setHeader("channel", "2")
-                .build();
-        httpPaserOneInputChannel.send(message);
+//        Message<String> message = MessageBuilder
+//                .withPayload("Test httpPaser ")
+//                .setHeader("channel", "2")
+//                .build();
+//        httpPaserTwoInputChannel.send(message);
     }
 
 }
