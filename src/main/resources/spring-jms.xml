@@ -8,9 +8,10 @@
 		http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
 		http://www.springframework.org/schema/integration/jms http://www.springframework.org/schema/integration/jms/spring-integration-jms.xsd">
 
-    <!-- 建立消息连接工厂 -->
+    <!-- 建立JMS消息连接工厂 -->
     <activemq:connectionFactory id="remoteConnectionFactory"
-                                brokerURL="tcp://192.168.0.106:61616" userName="admin" password="activemq"
+                                brokerURL="${connectionFactory.brokerURL}" userName="${connectionFactory.userName}"
+                                password="${connectionFactory.password}"
                                 maxThreadPoolSize="1000"/>
 
     <!-- 配置Topic目标 -->

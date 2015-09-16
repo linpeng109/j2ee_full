@@ -1,6 +1,11 @@
 package com.cn.ip;
 
 import org.apache.log4j.Logger;
+import org.springframework.integration.support.MessageBuilder;
+import org.springframework.messaging.Message;
+import org.springframework.messaging.MessageHeaders;
+
+import java.util.Map;
 
 public class TCPMessageReceiver {
     private Logger logger = Logger.getLogger(TCPMessageReceiver.class);
@@ -8,12 +13,24 @@ public class TCPMessageReceiver {
     public TCPMessageReceiver() {
     }
 
-    public String receiver(byte[] body) {
-        StringBuffer result = new StringBuffer();
-        for (int i = 0; i < body.length; ++i) {
-            result.append(body[i]);
+    public Message<String> receiver(Message<byte[]> message) {
+
+        MessageHeaders headers = message.getHeaders();
+        for (Map.Entry entry : headers.entrySet()) {
+            Object key = entry.getKey();
+            Object value = entry.getValue();
+            logger.debug(String.format("The %s is %s in message header", key, value));
         }
-        logger.debug(result.toString());
-        return result.toString();
+
+        byte[] payload = message.getPayload();
+        StringBuffer buffer = new StringBuffer();
+        for (byte item : payload) {
+            buffer.append((char)item);
+        }
+
+        logger.debug(String.format("The payload is %s", buffer.toString()));
+
+        Message result = MessageBuilder.withPayload(buffer.toString()).copyHeaders(headers).build();
+        return result;
     }
 }

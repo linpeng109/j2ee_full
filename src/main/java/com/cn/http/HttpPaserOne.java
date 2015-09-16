@@ -2,6 +2,7 @@ package com.cn.http;
 
 import org.apache.log4j.Logger;
 import org.springframework.messaging.Message;
+import org.springframework.messaging.MessageHeaders;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.util.LinkedMultiValueMap;
 
@@ -20,7 +21,7 @@ public class HttpPaserOne {
      * @return
      */
     public Message<String> handler(Message<LinkedMultiValueMap> msg) {
-        Map<String, String> headers = msg.getPayload();
+        MessageHeaders headers = msg.getHeaders();
         for (Map.Entry entry : headers.entrySet()) {
             Object key = entry.getKey();
             Object value = entry.getValue();

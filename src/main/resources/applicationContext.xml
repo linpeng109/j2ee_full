@@ -27,6 +27,8 @@
     <import resource="spring-common.xml"/>
     <!-- JSON模块配置 -->
     <import resource="spring-json.xml"/>
+    <!-- JMS模块配置 -->
+    <import resource="spring-jms.xml"/>
     <!-- 密文模块配置 -->
     <import resource="spring-crypto.xml"/>
     <!-- 用户及权限模块配置 -->
@@ -53,7 +55,7 @@
     <import resource="spring-encoder.xml"/>
 
     <!-- XMPP消息模块配置 -->
-    <!--import resource="spring-xmpp.xml"/ -->
+    <import resource="spring-xmpp.xml"/>
 
     <!-- Kafka分布式消息系统模块配置 -->
     <!-- import resource="spring-kafka.xml" / -->

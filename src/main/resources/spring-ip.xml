@@ -32,14 +32,15 @@
     </bean>
 
     <!-- TCP入港连接工厂 -->
-    <int-ip:tcp-connection-factory id="tcpServerFactory"
-                                   using-nio="false" single-use="false" deserializer="RAW" serializer="RAW"
-                                   host="localhost" port="12345" type="server"/>
+    <int-ip:tcp-connection-factory id="tcpServerFactory" using-nio="true" single-use="false" host="192.168.0.102"
+                                   so-keep-alive="true"
+                                   lookup-host="false" backlog="100" so-linger="3000" so-timeout="5000" serializer="RAW"
+                                   deserializer="RAW" port="12345" type="server"/>
 
     <!-- TCP入港网关 -->
-    <int-ip:tcp-inbound-gateway request-channel="tcp_request_channel"
-                                connection-factory="tcpServerFactory" reply-channel="tcp_reply_channel"
-                                error-channel="logger"/>
+    <int-ip:tcp-inbound-gateway request-channel="tcp_request_channel" connection-factory="tcpServerFactory"
+                                reply-channel="tcp_reply_channel" reply-timeout="2000" retry-interval="60000"
+                                error-channel="error"/>
 
     <int:channel id="tcp_request_channel"/>
     <int:channel id="tcp_reply_channel"/>
