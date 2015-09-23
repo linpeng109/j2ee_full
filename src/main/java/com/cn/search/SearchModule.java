@@ -29,19 +29,27 @@ public class SearchModule {
      * 日志
      */
     final Logger logger = Logger.getLogger(SearchModule.class);
-
     /**
      * 依赖注入获取sessionFactory
      */
     private SessionFactory sessionFactory;
+    /**
+     * 依赖注入获取搜索路径
+     */
+    private String searchDir;
+
+    public String getSearchDir() {
+        return searchDir;
+    }
+
+    public void setSearchDir(String searchDir) {
+        this.searchDir = searchDir;
+    }
 
     /**
      * Lucene模糊检索
      */
-//    @Test
     public void searchByWildCard(String fieldName, String searchString) throws IOException {
-        String searchDir = "/home/jupiter/workset/workdir/search/com.cn.dao.entity.UserBase";
-//        Path searchPath = Paths.get(searchDir);
         Directory directory = FSDirectory.open(new File(searchDir));
         IndexReader reader = DirectoryReader.open(directory);
         IndexSearcher indexSearcher = new IndexSearcher(reader);
@@ -60,7 +68,6 @@ public class SearchModule {
     /**
      * 重新建立索引
      */
-    @Test
     public void searchByRebuild() throws InterruptedException {
         Session session = sessionFactory.openSession();
         FullTextSession fullTextSession = Search.getFullTextSession(session);

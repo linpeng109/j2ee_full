@@ -15,7 +15,7 @@ buildscript {
     repositories {
         jcenter()
     }
-    def gradleTomcatPluginVersion='2.2.2'
+    def gradleTomcatPluginVersion = '2.2.2'
     dependencies {
         classpath("com.bmuschko:gradle-tomcat-plugin:$gradleTomcatPluginVersion")
     }
@@ -29,7 +29,7 @@ buildscript {
     repositories {
         jcenter()
     }
-    def gradleCargoPluginVersion='2.1.1'
+    def gradleCargoPluginVersion = '2.1.1'
     dependencies {
         classpath("com.bmuschko:gradle-cargo-plugin:$gradleCargoPluginVersion")
     }
@@ -59,10 +59,11 @@ dependencies {
      * An implementation of the SOAP ("Simple Object Access Protocol") submission to W3C.
      * 1.4
      */
-    def axisVersion = '1.4'
-    compile("axis:axis:$axisVersion")
-    compile("axis:axis-jaxrpc:$axisVersion")
-
+    /**
+     def axisVersion = '1.4'
+     compile("axis:axis:$axisVersion")
+     compile("axis:axis-jaxrpc:$axisVersion")
+     */
     /**
      * Puts together an ActiveMQ jar bundle
      * 5.11.1
@@ -89,7 +90,7 @@ dependencies {
      * 8.0.24
      * 8.0.26
      */
-    def tomcatServletApiVersion='8.0.26'
+    def tomcatServletApiVersion = '8.0.26'
     compile("org.apache.tomcat:tomcat-servlet-api:$tomcatServletApiVersion")
 
     /**
@@ -454,7 +455,7 @@ sourceSets {
  * jar plugin setup
  */
 jar {
-    baseName = 'j2ee_min'
+    baseName = 'j2ee_full'
     version = '2015.06.12'
 }
 

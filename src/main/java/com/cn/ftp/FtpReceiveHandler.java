@@ -5,16 +5,17 @@ import org.springframework.integration.support.MessageBuilder;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageHeaders;
 
+import java.io.*;
 import java.util.Map;
 
 /**
  * Created by jupiter on 15-9-17.
  */
-public class FtpReceiver {
+public class FtpReceiveHandler {
     /**
      * 日志
      */
-    private static Logger logger = Logger.getLogger(FtpReceiver.class);
+    private static Logger logger = Logger.getLogger(FtpReceiveHandler.class);
 
     /**
      * ftp处理函数
@@ -22,7 +23,7 @@ public class FtpReceiver {
      * @param message
      * @return
      */
-    public Message handler(Message message) {
+    public Message handler(Message message) throws IOException {
         MessageHeaders headers = message.getHeaders();
         for (Map.Entry entry : headers.entrySet()) {
             Object key = entry.getKey();
@@ -30,8 +31,17 @@ public class FtpReceiver {
             logger.debug(String.format("The %s is %s in message header", key, value));
         }
 
+        File payload = (File) message.getPayload();
+        BufferedReader bufferedReader;
+        bufferedReader = new BufferedReader(new FileReader(payload));
+        String line = bufferedReader.readLine();
+        StringBuffer stringBuffer = new StringBuffer();
+        while (line != null) {
+            stringBuffer.append(line);
+        }
+        logger.debug(stringBuffer.toString());
 
-        Object payload = message.getPayload();
+
         logger.debug(payload.getClass().getTypeName());
 
         Message result = MessageBuilder.fromMessage(message).build();

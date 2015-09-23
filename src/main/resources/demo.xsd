@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="com.cn.webservice" elementFormDefault="qualified"
+        xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="com.cn.webservice">
+    <element name="UserResponse">
+        <complexType>
+            <sequence>
+                <element name="users" type="tns:User" maxOccurs="unbounded"></element>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="UserRequest">
+        <complexType>
+            <all>
+                <element name="userCount" type="int"></element>
+            </all>
+        </complexType>
+    </element>
+    <complexType name="User">
+        <sequence>
+            <element name="username" type="string"></element>
+            <element name="birthday" type="date"></element>
+            <element name="gender" type="boolean"></element>
+            <element name="email" type="string"></element>
+            <element name="dept" type="tns:Dept"></element>
+        </sequence>
+    </complexType>
+    <complexType name="Dept">
+        <sequence>
+            <element name="deptId" type="string"></element>
+            <element name="deptName" type="string"></element>
+        </sequence>
+    </complexType>
+</schema>

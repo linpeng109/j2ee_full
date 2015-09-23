@@ -6,5 +6,9 @@
        http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
        http://www.springframework.org/schema/web-services http://www.springframework.org/schema/web-services/web-services.xsd">
 
+    <!--Spring-ws配置方法-->
+    <sws:dynamic-wsdl id="demo" portTypeName="UserResource" locationUri="/webservice/demo" >
+        <sws:xsd location="classpath:demo.xsd"/>
+    </sws:dynamic-wsdl>
 
 </beans>

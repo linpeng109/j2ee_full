@@ -20,6 +20,7 @@
 
     <!-- web服务模块配置 -->
     <!-- import resource="spring-webservice.xml"/-->
+
     <!-- JMS模块配置 -->
     <!-- import resource="spring-jms.xml" /-->
 

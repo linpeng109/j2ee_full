@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:beans="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:si="http://www.springframework.org/schema/integration"
        xmlns:ftp="http://www.springframework.org/schema/integration/ftp"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                            http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
                            http://www.springframework.org/schema/integration/ftp http://www.springframework.org/schema/integration/ftp/spring-integration-ftp.xsd">
 
@@ -29,8 +28,8 @@
     <!-- ftp入港通道 -->
     <si:channel id="inFtpChannel"/>
 
-    <bean id="ftpReceiver" class="com.cn.ftp.FtpReceiver"/>
-    <si:service-activator ref="ftpReceiver" method="handler" input-channel="inFtpChannel" output-channel="logger"/>
+    <bean id="ftpReceiveHandler" class="com.cn.ftp.FtpReceiveHandler"/>
+    <si:service-activator ref="ftpReceiveHandler" method="handler" input-channel="inFtpChannel" output-channel="logger"/>
 
     <!-- ftp离港通道 -->
     <si:channel id="outFtpChannel"/>
@@ -39,6 +38,4 @@
     <!-- ftp:outbound-channel-adapter id="ftpOutbound" channel="outFtpChannel"
         session-factory="ftpSessionFactory" charset="UTF-8" remote-directory="/"
         / -->
-
-
 </beans>

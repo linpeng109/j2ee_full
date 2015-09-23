@@ -20,7 +20,7 @@ public class TestSearchUserBase extends TestBase {
     @Resource
     public SearchModule searchModule;
 
-//    @Test
+    @Test
     public void testRebuildSearch() throws InterruptedException {
         searchModule.searchByRebuild();
     }

@@ -19,8 +19,10 @@ public class Person {
 
     @Column(value = "age")
     private int age;
+
     @Column(value = "address")
     private String address;
+
     @Column(value = "personMap")
     private Map<String, String> personMap;
 
