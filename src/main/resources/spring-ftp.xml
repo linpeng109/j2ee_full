@@ -2,7 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:si="http://www.springframework.org/schema/integration"
-       xmlns:ftp="http://www.springframework.org/schema/integration/ftp"
+       xmlns:si-ftp="http://www.springframework.org/schema/integration/ftp"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                            http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
                            http://www.springframework.org/schema/integration/ftp http://www.springframework.org/schema/integration/ftp/spring-integration-ftp.xsd">
@@ -11,25 +11,27 @@
     <bean id="ftpSessionFactory" class="org.springframework.integration.ftp.session.DefaultFtpSessionFactory">
         <property name="host" value="localhost"/>
         <property name="port" value="21"/>
-        <property name="username" value="ftpuser"/>
-        <property name="password" value="ftpuser"/>
+        <property name="username" value="jupiter"/>
+        <property name="password" value="stars2015"/>
         <property name="clientMode" value="0"/>
         <property name="fileType" value="2"/>
-        <property name="bufferSize" value="100000"/>
+
     </bean>
 
     <!-- 配置ftp入港通道适配器 -->
-    <ftp:inbound-channel-adapter id="ftpInbound" channel="inFtpChannel"
-                                 session-factory="ftpSessionFactory" charset="UTF-8" auto-create-local-directory="true"
-                                 delete-remote-files="false" filename-pattern="*.txt" remote-directory="/ftpuser"
-                                 local-directory="/home/jupiter/workset/workdir/ftp">
-    </ftp:inbound-channel-adapter>
+    <si-ftp:inbound-channel-adapter id="ftpInbound" channel="inFtpChannel"
+                                    session-factory="ftpSessionFactory" charset="UTF-8" auto-startup="true"
+                                    auto-create-local-directory="true"
+                                    delete-remote-files="false" filename-pattern="*.txt" remote-directory="/abcd"
+                                    local-directory="/home/jupiter/workset/workdir/ftp">
+    </si-ftp:inbound-channel-adapter>
 
     <!-- ftp入港通道 -->
     <si:channel id="inFtpChannel"/>
 
     <bean id="ftpReceiveHandler" class="com.cn.ftp.FtpReceiveHandler"/>
-    <si:service-activator ref="ftpReceiveHandler" method="handler" input-channel="inFtpChannel" output-channel="logger"/>
+    <si:service-activator ref="ftpReceiveHandler" method="handler" input-channel="inFtpChannel"
+                          output-channel="logger"/>
 
     <!-- ftp离港通道 -->
     <si:channel id="outFtpChannel"/>

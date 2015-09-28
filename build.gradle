@@ -24,12 +24,13 @@ buildscript {
 /**
  * Gradle plugin that provides deployment capabilities to local and remote containers via Cargo.
  * 2.1.1
+ * 2.2.1
  */
 buildscript {
     repositories {
         jcenter()
     }
-    def gradleCargoPluginVersion = '2.1.1'
+    def gradleCargoPluginVersion = '2.2.1'
     dependencies {
         classpath("com.bmuschko:gradle-cargo-plugin:$gradleCargoPluginVersion")
     }
@@ -56,28 +57,19 @@ repositories {
  */
 dependencies {
     /**
-     * An implementation of the SOAP ("Simple Object Access Protocol") submission to W3C.
-     * 1.4
-     */
-    /**
-     def axisVersion = '1.4'
-     compile("axis:axis:$axisVersion")
-     compile("axis:axis-jaxrpc:$axisVersion")
-     */
-    /**
      * Puts together an ActiveMQ jar bundle
      * 5.11.1
      * 5.12.0
      */
-    def activemqVersion = '5.11.1'
+    def activemqVersion = '5.12.0'
     compile("org.apache.activemq:activemq-all:$activemqVersion")
 
     /**
      * Apache CXF Distribution
-     * 3.1.1
      * 3.1.2
+     * 3.1.3
      */
-    def apacheCxfVersion = '3.1.2'
+    def apacheCxfVersion = '3.1.3'
     compile("org.apache.cxf:apache-cxf:$apacheCxfVersion") {
         exclude(module: 'slf4j-jdk14')
         exclude(module: 'jetty')
@@ -110,8 +102,9 @@ dependencies {
      *  The Apache Cassandra Project develops a highly scalable second-generation distributed database, bringing
      *  together Dynamo's fully distributed design and Bigtable's ColumnFamily-based data model.
      *  2.2.0
+     *  2.2.1
      */
-    def cassandraVersion = '2.2.0'
+    def cassandraVersion = '2.2.1'
     compile("org.apache.cassandra:cassandra-all:$cassandraVersion") {
         exclude(module: 'logback-classic')
     }
@@ -153,6 +146,7 @@ dependencies {
      * 5.0.0.CR2
      * 5.0.0.CR4
      * 5.0.0.Final
+     * 5.0.1.Final
      */
     def hibernateVersion = '5.0.1.Final'
     compile("org.hibernate:hibernate-core:$hibernateVersion",
@@ -165,8 +159,9 @@ dependencies {
     /**
      * Hibernate Search integration with Hibernate Core
      * 5.4.0.CR2
+     * 5.5.0.Final
      */
-    def hibernateSearchVersion = '5.4.0.CR2'
+    def hibernateSearchVersion = '5.5.0.Final'
     compile("org.hibernate:hibernate-search-orm:$hibernateSearchVersion")
 
     /**
@@ -202,15 +197,17 @@ dependencies {
     /**
      * JSON is a light-weight, language independent, data interchange format.
      * 20141113
+     * 20150729
      */
-    def jsonVersion = '20141113'
+    def jsonVersion = '20150729'
     compile("org.json:json:$jsonVersion")
 
     /**
      * Apache Lucene Java Core
      * '4.10.4'
+     * 5.3.0
      */
-    def luceneVersion = '4.10.4'
+    def luceneVersion = '5.3.0'
     compile("org.apache.lucene:lucene-core:$luceneVersion",
             "org.apache.lucene:lucene-analyzers-common:$luceneVersion",
             "org.apache.lucene:lucene-queryparser:$luceneVersion",
@@ -227,8 +224,9 @@ dependencies {
     /**
      * Apache POI - Java API To Access Microsoft Format Files
      * 3.12
+     * 3.13
      */
-    def poiVersion = '3.12'
+    def poiVersion = '3.13'
     compile("org.apache.poi:poi:$poiVersion",
             "org.apache.poi:poi-ooxml:$poiVersion",
             "org.apache.poi:poi-scratchpad:$poiVersion")
@@ -244,8 +242,9 @@ dependencies {
      * Spring Framework
      * 4.1.7.RELEASE
      * 4.2.0.RELEASE
+     * 4.2.1.RELEASE
      */
-    def springVersion = '4.2.0.RELEASE'
+    def springVersion = '4.2.1.RELEASE'
     compile("org.springframework:spring-core:$springVersion",
             "org.springframework:spring-context:$springVersion",
             "org.springframework:spring-context-support:$springVersion",
@@ -269,16 +268,18 @@ dependencies {
     /**
      * Cassandra Support for Spring Data
      * 1.2.2.RELEASE
+     * 1.3.0.RELEASE
      */
-    def springDataCassandraVersion = '1.2.2.RELEASE'
+    def springDataCassandraVersion = '1.3.0.RELEASE'
     compile("org.springframework.data:spring-data-cassandra:$springDataCassandraVersion")
 
     /**
      * Spring Data Redis
      * 1.5.1.RELEASE
      * 1.5.2.RELEASE
+     * 1.6.0.RELEASE
      */
-    def springDataRedisVersion = '1.5.2.RELEASE'
+    def springDataRedisVersion = '1.6.0.RELEASE'
     compile("org.springframework.data:spring-data-redis:$springDataRedisVersion")
 
     /**
@@ -290,8 +291,9 @@ dependencies {
     /**
      * Spring Integration Framework
      * 4.1.6.RELEASE
+     * 4.2.0.RELEASE
      */
-    def springIntegrationVersion = '4.1.6.RELEASE'
+    def springIntegrationVersion = '4.2.0.RELEASE'
     compile("org.springframework.integration:spring-integration-core:$springIntegrationVersion",
             "org.springframework.integration:spring-integration-jms:$springIntegrationVersion",
             "org.springframework.integration:spring-integration-jdbc:$springIntegrationVersion",
@@ -340,8 +342,9 @@ dependencies {
     /**
      * Struts2 Framework
      * 2.3.24
+     * 2.3.24.1
      */
-    def struts2Version = '2.3.24'
+    def struts2Version = '2.3.24.1'
     compile("org.apache.struts:struts2-core:$struts2Version",
             "org.apache.struts:struts2-spring-plugin:$struts2Version",
             "org.apache.struts:struts2-junit-plugin:$struts2Version",
@@ -352,8 +355,9 @@ dependencies {
     /**
      * xbean-spring provides a schema-driven proprietary namespace handler for spring contexts
      * 4.3
+     * 4.4
      */
-    def xbeanSpringVersion = '4.3'
+    def xbeanSpringVersion = '4.4'
     compile("org.apache.xbean:xbean-spring:$xbeanSpringVersion")
 
     /**
@@ -411,8 +415,9 @@ dependencies {
     /**
      * The Cargo Core Uberjar
      * 1.4.15
+     * 1.4.16
      */
-    def cargoVersion = '1.4.15'
+    def cargoVersion = '1.4.16'
     cargo("org.codehaus.cargo:cargo-core-uberjar:$cargoVersion",
             "org.codehaus.cargo:cargo-ant:$cargoVersion")
 

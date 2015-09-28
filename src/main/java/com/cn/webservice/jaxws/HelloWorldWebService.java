@@ -9,8 +9,7 @@ import javax.jws.WebService;
  * @author Hartwell
  * @version 3.0
  */
-@WebService
+@WebService()
 public interface HelloWorldWebService {
-    @WebMethod
     public String helloWorldByString(String hi);
 }

@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Webservice配置模块 -->
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:jaxws="http://cxf.apache.org/jaxws" xmlns:sws="http://www.springframework.org/schema/web-services"
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jaxws="http://cxf.apache.org/jaxws"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
-       http://www.springframework.org/schema/web-services http://www.springframework.org/schema/web-services/web-services.xsd">
+       http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
 
+    <import resource="classpath:META-INF/cxf/cxf.xml"/>
+    <import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
+
+    <bean id="helloWorldJaxwsWebServiceImpl" class="com.cn.webservice.jaxws.HelloWorldWebServiceImpl"/>
+    <jaxws:endpoint id="helloWorldJaxwsWebService" implementor="#helloWorldJaxwsWebServiceImpl" address="/helloworld" />
 
 </beans>

@@ -81,6 +81,7 @@
     </filter-mapping>
 
     <!-- CXF的Servlet设置 -->
+
     <servlet>
         <servlet-name>CXFServlet</servlet-name>
         <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
@@ -102,18 +103,7 @@
         <servlet-class>org.springframework.web.context.support.HttpRequestHandlerServlet</servlet-class>
     </servlet>
 
-    <!-- Spring-ws -->
-    <servlet>
-        <servlet-name>spring-ws</servlet-name>
-        <servlet-class>org.springframework.ws.transport.http.MessageDispatcherServlet</servlet-class>
-    </servlet>
-
     <!-- SERVLET映射 -->
-    <servlet-mapping>
-        <servlet-name>spring-ws</servlet-name>
-        <url-pattern>/webservice/*</url-pattern>
-    </servlet-mapping>
-
     <servlet-mapping>
         <servlet-name>httpInboundGateway</servlet-name>
         <url-pattern>/remoting/AccountService</url-pattern>
