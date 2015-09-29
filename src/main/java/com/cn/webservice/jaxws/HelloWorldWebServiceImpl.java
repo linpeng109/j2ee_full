@@ -11,7 +11,7 @@ import javax.jws.WebService;
  * @author hartwell
  * @version 1.0
  */
-@WebService(endpointInterface = "com.cn.webservice.jaxws.HelloWorldWebService" )
+@WebService(endpointInterface = "com.cn.webservice.jaxws.HelloWorldWebService")
 public class HelloWorldWebServiceImpl implements HelloWorldWebService {
 
     public Logger logger = Logger.getLogger(HelloWorldWebServiceImpl.class);

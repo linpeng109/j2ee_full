@@ -10,6 +10,6 @@
     <import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
 
     <bean id="helloWorldJaxwsWebServiceImpl" class="com.cn.webservice.jaxws.HelloWorldWebServiceImpl"/>
-    <jaxws:endpoint id="helloWorldJaxwsWebService" implementor="#helloWorldJaxwsWebServiceImpl" address="/helloworld" />
+    <jaxws:endpoint id="helloWorldJaxwsWebService" implementor="#helloWorldJaxwsWebServiceImpl" address="/helloworld"/>
 
 </beans>

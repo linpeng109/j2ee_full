@@ -17,7 +17,7 @@ import javax.annotation.Resource;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:applicationContext.xml")
-public abstract class TestBase extends TestCase{
+public abstract class TestBase extends TestCase {
 
     @Resource
     public SessionFactory sessionFactory;

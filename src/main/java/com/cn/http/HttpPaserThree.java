@@ -20,7 +20,7 @@ public class HttpPaserThree {
         String payload = msg.getPayload() + "3";
         logger.debug(payload);
         Message<String> result = MessageBuilder
-                .withPayload(String.format("The bean %s is success.\n",this.getClass().getName()))
+                .withPayload(String.format("The bean %s is success.\n", this.getClass().getName()))
                 .copyHeaders(msg.getHeaders())
                 .build();
 

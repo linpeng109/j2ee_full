@@ -59,9 +59,9 @@ dependencies {
     /**
      * Puts together an ActiveMQ jar bundle
      * 5.11.1
-     * 5.12.0
+     * 5.12.0*
      */
-    def activemqVersion = '5.12.0'
+    def activemqVersion = '5.11.1'
     compile("org.apache.activemq:activemq-all:$activemqVersion")
 
     /**

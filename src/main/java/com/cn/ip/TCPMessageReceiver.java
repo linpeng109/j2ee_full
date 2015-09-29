@@ -25,7 +25,7 @@ public class TCPMessageReceiver {
         byte[] payload = message.getPayload();
         StringBuffer buffer = new StringBuffer();
         for (byte item : payload) {
-            buffer.append((char)item);
+            buffer.append((char) item);
         }
 
         logger.debug(String.format("The payload is %s", buffer.toString()));
