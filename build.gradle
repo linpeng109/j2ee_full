@@ -436,6 +436,7 @@ configurations {
     compile.resolutionStrategy.force('xml-apis:xml-apis:1.4.01')
     runtime.resolutionStrategy.force('xml-apis:xml-apis:1.4.01')
     testRuntime.resolutionStrategy.force('xml-apis:xml-apis:1.4.01')
+    testRuntime.resolutionStrategy.force('org.apache.mina:mina-core:2.0.7')
 }
 
 /**
