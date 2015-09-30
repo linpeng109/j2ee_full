@@ -9,7 +9,14 @@
     <import resource="classpath:META-INF/cxf/cxf.xml"/>
     <import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
 
-    <bean id="helloWorldJaxwsWebServiceImpl" class="com.cn.webservice.jaxws.HelloWorldWebServiceImpl"/>
-    <jaxws:endpoint id="helloWorldJaxwsWebService" implementor="#helloWorldJaxwsWebServiceImpl" address="/helloworld"/>
+    <bean id="helloWorldWebServiceImpl" class="com.cn.webservice.jaxws.HelloWorldWebServiceImpl"/>
+    <jaxws:endpoint id="helloWorldWebService" implementor="#helloWorldWebServiceImpl" address="/helloworld"/>
+
+    <bean id="client" class="com.cn.webservice.jaxws.HelloWorldWebService" factory-bean="clientFactory"
+          factory-method="create"/>
+    <bean id="clientFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+        <property name="serviceClass" value="com.cn.webservice.jaxws.HelloWorldWebService"/>
+        <property name="address" value="http://localhost:8080/j2ee_full/cxf/helloworld?wsdl"/>
+    </bean>
 
 </beans>
