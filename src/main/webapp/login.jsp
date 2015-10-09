@@ -25,7 +25,7 @@
 </s:if>
 
 <!-- 只有具有相应权限的用户可以显示 -->
-<form action="j_spring_security_check" method="post">
+<form action="/login" method="post">
     用户 ：<input type="text" name="j_username"/><br>
     口令 ：<input type="password" name="j_password"/><br>
     <input type="submit" value="登录"/>

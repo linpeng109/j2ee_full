@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns:security="http://www.springframework.org/schema/security"
-       xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 
     <security:http>
@@ -25,15 +26,28 @@
 
     <bean id="successHandler" class="com.cn.security.SuccessHandler"/>
 
-    <!-- 配置方式管理用户权限 -->
+    <!-- 管理用户权限 -->
     <security:authentication-manager alias="authenticationManager">
         <security:authentication-provider>
+            <!--
             <security:user-service>
-                <security:user name="abcd" authorities="ROLE_ADMIN"
-                               password="abcd"/>
+                <security:user name="abcde" authorities="ROLE_ADMIN"
+                               password="abcde"/>
             </security:user-service>
+            -->
+            <security:jdbc-user-service
+                    authorities-by-username-query="SELECT U.username, A.authorityString FROM userbase U JOIN userbase_authority R ON R.userId = U.userId JOIN authority A ON A.authorityId = R.authorityId WHERE U.username=?"
+                    users-by-username-query="SELECT username,password,enabled FROM userbase U where U.username=?"
+                    data-source-ref="dataSource"/>
         </security:authentication-provider>
     </security:authentication-manager>
 
+
     <bean id="securityHelper" class="com.cn.security.Security3Helper"/>
+    <bean id="helloWorldMessageService" class="com.cn.security.HelloWorldMessageService">
+        <security:intercept-methods>
+            <security:protect method="com.cn.security.HelloWorldMessageService.getAuthenticationResult"
+                              access="ROLE_ADMIN"/>
+        </security:intercept-methods>
+    </bean>
 </beans>

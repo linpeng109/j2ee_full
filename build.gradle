@@ -65,17 +65,15 @@ dependencies {
     compile("org.apache.activemq:activemq-all:$activemqVersion")
 
     /**
-     * Apache CXF Distribution
+     * Apache CXF Runtime JAX-WS Frontend
+     * Apache CXF Runtime HTTP Transport
+     *
      * 3.1.2
      * 3.1.3
      */
     def apacheCxfVersion = '3.1.3'
-    compile("org.apache.cxf:apache-cxf:$apacheCxfVersion") {
-        exclude(module: 'slf4j-jdk14')
-        exclude(module: 'jetty')
-        exclude(module: 'javax.servlet-api')
-        exclude(module: 'geronimo-servlet_3.0_spec')
-    }
+    compile("org.apache.cxf:cxf-rt-frontend-jaxws:$apacheCxfVersion",
+            "org.apache.cxf:cxf-rt-transports-http:$apacheCxfVersion")
 
     /**
      * Java Servlet API
@@ -147,8 +145,9 @@ dependencies {
      * 5.0.0.CR4
      * 5.0.0.Final
      * 5.0.1.Final
+     * 5.0.2.Final
      */
-    def hibernateVersion = '5.0.1.Final'
+    def hibernateVersion = '5.0.2.Final'
     compile("org.hibernate:hibernate-core:$hibernateVersion",
             "org.hibernate:hibernate-c3p0:$hibernateVersion",
             "org.hibernate:hibernate-ehcache:$hibernateVersion",
@@ -239,7 +238,17 @@ dependencies {
     compile("org.quartz-scheduler:quartz:$quartzVersion")
 
     /**
-     * Spring Framework
+     * Spring Core
+     * Spring Context
+     * Spring Context Support
+     * Spring JMS
+     * Spring Object/Relational Mapping
+     * Spring TestContext Framework
+     * Spring Web
+     * Spring Web MVC
+     * Spring Instrument Tomcat
+     * Spring Messaging
+     *
      * 4.1.7.RELEASE
      * 4.2.0.RELEASE
      * 4.2.1.RELEASE
@@ -270,8 +279,10 @@ dependencies {
      * 1.2.2.RELEASE
      * 1.3.0.RELEASE
      */
-    def springDataCassandraVersion = '1.3.0.RELEASE'
-    compile("org.springframework.data:spring-data-cassandra:$springDataCassandraVersion")
+    /**
+     def springDataCassandraVersion = '1.3.0.RELEASE'
+     compile("org.springframework.data:spring-data-cassandra:$springDataCassandraVersion")
+     */
 
     /**
      * Spring Data Redis
@@ -289,7 +300,22 @@ dependencies {
     compile("org.springframework.flex:spring-flex-core:$springFlexCoreVersion")
 
     /**
-     * Spring Integration Framework
+     * Spring Integration Core
+     * Spring Integration JMS Support
+     * Spring Integration JDBC Support
+     * Spring Integration FTP Support
+     * Spring Integration Redis Support
+     * Spring Integration Groovy Support
+     * Spring Integration Stream Support
+     * Spring Integration HTTP Support
+     * Spring Integration IP Support
+     * Spring Integration ApplicationEvent Support
+     * Spring Integration Redis Support
+     * Spring Integration Groovy Support
+     * Spring Integration XMPP Support
+     * Spring Integration Syslog Support
+     * Spring Integration WebSockets Support
+     *
      * 4.1.6.RELEASE
      * 4.2.0.RELEASE
      */
@@ -314,7 +340,31 @@ dependencies {
             "org.springframework.integration:spring-integration-groovy:$springIntegrationVersion")
 
     /**
-     * Spring.security Framework
+     * Spring Integration Cassandra Support
+     *
+     * 0.5.0.RELEAS
+     *
+     */
+    def springIntegrationCassandraVersion = '0.5.0.RELEASE'
+    compile("org.springframework.integration:spring-integration-cassandra:$springIntegrationCassandraVersion")
+
+    /**
+     * Spring Integration Kafka Support
+     *
+     * 1.2.1.RELEASE
+     */
+    def springIntegrationKafkaVersion = '1.2.1.RELEASE'
+    compile("org.springframework.integration:spring-integration-kafka:$springIntegrationKafkaVersion")
+
+    /**
+     * Spring Security Core
+     * Spring Security Web
+     * Spring Security Taglibs
+     * Spring Security Config
+     * Spring Security Test
+     * Spring Security Openid
+     * Spring Security Cas
+     *
      * 4.0.2.RELEASE
      */
     def springSecurityVersion = '4.0.2.RELEASE'
@@ -322,6 +372,8 @@ dependencies {
             "org.springframework.security:spring-security-web:$springSecurityVersion",
             "org.springframework.security:spring-security-taglibs:$springSecurityVersion",
             "org.springframework.security:spring-security-config:$springSecurityVersion",
+            "org.springframework.security:spring-security-test:$springSecurityVersion",
+            "org.springframework.security:spring-security-openid:$springSecurityVersion",
             "org.springframework.security:spring-security-cas:$springSecurityVersion")
 
     /**
@@ -436,6 +488,8 @@ configurations {
     compile.resolutionStrategy.force('xml-apis:xml-apis:1.4.01')
     runtime.resolutionStrategy.force('xml-apis:xml-apis:1.4.01')
     testRuntime.resolutionStrategy.force('xml-apis:xml-apis:1.4.01')
+    compile.resolutionStrategy.force('org.apache.mina:mina-core:2.0.7')
+    runtime.resolutionStrategy.force('org.apache.mina:mina-core:2.0.7')
     testRuntime.resolutionStrategy.force('org.apache.mina:mina-core:2.0.7')
 }
 
