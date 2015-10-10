@@ -102,7 +102,6 @@
     <orderEntry type="library" name="Gradle: commons-collections:commons-collections:3.2.1" level="project" />
     <orderEntry type="library" name="Gradle: commons-io:commons-io:2.4" level="project" />
     <orderEntry type="library" name="Gradle: org.hamcrest:hamcrest-all:1.3" level="project" />
-    <orderEntry type="library" name="Gradle: com.datastax.cassandra:cassandra-driver-dse:2.1.5" level="project" />
     <orderEntry type="library" name="Gradle: com.rometools:rome-fetcher:1.5.0" level="project" />
     <orderEntry type="library" name="Gradle: commons-net:commons-net:3.3" level="project" />
     <orderEntry type="library" name="Gradle: org.mockito:mockito-core:1.9.5" level="project" />
@@ -124,7 +123,6 @@
     <orderEntry type="library" name="Gradle: xerces:xerces:2.4.0" level="project" />
     <orderEntry type="library" name="Gradle: org.jboss.byteman:byteman-submit:2.1.2" level="project" />
     <orderEntry type="library" name="Gradle: javax.batch:javax.batch-api:1.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.datastax.cassandra:cassandra-driver-core:2.1.5" level="project" />
     <orderEntry type="library" name="Gradle: com.rometools:rome:1.5.0" level="project" />
     <orderEntry type="library" name="Gradle: org.objenesis:objenesis:1.0" level="project" />
     <orderEntry type="library" name="Gradle: org.opensaml:opensaml:2.5.1-1" level="project" />
@@ -133,7 +131,6 @@
     <orderEntry type="library" name="Gradle: javassist:javassist:3.11.0.GA" level="project" />
     <orderEntry type="library" name="Gradle: stax:stax-api:1.0.1" level="project" />
     <orderEntry type="library" name="Gradle: javax.validation:validation-api:1.0.0.GA" level="project" />
-    <orderEntry type="library" name="Gradle: io.netty:netty:3.9.0.Final" level="project" />
     <orderEntry type="library" name="Gradle: com.codahale.metrics:metrics-core:3.0.2" level="project" />
     <orderEntry type="library" name="Gradle: com.rometools:rome-utils:1.5.0" level="project" />
     <orderEntry type="library" name="Gradle: xpp3:xpp3:1.1.4c" level="project" />
@@ -161,12 +158,6 @@
     <orderEntry type="library" name="Gradle: xalan:xalan:2.7.1" level="project" />
     <orderEntry type="library" name="Gradle: xalan:serializer:2.7.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: xml-apis:xml-apis:2.0.2" level="project" />
-    <orderEntry type="library" name="Gradle: org.hibernate:hibernate-core:5.0.1.Final" level="project" />
-    <orderEntry type="library" name="Gradle: org.hibernate:hibernate-c3p0:5.0.1.Final" level="project" />
-    <orderEntry type="library" name="Gradle: org.hibernate:hibernate-ehcache:5.0.1.Final" level="project" />
-    <orderEntry type="library" name="Gradle: org.hibernate:hibernate-entitymanager:5.0.1.Final" level="project" />
-    <orderEntry type="library" name="Gradle: org.hibernate:hibernate-envers:5.0.1.Final" level="project" />
-    <orderEntry type="library" name="Gradle: org.hibernate:hibernate-testing:5.0.1.Final" level="project" />
     <orderEntry type="library" name="Gradle: org.ow2.asm:asm:5.0.4" level="project" />
     <orderEntry type="library" name="Gradle: wsdl4j:wsdl4j:1.6.3" level="project" />
     <orderEntry type="library" name="Gradle: com.sun.xml.bind:jaxb-core:2.2.11" level="project" />
@@ -175,7 +166,6 @@
     <orderEntry type="library" name="Gradle: org.codehaus.woodstox:woodstox-core-asl:4.4.1" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.neethi:neethi:3.0.3" level="project" />
     <orderEntry type="library" name="Gradle: org.codehaus.woodstox:stax2-api:3.1.4" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.guava:guava:18.0" level="project" />
     <orderEntry type="library" name="Gradle: org.hibernate:hibernate-search-orm:5.5.0.Final" level="project" />
     <orderEntry type="library" name="Gradle: org.json:json:20150729" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.lucene:lucene-core:5.3.0" level="project" />
@@ -186,7 +176,6 @@
     <orderEntry type="library" name="Gradle: org.apache.poi:poi:3.13" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.poi:poi-ooxml:3.13" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.poi:poi-scratchpad:3.13" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework.data:spring-data-cassandra:1.3.0.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.data:spring-data-redis:1.6.0.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.struts:struts2-core:2.3.24.1" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.struts:struts2-spring-plugin:2.3.24.1" level="project" />
@@ -201,8 +190,6 @@
     <orderEntry type="library" name="Gradle: com.carrotsearch.randomizedtesting:junit4-ant:2.1.13" level="project" />
     <orderEntry type="library" name="Gradle: com.carrotsearch.randomizedtesting:randomizedtesting-runner:2.1.13" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.poi:poi-ooxml-schemas:3.13" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework.data:spring-cql:1.3.0.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework.data:spring-data-commons:1.11.0.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.struts.xwork:xwork-core:2.3.24.1" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.lucene:lucene-backward-codecs:5.3.0" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.lucene:lucene-misc:5.3.0" level="project" />
@@ -283,6 +270,32 @@
     <orderEntry type="library" name="Gradle: com.google.inject:guice:2.0" level="project" />
     <orderEntry type="library" name="Gradle: org.openid4java:openid4java-nodeps:0.9.6" level="project" />
     <orderEntry type="library" name="Gradle: net.sourceforge.nekohtml:nekohtml:1.9.20" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.guava:guava:16.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.hibernate:hibernate-core:5.0.2.Final" level="project" />
+    <orderEntry type="library" name="Gradle: org.hibernate:hibernate-c3p0:5.0.2.Final" level="project" />
+    <orderEntry type="library" name="Gradle: org.hibernate:hibernate-ehcache:5.0.2.Final" level="project" />
+    <orderEntry type="library" name="Gradle: org.hibernate:hibernate-entitymanager:5.0.2.Final" level="project" />
+    <orderEntry type="library" name="Gradle: org.hibernate:hibernate-envers:5.0.2.Final" level="project" />
+    <orderEntry type="library" name="Gradle: org.hibernate:hibernate-testing:5.0.2.Final" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework.integration:spring-integration-cassandra:0.5.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework.integration:spring-integration-kafka:1.2.1.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework.data:spring-data-cassandra:1.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.kafka:kafka-clients:0.8.2.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.yammer.metrics:metrics-annotation:2.2.0" level="project" />
+    <orderEntry type="library" name="Gradle: io.projectreactor:reactor-core:2.0.3.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: com.yammer.metrics:metrics-core:2.2.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.kafka:kafka_2.10:0.8.2.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.goldmansachs:gs-collections:5.0.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework.data:spring-cql:1.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework.data:spring-data-commons:1.10.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: com.datastax.cassandra:cassandra-driver-dse:2.1.4" level="project" />
+    <orderEntry type="library" name="Gradle: org.reactivestreams:reactive-streams:1.0.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.scala-lang:scala-library:2.10.4" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.zookeeper:zookeeper:3.4.6" level="project" />
+    <orderEntry type="library" name="Gradle: net.sf.jopt-simple:jopt-simple:3.2" level="project" />
+    <orderEntry type="library" name="Gradle: com.101tec:zkclient:0.3" level="project" />
+    <orderEntry type="library" name="Gradle: com.goldmansachs:gs-collections-api:5.0.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.datastax.cassandra:cassandra-driver-core:2.1.4" level="project" />
+    <orderEntry type="library" name="Gradle: io.netty:netty:3.7.0.Final" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.guava:guava:16.0.1" level="project" />
   </component>
 </module>

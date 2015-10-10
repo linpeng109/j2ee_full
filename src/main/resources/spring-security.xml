@@ -1,40 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:security="http://www.springframework.org/schema/security"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-	http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
-
-    <security:http>
-        <security:csrf disabled="true"/>
-        <security:anonymous enabled="false"/>
-        <security:form-login default-target-url="/index.jsp"
-                             login-page="/login.jsp"/>
-        <security:intercept-url access="ROLE_ADMIN"
-                                pattern="/admin/*"/>
-        <security:logout logout-url="/j_spring_security_logout"
-                         logout-success-url="/"/>
-        <security:custom-filter ref="CustomUsernamePasswordAuthenticationFilter"
-                                before="FORM_LOGIN_FILTER"/>
-    </security:http>
-
-    <bean id="CustomUsernamePasswordAuthenticationFilter"
-          class="org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter">
-        <property name="authenticationManager" ref="authenticationManager"/>
-        <property name="authenticationSuccessHandler" ref="successHandler"/>
-    </bean>
-
-    <bean id="successHandler" class="com.cn.security.SuccessHandler"/>
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+	    http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 
     <!-- 管理用户权限 -->
     <security:authentication-manager alias="authenticationManager">
         <security:authentication-provider>
+            <!--配置用户-->
             <!--
-            <security:user-service>
-                <security:user name="abcde" authorities="ROLE_ADMIN"
-                               password="abcde"/>
-            </security:user-service>
+                        <security:user-service>
+                            <security:user name="abcde" authorities="ROLE_ADMIN"
+                                           password="abcde"/>
+                        </security:user-service>
             -->
+            <!--数据库用户-->
             <security:jdbc-user-service
                     authorities-by-username-query="SELECT U.username, A.authorityString FROM userbase U JOIN userbase_authority R ON R.userId = U.userId JOIN authority A ON A.authorityId = R.authorityId WHERE U.username=?"
                     users-by-username-query="SELECT username,password,enabled FROM userbase U where U.username=?"
@@ -42,12 +27,28 @@
         </security:authentication-provider>
     </security:authentication-manager>
 
+    <security:http>
+        <security:csrf disabled="true"/>
+        <security:anonymous enabled="false"/>
+        <security:form-login default-target-url="/index.jsp" login-page="/login.jsp"/>
+        <security:intercept-url access="ROLE_ADMIN" pattern="/admin/*"/>
+        <security:logout logout-url="/j_spring_security_logout" logout-success-url="/"/>
+        <security:custom-filter ref="customUsernamePasswordAuthenticationFilter" before="FORM_LOGIN_FILTER"/>
+    </security:http>
+
+    <bean id="customUsernamePasswordAuthenticationFilter"
+          class="org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter">
+        <property name="authenticationManager" ref="authenticationManager"/>
+        <property name="authenticationSuccessHandler" ref="successHandler"/>
+    </bean>
+    <bean id="successHandler" class="com.cn.security.SuccessHandler"/>
 
     <bean id="securityHelper" class="com.cn.security.Security3Helper"/>
-    <bean id="helloWorldMessageService" class="com.cn.security.HelloWorldMessageService">
+
+    <!--通过配置实现控制Bean的访问权限-->
+    <bean id="securitySamples" class="com.cn.security.SecuritySamples">
         <security:intercept-methods>
-            <security:protect method="com.cn.security.HelloWorldMessageService.getAuthenticationResult"
-                              access="ROLE_ADMIN"/>
+            <security:protect method="com.cn.security.SecuritySamples.security*" access="ROLE_ADMIN,ROLE_COMMON"/>
         </security:intercept-methods>
     </bean>
 </beans>
