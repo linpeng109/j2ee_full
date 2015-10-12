@@ -25,6 +25,7 @@
                     users-by-username-query="SELECT username,password,enabled FROM userbase U where U.username=?"
                     data-source-ref="dataSource"/>
         </security:authentication-provider>
+
     </security:authentication-manager>
 
     <security:http>
@@ -43,7 +44,10 @@
     </bean>
     <bean id="successHandler" class="com.cn.security.SuccessHandler"/>
 
-    <bean id="securityHelper" class="com.cn.security.Security3Helper"/>
+    <!-- 用户权限认证 -->
+    <bean id="securityAuthentication" class="com.cn.security.SecurityAuthentication">
+        <property name="authenticationManager" ref="authenticationManager"/>
+    </bean>
 
     <!--通过配置实现控制Bean的访问权限-->
     <bean id="securitySamples" class="com.cn.security.SecuritySamples">
