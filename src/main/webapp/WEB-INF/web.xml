@@ -124,11 +124,11 @@
     <jsp-config>
         <taglib>
             <taglib-uri>struts-tags</taglib-uri>
-            <taglib-location>taglibs/struts-tags.tld</taglib-location>
+            <taglib-location>/WEB-INF/tld/struts-tags.tld</taglib-location>
         </taglib>
         <taglib>
             <taglib-uri>security-tags</taglib-uri>
-            <taglib-location>taglibs/security.tld</taglib-location>
+            <taglib-location>/WEB-INF/tld/security.tld</taglib-location>
         </taglib>
     </jsp-config>
 

@@ -13,7 +13,7 @@
     <!--multipart文件上传解析器-->
     <constant name="struts.multipart.parser" value="jakarta"/>
     <!--post提交编码-->
-    <constant name="struts.i18n.encoding" value="GBK"/>
+    <constant name="struts.i18n.encoding" value="UTF8"/>
     <!--multipart文件上传保存目录-->
     <constant name="struts.multipart.saveDir" value="d:/workdir/tmp"/>
     <!--multipart文件上传最大值-->

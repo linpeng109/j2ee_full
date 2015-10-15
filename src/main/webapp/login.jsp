@@ -1,40 +1,26 @@
-<%@page contentType="text/html; charset=UTF-8" %>
-<%@taglib prefix="struts" uri="struts-tags" %>
-<%@taglib prefix="security" uri="security-tags" %>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="struts-tags" %>
 <html>
-<head>
-    <!-- 2010-03-30修改获得用户权限字符串的方法 -->
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <title>用户登录</title>
-</head>
-<body>
-<br/>
-当前登录用户信息:<br/>
+	<head>
+		<title>用户登录界面</title>
+	</head>
 
-<!-- 如果是匿名用户登录，则显示以下内容 -->
-<security:authorize access="hasRole('ROLE_ADMIN')">
-    匿名用户 <p/>
-</security:authorize>
+	<body onload='document.f.username.focus();'>
 
-<!-- 显示错误信息 -->
-<s:if test="#parameters.login_error!=null">
-    <s:div cssStyle="color:red">
-        <s:property value="#session.SPRING_SECURITY_LAST_EXCEPTION"/>
-    </s:div><p/>
-</s:if>
+		<h3>用户登录</h3>
+		<s:set name="error">${param['error']==""}</s:set>
 
-<!-- 只有具有相应权限的用户可以显示 -->
-<form action="/login" method="post">
-    用户 ：<input type="text" name="j_username"/><br>
-    口令 ：<input type="password" name="j_password"/><br>
-    <input type="submit" value="登录"/>
-</form>
-<p/>
+		<form name='f' action='/j2ee_full/login' method='POST'>
+			<table>
+				<tr><td>用户:</td><td><input type='text' name='username' value=''></td></tr>
+				<tr><td>口令:</td><td><input type='password' name='password'/></td></tr>
+				<tr><td colspan='2'><input name="submit" type="submit" value="登录"/></td></tr>
+			</table>
+		</form>
 
-<!-- 退出登录 -->
-<s:a href="j_spring_security_logout">退出登录</s:a>
-<p/>
+		<s:if test="#error">
+			<p>错误道用户名或用户口令，请重新输入！</p>
+		</s:if>
 
-</body>
+	</body>
 </html>

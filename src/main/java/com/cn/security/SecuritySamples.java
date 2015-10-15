@@ -22,6 +22,4 @@ public class SecuritySamples {
         String result = "The securing method securityMethod executed successfully";
         logger.debug(result);
     }
-
-
 }

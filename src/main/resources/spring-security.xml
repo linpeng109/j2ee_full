@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:tx="http://www.springframework.org/schema/tx"
-       xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:security="http://www.springframework.org/schema/security"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
-        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
-	    http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+	                       http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 
     <!-- 管理用户权限 -->
     <security:authentication-manager alias="authenticationManager">
@@ -30,22 +26,21 @@
 
     <security:http>
         <security:csrf disabled="true"/>
-        <security:anonymous enabled="false"/>
-        <security:form-login default-target-url="/index.jsp" login-page="/login.jsp"/>
-        <security:intercept-url access="ROLE_ADMIN" pattern="/admin/*"/>
-        <security:logout logout-url="/j_spring_security_logout" logout-success-url="/"/>
+        <security:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
+        <security:form-login login-page="/login.jsp" authentication-failure-url="/login.jsp"/>
+        <security:logout/>
         <security:custom-filter ref="customUsernamePasswordAuthenticationFilter" before="FORM_LOGIN_FILTER"/>
     </security:http>
 
     <bean id="customUsernamePasswordAuthenticationFilter"
           class="org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter">
         <property name="authenticationManager" ref="authenticationManager"/>
-        <property name="authenticationSuccessHandler" ref="successHandler"/>
+        <property name="authenticationSuccessHandler" ref="urlAuthenticationSuccessHandler"/>
     </bean>
-    <bean id="successHandler" class="com.cn.security.SuccessHandler"/>
+    <bean id="urlAuthenticationSuccessHandler" class="com.cn.security.UrlAuthenticationSuccessHandler"/>
 
     <!-- 用户权限认证 -->
-    <bean id="securityAuthentication" class="com.cn.security.SecurityAuthentication">
+    <bean id="authentication" class="com.cn.security.AuthenticationUtil">
         <property name="authenticationManager" ref="authenticationManager"/>
     </bean>
 

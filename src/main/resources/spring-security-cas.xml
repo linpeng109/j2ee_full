@@ -47,7 +47,7 @@
         </property>
     </bean>
 
-    <bean id="successHandler" class="com.cn.security.SuccessHandler">
+    <bean id="successHandler" class="com.cn.security.UrlAuthenticationSuccessHandler">
         <property name="alwaysUseDefaultTargetUrl" value="true"/>
         <property name="defaultTargetUrl" value="/index.jsp"/>
     </bean>

@@ -9,15 +9,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class SuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
-    private static Logger logger = Logger.getLogger(SuccessHandler.class);
+/**
+ * 当用户认证授权通过时执行该类的onAuthenticationSuccess函数
+ */
+public class UrlAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
+    private static Logger logger = Logger.getLogger(UrlAuthenticationSuccessHandler.class);
 
     @Override
-    public void onAuthenticationSuccess(HttpServletRequest request,
-                                        HttpServletResponse response, Authentication authentication)
+    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication)
             throws IOException, ServletException {
-        logger.debug("SuccessHandler");
+        logger.debug("UrlAuthenticationSuccessHandler is executed !");
         super.onAuthenticationSuccess(request, response, authentication);
-
     }
 }
