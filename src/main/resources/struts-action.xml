@@ -5,7 +5,7 @@
 
 <struts>
     <!-- STRUTS2处理 -->
-    <package name="action" extends="struts-default">
+    <package name="action" extends="struts-default" namespace="/action">
 
         <!--定义默认的拦截栈堆 -->
         <default-interceptor-ref name="defaultStack"/>
@@ -28,28 +28,28 @@
 
         <!--全局异常处理设置 -->
         <global-exception-mappings>
-            <exception-mapping exception="java.lang.Exception"
-                               result="error"/>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
         </global-exception-mappings>
 
         <!--首页处理 -->
         <action name="index" class="com.opensymphony.xwork2.ActionSupport">
-            <result name="success" type="dispatcher">index.jsp</result>
-        </action>
-
-        <!--用户action-->
-        <action name="userBase" class="userBaseAction" method="execute">
-            <result name="success" type="">list.jsp</result>
+            <result name="success" type="dispatcher">/index.jsp</result>
         </action>
 
         <!-- HelloWorld -->
-        <action name="helloWorld" class="helloWorldAction" method="hello">
-            <result name="success" type="dispatcher">index.jsp</result>
+        <action name="helloWorldAction" class="helloWorldAction" method="hello">
+            <result name="success" type="dispatcher">/list.jsp</result>
         </action>
+
+        <!--用户action-->
+        <action name="userBaseAction" class="userBaseAction" method="execute">
+            <result name="success" type="dispatcher">/list.jsp</result>
+        </action>
+
     </package>
 
     <!-- JSON处理 -->
-    <package name="json" extends="json-default">
+    <package name="json" extends="json-default" namespace="/json">
         <result-types>
             <result-type name="json" class="org.apache.struts2.json.JSONResult"/>
         </result-types>
@@ -58,13 +58,14 @@
         </interceptors>
 
         <!-- HelloWorld -->
-        <action name="jsonHelloWorld" class="helloWorldAction" method="hello">
+        <action name="helloWorldAction" class="helloWorldAction" method="hello">
             <result name="success" type="json">
                 <param name="includeProperties">firstWord</param>
             </result>
         </action>
 
-        <action name="jsonUserBaseAction" class="userBaseAction">
+        <!-- 用户action-->
+        <action name="userBaseAction" class="userBaseAction">
             <result name="success" type="json">
                 <param name="includeProperties">
                     list\[\d+\]\.userId,

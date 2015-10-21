@@ -395,12 +395,15 @@ dependencies {
      * Struts2 Framework
      * 2.3.24
      * 2.3.24.1
+     * "org.apache.struts:struts2-convention-plugin:$struts2Version",
      */
     def struts2Version = '2.3.24.1'
     compile("org.apache.struts:struts2-core:$struts2Version",
             "org.apache.struts:struts2-spring-plugin:$struts2Version",
             "org.apache.struts:struts2-junit-plugin:$struts2Version",
             "org.apache.struts:struts2-jfreechart-plugin:$struts2Version",
+    //        "org.apache.struts:struts2-rest-plugin:$struts2Version",
+//            "org.apache.struts:struts2-convention-plugin:$struts2Version",
             "org.apache.struts:struts2-dwr-plugin:$struts2Version",
             "org.apache.struts:struts2-json-plugin:$struts2Version")
 

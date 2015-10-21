@@ -6,10 +6,8 @@
     <!--加入Action配置文件 -->
     <include file="struts-action.xml"/>
     <!--容器定义-->
-    <constant name="struts.objectFactory"
-              value="org.apache.struts2.spring.StrutsSpringObjectFactory"/>
-    <constant name="struts.objectFactory.spring.useClassCache"
-              value="true"/>
+    <constant name="struts.objectFactory" value="org.apache.struts2.spring.StrutsSpringObjectFactory"/>
+    <constant name="struts.objectFactory.spring.useClassCache" value="true"/>
     <!--multipart文件上传解析器-->
     <constant name="struts.multipart.parser" value="jakarta"/>
     <!--post提交编码-->
@@ -22,4 +20,16 @@
     <constant name="struts.tag.altSyntax" value="true"/>
     <!--本地化资源文件配置-->
     <constant name="struts.custom.i18n.resources" value="com/cn/resource/messages"/>
+    <!--url中action的扩展名-->
+    <constant name="struts.action.extension" value="action"/>
+    <!-- 是否可以调用action中的动态函数 -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+
+    <!-- struts2 restful -->
+    <!--
+    <constant name="struts.convention.action.suffix" value="Controller"/>
+    <constant name="struts.convention.action.mapAllMatches" value="true"/>
+
+    <constant name="struts.convention.default.parent.package" value="rest-default"/>
+-->
 </struts>

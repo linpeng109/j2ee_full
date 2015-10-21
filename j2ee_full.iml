@@ -258,7 +258,6 @@
     <orderEntry type="library" name="Gradle: joda-time:joda-time:2.4" level="project" />
     <orderEntry type="library" name="Gradle: rhino:js:1.6R5" level="project" />
     <orderEntry type="library" name="Gradle: org.codehaus.jettison:jettison:1.2" level="project" />
-    <orderEntry type="library" name="Gradle: commons-lang:commons-lang:2.1" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.santuario:xmlsec:1.4.4" level="project" />
     <orderEntry type="library" name="Gradle: commons-codec:commons-codec:1.9" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.httpcomponents:httpclient:4.2.5" level="project" />
@@ -297,5 +296,6 @@
     <orderEntry type="library" name="Gradle: com.datastax.cassandra:cassandra-driver-core:2.1.4" level="project" />
     <orderEntry type="library" name="Gradle: io.netty:netty:3.7.0.Final" level="project" />
     <orderEntry type="library" name="Gradle: com.google.guava:guava:16.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: commons-lang:commons-lang:2.1" level="project" />
   </component>
 </module>

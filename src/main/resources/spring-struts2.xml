@@ -20,6 +20,7 @@
         </property>
     </bean>
     <bean id="userBaseAction" class="com.cn.struts2.UserBaseAction" parent="baseAction"/>
+    <bean id="restUserBaseAction" class="com.cn.struts2.RestUserBaseAction" parent="baseAction"/>
     <bean id="helloWorldAction" class="com.cn.struts2.HelloWorldAction" parent="baseAction"/>
     <bean id="initializeAction" class="com.cn.struts2.InitializeAction" parent="baseAction"/>
 </beans>
