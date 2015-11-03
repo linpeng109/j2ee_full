@@ -30,7 +30,7 @@ public class FilePathCheck {
     public static boolean checkFile(String file) {
         if (file == null || file.equals("")
                 || (new File(file)).isFile() != true) {
-            logger.error("The path parameter (" + file
+            logger.error("The path worldParameter (" + file
                     + ") is not to be set currently!");
             return FilePathCheck.CHECK_FAILURE;
         } else {
@@ -47,7 +47,7 @@ public class FilePathCheck {
     public static boolean checkDir(String path) {
         if (path == null || path.equals("")
                 || (new File(path)).isDirectory() != true) {
-            logger.error("The path parameter (" + path
+            logger.error("The path worldParameter (" + path
                     + ") is not to be set currently!");
             return FilePathCheck.CHECK_FAILURE;
         } else {

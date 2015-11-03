@@ -1,6 +1,6 @@
 package test.struts;
 
-import com.cn.struts2.HelloWorldAction;
+import com.cn.struts2.HelloAction;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import test.TestBase;
@@ -14,13 +14,13 @@ public class TestStruts extends TestBase {
 
     private static Logger logger = Logger.getLogger(TestStruts.class);
 
-    @Resource
-    private HelloWorldAction helloWorldAction;
+    @Resource(name = "helloAction")
+    private HelloAction helloldAction;
 
     @Test
     public void hello() {
         logger.debug("TestDao is starting......");
-        helloWorldAction.hello();
+        helloldAction.hello();
     }
 
 }

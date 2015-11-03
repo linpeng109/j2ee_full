@@ -27,8 +27,8 @@
     <security:http>
         <security:csrf disabled="true"/>
         <security:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
-        <security:form-login login-page="/login.jsp" authentication-failure-url="/login.jsp"/>
-        <security:logout/>
+        <security:form-login always-use-default-target="false"/>
+        <security:logout logout-success-url="/index.jsp"/>
         <security:custom-filter ref="customUsernamePasswordAuthenticationFilter" before="FORM_LOGIN_FILTER"/>
     </security:http>
 

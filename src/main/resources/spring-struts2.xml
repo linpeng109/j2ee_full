@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--ACTION配置 -->
+<!--系统数据源及实体类配置 -->
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!--Action基类 -->
     <bean id="baseAction" class="com.cn.struts2.BaseAction" abstract="true">
@@ -19,8 +19,17 @@
             <ref bean="cryptoDigestImpl"/>
         </property>
     </bean>
-    <bean id="userBaseAction" class="com.cn.struts2.UserBaseAction" parent="baseAction"/>
-    <bean id="restUserBaseAction" class="com.cn.struts2.RestUserBaseAction" parent="baseAction"/>
-    <bean id="helloWorldAction" class="com.cn.struts2.HelloWorldAction" parent="baseAction"/>
+
+    <bean id="helloAction" class="com.cn.struts2.HelloAction" parent="baseAction">
+        <property name="helloParameter" value="Lin"/>
+    </bean>
+
+    <bean id="worldAction" class="com.cn.struts2.WorldAction" parent="baseAction">
+        <property name="worldParameter" value="Peng"/>
+    </bean>
+
+    <bean id="userBaseAction" class="com.cn.struts2.UserBaseAction" parent="baseAction">
+        <property name="pageSize" value="10"/>
+    </bean>
     <bean id="initializeAction" class="com.cn.struts2.InitializeAction" parent="baseAction"/>
 </beans>
