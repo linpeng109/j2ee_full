@@ -1,6 +1,5 @@
 package com.cn.struts2;
 
-import com.cn.dao.entity.UserBase;
 import com.opensymphony.xwork2.ModelDriven;
 
 import java.util.List;

@@ -24,12 +24,4 @@
     <constant name="struts.action.extension" value="action"/>
     <!-- 是否可以调用action中的动态函数 -->
     <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
-
-    <!-- struts2 restful -->
-    <!--
-    <constant name="struts.convention.action.suffix" value="Controller"/>
-    <constant name="struts.convention.action.mapAllMatches" value="true"/>
-
-    <constant name="struts.convention.default.parent.package" value="rest-default"/>
--->
 </struts>

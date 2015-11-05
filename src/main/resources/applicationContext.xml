@@ -19,52 +19,52 @@
     </bean>
 
     <!-- web服务模块配置 -->
-    <import resource="spring-webservice.xml"/>
+    <import resource="spring-config/spring-webservice.xml"/>
 
     <!-- JMS模块配置 -->
-    <!-- import resource="spring-jms.xml" /-->
+    <!-- import resource="spring-config/spring-jms.xml" /-->
 
     <!-- 系统模块配置 -->
-    <import resource="spring-common.xml"/>
+    <import resource="spring-config/spring-common.xml"/>
     <!-- JSON模块配置 -->
-    <import resource="spring-json.xml"/>
+    <import resource="spring-config/spring-json.xml"/>
     <!-- JMS模块配置 -->
-    <import resource="spring-jms.xml"/>
+    <import resource="spring-config/spring-jms.xml"/>
     <!-- 密文模块配置 -->
-    <import resource="spring-crypto.xml"/>
+    <import resource="spring-config/spring-crypto.xml"/>
     <!-- 用户及权限模块配置 -->
-    <import resource="spring-security.xml"/>
+    <import resource="spring-config/spring-security.xml"/>
     <!-- 接口模块配置 -->
-    <import resource="spring-integration.xml"/>
+    <import resource="spring-config/spring-integration.xml"/>
     <!-- 传感控制模块配置 -->
-    <import resource="spring-iot.xml"/>
+    <import resource="spring-config/spring-iot.xml"/>
     <!-- Socket端口模块配置 -->
-    <import resource="spring-ip.xml"/>
+    <import resource="spring-config/spring-ip.xml"/>
     <!-- 消息事件模块配置 -->
-    <import resource="spring-event.xml"/>
+    <import resource="spring-config/spring-event.xml"/>
     <!-- FTP发送模块配置 -->
-    <import resource="spring-ftp.xml"/>
+    <import resource="spring-config/spring-ftp.xml"/>
     <!-- Struts2模块配置 -->
-    <import resource="spring-struts2.xml"/>
+    <import resource="spring-config/spring-struts2.xml"/>
     <!-- 数据源及实体类配置 -->
-    <import resource="spring-dao.xml"/>
+    <import resource="spring-config/spring-hibernate.xml"/>
     <!-- 全文检索模块配置 -->
-    <import resource="spring-search.xml"/>
+    <import resource="spring-config/spring-search.xml"/>
     <!-- 任务调度模块配置 -->
-    <import resource="spring-quartz.xml"/>
+    <import resource="spring-config/spring-quartz.xml"/>
     <!-- 视频编码模块配置 -->
-    <import resource="spring-encoder.xml"/>
+    <import resource="spring-config/spring-encoder.xml"/>
 
     <!-- XMPP消息模块配置 -->
-    <import resource="spring-xmpp.xml"/>
+    <import resource="spring-config/spring-xmpp.xml"/>
 
     <!-- Kafka分布式消息系统模块配置 -->
-    <!-- import resource="spring-kafka.xml" / -->
+    <!-- import resource="spring-config/spring-kafka.xml" / -->
 
     <!-- Cassandra分布式非关系数据库模块配置 -->
-    <import resource="spring-cassandra.xml"/>
+    <import resource="spring-config/spring-cassandra.xml"/>
 
     <!-- HTTP模块配置 -->
-    <import resource="spring-http.xml"/>
+    <import resource="spring-config/spring-http.xml"/>
 
 </beans>

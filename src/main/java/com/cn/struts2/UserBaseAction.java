@@ -1,7 +1,6 @@
 package com.cn.struts2;
 
-import com.cn.dao.entity.UserBase;
-import com.opensymphony.xwork2.ModelDriven;
+import com.cn.hibernate.entity.UserBase;
 import org.apache.log4j.Logger;
 
 import java.util.List;

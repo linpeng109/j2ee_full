@@ -1,9 +1,9 @@
 package com.cn.struts2;
 
 import com.cn.common.RandomModule;
-import com.cn.dao.entity.Authority;
-import com.cn.dao.entity.UserBase;
-import com.cn.dao.entity.UserBase_Authority;
+import com.cn.hibernate.entity.Authority;
+import com.cn.hibernate.entity.UserBase;
+import com.cn.hibernate.entity.UserBase_Authority;
 import org.apache.log4j.Logger;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -3,7 +3,7 @@ package com.cn.struts2;
 import com.cn.common.DateModule;
 import com.cn.common.RandomModule;
 import com.cn.crypto.CryptoModule;
-import com.cn.dao.util.HibernateDAO;
+import com.cn.hibernate.util.HibernateDAO;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.StrutsStatics;
