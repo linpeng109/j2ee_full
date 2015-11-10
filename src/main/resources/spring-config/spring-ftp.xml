@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:si="http://www.springframework.org/schema/integration"
+       xmlns:si-ftp="http://www.springframework.org/schema/integration/ftp"
+       xmlns:ftp="http://mina.apache.org/ftpserver/spring/v1"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+                           http://www.springframework.org/schema/integration/ftp http://www.springframework.org/schema/integration/ftp/spring-integration-ftp.xsd
+                           http://mina.apache.org/ftpserver/spring/v1 http://mina.apache.org/ftpserver/ftpserver-1.0.xsd">
+
+    <!-- FTP服务器配置 -->
+    <ftp:server id="ftpServer" anon-enabled="true" max-logins="200">
+        <ftp:listeners>
+            <ftp:nio-listener name="default" local-address="127.0.0.1" port="1025"/>
+        </ftp:listeners>
+        <ftp:ftplets>
+            <ftp:ftplet name="ftpletList">
+                <ref bean="fileUpdateEndFtplet"/>
+            </ftp:ftplet>
+        </ftp:ftplets>
+
+        <!-- FTP用户灌篮：使用properties文件光缆用户
+        <ftp:file-user-manager file="ftp-config/ftpserver.properties"/>
+        -->
+        <!-- FTP用户管理：使用数据库管理用户
+        -->
+        <ftp:db-user-manager encrypt-passwords="clear">
+            <ftp:data-source>
+                <ref bean="dataSource"/>
+            </ftp:data-source>
+            <ftp:insert-user>INSERT INTO userbase (username, password,homedirectory,enableflag, writepermission,
+                idletime, uploadrate,downloadrate) VALUES ('{userid}', '{userpassword}',
+                '{homedirectory}','{enableflag}', '{writepermission}', {idletime}, {uploadrate},{downloadrate})
+            </ftp:insert-user>
+            <ftp:update-user>UPDATE userbase SET
+                password='{userpassword}',homedirectory='{homedirectory}',enable={enableflag},writepermission={writepermission},idletime={idletime},uploadrate={uploadrate},downloadrate={downloadrate}
+                WHERE username='{userid}'
+            </ftp:update-user>
+            <ftp:delete-user>DELETE FROM userbase WHERE username = '{userid}'
+            </ftp:delete-user>
+            <ftp:select-user>SELECT username as userid, password as userpassword,'${ftpModule.ftpdir}{userid}' as
+                homedirectory,enabled as enableflag, writepermission, '0' as idletime, '0' as uploadrate, '0' as
+                downloadrate ,'0' as maxloginnumber, '0' as maxloginperip FROM userbase WHERE username = '{userid}'
+            </ftp:select-user>
+            <ftp:select-all-users>SELECT username as userid FROM userbase ORDER BY userid
+            </ftp:select-all-users>
+            <ftp:is-admin>SELECT username as userid FROM userbase WHERE username='{userid}'
+            </ftp:is-admin>
+            <ftp:authenticate>SELECT username as userid,password as userpassword FROM userbase WHERE username='{userid}'
+            </ftp:authenticate>
+        </ftp:db-user-manager>
+    </ftp:server>
+
+    <!-- ftp服务器启动控制 -->
+    <bean id="ftpServerFactory" class="com.cn.ftp.FtpServerFactory"
+          init-method="ftpServerInitialized" destroy-method="ftpServerDestroyed">
+        <property name="server" ref="ftpServer"/>
+    </bean>
+
+    <!-- FTP服务器端处理模块 -->
+    <bean id="fileUpdateEndFtplet" class="com.cn.ftp.ftplet.FileUpdateEndFtplet"/>
+
+    <!-- 配置FTP的sessionFactory -->
+    <bean id="ftpSessionFactory" class="org.springframework.integration.ftp.session.DefaultFtpSessionFactory">
+        <property name="host" value="localhost"/>
+        <property name="port" value="1025"/>
+        <property name="username" value="abcd"/>
+        <property name="password" value="abcd"/>
+        <property name="clientMode" value="0"/>
+        <property name="fileType" value="2"/>
+
+    </bean>
+
+    <!-- 配置ftp入港通道适配器 -->
+    <si-ftp:inbound-channel-adapter id="ftpInbound" channel="inFtpChannel"
+                                    session-factory="ftpSessionFactory" charset="UTF-8" auto-startup="true"
+                                    auto-create-local-directory="true"
+                                    delete-remote-files="false" filename-pattern="*.txt" remote-directory="/abcd"
+                                    local-directory="/home/jupiter/workset/workdir/ftp">
+    </si-ftp:inbound-channel-adapter>
+
+    <!-- ftp入港通道 -->
+    <si:channel id="inFtpChannel"/>
+
+    <bean id="ftpReceiveHandler" class="com.cn.ftp.FtpReceiveHandler"/>
+    <si:service-activator ref="ftpReceiveHandler" method="handler" input-channel="inFtpChannel"
+                          output-channel="logger"/>
+
+    <!-- ftp离港通道 -->
+    <si:channel id="outFtpChannel"/>
+
+    <!-- 配置ftp离港通道适配器 -->
+    <!-- ftp:outbound-channel-adapter id="ftpOutbound" channel="outFtpChannel"
+        session-factory="ftpSessionFactory" charset="UTF-8" remote-directory="/"
+        / -->
+</beans>
