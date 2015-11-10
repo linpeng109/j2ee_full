@@ -33,7 +33,7 @@
     <!-- 密文模块配置 -->
     <import resource="spring-config/spring-crypto.xml"/>
     <!-- 用户及权限模块配置 -->
-    <import resource="spring-config/spring-security.xml"/>
+    <import resource="spring-config/spring-security-cas.xml"/>
     <!-- 接口模块配置 -->
     <import resource="spring-config/spring-integration.xml"/>
     <!-- 传感控制模块配置 -->

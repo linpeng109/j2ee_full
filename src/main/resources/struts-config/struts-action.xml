@@ -46,15 +46,21 @@
     <!-- JSON处理 -->
     <package name="json" extends="json-default" namespace="/json">
 
+        <global-results>
+            <result>
+                <param name="noCache">true</param>
+                <param name="callbackParameter">callback</param>
+                <param name="contentType">text/html</param>
+                <param name="encoding">UTF-8</param>
+            </result>
+        </global-results>
+
         <!-- HelloWorld -->
         <action name="helloAction" class="helloAction" method="hello">
             <result name="success" type="chain">worldAction</result>
         </action>
         <action name="worldAction" class="worldAction" method="world">
             <result name="success" type="json">
-                <param name="callbackParameter">jsoncallback</param>
-                <param name="contentType">text/html</param>
-                <param name="encoding">UTF-8</param>
                 <param name="root">hashMap</param>
             </result>
         </action>
@@ -62,9 +68,6 @@
         <!-- 用户action-->
         <action name="userBaseAction" class="userBaseAction">
             <result name="success" type="json">
-                <param name="noCache">true</param>
-                <param name="callbackParameter">callback</param>
-                <param name="encoding">UTF-8</param>
                 <param name="includeProperties">
                     list\[\d+\]\.userId,
                     list\[\d+\]\.userName,

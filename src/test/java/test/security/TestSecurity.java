@@ -102,7 +102,7 @@ public class TestSecurity extends TestBase {
     }
 
     @Test
-    @WithUserDetails("史杨ak261")
+    @WithUserDetails("abcd")
     public void testSecurityBy_user_2() {
         logger.debug("testSecurityBy_user_2......");
         securitySamples.securityMethod();

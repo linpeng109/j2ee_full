@@ -20,11 +20,9 @@
             </ftp:ftplet>
         </ftp:ftplets>
 
-        <!-- FTP用户灌篮：使用properties文件光缆用户
-        <ftp:file-user-manager file="ftp-config/ftpserver.properties"/>
-        -->
-        <!-- FTP用户管理：使用数据库管理用户
-        -->
+        <!-- FTP用户灌篮：使用properties文件光缆用户 -->
+        <!--ftp:file-user-manager file="ftp-config/ftpserver.properties" encrypt-passwords="clear"/-->
+        <!-- FTP用户管理：使用数据库管理用户 -->
         <ftp:db-user-manager encrypt-passwords="clear">
             <ftp:data-source>
                 <ref bean="dataSource"/>
