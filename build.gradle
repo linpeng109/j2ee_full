@@ -10,12 +10,14 @@ apply plugin: 'com.bmuschko.cargo-base'
 /**
  * Gradle plugin supporting deployment of your web application to an embedded Tomcat web container.
  * 2.2.2
+ * *2.2.3
  */
 buildscript {
     repositories {
         jcenter()
     }
-    def gradleTomcatPluginVersion = '2.2.2'
+
+    def gradleTomcatPluginVersion = '2.2.3'
     dependencies {
         classpath("com.bmuschko:gradle-tomcat-plugin:$gradleTomcatPluginVersion")
     }
@@ -70,8 +72,9 @@ dependencies {
      *
      * 3.1.2
      * 3.1.3
+     **3.1.4
      */
-    def apacheCxfVersion = '3.1.3'
+    def apacheCxfVersion = '3.1.4'
     compile("org.apache.cxf:cxf-rt-frontend-jaxws:$apacheCxfVersion",
             "org.apache.cxf:cxf-rt-transports-http:$apacheCxfVersion")
 
@@ -79,8 +82,9 @@ dependencies {
      * Java Servlet API
      * 8.0.24
      * 8.0.26
+     * *8.0.28
      */
-    def tomcatServletApiVersion = '8.0.26'
+    def tomcatServletApiVersion = '8.0.28'
     compile("org.apache.tomcat:tomcat-servlet-api:$tomcatServletApiVersion")
 
     /**
@@ -101,8 +105,9 @@ dependencies {
      *  together Dynamo's fully distributed design and Bigtable's ColumnFamily-based data model.
      *  2.2.0
      *  2.2.1
+     *  *2.2.3
      */
-    def cassandraVersion = '2.2.1'
+    def cassandraVersion = '2.2.3'
     compile("org.apache.cassandra:cassandra-all:$cassandraVersion") {
         exclude(module: 'logback-classic')
     }
@@ -117,6 +122,7 @@ dependencies {
     /**
      * Code generation library with shaded ASM dependecies
      * 3.1
+     * *3.2.0
      */
     def cglibVersion = '3.1'
     compile("cglib:cglib-nodep:$cglibVersion")
@@ -146,8 +152,9 @@ dependencies {
      * 5.0.0.Final
      * 5.0.1.Final
      * 5.0.2.Final
+     * *5.0.3.Final
      */
-    def hibernateVersion = '5.0.2.Final'
+    def hibernateVersion = '5.0.3.Final'
     compile("org.hibernate:hibernate-core:$hibernateVersion",
             "org.hibernate:hibernate-c3p0:$hibernateVersion",
             "org.hibernate:hibernate-ehcache:$hibernateVersion",
@@ -205,8 +212,9 @@ dependencies {
      * Apache Lucene Java Core
      * '4.10.4'
      * 5.3.0
+     * *5.3.1
      */
-    def luceneVersion = '5.3.0'
+    def luceneVersion = '5.3.1'
     compile("org.apache.lucene:lucene-core:$luceneVersion",
             "org.apache.lucene:lucene-analyzers-common:$luceneVersion",
             "org.apache.lucene:lucene-queryparser:$luceneVersion",
@@ -216,9 +224,19 @@ dependencies {
     /**
      * MySQL JDBC Type 4 driver
      * 5.1.36
+     * *5.1.37
      */
-    def mysqlConnectorJavaVersion = '5.1.36'
+    def mysqlConnectorJavaVersion = '5.1.37'
     compile("mysql:mysql-connector-java:$mysqlConnectorJavaVersion")
+
+    /**
+     * Oracle JDBC Driver For Java Oracle.jdbc.driver.OracleDriver Ojdbc6
+     * 11.2.0.4.0
+     */
+
+     def oracleDriverOjdbc6Version = '11.2.0.4.0'
+     compile("com.oracle:ojdbc14:$oracleDriverOjdbc6Version")
+
 
     /**
      * Apache POI - Java API To Access Microsoft Format Files
@@ -233,8 +251,9 @@ dependencies {
     /**
      * Enterprise Job Scheduler
      * 2.2.1
+     * *2.2.2
      */
-    def quartzVersion = '2.2.1'
+    def quartzVersion = '2.2.2'
     compile("org.quartz-scheduler:quartz:$quartzVersion")
 
     /**
@@ -252,8 +271,9 @@ dependencies {
      * 4.1.7.RELEASE
      * 4.2.0.RELEASE
      * 4.2.1.RELEASE
+     * *4.2.2.RELEASE
      */
-    def springVersion = '4.2.1.RELEASE'
+    def springVersion = '4.2.2.RELEASE'
     compile("org.springframework:spring-core:$springVersion",
             "org.springframework:spring-context:$springVersion",
             "org.springframework:spring-context-support:$springVersion",
@@ -318,8 +338,9 @@ dependencies {
      *
      * 4.1.6.RELEASE
      * 4.2.0.RELEASE
+     * *4.2.1.RELEASE
      */
-    def springIntegrationVersion = '4.2.0.RELEASE'
+    def springIntegrationVersion = '4.2.1.RELEASE'
     compile("org.springframework.integration:spring-integration-core:$springIntegrationVersion",
             "org.springframework.integration:spring-integration-jms:$springIntegrationVersion",
             "org.springframework.integration:spring-integration-jdbc:$springIntegrationVersion",
@@ -366,8 +387,9 @@ dependencies {
      * Spring Security Cas
      *
      * 4.0.2.RELEASE
+     * *4.0.3.RELEASE
      */
-    def springSecurityVersion = '4.0.2.RELEASE'
+    def springSecurityVersion = '4.0.3.RELEASE'
     compile("org.springframework.security:spring-security-core:$springSecurityVersion",
             "org.springframework.security:spring-security-web:$springSecurityVersion",
             "org.springframework.security:spring-security-taglibs:$springSecurityVersion",
@@ -402,7 +424,7 @@ dependencies {
             "org.apache.struts:struts2-spring-plugin:$struts2Version",
             "org.apache.struts:struts2-junit-plugin:$struts2Version",
             "org.apache.struts:struts2-jfreechart-plugin:$struts2Version",
-    //        "org.apache.struts:struts2-rest-plugin:$struts2Version",
+            //        "org.apache.struts:struts2-rest-plugin:$struts2Version",
 //            "org.apache.struts:struts2-convention-plugin:$struts2Version",
             "org.apache.struts:struts2-dwr-plugin:$struts2Version",
             "org.apache.struts:struts2-json-plugin:$struts2Version")
@@ -458,8 +480,9 @@ dependencies {
      * 7.0.63
      * 8.0.24
      * 8.0.26
+     * 8.0.28
      */
-    def tomcatVersion = '8.0.26'
+    def tomcatVersion = '8.0.28'
     tomcat("org.apache.tomcat.embed:tomcat-embed-core:$tomcatVersion",
             "org.apache.tomcat.embed:tomcat-embed-logging-juli:$tomcatVersion",
             "org.apache.tomcat.embed:tomcat-embed-jasper:$tomcatVersion",
