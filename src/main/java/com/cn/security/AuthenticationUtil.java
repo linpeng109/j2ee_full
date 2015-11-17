@@ -1,6 +1,5 @@
 package com.cn.security;
 
-import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -57,7 +56,7 @@ public class AuthenticationUtil {
      * 获取权限字符串组
      *
      * @param authentication 指定认证
-     * @return
+     * @return 权限字符串组
      */
     public String[] getAuthorities(Authentication authentication) {
         StringBuffer buffer = new StringBuffer();
@@ -73,9 +72,9 @@ public class AuthenticationUtil {
     /**
      * 判断权限字符串组中是否包含指定权限
      *
-     * @param authentication
-     * @param authorityString
-     * @return
+     * @param authentication  权限实例
+     * @param authorityString 指定权限字符串
+     * @return 是否包含指定权限
      */
     public boolean isContains(Authentication authentication, String authorityString) {
 

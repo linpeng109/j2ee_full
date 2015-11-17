@@ -12,7 +12,7 @@ public class UserBaseSaveOrUpdateInterceptor extends EmptyInterceptor {
     private final Logger logger = Logger.getLogger(UserBaseSaveOrUpdateInterceptor.class);
 
     @Override
-    public boolean onSave(Object entity, Serializable id, Object[] state,String[] propertyNames, Type[] types) {
+    public boolean onSave(Object entity, Serializable id, Object[] state, String[] propertyNames, Type[] types) {
         if (entity instanceof UserBase) {
             String message = "user=" + ((UserBase) entity).getUserName()
                     + " will be created!";

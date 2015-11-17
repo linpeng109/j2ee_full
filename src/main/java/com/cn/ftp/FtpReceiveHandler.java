@@ -5,7 +5,10 @@ import org.springframework.integration.support.MessageBuilder;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageHeaders;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -20,8 +23,9 @@ public class FtpReceiveHandler {
     /**
      * ftp处理函数
      *
-     * @param message
-     * @return
+     * @param message 接收到的消息
+     * @return 返回消息
+     * @throws IOException 抛出io错误
      */
     public Message handler(Message message) throws IOException {
         MessageHeaders headers = message.getHeaders();

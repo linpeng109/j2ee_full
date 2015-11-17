@@ -1,7 +1,6 @@
 package com.cn.webservice.jaxws;
 
 import org.apache.log4j.Logger;
-import org.springframework.stereotype.Service;
 
 import javax.jws.WebService;
 

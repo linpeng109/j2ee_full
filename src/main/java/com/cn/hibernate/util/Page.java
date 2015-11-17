@@ -1,8 +1,5 @@
 package com.cn.hibernate.util;
 
-import org.springframework.flex.core.io.AmfCreator;
-import org.springframework.flex.core.io.AmfProperty;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,10 +7,9 @@ import java.util.List;
 /**
  * 数据列表封装
  *
- * @param <T>
+ * @param <T> 实体类实例
  * @author linp
  */
-@SuppressWarnings("serial")
 public class Page<T> implements Serializable {
 
     /**
@@ -64,13 +60,12 @@ public class Page<T> implements Serializable {
     /**
      * 构造函数
      *
-     * @param listXmlString
-     * @param pageSize
-     * @param pageCurrent
-     * @param total
+     * @param list        查询结果列表
+     * @param pageSize    页面大小
+     * @param pageCurrent 当前页
+     * @param total       数量
      */
-    @AmfCreator
-    public Page(@AmfProperty("list") List<T> list, @AmfProperty("pageSize") int pageSize, @AmfProperty("pageCurrent") int pageCurrent, @AmfProperty("total") int total) {
+    public Page(List<T> list, int pageSize, int pageCurrent, int total) {
         this.setList(list);
         this.setPageSize(pageSize);
         this.setPageCurrent(pageCurrent);

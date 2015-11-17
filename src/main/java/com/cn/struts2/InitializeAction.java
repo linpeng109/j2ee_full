@@ -22,7 +22,7 @@ public class InitializeAction extends BaseAction {
     /**
      * 初始化权限列表
      *
-     * @return
+     * @return success or error
      */
     @Transactional(rollbackFor = Exception.class, value = "transactionManager")
     public String initializeAuthority() {
@@ -45,7 +45,7 @@ public class InitializeAction extends BaseAction {
     /**
      * 初始化abcd用户
      *
-     * @return
+     * @return success or error
      */
     @Transactional(rollbackFor = Exception.class, value = "transactionManager")
     public String initializeABCD() {
@@ -71,6 +71,9 @@ public class InitializeAction extends BaseAction {
 
     /**
      * 初始化userbase用户列表
+     *
+     * @param userNumber 初始化用户数量
+     * @return success or error
      */
     @Transactional(rollbackFor = Exception.class, value = "transactionManager")
     public String initializeUserBase(int userNumber) {

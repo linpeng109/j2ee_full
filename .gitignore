@@ -5,4 +5,9 @@
 build/*
 logs/*
 *.iml
-*.*~
+*.eml
+.gitignore~
+*.gradle~
+transaction.log
+.classpath
+.project

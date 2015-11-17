@@ -9,7 +9,7 @@ import javax.jws.WebService;
  * @author Hartwell
  * @version 3.0
  */
-@WebService(targetNamespace = "com.cn.webservice",name = "hwlloworld")
+@WebService(targetNamespace = "com.cn.webservice", name = "hwlloworld")
 public interface HelloWorldWebService {
     @WebMethod
     public String helloWorldByString(String hi);

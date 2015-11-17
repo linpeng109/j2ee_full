@@ -10,7 +10,7 @@ apply plugin: 'com.bmuschko.cargo-base'
 /**
  * Gradle plugin supporting deployment of your web application to an embedded Tomcat web container.
  * 2.2.2
- * *2.2.3
+ * 2.2.3
  */
 buildscript {
     repositories {
@@ -40,7 +40,7 @@ buildscript {
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 
-version = '2015.07.28_j2ee_full'
+version = 'j2ee_full_2015.11.14'
 
 /**
  *
@@ -72,7 +72,7 @@ dependencies {
      *
      * 3.1.2
      * 3.1.3
-     **3.1.4
+     ** 3.1.4
      */
     def apacheCxfVersion = '3.1.4'
     compile("org.apache.cxf:cxf-rt-frontend-jaxws:$apacheCxfVersion",
@@ -82,7 +82,7 @@ dependencies {
      * Java Servlet API
      * 8.0.24
      * 8.0.26
-     * *8.0.28
+     * 8.0.28
      */
     def tomcatServletApiVersion = '8.0.28'
     compile("org.apache.tomcat:tomcat-servlet-api:$tomcatServletApiVersion")
@@ -105,7 +105,7 @@ dependencies {
      *  together Dynamo's fully distributed design and Bigtable's ColumnFamily-based data model.
      *  2.2.0
      *  2.2.1
-     *  *2.2.3
+     *  2.2.3
      */
     def cassandraVersion = '2.2.3'
     compile("org.apache.cassandra:cassandra-all:$cassandraVersion") {
@@ -122,7 +122,7 @@ dependencies {
     /**
      * Code generation library with shaded ASM dependecies
      * 3.1
-     * *3.2.0
+     * 3.2.0
      */
     def cglibVersion = '3.1'
     compile("cglib:cglib-nodep:$cglibVersion")
@@ -152,7 +152,7 @@ dependencies {
      * 5.0.0.Final
      * 5.0.1.Final
      * 5.0.2.Final
-     * *5.0.3.Final
+     * 5.0.3.Final
      */
     def hibernateVersion = '5.0.3.Final'
     compile("org.hibernate:hibernate-core:$hibernateVersion",
@@ -212,7 +212,7 @@ dependencies {
      * Apache Lucene Java Core
      * '4.10.4'
      * 5.3.0
-     * *5.3.1
+     * 5.3.1
      */
     def luceneVersion = '5.3.1'
     compile("org.apache.lucene:lucene-core:$luceneVersion",
@@ -224,7 +224,7 @@ dependencies {
     /**
      * MySQL JDBC Type 4 driver
      * 5.1.36
-     * *5.1.37
+     * 5.1.37
      */
     def mysqlConnectorJavaVersion = '5.1.37'
     compile("mysql:mysql-connector-java:$mysqlConnectorJavaVersion")
@@ -233,10 +233,8 @@ dependencies {
      * Oracle JDBC Driver For Java Oracle.jdbc.driver.OracleDriver Ojdbc6
      * 11.2.0.4.0
      */
-
-     def oracleDriverOjdbc6Version = '11.2.0.4.0'
-     compile("com.oracle:ojdbc14:$oracleDriverOjdbc6Version")
-
+    def oracleDriverOjdbc6Version = '11.2.0.4.0'
+    compile("com.oracle:ojdbc14:$oracleDriverOjdbc6Version")
 
     /**
      * Apache POI - Java API To Access Microsoft Format Files
@@ -251,10 +249,12 @@ dependencies {
     /**
      * Enterprise Job Scheduler
      * 2.2.1
-     * *2.2.2
+     * 2.2.2
      */
     def quartzVersion = '2.2.2'
-    compile("org.quartz-scheduler:quartz:$quartzVersion")
+    compile("org.quartz-scheduler:quartz:$quartzVersion"){
+        exclude(module: 'c3p0')
+    }
 
     /**
      * Spring Core
@@ -271,7 +271,7 @@ dependencies {
      * 4.1.7.RELEASE
      * 4.2.0.RELEASE
      * 4.2.1.RELEASE
-     * *4.2.2.RELEASE
+     * 4.2.2.RELEASE
      */
     def springVersion = '4.2.2.RELEASE'
     compile("org.springframework:spring-core:$springVersion",
@@ -293,16 +293,6 @@ dependencies {
     def springbatchVersion = '3.0.5.RELEASE'
     compile("org.springframework.batch:spring-batch-core:$springbatchVersion",
             "org.springframework.batch:spring-batch-test:$springbatchVersion")
-
-    /**
-     * Cassandra Support for Spring Data
-     * 1.2.2.RELEASE
-     * 1.3.0.RELEASE
-     */
-    /**
-     def springDataCassandraVersion = '1.3.0.RELEASE'
-     compile("org.springframework.data:spring-data-cassandra:$springDataCassandraVersion")
-     */
 
     /**
      * Spring Data Redis
@@ -338,7 +328,7 @@ dependencies {
      *
      * 4.1.6.RELEASE
      * 4.2.0.RELEASE
-     * *4.2.1.RELEASE
+     * 4.2.1.RELEASE
      */
     def springIntegrationVersion = '4.2.1.RELEASE'
     compile("org.springframework.integration:spring-integration-core:$springIntegrationVersion",
@@ -387,7 +377,7 @@ dependencies {
      * Spring Security Cas
      *
      * 4.0.2.RELEASE
-     * *4.0.3.RELEASE
+     * 4.0.3.RELEASE
      */
     def springSecurityVersion = '4.0.3.RELEASE'
     compile("org.springframework.security:spring-security-core:$springSecurityVersion",

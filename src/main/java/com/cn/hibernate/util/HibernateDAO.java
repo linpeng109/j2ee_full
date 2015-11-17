@@ -11,7 +11,8 @@ import java.util.List;
 /**
  * 通用数据查询对象
  *
- * @author Administrator
+ * @author Linpeng
+ * @version 20151114
  */
 public class HibernateDAO {
     /**
@@ -36,10 +37,10 @@ public class HibernateDAO {
      * 无条件计数查询
      *
      * @param clazz    查询实体类
-     * @param isCached
-     * @return
+     * @param isCached 是否缓存
+     * @return 返回结果
      */
-    public <T> int count(Class<T> clazz, boolean isCached) {
+    public int count(Class clazz, boolean isCached) {
         int result = 0;
         Session session = sessionFactory.getCurrentSession();
         Criteria criteria = session.createCriteria(clazz);
@@ -54,10 +55,11 @@ public class HibernateDAO {
      *
      * @param clazz     查询实体类
      * @param criterion 查询条件
-     * @return
+     * @param isCached  是否缓存
+     * @return 返回结果
      */
-    public <T> int countByCriteria(Class<T> clazz, Criterion criterion,
-                                   boolean isCached) {
+    public int countByCriteria(Class clazz, Criterion criterion,
+                               boolean isCached) {
         int result = 0;
         Session session = sessionFactory.getCurrentSession();
         Criteria criteria = session.createCriteria(clazz);
@@ -73,7 +75,8 @@ public class HibernateDAO {
      *
      * @param clazz    查询实体类
      * @param isCached 是否缓存
-     * @return
+     * @param <T>      查询类的实例
+     * @return 返回结果集
      */
     public <T> List<T> listByAll(Class<T> clazz, boolean isCached) {
         List<T> result = null;
@@ -88,11 +91,11 @@ public class HibernateDAO {
      * 条件查询
      *
      * @param clazz     查询实体类
+     * @param <T>       查询类的实例
      * @param criterion 查询条件
      * @param isCached  是否缓存
-     * @return
+     * @return 返回结果集
      */
-    @SuppressWarnings("unchecked")
     public <T> List<T> listByCriteria(Class<T> clazz, Criterion criterion,
                                       boolean isCached) {
         Session session = sessionFactory.getCurrentSession();
@@ -106,8 +109,9 @@ public class HibernateDAO {
     /**
      * 字段查询
      *
+     * @param <T>   查询类的实例
      * @param clazz 查询实体类
-     * @return
+     * @return 返回结果集
      */
     public <T> String[] listByFieldNames(Class<T> clazz) {
         String[] result = null;
@@ -127,10 +131,11 @@ public class HibernateDAO {
     /**
      * 根据id查询
      *
+     * @param <T>      查询类的实例
      * @param clazz    查询实体类
-     * @param id
-     * @param isCached
-     * @return
+     * @param id       对象id
+     * @param isCached 是否缓存
+     * @return 返回结果集
      */
     @SuppressWarnings("unchecked")
     public <T> T listById(Class<T> clazz, Object id, boolean isCached) {
@@ -146,8 +151,9 @@ public class HibernateDAO {
     /**
      * 原数据查询
      *
+     * @param <T>   查询类的实例
      * @param clazz 查询实体类
-     * @return
+     * @return 返回结果集
      */
     public <T> ClassMetadata listByMetaData(Class<T> clazz) {
         ClassMetadata result = null;
@@ -159,11 +165,12 @@ public class HibernateDAO {
     /**
      * 分页查询
      *
+     * @param <T>         查询类的实例
      * @param clazz       查询实体类
      * @param pageSize    每页数据量
      * @param pageCurrent 当前页
      * @param isCached    是否缓存
-     * @return
+     * @return 返回结果集
      */
     public <T> List<T> listByPage(Class<T> clazz, int pageSize,
                                   int pageCurrent, boolean isCached) {
@@ -186,12 +193,13 @@ public class HibernateDAO {
     /**
      * 分页条件查询
      *
+     * @param <T>         查询类的实例
      * @param clazz       实体类
      * @param criterion   查询条件
      * @param pageSize    每页数据量
      * @param pageCurrent 当前页
      * @param isCached    是否缓存
-     * @return
+     * @return 返回结果集
      */
     public <T> List<T> listByPageByCriteria(Class<T> clazz,
                                             Criterion criterion, int pageSize, int pageCurrent, boolean isCached) {
@@ -215,12 +223,12 @@ public class HibernateDAO {
     /**
      * 分页离线模糊查询
      *
-     * @param clazz            实体类
+     * @param <T>              查询类的实例
      * @param detachedCriteria 离线查询
      * @param pageSize         每页数据量
      * @param pageCurrent      当前页
      * @param isCached         是否缓存
-     * @return
+     * @return 返回结果集
      */
     public <T> List<T> listByPageByDetachedCriteria(
             DetachedCriteria detachedCriteria, int pageSize, int pageCurrent,
@@ -245,11 +253,12 @@ public class HibernateDAO {
     /**
      * 实例查询
      *
-     * @param entity      查询实例
+     * @param example     查询实例
      * @param pageSize    每页数据量
      * @param pageCurrent 当前页
      * @param isCached    是否缓存
-     * @return
+     * @param <T>         查询类的实例
+     * @return 返回结果集
      */
     public <T> List<T> listByPageByExample(Example example, int pageSize,
                                            int pageCurrent, boolean isCached) {
@@ -272,12 +281,12 @@ public class HibernateDAO {
     /**
      * HQL语句查询
      *
-     * @param <T>
+     * @param <T>         查询类的实例
      * @param hql         查询字符串
      * @param pageSize    每页数据量
      * @param pageCurrent 当前页
      * @param isCached    是否缓存
-     * @return 查询结果列表
+     * @return 返回结果集
      */
     public <T> List<T> listByPageByHQL(String hql, int pageSize,
                                        int pageCurrent, boolean isCached) {
@@ -301,14 +310,18 @@ public class HibernateDAO {
     }
 
     /**
-     * 联合查询
-     *
-     * @param clazz
-     * @param projection  聚合查询
-     * @param pageSize    每页数据量
-     * @param pageCurrent 当前页
-     * @param isCached是   否缓存
-     * @return 查询结果列表
+     * @param clazz           查询实体类
+     * @param propertyNames   查询字段名组
+     * @param operators       比较字符串组
+     * @param values          比较值组
+     * @param orderProperties 排序字符串组
+     * @param descFlags       排序标识
+     * @param distinctFlag    标识
+     * @param pageSize        每页数据量
+     * @param currentPageNum  当前页
+     * @param isCached        是否缓存
+     * @param <T>             查询类的实例
+     * @return 查询结果集
      */
     public <T> List<T> listByPageByProjection(Class<T> clazz,
                                               String[] propertyNames, String[] operators, Object[] values,
@@ -359,12 +372,13 @@ public class HibernateDAO {
     /**
      * 报表查询
      *
+     * @param <T>         查询类的实例
      * @param clazz       查询实体类
      * @param projection  投影查询
      * @param pageSize    每页数据量
      * @param pageCurrent 当前页
      * @param isCached    是否缓存
-     * @return 查询结果列表
+     * @return 返回结果集
      */
     public <T> List<T> listByProjection(Class<?> clazz, Projection projection,
                                         int pageSize, int pageCurrent, boolean isCached) {
@@ -401,6 +415,7 @@ public class HibernateDAO {
     /**
      * 根据Id刪除
      *
+     * @param <T>   查询类的实例
      * @param clazz 实体类
      * @param id    查询id
      * @return 查询结果实例
@@ -417,6 +432,7 @@ public class HibernateDAO {
     /**
      * 通过entity插入或更新数据
      *
+     * @param <T>    查询类的实例
      * @param entity 实体类实例
      * @return 查询结果列表
      */
@@ -445,7 +461,7 @@ public class HibernateDAO {
     /**
      * 通过HQL语句保存或更新数据
      *
-     * @param saveOrUpdateHqlString
+     * @param saveOrUpdateHqlString hql查询字符串
      * @return 查询结果
      */
     public int saveOrUpdateByHQL(String saveOrUpdateHqlString) {
@@ -458,8 +474,11 @@ public class HibernateDAO {
     /**
      * SQL语句查询
      *
-     * @param listSqlString
-     * @return 查询结果列表
+     * @param listSqlString hql查询字符串
+     * @param pageSize      每页数据量
+     * @param pageCurrent   当前页
+     * @param isCached      是否缓存
+     * @return 返回结果集
      */
     public List<?> listByPageBySQL(String listSqlString, int pageSize,
                                    int pageCurrent, boolean isCached) {
@@ -477,12 +496,13 @@ public class HibernateDAO {
      * HQL语句查询
      *
      * @param listHqlString HQL查询字符串
-     * @return 查询结果列表
+     * @param <T>           查询实体类实例
+     * @return 查询结果集
      */
-    public List<?> listByHQL(String listHqlString) {
+    public <T> List<T> listByHQL(String listHqlString) {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery(listHqlString);
-        List<?> list = query.list();
+        List<T> list = query.list();
         return list;
     }
 

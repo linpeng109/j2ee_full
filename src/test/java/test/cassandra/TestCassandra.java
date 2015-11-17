@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.cassandra.core.CassandraTemplate;
 import test.TestBase;
 
-import javax.annotation.Resource;
 import java.util.List;
 import java.util.UUID;
 

@@ -3,23 +3,14 @@ package test.security;
 import com.cn.security.AuthenticationUtil;
 import com.cn.security.SecuritySamples;
 import org.apache.log4j.Logger;
-import org.junit.Before;
 import org.junit.Test;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.security.test.context.support.WithUserDetails;
 import test.TestBase;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
 
 /**
  * Created by jupiter on 15-10-9.

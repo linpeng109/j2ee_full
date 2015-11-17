@@ -2,9 +2,7 @@ package test.http;
 
 import org.apache.log4j.Logger;
 import org.junit.Test;
-import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageChannel;
-import org.springframework.messaging.support.MessageBuilder;
 import test.TestBase;
 
 import javax.annotation.Resource;

@@ -47,6 +47,10 @@ public class SearchModule {
 
     /**
      * Lucene模糊检索
+     *
+     * @param fieldName    搜索字段名
+     * @param searchString 搜索字符串
+     * @throws IOException 抛出io异常
      */
     public void searchByWildCard(String fieldName, String searchString) throws IOException {
         Path path = Paths.get(searchDir);
@@ -67,6 +71,8 @@ public class SearchModule {
 
     /**
      * 重新建立索引
+     *
+     * @throws InterruptedException 抛出异常
      */
     public void searchByRebuild() throws InterruptedException {
         Session session = sessionFactory.openSession();

@@ -18,7 +18,10 @@ public class HttpPaserOne {
     final Logger logger = Logger.getLogger(HttpPaserOne.class);
 
     /**
-     * @return
+     * 消息处理
+     *
+     * @param msg 输入消息
+     * @return 输出消息
      */
     public Message<String> handler(Message<LinkedMultiValueMap> msg) {
         MessageHeaders headers = msg.getHeaders();

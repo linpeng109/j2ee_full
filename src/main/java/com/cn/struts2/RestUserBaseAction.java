@@ -10,7 +10,7 @@ import java.util.List;
 public class RestUserBaseAction extends BaseAction implements ModelDriven<List> {
     @Override
     public List getModel() {
-       // List result=hibernateDAO.listByPage(UserBase.class,20,1,true);
+        // List result=hibernateDAO.listByPage(UserBase.class,20,1,true);
         return null;
     }
 }
