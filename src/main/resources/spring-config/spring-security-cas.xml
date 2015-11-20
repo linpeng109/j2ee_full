@@ -1,84 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:security="http://www.springframework.org/schema/security"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-	                       http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+		                   http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <security:http entry-point-ref="casEntryPoint" auto-config="false" servlet-api-provision="true">
-        <security:form-login default-target-url="/index.jsp" login-page="/login.jsp"/>
-        <security:intercept-url access="ROLE_ADMIN" pattern="/admin/**"/>
-        <security:custom-filter ref="casFilter" position="CAS_FILTER"/>
+    <security:http entry-point-ref="casEntryPoint">
+        <security:intercept-url pattern="/" access="permitAll"/>
+        <security:intercept-url pattern="/index.jsp" access="permitAll"/>
+        <security:intercept-url pattern="/admin/**" access="hasRole('ROLE_SUPERVISOR')"/>
         <security:custom-filter ref="requestSingleLogoutFilter" before="LOGOUT_FILTER"/>
         <security:custom-filter ref="singleLogoutFilter" before="CAS_FILTER"/>
+        <security:custom-filter ref="casFilter" position="CAS_FILTER"/>
+        <security:logout logout-success-url="/index.jsp"/>
+        <security:csrf disabled="true"/>
     </security:http>
 
-    <!-- CAS中心认证服务入口 -->
-    <bean id="casEntryPoint" class="org.springframework.security.cas.web.CasAuthenticationEntryPoint">
-        <property name="loginUrl" value="http://192.168.0.108:8080/cas-server-webapp-4.0.0/login"/>
-        <property name="serviceProperties" ref="serviceProperties"/>
-    </bean>
-
-    <!-- CAS中心认证服务配置 -->
-    <bean id="serviceProperties" class="org.springframework.security.cas.ServiceProperties">
-        <property name="service" value="https://192.168.0.106:8443/cas-server/j_spring_cas_security_check"/>
-        <property name="sendRenew" value="false"/>
-    </bean>
-
-    <!-- CAS service ticket(中心认证服务凭据)验证 -->
-    <bean id="casFilter"
-          class="org.springframework.security.cas.web.CasAuthenticationFilter">
-        <property name="authenticationManager" ref="authenticationManager"/>
-        <property name="authenticationSuccessHandler">
-            <bean class="org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler">
-                <property name="alwaysUseDefaultTargetUrl" value="false"/>
-                <property name="defaultTargetUrl" value="/admin/update.jsp"/>
-            </bean>
-        </property>
-    </bean>
-
-    <bean id="successHandler" class="com.cn.security.UrlAuthenticationSuccessHandler">
-        <property name="alwaysUseDefaultTargetUrl" value="true"/>
-        <property name="defaultTargetUrl" value="/index.jsp"/>
-    </bean>
-
     <security:authentication-manager alias="authenticationManager">
-        <security:authentication-provider ref="casAuthenticationProvider"/>
+        <security:authentication-provider ref="casAuthProvider"/>
     </security:authentication-manager>
 
-    <bean id="casAuthenticationProvider"
-          class="org.springframework.security.cas.authentication.CasAuthenticationProvider">
-        <property name="authenticationUserDetailsService" ref="casAuthenticationUserDetailsService"/>
-        <property name="serviceProperties" ref="serviceProperties"/>
-        <property name="ticketValidator">
-            <bean class="org.jasig.cas.client.validation.Cas20ServiceTicketValidator">
-                <constructor-arg index="0" value="http://192.168.0.106:8443/cas-server-webapp-4.0.0"/>
-            </bean>
-        </property>
-        <property name="key" value="cas-client-001"/>
-    </bean>
+    <security:user-service id="casUserService">
+        <security:user name="rod" password="rod" authorities="ROLE_SUPERVISOR,ROLE_USER,ROLE_ADMIN"/>
+        <security:user name="dianne" password="dianne" authorities="ROLE_USER"/>
+        <security:user name="scott" password="scott" authorities="ROLE_USER"/>
+        <security:user name="admin" password="admin1" authorities="ROLE_USER"/>
+        <security:user name="abcd" password="abcd" authorities="ROLE_ADMIN,ROLE_SUPERVISOR,ROLE_USER"/>
+    </security:user-service>
 
-    <!-- 从CAS服务器端得到用户认证信息 -->
-    <bean id="casAuthenticationUserDetailsService"
-          class="org.springframework.security.cas.userdetails.GrantedAuthorityFromAssertionAttributesUserDetailsService">
-        <constructor-arg>
-            <array>
-                <value>authorities</value>
-            </array>
-        </constructor-arg>
-    </bean>
-
-    <!-- 客户端注销登录 -->
+    <!-- This filter handles a Single Logout Request from the CAS Server -->
     <bean id="singleLogoutFilter" class="org.jasig.cas.client.session.SingleSignOutFilter"/>
 
-    <!-- 服务器端注销登录 -->
-    <bean id="requestSingleLogoutFilter"
-          class="org.springframework.security.web.authentication.logout.LogoutFilter">
-        <constructor-arg value="https://192.168.0.106:8443/cas-server/logout"/>
+    <!-- This filter redirects to the CAS Server to signal Single Logout should be performed -->
+    <bean id="requestSingleLogoutFilter" class="org.springframework.security.web.authentication.logout.LogoutFilter"
+          p:filterProcessesUrl="/logout/cas">
+        <constructor-arg value="https://${cas.server.host}/cas/logout"/>
         <constructor-arg>
             <bean class="org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler"/>
         </constructor-arg>
-        <property name="filterProcessesUrl" value="https://192.168.0.106:8843/cas-server/j_spring_cas_security_logout"/>
     </bean>
 
+    <bean id="serviceProperties" class="org.springframework.security.cas.ServiceProperties"
+          p:service="https://${cas.service.host}/cas-sample/login/cas"
+          p:authenticateAllArtifacts="true"/>
+
+    <bean id="casEntryPoint" class="org.springframework.security.cas.web.CasAuthenticationEntryPoint"
+          p:serviceProperties-ref="serviceProperties" p:loginUrl="https://${cas.server.host}/cas/login"/>
+
+    <bean id="casFilter" class="org.springframework.security.cas.web.CasAuthenticationFilter"
+          p:authenticationManager-ref="authenticationManager"
+          p:serviceProperties-ref="serviceProperties"
+          p:proxyGrantingTicketStorage-ref="pgtStorage"
+          p:proxyReceptorUrl="/login/cas/proxyreceptor">
+        <property name="authenticationDetailsSource">
+            <bean class="org.springframework.security.cas.web.authentication.ServiceAuthenticationDetailsSource">
+                <constructor-arg ref="serviceProperties"/>
+            </bean>
+        </property>
+        <property name="authenticationFailureHandler">
+            <bean class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler"
+                  p:defaultFailureUrl="/casfailed.jsp"/>
+        </property>
+    </bean>
+    <!--
+        NOTE: In a real application you should not use an in memory implementation. You will also want
+              to ensure to clean up expired tickets by calling ProxyGrantingTicketStorage.cleanup()
+     -->
+    <bean id="pgtStorage" class="org.jasig.cas.client.proxy.ProxyGrantingTicketStorageImpl"/>
+
+    <bean id="casAuthProvider" class="org.springframework.security.cas.authentication.CasAuthenticationProvider"
+          p:serviceProperties-ref="serviceProperties"
+          p:key="casAuthProviderKey">
+        <property name="authenticationUserDetailsService">
+            <bean class="org.springframework.security.core.userdetails.UserDetailsByNameServiceWrapper">
+                <constructor-arg ref="casUserService"/>
+            </bean>
+        </property>
+        <property name="ticketValidator">
+            <bean class="org.jasig.cas.client.validation.Cas20ProxyTicketValidator"
+                  p:acceptAnyProxy="true"
+                  p:proxyCallbackUrl="https://${cas.service.host}/cas-sample/login/cas/proxyreceptor"
+                  p:proxyGrantingTicketStorage-ref="pgtStorage">
+                <constructor-arg value="https://${cas.server.host}/cas"/>
+            </bean>
+        </property>
+        <property name="statelessTicketCache">
+            <bean class="org.springframework.security.cas.authentication.EhCacheBasedTicketCache">
+                <property name="cache">
+                    <bean id="ehcache" class="net.sf.ehcache.Cache" init-method="initialise" destroy-method="dispose">
+                        <constructor-arg value="casTickets"/>
+                        <constructor-arg value="50"/>
+                        <constructor-arg value="true"/>
+                        <constructor-arg value="false"/>
+                        <constructor-arg value="3600"/>
+                        <constructor-arg value="900"/>
+                        <property name="cacheManager">
+                            <bean class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+                                <property name="shared" value="true"/>
+                            </bean>
+                        </property>
+                    </bean>
+                </property>
+            </bean>
+        </property>
+    </bean>
 </beans>

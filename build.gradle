@@ -40,7 +40,7 @@ buildscript {
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 
-version = 'j2ee_full_2015.11.14'
+version = '2015.11.14'
 
 /**
  *
@@ -64,7 +64,9 @@ dependencies {
      * 5.12.0*
      */
     def activemqVersion = '5.11.1'
-    compile("org.apache.activemq:activemq-all:$activemqVersion")
+    compile("org.apache.activemq:activemq-all:$activemqVersion") {
+        exclude(module: 'slf4j-log4j12')
+    }
 
     /**
      * Apache CXF Runtime JAX-WS Frontend
@@ -72,7 +74,7 @@ dependencies {
      *
      * 3.1.2
      * 3.1.3
-     ** 3.1.4
+     * 3.1.4
      */
     def apacheCxfVersion = '3.1.4'
     compile("org.apache.cxf:cxf-rt-frontend-jaxws:$apacheCxfVersion",
@@ -126,6 +128,16 @@ dependencies {
      */
     def cglibVersion = '3.1'
     compile("cglib:cglib-nodep:$cglibVersion")
+
+    /**
+     * Ehcache is an open source, standards-based cache used to boost performance,
+     * offload the database and simplify scalability. Ehcache is robust, proven and
+     * full-featured and this has made it the most widely-used Java-based cache.
+     * 2.9.0
+     * 2.10.1
+     */
+    def ehcacheVersion = '2.10.1'
+    runtime "net.sf.ehcache:ehcache:$ehcacheVersion"
 
     /**
      * Apache FtpServer
@@ -252,7 +264,7 @@ dependencies {
      * 2.2.2
      */
     def quartzVersion = '2.2.2'
-    compile("org.quartz-scheduler:quartz:$quartzVersion"){
+    compile("org.quartz-scheduler:quartz:$quartzVersion") {
         exclude(module: 'c3p0')
     }
 
@@ -365,7 +377,9 @@ dependencies {
      * 1.2.1.RELEASE
      */
     def springIntegrationKafkaVersion = '1.2.1.RELEASE'
-    compile("org.springframework.integration:spring-integration-kafka:$springIntegrationKafkaVersion")
+    compile("org.springframework.integration:spring-integration-kafka:$springIntegrationKafkaVersion") {
+        exclude(module: 'slf4j-log4j12')
+    }
 
     /**
      * Spring Security Core
@@ -394,14 +408,6 @@ dependencies {
      */
     def springwsVersion = '2.1.4.RELEASE'
     compile("org.springframework.ws:spring-ws:$springwsVersion")
-
-    /**
-     * JCL 1.1.1 implemented over SLF4J
-     * 1.7.12
-     */
-    def slf4jVersion = '1.7.12'
-    compile("org.slf4j:jcl-over-slf4j:$slf4jVersion",
-            "org.slf4j:slf4j-log4j12:$slf4jVersion")
 
     /**
      * Struts2 Framework
@@ -473,12 +479,12 @@ dependencies {
      * 8.0.28
      */
     def tomcatVersion = '8.0.28'
-    tomcat("org.apache.tomcat.embed:tomcat-embed-core:$tomcatVersion",
+    tomcat "org.apache.tomcat.embed:tomcat-embed-core:$tomcatVersion",
             "org.apache.tomcat.embed:tomcat-embed-logging-juli:$tomcatVersion",
             "org.apache.tomcat.embed:tomcat-embed-jasper:$tomcatVersion",
             "org.apache.tomcat.embed:tomcat-embed-websocket:$tomcatVersion",
             "org.apache.tomcat.embed:tomcat-embed-logging-log4j:$tomcatVersion",
-            "org.apache.tomcat.embed:tomcat-embed-el:$tomcatVersion")
+            "org.apache.tomcat.embed:tomcat-embed-el:$tomcatVersion"
 
     /**
      * The Cargo Core Uberjar
@@ -496,7 +502,6 @@ dependencies {
  * configurations for projects
  */
 configurations {
-    compile.exclude module: "slf4j-log4j12"
     compile.exclude module: "jsp-2.1"
     compile.exclude module: "jsp-api-2.1"
     compile.exclude module: "jasper-compiler"
@@ -532,14 +537,23 @@ sourceSets {
  */
 jar {
     baseName = 'j2ee_full'
-    version = '2015.06.12'
+    version = '2015.11.18'
+}
+
+/**
+ * war plugin setup
+ */
+war {
+    baseName = 'j2ee_full'
+    version = '2015.11.18'
 }
 
 /**
  * tomcat plugin
  */
 tomcat {
-
+    httpPort = 8880
+    httpsPort = 8890
 }
 
 /**

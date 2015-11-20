@@ -3,7 +3,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:tx="http://www.springframework.org/schema/tx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans.xsd
-	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+	                       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <!--定义数据源及数据连接池 -->
     <bean id="dataSource" name="dataSource"
@@ -69,15 +69,14 @@
     <bean id="userBaseSaveOrUpdateInterceptor" class="com.cn.hibernate.interceptor.UserBaseSaveOrUpdateInterceptor"/>
 
     <!--SessionFactory定义 org.springframework.orm.hibernate4.SpringSessionContext -->
-    <bean id="sessionFactory"
-          class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <!--Hibernate属性定义 -->
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.hbm2ddl.auto">${sessionFactory.hibernateProperties.hibernate.hbm2ddl.auto}</prop>
                 <prop key="hibernate.dialect">${sessionFactory.hibernateProperties.hibernate.dialect}</prop>
-                <prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</prop>
+                <prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory</prop>
                 <prop key="hibernate.cache.use_second_level_cache">true</prop>
                 <prop key="hibernate.cache.use_query_cache">true</prop>
                 <prop key="hibernate.show_sql">true</prop>
@@ -85,14 +84,13 @@
                     org.springframework.orm.hibernate5.SpringSessionContext
                 </prop>
                 <prop key="jdbc.use_scrollable_resultset">false</prop>
-                <prop key="hibernate.search.default.directory_provider">filesystem
-                </prop>
+                <!--hibernate.search -->
+                <prop key="hibernate.search.default.directory_provider">filesystem</prop>
                 <prop key="hibernate.search.default.indexBase">${sessionFactory.hibernate.search.default.indexBase}
                 </prop>
                 <prop key="hibernate.search.worker.batch_size">${sessionFactory.hibernate.search.worker.batch_size}
                 </prop>
                 <prop key="hibernate.search.analyzer">org.apache.lucene.analysis.cjk.CJKAnalyzer</prop>
-
             </props>
         </property>
 
@@ -113,8 +111,7 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <tx:annotation-driven transaction-manager="transactionManager"
-                          proxy-target-class="true"/>
+    <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
 
     <!--实体类操作模块 -->
     <bean id="hibernateDAO" class="com.cn.hibernate.util.HibernateDAO">

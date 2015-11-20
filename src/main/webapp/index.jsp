@@ -8,7 +8,9 @@
     </head>
     <body>
         <h1>欢迎使用Struts2!</h1>
+        <p>Your principal is <%=request.getUserPrincipal() %></p>
         <p><a href="<s:url action='action/userBaseAction.action'/>">jsp页面显示数据</a></p>
         <p><a href="<s:url action='json/userBaseAction.action'/>">json格式数据</a></p>
+        <p><a href="admin/admin.jsp">保护数据</a></p>
     </body>
 </html>
