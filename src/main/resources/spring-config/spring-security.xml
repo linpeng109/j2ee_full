@@ -4,10 +4,10 @@
        xmlns:security="http://www.springframework.org/schema/security"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 	                       http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
-<!--
     <import resource="spring-security-jdbc.xml"/>
--->
+<!--
     <import resource="spring-security-cas.xml"/>
+    -->
 
     <!-- 用户权限认证 -->
     <bean id="authentication" class="com.cn.security.AuthenticationUtil">

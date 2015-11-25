@@ -1,0 +1,25 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <import resource="simplesm-context.xml"/>
+    <aop:aspectj-autoproxy/>
+
+    <bean name="defaultMemcachedClient" class="com.google.code.ssm.CacheFactory">
+        <property name="cacheClientFactory">
+            <bean class="com.google.code.ssm.providers.xmemcached.MemcacheClientFactoryImpl"/>
+        </property>
+        <property name="addressProvider">
+            <bean class="com.google.code.ssm.config.DefaultAddressProvider">
+                <property name="address" value="115.182.16.115:11211"/>
+            </bean>
+        </property>
+        <property name="configuration">
+            <bean class="com.google.code.ssm.providers.CacheConfiguration">
+                <property name="consistentHashing" value="true"/>
+            </bean>
+        </property>
+    </bean>
+</beans>

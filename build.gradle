@@ -242,6 +242,12 @@ dependencies {
     compile("mysql:mysql-connector-java:$mysqlConnectorJavaVersion")
 
     /**
+     * Enables memcached caching in Spring beans via annotations
+     */
+    def simpleSpringMemcachedVersion = "3.6.0"
+    compile("com.google.code.simple-spring-memcached:simple-spring-memcached:$simpleSpringMemcachedVersion")
+
+    /**
      * Oracle JDBC Driver For Java Oracle.jdbc.driver.OracleDriver Ojdbc6
      * 11.2.0.4.0
      */
