@@ -5,22 +5,36 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 	                       http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 
-
+    <!-- 过滤器栈堆 -->
     <security:http>
         <security:csrf disabled="true"/>
         <security:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
-        <security:form-login />
+        <security:form-login login-page="/login.jsp"/>
         <security:logout logout-success-url="/index.jsp"/>
-        <security:custom-filter ref="customUsernamePasswordAuthenticationFilter" before="FORM_LOGIN_FILTER"/>
+        <security:custom-filter ref="customLoginFilter" before="FORM_LOGIN_FILTER"/>
+        <security:custom-filter ref="customLogoutFilter" after="LOGOUT_FILTER"/>
     </security:http>
 
-    <bean id="customUsernamePasswordAuthenticationFilter"
-          class="org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter">
+    <!-- 自定义登录过滤器 -->
+    <bean id="customLoginFilter" class="com.cn.security.CustomLoginFilter">
         <property name="authenticationManager" ref="authenticationManager"/>
-        <property name="authenticationSuccessHandler" ref="urlAuthenticationSuccessHandler"/>
+        <property name="authenticationSuccessHandler">
+            <bean id="customLoginSuccessHandler" class="com.cn.security.CustomLoginSuccessHandler"/>
+        </property>
     </bean>
-    <bean id="urlAuthenticationSuccessHandler" class="com.cn.security.UrlAuthenticationSuccessHandler"/>
 
+    <!-- 自定义退出过滤器 -->
+    <bean id="customLogoutFilter" class="com.cn.security.CustomLogoutFilter">
+        <!-- 处理退出的虚拟url -->
+        <constructor-arg index="0" value="/index.jsp"/>
+        <constructor-arg index="1">
+            <!-- 退出成功后的handler列表 -->
+            <array>
+                <!-- 加入了开发人员自定义的退出成功处理 -->
+                <bean id="customLogoutHandler" class="com.cn.security.CustomLogoutSuccessHandler"/>
+            </array>
+        </constructor-arg>
+    </bean>
 
     <!-- 管理用户权限 -->
     <security:authentication-manager alias="authenticationManager">

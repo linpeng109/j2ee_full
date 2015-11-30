@@ -17,7 +17,7 @@
 				<tr><td colspan='2'><input name="submit" type="submit" value="登录"/></td></tr>
 			</table>
 		</form>
-
+        <a href="logout">退出</a>
 		<s:if test="#error">
 			<p>错误道用户名或用户口令，请重新输入！</p>
 		</s:if>

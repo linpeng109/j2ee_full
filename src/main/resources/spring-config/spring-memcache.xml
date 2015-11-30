@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <import resource="simplesm-context.xml"/>
+    <import resource="classpath:simplesm-context.xml"/>
     <aop:aspectj-autoproxy/>
 
     <bean name="defaultMemcachedClient" class="com.google.code.ssm.CacheFactory">
@@ -13,7 +13,7 @@
         </property>
         <property name="addressProvider">
             <bean class="com.google.code.ssm.config.DefaultAddressProvider">
-                <property name="address" value="115.182.16.115:11211"/>
+                <property name="address" value="${memcache.address}"/>
             </bean>
         </property>
         <property name="configuration">

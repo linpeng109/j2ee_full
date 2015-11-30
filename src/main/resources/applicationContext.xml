@@ -67,4 +67,6 @@
     <!-- HTTP模块配置 -->
     <import resource="spring-config/spring-http.xml"/>
 
+    <!--Memcache-->
+    <import resource="spring-config/spring-memcache.xml"/>
 </beans>

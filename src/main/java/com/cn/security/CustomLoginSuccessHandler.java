@@ -12,13 +12,20 @@ import java.io.IOException;
 /**
  * 当用户认证授权通过时执行该类的onAuthenticationSuccess函数
  */
-public class UrlAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
-    private static Logger logger = Logger.getLogger(UrlAuthenticationSuccessHandler.class);
+public class CustomLoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
+    /**
+     * 日志
+     */
+    private static Logger logger = Logger.getLogger(CustomLoginSuccessHandler.class);
+
+    /**
+     * 当认证成功时执行
+     */
 
     @Override
-    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication)
-            throws IOException, ServletException {
-        logger.debug("UrlAuthenticationSuccessHandler is executed !");
+    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
+        String sessionid=request.getSession().getId();
+        logger.debug("获取sessionid=ticket");
         super.onAuthenticationSuccess(request, response, authentication);
     }
 }
