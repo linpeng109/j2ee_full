@@ -19,6 +19,10 @@ public class CustomLogoutFilter extends LogoutFilter {
         super(logoutSuccessUrl, handlers);
     }
 
+    public CustomLogoutFilter(LogoutSuccessHandler logoutSuccessHandler, LogoutHandler... handlers) {
+        super(logoutSuccessHandler, handlers);
+    }
+
     @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
         super.doFilter(req, res, chain);

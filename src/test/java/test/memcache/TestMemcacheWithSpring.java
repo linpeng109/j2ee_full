@@ -11,7 +11,6 @@ import com.google.code.ssm.Cache;
 import test.TestBase;
 
 import javax.annotation.Resource;
-import java.text.Format;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.concurrent.TimeoutException;
@@ -19,8 +18,8 @@ import java.util.concurrent.TimeoutException;
 /**
  * Created by jupiter on 15-11-29.
  */
-public class TestMemcache extends TestBase {
-    private Logger logger = Logger.getLogger(TestMemcache.class);
+public class TestMemcacheWithSpring extends TestBase {
+    private Logger logger = Logger.getLogger(TestMemcacheWithSpring.class);
 
     /**
      * 依赖注入获取memcache操作客户端
@@ -51,7 +50,7 @@ public class TestMemcache extends TestBase {
                 user.setCreateDate(random.getRandomDate("1999:1:1", "2015:12:30", "yyyy:MM:dd"));
                 value.add(user);
             }
-            defaultMemcachedClient.add(key, 5000, value, SerializationType.JSON);
+            defaultMemcachedClient.add(key, 5000, value, SerializationType.JAVA);
         }
 
     }
@@ -61,7 +60,7 @@ public class TestMemcache extends TestBase {
 
         for (int i = 0; i < 50; ++i) {
             String key = "key_" + i;
-            ArrayList<UserBase> list = (ArrayList<UserBase>) defaultMemcachedClient.get(key, SerializationType.JSON);
+            ArrayList<UserBase> list = (ArrayList<UserBase>) defaultMemcachedClient.get(key, SerializationType.JAVA);
             for (int j = 0; j < 10; ++j) {
                 UserBase user = list.get(j);
                 logger.debug(String.format("userId=[%s];userName=[%s],createDate=[%s]", user.getUserId(), user.getUserName(), user.getCreateDate()));

@@ -6,13 +6,13 @@
 	                       http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 
     <!-- 过滤器栈堆 -->
-    <security:http>
+    <security:http auto-config='true'>
         <security:csrf disabled="true"/>
         <security:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
         <security:form-login login-page="/login.jsp"/>
         <security:logout logout-success-url="/index.jsp"/>
+        <security:custom-filter ref="customLogoutFilter" before="LOGOUT_FILTER"/>
         <security:custom-filter ref="customLoginFilter" before="FORM_LOGIN_FILTER"/>
-        <security:custom-filter ref="customLogoutFilter" after="LOGOUT_FILTER"/>
     </security:http>
 
     <!-- 自定义登录过滤器 -->
@@ -30,6 +30,8 @@
         <constructor-arg index="1">
             <!-- 退出成功后的handler列表 -->
             <array>
+                <bean id="securityContextLogoutHandler"
+                      class="org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler"/>
                 <!-- 加入了开发人员自定义的退出成功处理 -->
                 <bean id="customLogoutHandler" class="com.cn.security.CustomLogoutSuccessHandler"/>
             </array>
