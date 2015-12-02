@@ -69,4 +69,7 @@
 
     <!--Memcache-->
     <import resource="spring-config/spring-memcache.xml"/>
+
+    <!-- JEP模块 -->
+    <import resource="spring-config/spring-jep.xml"/>
 </beans>
