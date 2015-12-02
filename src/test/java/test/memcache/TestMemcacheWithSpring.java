@@ -3,11 +3,11 @@ package test.memcache;
 import com.cn.common.RandomModule;
 import com.cn.common.implement.RandomModuleImpl;
 import com.cn.hibernate.entity.UserBase;
+import com.google.code.ssm.Cache;
 import com.google.code.ssm.api.format.SerializationType;
 import com.google.code.ssm.providers.CacheException;
 import org.apache.log4j.Logger;
 import org.junit.Test;
-import com.google.code.ssm.Cache;
 import test.TestBase;
 
 import javax.annotation.Resource;
@@ -70,6 +70,7 @@ public class TestMemcacheWithSpring extends TestBase {
     }
 
     public void testDelete() {
+       // defaultMemcachedClient.delete()
 
     }
 }

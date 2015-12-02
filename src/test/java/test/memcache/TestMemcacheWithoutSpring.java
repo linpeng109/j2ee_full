@@ -66,6 +66,7 @@ public class TestMemcacheWithoutSpring extends TestCase {
                 value.add(user);
             }
             boolean result = buildClient().add(key, 5000, value);
+
             logger.debug(result);
         }
 
