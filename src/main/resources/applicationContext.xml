@@ -72,4 +72,9 @@
 
     <!-- JEP模块 -->
     <import resource="spring-config/spring-jep.xml"/>
+
+    <!-- WEBSOCKET模块 -->
+    <!--
+    <import resource="spring-config/spring-websocket.xml"/>
+    -->
 </beans>
