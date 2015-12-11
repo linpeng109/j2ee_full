@@ -33,9 +33,9 @@ ext {
     blazedsVersion = '4.7.2'
 
     /**
-     * 0.9.5.1
+     * 0.9.5.1/0.9.5.2*
      */
-    c3p0Version = '0.9.5.1'
+    c3p0Version = '0.9.5.2'
 
     /**
      * 1.4.15/1.4.16
@@ -50,7 +50,7 @@ ext {
     /**
      * 3.1/3.2.0
      */
-    cglibVersion = '3.1'
+    cglibVersion = '3.2.0'
 
     /**
      * 2.9.0/2.10.1
@@ -75,7 +75,7 @@ ext {
     /**
      * 5.4.0.CR2/5.5.0.Final/5.5.1.Final
      * */
-    hibernateSearchVersion = '5.5.0.Final'
+    hibernateSearchVersion = '5.5.1.Final'
 
     /**
      * 3.20.0-GA
@@ -103,7 +103,7 @@ ext {
     jposVersion = '2.0.4'
 
     /**
-     * 20141113/20150729/20151123*
+     * 20141113/20150729/20151123
      */
     jsonVersion = '20151123'
 
@@ -133,94 +133,109 @@ ext {
     poiVersion = '3.13'
 
     /**
+     * org.quartz-scheduler
      * 2.2.1/2.2.2
      */
     quartzVersion = '2.2.2'
 
     /**
+     * org.rxtx
      * 2.1.7
      */
     rxtxVerion = '2.1.7'
 
     /**
+     * com.google.code.simple-spring-memcached
      * 3.6.0
      */
     simpleSpringMemcachedVersion = "3.6.0"
 
     /**
+     * org.springframework
      * 4.1.7.RELEASE/4.2.0.RELEASE/4.2.1.RELEASE/4.2.2.RELEASE/4.2.3.RELEASE*
      */
     springVersion = '4.2.3.RELEASE'
 
     /**
+     * org.springframework.batch
      * 3.0.4.RELEASE/3.0.5.RELEASE
      */
     springbatchVersion = '3.0.5.RELEASE'
 
     /**
-     * 1.5.1.RELEASE/1.5.2.RELEASE/1.6.0.RELEASE/1.6.1.RELEASE*
+     * org.springframework.data
+     * 1.5.1.RELEASE/1.5.2.RELEASE/1.6.0.RELEASE/1.6.1.RELEASE
      */
     springDataRedisVersion = '1.6.1.RELEASE'
 
     /**
-     *
+     * spring-integration-cassandra
      * 0.5.0.RELEAS
-     *
      */
     springIntegrationCassandraVersion = '0.5.0.RELEASE'
 
     /**
+     * spring-flex
      * 1.5.3.RELEASE
      */
     springFlexCoreVersion = '1.5.3.RELEASE'
 
     /**
-     *
+     * org.springframework.integration
      * 1.2.1.RELEASE/1.3.0.RELEASE*
      */
     springIntegrationKafkaVersion = '1.3.0.RELEASE'
 
-    /*
-    * 4.1.6.RELEASE/4.2.0.RELEASE/4.2.1.RELEASE/4.2.2.RELEASE*
-    */
-    springIntegrationVersion = '4.2.2.RELEASE'
+    /**
+     * org.springframework.integration
+     * 4.1.6.RELEASE/4.2.0.RELEASE/4.2.1.RELEASE/4.2.2.RELEASE/4.2.3.RELEASE*
+     */
+    springIntegrationVersion = '4.2.3.RELEASE'
 
-    /*
-    * 4.0.2.RELEASE/4.0.3.RELEASE
-    */
+    /**
+     * org.springframework.security
+     * 4.0.2.RELEASE/4.0.3.RELEASE
+     */
     springSecurityVersion = '4.0.3.RELEASE'
 
     /**
+     * org.springframework.ws
      * 2.1.4.RELEASE
      */
     springwsVersion = '2.1.4.RELEASE'
 
     /**
+     * org.apache.struts
      * 2.3.24/2.3.24.1
      */
     struts2Version = '2.3.24.1'
 
     /**
+     * org.apache.tomcat.embed
      * 7.0.63/8.0.24/8.0.26/8.0.28/8.0.29*
      */
-    tomcatVersion = '8.0.29'
+    tomcatEmbedVersion = '8.0.29'
 
     /*
-     * 4.34.44.5
+     * org.apache.xbean
+     * 4.3/4.4/4.5
      */
     xbeanSpringVersion = '4.4'
 
     /**
+     * xerces
      * 2.11.0
      */
     xercesImpVersion = '2.11.0'
 
     /**
+     * com.thoughtworks.xstream
      * 1.4.8
      */
     xstreamVersion = '1.4.8'
 
     /**
+     * com.google.zxing
      * 3.2.0/3.2.1
      */
     zxingVersion = '3.2.1'
@@ -235,7 +250,8 @@ buildscript {
     }
 
     /**
-     * 2.2.2/2.2.3
+     * com.bmuschko
+     * 2.2.2/2.2.3/2.2.4*
      */
     def gradleTomcatPluginVersion = '2.2.3'
     dependencies {
@@ -252,6 +268,7 @@ buildscript {
     }
 
     /**
+     * com.bmuschko
      * 2.1.1/2.2.1
      */
     def gradleCargoPluginVersion = '2.2.1'
@@ -581,23 +598,19 @@ dependencies {
     /**
      * Tomcat-embed plugin
      */
-    tomcat "org.apache.tomcat.embed:tomcat-embed-core:$tomcatVersion",
-            "org.apache.tomcat.embed:tomcat-embed-jasper:$tomcatVersion",
-            "org.apache.tomcat.embed:tomcat-embed-logging-log4j:$tomcatVersion",
-            "org.apache.tomcat.embed:tomcat-embed-el:$tomcatVersion"
-
-    compile "org.apache.tomcat.embed:tomcat-embed-logging-juli:$tomcatVersion"
-
-    runtime "org.apache.tomcat.embed:tomcat-embed-websocket:$tomcatVersion"
-
-    compile "org.apache.tomcat:tomcat-servlet-api:$tomcatVersion"
+    tomcat "org.apache.tomcat.embed:tomcat-embed-core:$tomcatEmbedVersion",
+            "org.apache.tomcat.embed:tomcat-embed-jasper:$tomcatEmbedVersion",
+            "org.apache.tomcat.embed:tomcat-embed-logging-log4j:$tomcatEmbedVersion",
+            "org.apache.tomcat.embed:tomcat-embed-el:$tomcatEmbedVersion"
+    compile "org.apache.tomcat.embed:tomcat-embed-logging-juli:$tomcatEmbedVersion"
+    runtime "org.apache.tomcat.embed:tomcat-embed-websocket:$tomcatEmbedVersion"
+    compile "org.apache.tomcat:tomcat-servlet-api:$tomcatEmbedVersion"
 
     /**
      * The Cargo Core Uberjar
      */
     cargo "org.codehaus.cargo:cargo-core-uberjar:$cargoVersion",
             "org.codehaus.cargo:cargo-ant:$cargoVersion"
-
 }
 
 /**

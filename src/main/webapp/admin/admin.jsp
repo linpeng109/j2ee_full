@@ -23,6 +23,7 @@
     <security:authentication property="principal.authorities"/>
 </security:authorize>
 <p/>
+<a href="../index.jsp">首页</a>
 <a href="../logout">退出</a>
 </body>
 </html>

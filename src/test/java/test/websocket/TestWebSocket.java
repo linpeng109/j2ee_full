@@ -19,7 +19,7 @@ public class TestWebSocket extends TestBase {
     @Resource
     public DirectChannel clientWebSocketOutboundChannel;
 
-    @Test
+//    @Test
     public void testWebSocketClient() {
         Message message = MessageBuilder.withPayload("Test websocket").build();
         clientWebSocketOutboundChannel.send(message);

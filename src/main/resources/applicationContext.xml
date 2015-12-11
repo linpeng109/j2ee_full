@@ -23,8 +23,9 @@
     <import resource="spring-config/spring-webservice.xml"/>
     -->
     <!-- JMS模块配置 -->
-    <!-- import resource="spring-config/spring-jms.xml" /-->
-
+    <!--
+    <import resource="spring-config/spring-jms.xml" />
+    -->
     <!-- 系统模块配置 -->
     <import resource="spring-config/spring-common.xml"/>
     <!-- JSON模块配置 -->
@@ -47,7 +48,6 @@
     <!--
     <import resource="spring-config/spring-ftp.xml"/>
     -->
-
     <!-- Struts2模块配置 -->
     <import resource="spring-config/spring-struts2.xml"/>
     <!-- 数据源及实体类配置 -->
@@ -63,7 +63,9 @@
     <import resource="spring-config/spring-xmpp.xml"/>
 
     <!-- Kafka分布式消息系统模块配置 -->
-    <!-- import resource="spring-config/spring-kafka.xml" / -->
+    <!--
+    <import resource="spring-config/spring-kafka.xml" />
+    -->
 
     <!-- Cassandra分布式非关系数据库模块配置 -->
     <import resource="spring-config/spring-cassandra.xml"/>
@@ -78,6 +80,7 @@
     <import resource="spring-config/spring-jep.xml"/>
 
     <!-- WEBSOCKET模块 -->
+    <!--
     <import resource="spring-config/spring-websocket.xml"/>
-
+    -->
 </beans>

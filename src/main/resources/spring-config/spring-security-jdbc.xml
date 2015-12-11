@@ -11,8 +11,10 @@
         <security:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
         <security:form-login login-page="/login.jsp"/>
         <security:logout logout-success-url="/index.jsp"/>
+        <!--
         <security:custom-filter ref="customLogoutFilter" before="LOGOUT_FILTER"/>
         <security:custom-filter ref="customLoginFilter" before="FORM_LOGIN_FILTER"/>
+        -->
     </security:http>
 
     <!-- 自定义登录过滤器 -->
