@@ -71,44 +71,44 @@ public class Authority {
         return authorityDescription;
     }
 
-    public Date getAuthorityExpireDate() {
-        return authorityExpireDate;
-    }
-
-    public String getAuthorityId() {
-        return authorityId;
-    }
-
-    public int getAuthorityStatus() {
-        return authorityStatus;
-    }
-
-    public String getAuthorityString() {
-        return authorityString;
-    }
-
-    public List<UserBase_Authority> getUserBase_authority() {
-        return userBase_authority;
-    }
-
     public void setAuthorityDescription(String authorityDescription) {
         this.authorityDescription = authorityDescription;
+    }
+
+    public Date getAuthorityExpireDate() {
+        return authorityExpireDate;
     }
 
     public void setAuthorityExpireDate(Date authorityExpireDate) {
         this.authorityExpireDate = authorityExpireDate;
     }
 
+    public String getAuthorityId() {
+        return authorityId;
+    }
+
     public void setAuthorityId(String authorityId) {
         this.authorityId = authorityId;
+    }
+
+    public int getAuthorityStatus() {
+        return authorityStatus;
     }
 
     public void setAuthorityStatus(int authorityStatus) {
         this.authorityStatus = authorityStatus;
     }
 
+    public String getAuthorityString() {
+        return authorityString;
+    }
+
     public void setAuthorityString(String authorityString) {
         this.authorityString = authorityString;
+    }
+
+    public List<UserBase_Authority> getUserBase_authority() {
+        return userBase_authority;
     }
 
     public void setUserBase_authority(

@@ -27,5 +27,7 @@
     </s:iterator>
     <p/>
 </security:authorize>
+<p/>
+<a href="../logout">退出</a>
 </body>
 </html>

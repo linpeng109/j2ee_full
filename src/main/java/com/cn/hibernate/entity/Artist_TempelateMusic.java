@@ -45,20 +45,20 @@ public class Artist_TempelateMusic {
         return artist_tempelateMusicID;
     }
 
-    public Artist getArtist() {
-        return artist;
-    }
-
-    public TempelateMusic getTempelateMusic() {
-        return tempelateMusic;
-    }
-
     public void setArtist_tempelateMusicID(String artist_tempelateMusicID) {
         this.artist_tempelateMusicID = artist_tempelateMusicID;
     }
 
+    public Artist getArtist() {
+        return artist;
+    }
+
     public void setArtist(Artist artist) {
         this.artist = artist;
+    }
+
+    public TempelateMusic getTempelateMusic() {
+        return tempelateMusic;
     }
 
     public void setTempelateMusic(TempelateMusic tempelateMusic) {

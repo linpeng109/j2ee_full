@@ -21,8 +21,16 @@ public class XMPPAction extends BaseAction {
         return chatTo;
     }
 
+    public void setChatTo(String chatTo) {
+        this.chatTo = chatTo;
+    }
+
     public MessageChannel getXmppOutputChannel() {
         return xmppOutputChannel;
+    }
+
+    public void setXmppOutputChannel(MessageChannel xmppOutputChannel) {
+        this.xmppOutputChannel = xmppOutputChannel;
     }
 
     public String sendXMPPMessage() {
@@ -35,13 +43,5 @@ public class XMPPAction extends BaseAction {
         logger.debug("payload=" + payload);
         logger.debug("send=" + xmppOutputChannel.send(message));
         return Action.SUCCESS;
-    }
-
-    public void setChatTo(String chatTo) {
-        this.chatTo = chatTo;
-    }
-
-    public void setXmppOutputChannel(MessageChannel xmppOutputChannel) {
-        this.xmppOutputChannel = xmppOutputChannel;
     }
 }

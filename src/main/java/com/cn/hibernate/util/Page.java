@@ -127,68 +127,68 @@ public class Page<T> implements Serializable {
         return list;
     }
 
-    public int getPageCurrent() {
-        return pageCurrent;
-    }
-
-    public int getPageFirst() {
-        return pageFirst;
-    }
-
-    public int getPageLast() {
-        return pageLast;
-    }
-
-    public ArrayList<Integer> getPageList() {
-        return pageList;
-    }
-
-    public int getPageSize() {
-        return pageSize;
-    }
-
-    public String getPageStatus() {
-        return pageStatus;
-    }
-
-    public int getPageTotal() {
-        return pageTotal;
-    }
-
-    public int getTotal() {
-        return total;
-    }
-
     public void setList(List<T> list) {
         this.list = list;
+    }
+
+    public int getPageCurrent() {
+        return pageCurrent;
     }
 
     public void setPageCurrent(int pageCurrent) {
         this.pageCurrent = pageCurrent;
     }
 
+    public int getPageFirst() {
+        return pageFirst;
+    }
+
     public void setPageFirst(int pageFirst) {
         this.pageFirst = pageFirst;
+    }
+
+    public int getPageLast() {
+        return pageLast;
     }
 
     public void setPageLast(int pageLast) {
         this.pageLast = pageLast;
     }
 
+    public ArrayList<Integer> getPageList() {
+        return pageList;
+    }
+
     public void setPageList(ArrayList<Integer> pageList) {
         this.pageList = pageList;
+    }
+
+    public int getPageSize() {
+        return pageSize;
     }
 
     public void setPageSize(int pageSize) {
         this.pageSize = pageSize;
     }
 
+    public String getPageStatus() {
+        return pageStatus;
+    }
+
     public void setPageStatus(String pageStatus) {
         this.pageStatus = pageStatus;
     }
 
+    public int getPageTotal() {
+        return pageTotal;
+    }
+
     public void setPageTotal(int pageTotal) {
         this.pageTotal = pageTotal;
+    }
+
+    public int getTotal() {
+        return total;
     }
 
     public void setTotal(int total) {

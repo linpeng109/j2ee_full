@@ -22,5 +22,7 @@
     Granted_Authorities:
     <security:authentication property="principal.authorities"/>
 </security:authorize>
+<p/>
+<a href="../logout">退出</a>
 </body>
 </html>

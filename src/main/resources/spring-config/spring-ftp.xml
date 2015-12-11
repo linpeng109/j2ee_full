@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:si="http://www.springframework.org/schema/integration"
        xmlns:si-ftp="http://www.springframework.org/schema/integration/ftp"
        xmlns:ftp="http://mina.apache.org/ftpserver/spring/v1"
+       xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                            http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
                            http://www.springframework.org/schema/integration/ftp http://www.springframework.org/schema/integration/ftp/spring-integration-ftp.xsd
                            http://mina.apache.org/ftpserver/spring/v1 http://mina.apache.org/ftpserver/ftpserver-1.0.xsd">
 
     <!-- FTP服务器配置 -->
-    <ftp:server id="ftpServer" anon-enabled="true" max-logins="200">
+    <ftp:server id="ftpServer" anon-enabled="true" max-logins="200" max-threads="1000">
         <ftp:listeners>
-            <ftp:nio-listener name="default" local-address="127.0.0.1" port="1025"/>
+            <ftp:nio-listener name="default" local-address="127.0.0.1" port="2048"/>
         </ftp:listeners>
         <ftp:ftplets>
             <ftp:ftplet name="ftpletList">
@@ -62,7 +62,7 @@
     <!-- 配置FTP的sessionFactory -->
     <bean id="ftpSessionFactory" class="org.springframework.integration.ftp.session.DefaultFtpSessionFactory">
         <property name="host" value="localhost"/>
-        <property name="port" value="1025"/>
+        <property name="port" value="2048"/>
         <property name="username" value="abcd"/>
         <property name="password" value="abcd"/>
         <property name="clientMode" value="0"/>
@@ -75,7 +75,7 @@
                                     session-factory="ftpSessionFactory" charset="UTF-8" auto-startup="true"
                                     auto-create-local-directory="true"
                                     delete-remote-files="false" filename-pattern="*.txt" remote-directory="/abcd"
-                                    local-directory="/home/jupiter/workset/workdir/ftp">
+                                    local-directory="${workset.path}/${ftpModule.ftpdir}">
     </si-ftp:inbound-channel-adapter>
 
     <!-- ftp入港通道 -->

@@ -13,6 +13,24 @@ import java.io.OutputStream;
  * @author linp
  */
 public class Se900Controler {
+    private GVG100 gvg100;
+    private int bitRate;
+    /**
+     * 日志
+     */
+    private Logger logger = Logger.getLogger(Se900Controler.class);
+    /**
+     * 端口名称
+     */
+    private String portName;
+
+    /**
+     * 构造函数
+     */
+    public Se900Controler() {
+
+    }
+
     /**
      * @param args 输入字符串组
      * @throws InterruptedException              抛出终端错误
@@ -31,41 +49,36 @@ public class Se900Controler {
         controler.sendCommand(controler.gvg100.command_2);
     }
 
-    private GVG100 gvg100;
-
-    private int bitRate;
-
-    /**
-     * 日志
-     */
-    private Logger logger = Logger.getLogger(Se900Controler.class);
-
-    /**
-     * 端口名称
-     */
-    private String portName;
-
-    /**
-     * 构造函数
-     */
-    public Se900Controler() {
-
-    }
-
     public int getBitRate() {
         return bitRate;
+    }
+
+    public void setBitRate(int bitRate) {
+        this.bitRate = bitRate;
     }
 
     public GVG100 getGvg100() {
         return gvg100;
     }
 
+    public void setGvg100(GVG100 gvg100) {
+        this.gvg100 = gvg100;
+    }
+
     public Logger getLogger() {
         return logger;
     }
 
+    public void setLogger(Logger logger) {
+        this.logger = logger;
+    }
+
     public String getPortName() {
         return portName;
+    }
+
+    public void setPortName(String portName) {
+        this.portName = portName;
     }
 
     /**
@@ -147,22 +160,6 @@ public class Se900Controler {
             }
         }
 
-    }
-
-    public void setBitRate(int bitRate) {
-        this.bitRate = bitRate;
-    }
-
-    public void setGvg100(GVG100 gvg100) {
-        this.gvg100 = gvg100;
-    }
-
-    public void setLogger(Logger logger) {
-        this.logger = logger;
-    }
-
-    public void setPortName(String portName) {
-        this.portName = portName;
     }
 
 }

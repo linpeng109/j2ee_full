@@ -18,6 +18,25 @@ import java.util.List;
  */
 public class XmlModuleImpl implements XmlModule {
     public static Logger logger = Logger.getLogger(XmlModuleImpl.class);
+    /**
+     * xPath 搜索路径
+     */
+    public String xPath;
+    /**
+     * list 返回结果集
+     */
+    public List<?> list;
+    /**
+     * encode 汉字编码
+     */
+    public String encode;
+    /**
+     * formatType xml文件输出格式
+     */
+    public String formatType;
+
+    public XmlModuleImpl() {
+    }
 
     /**
      * main 测试实例
@@ -41,29 +60,6 @@ public class XmlModuleImpl implements XmlModule {
             Element element = it.next();
             logger.debug(element.getText());
         }
-    }
-
-    /**
-     * xPath 搜索路径
-     */
-    public String xPath;
-
-    /**
-     * list 返回结果集
-     */
-    public List<?> list;
-
-    /**
-     * encode 汉字编码
-     */
-    public String encode;
-
-    /**
-     * formatType xml文件输出格式
-     */
-    public String formatType;
-
-    public XmlModuleImpl() {
     }
 
     /**
@@ -158,12 +154,24 @@ public class XmlModuleImpl implements XmlModule {
         return encode;
     }
 
+    public void setEncode(String encode) {
+        this.encode = encode;
+    }
+
     public String getFormatType() {
         return formatType;
     }
 
+    public void setFormatType(String formatType) {
+        this.formatType = formatType;
+    }
+
     public List<?> getList() {
         return list;
+    }
+
+    public void setList(List<?> list) {
+        this.list = list;
     }
 
     /**
@@ -256,18 +264,6 @@ public class XmlModuleImpl implements XmlModule {
         Document document = reader.read(filename);
         List<Element> elements = document.selectNodes(xPath);
         return elements;
-    }
-
-    public void setEncode(String encode) {
-        this.encode = encode;
-    }
-
-    public void setFormatType(String formatType) {
-        this.formatType = formatType;
-    }
-
-    public void setList(List<?> list) {
-        this.list = list;
     }
 
     /**

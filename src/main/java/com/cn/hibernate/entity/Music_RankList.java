@@ -41,20 +41,20 @@ public class Music_RankList {
         return music_ranklist_Id;
     }
 
-    public Music getMusic() {
-        return music;
-    }
-
-    public RankList getRanklist() {
-        return ranklist;
-    }
-
     public void setMusic_ranklist_Id(String music_ranklist_Id) {
         this.music_ranklist_Id = music_ranklist_Id;
     }
 
+    public Music getMusic() {
+        return music;
+    }
+
     public void setMusic(Music music) {
         this.music = music;
+    }
+
+    public RankList getRanklist() {
+        return ranklist;
     }
 
     public void setRanklist(RankList ranklist) {

@@ -15,8 +15,16 @@ public class ApplicationEventHandler {
         return channel;
     }
 
+    public void setChannel(MessageChannel channel) {
+        this.channel = channel;
+    }
+
     public String getType() {
         return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public Message<String> receive(Message<String> message) {
@@ -30,13 +38,5 @@ public class ApplicationEventHandler {
         Message<String> message = MessageBuilder.withPayload(input).build();
         this.getChannel().send(message);
         return "success";
-    }
-
-    public void setChannel(MessageChannel channel) {
-        this.channel = channel;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 }

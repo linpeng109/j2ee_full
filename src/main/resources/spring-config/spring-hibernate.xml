@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--系统数据源及实体类配置 -->
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans.xsd
 	                       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
@@ -76,7 +76,9 @@
             <props>
                 <prop key="hibernate.hbm2ddl.auto">${sessionFactory.hibernateProperties.hibernate.hbm2ddl.auto}</prop>
                 <prop key="hibernate.dialect">${sessionFactory.hibernateProperties.hibernate.dialect}</prop>
-                <prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory</prop>
+                <prop key="hibernate.cache.region.factory_class">
+                    org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
+                </prop>
                 <prop key="hibernate.cache.use_second_level_cache">true</prop>
                 <prop key="hibernate.cache.use_query_cache">true</prop>
                 <prop key="hibernate.show_sql">true</prop>
@@ -86,7 +88,8 @@
                 <prop key="jdbc.use_scrollable_resultset">false</prop>
                 <!--hibernate.search -->
                 <prop key="hibernate.search.default.directory_provider">filesystem</prop>
-                <prop key="hibernate.search.default.indexBase">${sessionFactory.hibernate.search.default.indexBase}
+                <prop key="hibernate.search.default.indexBase">
+                    ${workset.path}/${sessionFactory.hibernate.search.default.indexBase}
                 </prop>
                 <prop key="hibernate.search.worker.batch_size">${sessionFactory.hibernate.search.worker.batch_size}
                 </prop>

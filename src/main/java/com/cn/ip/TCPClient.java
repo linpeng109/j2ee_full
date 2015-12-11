@@ -12,6 +12,10 @@ public class TCPClient implements Runnable {
 
     public static int port;
     public static String host;
+    public byte[] message;
+    private Socket socket;
+    private InputStream in;
+    private OutputStream out;
 
     public static void main(String[] args) throws UnknownHostException,
             IOException {
@@ -25,12 +29,6 @@ public class TCPClient implements Runnable {
         new Thread(client).start();
 
     }
-
-    private Socket socket;
-    private InputStream in;
-    private OutputStream out;
-
-    public byte[] message;
 
     @Override
     public void run() {

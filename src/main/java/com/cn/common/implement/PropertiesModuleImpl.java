@@ -17,6 +17,10 @@ public class PropertiesModuleImpl implements PropertiesModule {
      * 日志
      */
     public static Logger logger = Logger.getLogger(PropertiesModuleImpl.class);
+    /**
+     * 默认属性
+     */
+    public Properties defaultProperties;
 
     /**
      * 测试函数
@@ -44,11 +48,6 @@ public class PropertiesModuleImpl implements PropertiesModule {
         // }
 
     }
-
-    /**
-     * 默认属性
-     */
-    public Properties defaultProperties;
 
     /**
      * checkFileIsExist 检查文件是否存在
@@ -91,6 +90,10 @@ public class PropertiesModuleImpl implements PropertiesModule {
         return defaultProperties;
     }
 
+    public void setDefaultProperties(Properties defaultProperties) {
+        this.defaultProperties = defaultProperties;
+    }
+
     /*
      * 根据所给的key得到value值
      *
@@ -106,10 +109,6 @@ public class PropertiesModuleImpl implements PropertiesModule {
         InputStream inputStream = new BufferedInputStream(fileInputStream);
         properties.load(inputStream);
         return properties.getProperty(key);
-    }
-
-    public void setDefaultProperties(Properties defaultProperties) {
-        this.defaultProperties = defaultProperties;
     }
 
     /*

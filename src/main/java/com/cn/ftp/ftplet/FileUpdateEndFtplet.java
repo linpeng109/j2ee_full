@@ -38,12 +38,26 @@ public class FileUpdateEndFtplet extends DefaultFtplet implements
         return applicationContext;
     }
 
+    @Override
+    public void setApplicationContext(ApplicationContext arg0)
+            throws BeansException {
+        this.applicationContext = arg0;
+    }
+
     public MessageChannel getFilePathChannel() {
         return filePathChannel;
     }
 
+    public void setFilePathChannel(MessageChannel filePathChannel) {
+        this.filePathChannel = filePathChannel;
+    }
+
     public String getHomeDirectory() {
         return homeDirectory;
+    }
+
+    public void setHomeDirectory(String homeDirectory) {
+        this.homeDirectory = homeDirectory;
     }
 
     /*
@@ -117,20 +131,6 @@ public class FileUpdateEndFtplet extends DefaultFtplet implements
         filePathChannel.send(message);
 
         return FtpletResult.DEFAULT;
-    }
-
-    @Override
-    public void setApplicationContext(ApplicationContext arg0)
-            throws BeansException {
-        this.applicationContext = arg0;
-    }
-
-    public void setFilePathChannel(MessageChannel filePathChannel) {
-        this.filePathChannel = filePathChannel;
-    }
-
-    public void setHomeDirectory(String homeDirectory) {
-        this.homeDirectory = homeDirectory;
     }
 
 }

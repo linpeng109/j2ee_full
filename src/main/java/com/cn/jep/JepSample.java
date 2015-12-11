@@ -16,15 +16,6 @@ public class JepSample {
     public double x;
     public double y;
     public double z;
-
-    public String getExpression() {
-        return expression;
-    }
-
-    public void setExpression(String expression) {
-        this.expression = expression;
-    }
-
     /**
      * 表达式
      */
@@ -33,6 +24,14 @@ public class JepSample {
      * 日志
      */
     public Logger logger = Logger.getLogger(JepSample.class);
+
+    public String getExpression() {
+        return expression;
+    }
+
+    public void setExpression(String expression) {
+        this.expression = expression;
+    }
 
     public void calculate() throws ParseException {
         JEP jep = new JEP();

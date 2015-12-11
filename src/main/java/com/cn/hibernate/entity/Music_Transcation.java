@@ -43,20 +43,20 @@ public class Music_Transcation {
         return music_transcationID;
     }
 
-    public Music getMusic() {
-        return music;
-    }
-
-    public Transcation getTranscation() {
-        return transcation;
-    }
-
     public void setMusic_transcationID(String music_transcationID) {
         this.music_transcationID = music_transcationID;
     }
 
+    public Music getMusic() {
+        return music;
+    }
+
     public void setMusic(Music music) {
         this.music = music;
+    }
+
+    public Transcation getTranscation() {
+        return transcation;
     }
 
     public void setTranscation(Transcation transcation) {

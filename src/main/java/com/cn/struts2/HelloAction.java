@@ -9,8 +9,8 @@ import java.util.Map;
  * Created by SUN on 2015/6/12.
  */
 public class HelloAction extends BaseAction {
-    private Logger logger = Logger.getLogger(HelloAction.class);
     public String helloParameter;
+    private Logger logger = Logger.getLogger(HelloAction.class);
     private Map hashMap = new HashMap();
 
     public Map getHashMap() {

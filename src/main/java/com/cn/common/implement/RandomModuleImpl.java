@@ -29,6 +29,9 @@ public class RandomModuleImpl implements RandomModule {
 
     public static Random random = new Random();
 
+    public RandomModuleImpl() {
+    }
+
     public static void main(String[] arg) throws ParseException {
         RandomModuleImpl random = new RandomModuleImpl();
         for (int i = 0; i < 100; ++i) {
@@ -37,9 +40,6 @@ public class RandomModuleImpl implements RandomModule {
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy年MM月dd");
             logger.debug(dateFormat.format(date));
         }
-    }
-
-    public RandomModuleImpl() {
     }
 
     /**

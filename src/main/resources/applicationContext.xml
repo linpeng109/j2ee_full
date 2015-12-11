@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 系统整体配置 -->
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation=" http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans.xsd">
 
@@ -19,8 +19,9 @@
     </bean>
 
     <!-- web服务模块配置 -->
+    <!--
     <import resource="spring-config/spring-webservice.xml"/>
-
+    -->
     <!-- JMS模块配置 -->
     <!-- import resource="spring-config/spring-jms.xml" /-->
 
@@ -43,7 +44,10 @@
     <!-- 消息事件模块配置 -->
     <import resource="spring-config/spring-event.xml"/>
     <!-- FTP发送模块配置 -->
+    <!--
     <import resource="spring-config/spring-ftp.xml"/>
+    -->
+
     <!-- Struts2模块配置 -->
     <import resource="spring-config/spring-struts2.xml"/>
     <!-- 数据源及实体类配置 -->
@@ -74,7 +78,6 @@
     <import resource="spring-config/spring-jep.xml"/>
 
     <!-- WEBSOCKET模块 -->
-    <!--
     <import resource="spring-config/spring-websocket.xml"/>
-    -->
+
 </beans>

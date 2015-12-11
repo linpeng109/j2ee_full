@@ -16,6 +16,18 @@ public class PictureAction {
     private String pictureOutputPath;
     private String commandLine;
 
+    /**
+     * 四舍五入函数
+     *
+     * @param input 待处理小数
+     * @return 处理后字符串
+     */
+    public static String round_half_up(double input) {
+        DecimalFormat decimalFormat = new DecimalFormat("#.00");
+        String output = decimalFormat.format(input);
+        return output;
+    }
+
     public Message<String> execute(Message<String> message) {
 
         /**
@@ -63,36 +75,24 @@ public class PictureAction {
         return result;
     }
 
-    /**
-     * 四舍五入函数
-     *
-     * @param input 待处理小数
-     * @return 处理后字符串
-     */
-    public static String round_half_up(double input) {
-        DecimalFormat decimalFormat = new DecimalFormat("#.00");
-        String output = decimalFormat.format(input);
-        return output;
-    }
-
     public String getCommand() {
         return command;
-    }
-
-    public String getParameterLine() {
-        return parameterLine;
-    }
-
-    public String getPictureOutputPath() {
-        return pictureOutputPath;
     }
 
     public void setCommand(String command) {
         this.command = command;
     }
 
+    public String getParameterLine() {
+        return parameterLine;
+    }
+
     public void setParameterLine(String parameterLine) {
         this.parameterLine = parameterLine;
+    }
+
+    public String getPictureOutputPath() {
+        return pictureOutputPath;
     }
 
     public void setPictureOutputPath(String pictureOutputPath) {

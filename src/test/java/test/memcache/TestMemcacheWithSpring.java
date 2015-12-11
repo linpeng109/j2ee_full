@@ -19,14 +19,12 @@ import java.util.concurrent.TimeoutException;
  * Created by jupiter on 15-11-29.
  */
 public class TestMemcacheWithSpring extends TestBase {
-    private Logger logger = Logger.getLogger(TestMemcacheWithSpring.class);
-
     /**
      * 依赖注入获取memcache操作客户端
      */
     @Resource
     public Cache defaultMemcachedClient;
-
+    private Logger logger = Logger.getLogger(TestMemcacheWithSpring.class);
     /**
      * 随机数
      */
@@ -70,7 +68,7 @@ public class TestMemcacheWithSpring extends TestBase {
     }
 
     public void testDelete() {
-       // defaultMemcachedClient.delete()
+        // defaultMemcachedClient.delete()
 
     }
 }

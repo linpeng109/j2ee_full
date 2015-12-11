@@ -43,20 +43,20 @@ public class UserFans_MixedMusic {
         return userFans_MixedMusicID;
     }
 
-    public UserFans getUserFans() {
-        return userFans;
-    }
-
-    public MixedMusic getMixedMusic() {
-        return mixedMusic;
-    }
-
     public void setUserFans_MixedMusicID(String userFans_MixedMusicID) {
         this.userFans_MixedMusicID = userFans_MixedMusicID;
     }
 
+    public UserFans getUserFans() {
+        return userFans;
+    }
+
     public void setUserFans(UserFans userFans) {
         this.userFans = userFans;
+    }
+
+    public MixedMusic getMixedMusic() {
+        return mixedMusic;
     }
 
     public void setMixedMusic(MixedMusic mixedMusic) {

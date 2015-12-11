@@ -24,7 +24,7 @@ public class CustomLoginSuccessHandler extends SimpleUrlAuthenticationSuccessHan
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-        String sessionid=request.getSession().getId();
+        String sessionid = request.getSession().getId();
         logger.debug("获取sessionid=ticket");
         super.onAuthenticationSuccess(request, response, authentication);
     }

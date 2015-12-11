@@ -40,20 +40,20 @@ public class Music_Tag {
         return music_tag_Id;
     }
 
-    public Music getMusic() {
-        return music;
-    }
-
-    public Tag getTag() {
-        return tag;
-    }
-
     public void setMusic_tag_Id(String music_tag_Id) {
         this.music_tag_Id = music_tag_Id;
     }
 
+    public Music getMusic() {
+        return music;
+    }
+
     public void setMusic(Music music) {
         this.music = music;
+    }
+
+    public Tag getTag() {
+        return tag;
     }
 
     public void setTag(Tag tag) {

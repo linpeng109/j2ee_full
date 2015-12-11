@@ -9,8 +9,8 @@ import java.util.Map;
  * Created by SUN on 2015/6/12.
  */
 public class WorldAction extends BaseAction {
-    private Logger logger = Logger.getLogger(WorldAction.class);
     public String worldParameter;
+    private Logger logger = Logger.getLogger(WorldAction.class);
     private Map hashMap = new HashMap();
 
     public Map getHashMap() {

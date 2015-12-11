@@ -12,6 +12,9 @@ import java.security.KeyPairGenerator;
  */
 public class CryptoRSAImpl implements CryptoModule {
 
+    public Logger logger = Logger.getLogger(CryptoRSAImpl.class);
+    public String algorithmName = "RSA/ECB/PKCS1Padding";
+
     public static void main(String[] args) throws Exception {
         CryptoRSAImpl cryptoRSAImpl = new CryptoRSAImpl();
         String plainString = "测试试验2009年07月06日测试试验2009年07月06日测试试验2009年07月06日测试试验2009年07月06日测试试验2009年07月06日";
@@ -24,10 +27,6 @@ public class CryptoRSAImpl implements CryptoModule {
         byte[] result = cryptoRSAImpl.decode(encryptString);
         System.out.println(result);
     }
-
-    public Logger logger = Logger.getLogger(CryptoRSAImpl.class);
-
-    public String algorithmName = "RSA/ECB/PKCS1Padding";
 
     /*
      * 使用私鈅解密

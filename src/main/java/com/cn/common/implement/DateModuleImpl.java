@@ -19,6 +19,20 @@ import java.util.regex.Pattern;
  * @version 1.0
  */
 public class DateModuleImpl implements DateModule {
+    public static Logger logger = Logger.getLogger(DateModuleImpl.class);
+    private static Calendar calS = Calendar.getInstance();
+    /**
+     * 定义整则表达式
+     */
+    private static Pattern p = Pattern.compile("\\d{4}-\\d{2}-\\d{2}");
+    /**
+     * dateFormatString 日期格式串
+     */
+    public String dateFormatString;
+
+    public DateModuleImpl() {
+    }
+
     /**
      * main 测试
      *
@@ -51,19 +65,6 @@ public class DateModuleImpl implements DateModule {
     }
 
     /**
-     * dateFormatString 日期格式串
-     */
-    public String dateFormatString;
-    public static Logger logger = Logger.getLogger(DateModuleImpl.class);
-
-    private static Calendar calS = Calendar.getInstance();
-
-    /**
-     * 定义整则表达式
-     */
-    private static Pattern p = Pattern.compile("\\d{4}-\\d{2}-\\d{2}");
-
-    /**
      * 转换 dataAndTime 2013-12-31 23:59:59 到 date 2013-12-31
      *
      * @param dateAndTime 时间字符串
@@ -77,9 +78,6 @@ public class DateModuleImpl implements DateModule {
             }
         }
         return "data error";
-    }
-
-    public DateModuleImpl() {
     }
 
     /**
@@ -281,6 +279,10 @@ public class DateModuleImpl implements DateModule {
     @Override
     public String getDateFormatString() {
         return dateFormatString;
+    }
+
+    public void setDateFormatString(String dateFormatString) {
+        this.dateFormatString = dateFormatString;
     }
 
     /**
@@ -519,10 +521,6 @@ public class DateModuleImpl implements DateModule {
         calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 0);
         return calendar.getTime();
-    }
-
-    public void setDateFormatString(String dateFormatString) {
-        this.dateFormatString = dateFormatString;
     }
 
 }

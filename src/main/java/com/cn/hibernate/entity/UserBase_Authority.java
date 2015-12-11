@@ -49,20 +49,20 @@ public class UserBase_Authority {
         return authority;
     }
 
-    public UserBase getUserBase() {
-        return userBase;
-    }
-
-    public String getUserBase_authority_Id() {
-        return userBase_authority_Id;
-    }
-
     public void setAuthority(Authority authority) {
         this.authority = authority;
     }
 
+    public UserBase getUserBase() {
+        return userBase;
+    }
+
     public void setUserBase(UserBase userBase) {
         this.userBase = userBase;
+    }
+
+    public String getUserBase_authority_Id() {
+        return userBase_authority_Id;
     }
 
     public void setUserBase_authority_Id(String userBase_authority_Id) {

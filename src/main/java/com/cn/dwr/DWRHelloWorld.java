@@ -11,13 +11,13 @@ public class DWRHelloWorld {
         return helloWorld;
     }
 
+    public void setHelloWorld(String helloWorld) {
+        this.helloWorld = helloWorld;
+    }
+
     // @RemoteMethod
     public String hello(String name) {
         String result = name + ",  " + helloWorld + "!";
         return result;
-    }
-
-    public void setHelloWorld(String helloWorld) {
-        this.helloWorld = helloWorld;
     }
 }

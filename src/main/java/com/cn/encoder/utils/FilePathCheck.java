@@ -11,15 +11,14 @@ import java.io.File;
  */
 public class FilePathCheck {
     /**
-     * 日志
-     */
-    private static Logger logger = Logger.getLogger(FilePathCheck.class);
-
-    /**
      * 静态变量
      */
     public final static boolean CHECK_FAILURE = false;
     public final static boolean CHECK_SUCCESS = true;
+    /**
+     * 日志
+     */
+    private static Logger logger = Logger.getLogger(FilePathCheck.class);
 
     /**
      * 文件检查

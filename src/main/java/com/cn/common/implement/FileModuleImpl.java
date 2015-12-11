@@ -15,9 +15,8 @@ import java.util.List;
 public class FileModuleImpl implements FileModule {
 
     public String pathString;
-
-    private File path;
     public String extension;
+    private File path;
 
     public FileModuleImpl() {
 
@@ -25,6 +24,10 @@ public class FileModuleImpl implements FileModule {
 
     public String getExtension() {
         return extension;
+    }
+
+    public void setExtension(String extension) {
+        this.extension = extension;
     }
 
     // 文件扩展名过滤器：过滤指定扩展名的非目录文件
@@ -57,10 +60,6 @@ public class FileModuleImpl implements FileModule {
 
     public String getPathString() {
         return pathString;
-    }
-
-    public void setExtension(String extension) {
-        this.extension = extension;
     }
 
     public void setPathString(String pathString) {

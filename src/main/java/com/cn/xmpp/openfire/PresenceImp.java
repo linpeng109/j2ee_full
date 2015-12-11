@@ -37,6 +37,10 @@ public class PresenceImp implements Presence {
         return url;
     }
 
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     /**
      * @param username 用户名
      * @param password 口令
@@ -62,10 +66,6 @@ public class PresenceImp implements Presence {
         WebResponse response = conversation.getResponse(request);
         String result = response.getText();
         return result;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
     }
 
 }

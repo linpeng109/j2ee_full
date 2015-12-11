@@ -46,28 +46,28 @@ public class CheckTypeImpl implements CheckType {
         return mobileNumbers;
     }
 
-    public List<String> getSatcomNubmers() {
-        return satcomNubmers;
-    }
-
-    public List<String> getTelecomNumbers() {
-        return telecomNumbers;
-    }
-
-    public List<String> getUnicomNumbers() {
-        return unicomNumbers;
-    }
-
     public void setMobileNumbers(List<String> mobileNumbers) {
         this.mobileNumbers = mobileNumbers;
+    }
+
+    public List<String> getSatcomNubmers() {
+        return satcomNubmers;
     }
 
     public void setSatcomNubmers(List<String> satcomNubmers) {
         this.satcomNubmers = satcomNubmers;
     }
 
+    public List<String> getTelecomNumbers() {
+        return telecomNumbers;
+    }
+
     public void setTelecomNumbers(List<String> telecomNumbers) {
         this.telecomNumbers = telecomNumbers;
+    }
+
+    public List<String> getUnicomNumbers() {
+        return unicomNumbers;
     }
 
     public void setUnicomNumbers(List<String> unicomNumbers) {

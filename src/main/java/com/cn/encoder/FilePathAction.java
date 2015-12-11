@@ -85,12 +85,12 @@ public class FilePathAction {
         return outputPath;
     }
 
-    public String getPrefix() {
-        return prefix;
-    }
-
     public void setOutputPath(String outputPath) {
         this.outputPath = outputPath;
+    }
+
+    public String getPrefix() {
+        return prefix;
     }
 
     public void setPrefix(String prefix) {

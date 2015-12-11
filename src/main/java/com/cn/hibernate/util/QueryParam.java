@@ -161,27 +161,15 @@ public final class QueryParam {
         return name;
     }
 
-    public String getOperator() {
-        return operator;
-    }
-
-    public int getType() {
-        return type;
-    }
-
-    public Object getValue() {
-        return value;
-    }
-
-    public String getSql() {
-        return sql;
-    }
-
     private void setName(String name) {
         if (name == null) {
             throw new RuntimeException("Parameter name can not be NULL!");
         }
         this.name = name.trim();
+    }
+
+    public String getOperator() {
+        return operator;
     }
 
     private void setOperator(String operator) {
@@ -193,9 +181,21 @@ public final class QueryParam {
         transferOperator();
     }
 
+    public int getType() {
+        return type;
+    }
+
+    public Object getValue() {
+        return value;
+    }
+
     private void setValue(Object value) {
         this.value = value;
         transferOperator();
+    }
+
+    public String getSql() {
+        return sql;
     }
 
     private void transferOperator() {

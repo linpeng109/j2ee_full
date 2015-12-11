@@ -32,20 +32,20 @@ public class BroadcastImp implements Broadcast {
         return serverName;
     }
 
-    public String getServiceName() {
-        return serviceName;
-    }
-
-    public MessageChannel getXmppOutputChannel() {
-        return xmppOutputChannel;
-    }
-
     public void setServerName(String serverName) {
         this.serverName = serverName;
     }
 
+    public String getServiceName() {
+        return serviceName;
+    }
+
     public void setServiceName(String serviceName) {
         this.serviceName = serviceName;
+    }
+
+    public MessageChannel getXmppOutputChannel() {
+        return xmppOutputChannel;
     }
 
     public void setXmppOutputChannel(MessageChannel xmppOutputChannel) {

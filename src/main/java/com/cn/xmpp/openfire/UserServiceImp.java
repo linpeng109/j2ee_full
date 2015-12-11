@@ -21,87 +21,54 @@ import java.util.Map.Entry;
  */
 public class UserServiceImp implements UserService {
     /**
-     * 操作类型：The admin service required. Possible values are 'add', 'delete',
-     * 'update', 'enable', 'disable', 'add_roster', 'update_roster',
-     * 'delete_roster'.
-     */
-    private enum Type {
-        add("add"), delete("delete"), update("update"), enable("enable"), disable(
-                "disable"), add_roster("add_roster"), update_roster(
-                "update_roster"), delete_roster("delete_roster");
-
-        private String nCode;
-
-        Type(String nCode) {
-            this.nCode = nCode;
-        }
-
-        @Override
-        public String toString() {
-            return this.nCode;
-        }
-
-    }
-
-    /**
      * 日志管理
      */
     private Logger logger = Logger.getLogger(UserServiceImp.class);
-
     /**
      * 访问密钥:The secret key that allows access to the User Service.
      */
     private String secret;
-
     /**
      * 用户名:The username of the user to 'add', 'delete', 'update', 'enable',
      * 'disable', 'add_roster', 'update_roster', 'delete_roster'. ie the part
      * before the @ symbol.
      */
     private String username;
-
     /**
      * 用户口令:Required for 'add' operation.The password of the new user or the
      * user being updated.
      */
     private String password;
-
     /**
      * 显示名:The display name of the new user or the user being updated. For
      * 'add_roster', 'update_roster' operations specifies the nickname of the
      * roster item.
      */
     private String name;
-
     /**
      * 邮件地址:The email address of the new user or the user being updated.
      */
     private String email;
-
     /**
      * 用户组列表:List of groups where the user is a member. Values are comma
      * delimited.
      */
     private String groups;
-
     /**
      * 花名册子项:The JID of the roster item；Required for 'add_roster',
      * 'update_roster', 'delete_roster' operations.
      */
     private String item_jid;
-
     /**
      * 订阅关系操作:Type of subscription for 'add_roster', 'update_roster' operations.
      * Possible numeric values are: -1(remove), 0(none), 1(to), 2(from),
      * 3(both).
      */
     private String subscription;
-
     /**
      * 访问地址
      */
     private String url;
-    ;
 
     /* (non-Javadoc)
      * @see com.cn.xmpp.openfire.UserService#addRoster()
@@ -117,6 +84,7 @@ public class UserServiceImp implements UserService {
         logger.debug(result);
         return result;
     }
+    ;
 
     /* (non-Javadoc)
      * @see com.cn.xmpp.openfire.UserService#enable(java.lang.String)
@@ -197,36 +165,72 @@ public class UserServiceImp implements UserService {
         return email;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getGroups() {
         return groups;
+    }
+
+    public void setGroups(String groups) {
+        this.groups = groups;
     }
 
     public String getItem_jid() {
         return item_jid;
     }
 
+    public void setItem_jid(String item_jid) {
+        this.item_jid = item_jid;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPassword() {
         return password;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getSecret() {
         return secret;
+    }
+
+    public void setSecret(String secret) {
+        this.secret = secret;
     }
 
     public String getSubscription() {
         return subscription;
     }
 
+    public void setSubscription(String subscription) {
+        this.subscription = subscription;
+    }
+
     public String getUrl() {
         return url;
     }
 
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     public String getUsername() {
         return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     /**
@@ -256,42 +260,6 @@ public class UserServiceImp implements UserService {
         return result;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setGroups(String groups) {
-        this.groups = groups;
-    }
-
-    public void setItem_jid(String item_jid) {
-        this.item_jid = item_jid;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setSecret(String secret) {
-        this.secret = secret;
-    }
-
-    public void setSubscription(String subscription) {
-        this.subscription = subscription;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     /* (non-Javadoc)
      * @see com.cn.xmpp.openfire.UserService#updateRoster()
      */
@@ -306,6 +274,29 @@ public class UserServiceImp implements UserService {
         String result = this.httpInvokeHandler(parameters);
         logger.debug(result);
         return result;
+
+    }
+
+    /**
+     * 操作类型：The admin service required. Possible values are 'add', 'delete',
+     * 'update', 'enable', 'disable', 'add_roster', 'update_roster',
+     * 'delete_roster'.
+     */
+    private enum Type {
+        add("add"), delete("delete"), update("update"), enable("enable"), disable(
+                "disable"), add_roster("add_roster"), update_roster(
+                "update_roster"), delete_roster("delete_roster");
+
+        private String nCode;
+
+        Type(String nCode) {
+            this.nCode = nCode;
+        }
+
+        @Override
+        public String toString() {
+            return this.nCode;
+        }
 
     }
 

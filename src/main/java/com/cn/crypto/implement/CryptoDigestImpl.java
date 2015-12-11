@@ -21,9 +21,22 @@ public class CryptoDigestImpl implements CryptoModule {
     public static String RIPEMD160 = "RIPEMD160";
     public static String RIPEMD256 = "RIPEMD256";
     public static String RIPEMD320 = "RIPEMD320";
+    /**
+     * 日志
+     */
+    public static Logger logger = Logger.getLogger(CryptoDigestImpl.class);
+    /**
+     * 算法名称
+     */
+    public String algorithmName;
+    private Digest digest;
 
     public static String getMD5() {
         return MD5;
+    }
+
+    public static void setMD5(String mD5) {
+        MD5 = mD5;
     }
 
     /**
@@ -46,21 +59,6 @@ public class CryptoDigestImpl implements CryptoModule {
         // byte[] resultBytes = cryptoDigestImpl.encode(srcBytes);
         // logger.debug(new String(cryptoHexImpl.encode(resultBytes)));
     }
-
-    public static void setMD5(String mD5) {
-        MD5 = mD5;
-    }
-
-    /**
-     * 算法名称
-     */
-    public String algorithmName;
-    private Digest digest;
-
-    /**
-     * 日志
-     */
-    public static Logger logger = Logger.getLogger(CryptoDigestImpl.class);
 
     @Override
     public byte[] decode(byte[] srcBytes) throws Exception {
@@ -93,8 +91,16 @@ public class CryptoDigestImpl implements CryptoModule {
         return algorithmName;
     }
 
+    public void setAlgorithmName(String algorithmName) {
+        this.algorithmName = algorithmName;
+    }
+
     public Digest getDigest() {
         return digest;
+    }
+
+    public void setDigest(Digest digest) {
+        this.digest = digest;
     }
 
     public void init() {
@@ -117,14 +123,6 @@ public class CryptoDigestImpl implements CryptoModule {
             digest = new MD5Digest();
             logger.error("DigestAlgorithm setting error!");
         }
-    }
-
-    public void setAlgorithmName(String algorithmName) {
-        this.algorithmName = algorithmName;
-    }
-
-    public void setDigest(Digest digest) {
-        this.digest = digest;
     }
 
 }

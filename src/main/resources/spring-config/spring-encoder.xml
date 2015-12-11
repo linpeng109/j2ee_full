@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:si="http://www.springframework.org/schema/integration"
+<beans xmlns:si="http://www.springframework.org/schema/integration"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd">
 
     <!-- 文件路径处理 -->
     <bean id="filePathAction" class="com.cn.encoder.FilePathAction">
         <property name="outputPath">
-            <value>${video.output.path}</value>
+            <value>${workset.path}/${video.output.path}</value>
         </property>
     </bean>
 
     <!-- 获取视频文件信息 -->
     <bean id="getInfoAction" class="com.cn.encoder.GetInfoAction">
         <property name="command">
-            <value>${mplayer.command}</value>
+            <value>${workset.path}/${mplayer.command}</value>
         </property>
         <property name="parameterLine">
             <value>${getInfo.parameterLine}</value>
@@ -25,7 +25,7 @@
     <!-- AVI视频编码 -->
     <bean id="aviAction" class="com.cn.encoder.AviAction">
         <property name="command">
-            <value>${mencoder.command}</value>
+            <value>${workset.path}/${mencoder.command}</value>
         </property>
         <property name="parameterLine">
             <value>${avi.parameterLine}</value>
@@ -35,7 +35,7 @@
     <!-- INDEX视频编码 -->
     <bean id="indexAction" class="com.cn.encoder.IndexAction">
         <property name="command">
-            <value>${mencoder.command}</value>
+            <value>${workset.path}/${mencoder.command}</value>
         </property>
         <property name="parameterLine">
             <value>${index.parameterLine}</value>
@@ -45,7 +45,7 @@
     <!-- FLV视频编码器模块 -->
     <bean id="flvAction" class="com.cn.encoder.FlvAction">
         <property name="command">
-            <value>${ffmpeg.command}</value>
+            <value>${workset.path}/${ffmpeg.command}</value>
         </property>
         <property name="parameterLine">
             <value>${flv.parameterLine}</value>
@@ -55,7 +55,7 @@
     <!-- 视频截图模块 -->
     <bean id="captureAction" class="com.cn.encoder.CaptureAction">
         <property name="command">
-            <value>${ffmpeg.command}</value>
+            <value>${workset.path}/${ffmpeg.command}</value>
         </property>
         <property name="parameterLine">
             <value>${capture.parameterLine}</value>
@@ -68,20 +68,20 @@
     <!-- 截图编码器模块 -->
     <bean id="pictureAction" class="com.cn.encoder.PictureAction">
         <property name="command">
-            <value>${imageMagick.command}</value>
+            <value>${workset.path}/${imageMagick.command}</value>
         </property>
         <property name="parameterLine">
             <value>${picture.parameterLine}</value>
         </property>
         <property name="pictureOutputPath">
-            <value>${picture.output.path}</value>
+            <value>${workset.path}/${picture.output.path}</value>
         </property>
     </bean>
 
     <!-- Script脚本写入 -->
     <bean id="writeToScriptAction" class="com.cn.encoder.WriteToScriptAction">
         <property name="outputPath">
-            <value>${script.output.path}</value>
+            <value>${workset.path}/${script.output.path}</value>
         </property>
     </bean>
 
@@ -91,7 +91,7 @@
     <!-- XML记录写入 -->
     <bean id="writeToXMLAction" class="com.cn.encoder.WriteToXMLAction">
         <property name="outputPath">
-            <value>${xml.output.path}</value>
+            <value>${workset.path}/${xml.output.path}</value>
         </property>
     </bean>
 

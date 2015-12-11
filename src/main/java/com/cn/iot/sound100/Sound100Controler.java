@@ -43,12 +43,24 @@ public class Sound100Controler {
         return bitRate;
     }
 
+    public void setBitRate(int bitRate) {
+        this.bitRate = bitRate;
+    }
+
     public String getPortName() {
         return portName;
     }
 
+    public void setPortName(String portName) {
+        this.portName = portName;
+    }
+
     public Switch100 getSwitch100() {
         return switch100;
+    }
+
+    public void setSwitch100(Switch100 switch100) {
+        this.switch100 = switch100;
     }
 
     /**
@@ -130,17 +142,5 @@ public class Sound100Controler {
             }
         }
 
-    }
-
-    public void setBitRate(int bitRate) {
-        this.bitRate = bitRate;
-    }
-
-    public void setPortName(String portName) {
-        this.portName = portName;
-    }
-
-    public void setSwitch100(Switch100 switch100) {
-        this.switch100 = switch100;
     }
 }

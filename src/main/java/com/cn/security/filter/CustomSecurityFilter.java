@@ -13,34 +13,29 @@ import java.io.IOException;
  */
 public class CustomSecurityFilter implements Filter {
     /**
-     * 日志
-     */
-    private Logger logger = Logger.getLogger(CustomSecurityFilter.class);
-
-    /**
-     * 认证授权服务器地址
-     */
-    private String securityHost;
-
-    /**
-     * 认证授权服务器端口号
-     */
-    private String securityPort;
-
-    /**
-     * 认证授权服务器应用名
-     */
-    private String securityAppname;
-
-    /**
      * MD5数字指纹模块
      */
     CryptoDigestImpl digest = new CryptoDigestImpl();
-
     /**
      * Base64加密模块
      */
     CryptoBASE64Impl base64 = new CryptoBASE64Impl();
+    /**
+     * 日志
+     */
+    private Logger logger = Logger.getLogger(CustomSecurityFilter.class);
+    /**
+     * 认证授权服务器地址
+     */
+    private String securityHost;
+    /**
+     * 认证授权服务器端口号
+     */
+    private String securityPort;
+    /**
+     * 认证授权服务器应用名
+     */
+    private String securityAppname;
 
     /**
      * 由ticket加密后生成token
@@ -133,8 +128,8 @@ public class CustomSecurityFilter implements Filter {
         /**
          * 跳转的方法
          */
-       // HttpServletResponse httpResponse = (HttpServletResponse) response;
-       // httpResponse.sendRedirect("http://www.sina.com.cn");
+        // HttpServletResponse httpResponse = (HttpServletResponse) response;
+        // httpResponse.sendRedirect("http://www.sina.com.cn");
 
         /**
          * 继续filter链

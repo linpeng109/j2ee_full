@@ -17,14 +17,12 @@ import java.security.Security;
  */
 public class Crypto3DESImpl implements CryptoModule {
 
-    private Cipher cipher;
-
-    private String keyString;
-
     /**
      * 加密算法名称("DESede/ECB/PKCS7Padding")
      */
     public String algorithmName;
+    private Cipher cipher;
+    private String keyString;
 
     /*
      * (non-Javadoc)
@@ -78,8 +76,16 @@ public class Crypto3DESImpl implements CryptoModule {
         return algorithmName;
     }
 
+    public void setAlgorithmName(String algorithmName) {
+        this.algorithmName = algorithmName;
+    }
+
     public String getKeyString() {
         return keyString;
+    }
+
+    public void setKeyString(String keyString) {
+        this.keyString = keyString;
     }
 
     /**
@@ -103,13 +109,5 @@ public class Crypto3DESImpl implements CryptoModule {
         Cipher cipher = Cipher.getInstance(algorithmName);
         cipher.init(mode, desKey);
         return cipher;
-    }
-
-    public void setAlgorithmName(String algorithmName) {
-        this.algorithmName = algorithmName;
-    }
-
-    public void setKeyString(String keyString) {
-        this.keyString = keyString;
     }
 }

@@ -22,8 +22,16 @@ public class SMSUtilImpl implements SMSUtil {
         return properties;
     }
 
+    public void setProperties(Properties properties) {
+        this.properties = properties;
+    }
+
     public String getUrlString() {
         return urlString;
+    }
+
+    public void setUrlString(String urlString) {
+        this.urlString = urlString;
     }
 
     @Override
@@ -67,14 +75,6 @@ public class SMSUtilImpl implements SMSUtil {
         output.close();
         // 输出结果
         return outputBuffer.toString();
-    }
-
-    public void setProperties(Properties properties) {
-        this.properties = properties;
-    }
-
-    public void setUrlString(String urlString) {
-        this.urlString = urlString;
     }
 
 }

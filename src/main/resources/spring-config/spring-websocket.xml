@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:int="http://www.springframework.org/schema/integration"
        xmlns:int-websocket="http://www.springframework.org/schema/integration/websocket"
+       xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans.xsd
                            http://www.springframework.org/schema/integration
                            http://www.springframework.org/schema/integration/spring-integration.xsd
                            http://www.springframework.org/schema/integration/websocket
                            http://www.springframework.org/schema/integration/websocket/spring-integration-websocket.xsd">
-    <int-websocket:client-container client="" uri="">
-        
-    </int-websocket:client-container>
-    <int-websocket:server-container path=""
+
+    <!-- websocket server -->
+    <int-websocket:server-container id="serverWebSocketContainer" path="/time">
+        <int-websocket:sockjs websocket-enabled="true" heartbeat-time="25000"/>
+    </int-websocket:server-container>
+    <int-websocket:inbound-channel-adapter container="serverWebSocketContainer" channel="logger"/>
+    <int-websocket:outbound-channel-adapter container="serverWebSocketContainer"
+                                            channel="serverWebSocketOutboundChannel"/>
+    <int:channel id="serverWebSocketOutboundChannel"/>
+
+    <!-- websocket client-->
+    <bean id="webSocketClient" class="org.springframework.web.socket.client.standard.StandardWebSocketClient"/>
+    <int-websocket:client-container id="clientWebSocketContainer" client="webSocketClient"
+                                    uri="ws://localhost:8080/j2ee_full/time"/>
+    <int-websocket:inbound-channel-adapter container="clientWebSocketContainer" channel="logger"/>
+    <int-websocket:outbound-channel-adapter container="clientWebSocketContainer"
+                                            channel="clientWebSocketOutboundChannel"/>
+    <int:channel id="clientWebSocketOutboundChannel"/>
 
 </beans>

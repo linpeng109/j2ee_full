@@ -1,3 +1,5 @@
+import com.sun.org.apache.xalan.internal.xsltc.cmdline.Compile
+
 description = 'J2ee full by Gradle'
 
 apply plugin: 'java'
@@ -7,16 +9,234 @@ apply plugin: 'com.bmuschko.tomcat'
 apply plugin: 'com.bmuschko.cargo'
 apply plugin: 'com.bmuschko.cargo-base'
 
+sourceCompatibility = JavaVersion.VERSION_1_8
+
+version = '2015.12.11'
+
+def workset_home = '/home/jupiter/workset'
+
+ext {
+
+    /**
+     * 5.11.1/5.12.0/5.13.0*
+     */
+    activemqVersion = '5.11.1'
+
+    /**
+     * 3.1.2/3.1.3/3.1.4
+     */
+    apacheCxfVersion = '3.1.4'
+
+    /**
+     * 4.7.0/4.7.1/4.7.2
+     */
+    blazedsVersion = '4.7.2'
+
+    /**
+     * 0.9.5.1
+     */
+    c3p0Version = '0.9.5.1'
+
+    /**
+     * 1.4.15/1.4.16
+     */
+    cargoVersion = '1.4.16'
+
+    /**
+     *  2.2.0/2.2.1/2.2.3/3.0.0
+     */
+    cassandraVersion = '3.0.0'
+
+    /**
+     * 3.1/3.2.0
+     */
+    cglibVersion = '3.1'
+
+    /**
+     * 2.9.0/2.10.1
+     */
+    ehcacheVersion = '2.10.1'
+
+    /**
+     * 1.0.6
+     */
+    ftpserverVersion = '1.0.6'
+
+    /*
+    * 1.7.2
+    */
+    httpunitVersion = '1.7.2'
+
+    /**
+     * 5.0.0.CR2/5.0.0.CR4/5.0.0.Final/5.0.1.Final/5.0.2.Final/5.0.3.Final/5.0.5.Final
+     */
+    hibernateVersion = '5.0.5.Final'
+
+    /**
+     * 5.4.0.CR2/5.5.0.Final/5.5.1.Final
+     * */
+    hibernateSearchVersion = '5.5.0.Final'
+
+    /**
+     * 3.20.0-GA
+     */
+    javassistVersion = '3.20.0-GA'
+
+    /**
+     * 1.1.6
+     */
+    jaxenVersion = '1.1.6'
+
+    /**
+     * 1.1*
+     */
+    javaxWebsocketVersion = '1.1'
+
+    /**
+     * 2.4.2
+     */
+    jepVersion = '2.4.2'
+
+    /**
+     * 2.0.2/2.0.4
+     */
+    jposVersion = '2.0.4'
+
+    /**
+     * 20141113/20150729/20151123*
+     */
+    jsonVersion = '20151123'
+
+    /**
+     * 4.12
+     */
+    junitVersion = '4.12'
+
+    /**
+     * 4.10.4/5.3.0/5.3.1
+     */
+    luceneVersion = '5.3.1'
+
+    /**
+     * 5.1.36/5.1.37
+     */
+    mysqlConnectorJavaVersion = '5.1.37'
+
+    /**
+     * 11.2.0.4.0
+     */
+    oracleDriverOjdbc6Version = '11.2.0.4.0'
+
+    /**
+     * 3.12/3.13
+     */
+    poiVersion = '3.13'
+
+    /**
+     * 2.2.1/2.2.2
+     */
+    quartzVersion = '2.2.2'
+
+    /**
+     * 2.1.7
+     */
+    rxtxVerion = '2.1.7'
+
+    /**
+     * 3.6.0
+     */
+    simpleSpringMemcachedVersion = "3.6.0"
+
+    /**
+     * 4.1.7.RELEASE/4.2.0.RELEASE/4.2.1.RELEASE/4.2.2.RELEASE/4.2.3.RELEASE*
+     */
+    springVersion = '4.2.3.RELEASE'
+
+    /**
+     * 3.0.4.RELEASE/3.0.5.RELEASE
+     */
+    springbatchVersion = '3.0.5.RELEASE'
+
+    /**
+     * 1.5.1.RELEASE/1.5.2.RELEASE/1.6.0.RELEASE/1.6.1.RELEASE*
+     */
+    springDataRedisVersion = '1.6.1.RELEASE'
+
+    /**
+     *
+     * 0.5.0.RELEAS
+     *
+     */
+    springIntegrationCassandraVersion = '0.5.0.RELEASE'
+
+    /**
+     * 1.5.3.RELEASE
+     */
+    springFlexCoreVersion = '1.5.3.RELEASE'
+
+    /**
+     *
+     * 1.2.1.RELEASE/1.3.0.RELEASE*
+     */
+    springIntegrationKafkaVersion = '1.3.0.RELEASE'
+
+    /*
+    * 4.1.6.RELEASE/4.2.0.RELEASE/4.2.1.RELEASE/4.2.2.RELEASE*
+    */
+    springIntegrationVersion = '4.2.2.RELEASE'
+
+    /*
+    * 4.0.2.RELEASE/4.0.3.RELEASE
+    */
+    springSecurityVersion = '4.0.3.RELEASE'
+
+    /**
+     * 2.1.4.RELEASE
+     */
+    springwsVersion = '2.1.4.RELEASE'
+
+    /**
+     * 2.3.24/2.3.24.1
+     */
+    struts2Version = '2.3.24.1'
+
+    /**
+     * 7.0.63/8.0.24/8.0.26/8.0.28/8.0.29*
+     */
+    tomcatVersion = '8.0.29'
+
+    /*
+     * 4.34.44.5
+     */
+    xbeanSpringVersion = '4.4'
+
+    /**
+     * 2.11.0
+     */
+    xercesImpVersion = '2.11.0'
+
+    /**
+     * 1.4.8
+     */
+    xstreamVersion = '1.4.8'
+
+    /**
+     * 3.2.0/3.2.1
+     */
+    zxingVersion = '3.2.1'
+}
+
 /**
  * Gradle plugin supporting deployment of your web application to an embedded Tomcat web container.
- * 2.2.2
- * 2.2.3
  */
 buildscript {
     repositories {
         jcenter()
     }
 
+    /**
+     * 2.2.2/2.2.3
+     */
     def gradleTomcatPluginVersion = '2.2.3'
     dependencies {
         classpath("com.bmuschko:gradle-tomcat-plugin:$gradleTomcatPluginVersion")
@@ -25,32 +245,29 @@ buildscript {
 
 /**
  * Gradle plugin that provides deployment capabilities to local and remote containers via Cargo.
- * 2.1.1
- * 2.2.1
  */
 buildscript {
     repositories {
         jcenter()
     }
+
+    /**
+     * 2.1.1/2.2.1
+     */
     def gradleCargoPluginVersion = '2.2.1'
     dependencies {
         classpath("com.bmuschko:gradle-cargo-plugin:$gradleCargoPluginVersion")
     }
 }
 
-sourceCompatibility = JavaVersion.VERSION_1_8
-
-version = '2015.11.14'
-
 /**
- *
+ * 依赖库描述
  */
 repositories {
     jcenter()
     mavenCentral()
     ivy {
-        url("/home/jupiter/workset/ivy_repository")
-        // url("d:/ivy_repository")
+        url("$workset_home/ivy_repository")
     }
 }
 
@@ -60,10 +277,7 @@ repositories {
 dependencies {
     /**
      * Puts together an ActiveMQ jar bundle
-     * 5.11.1
-     * 5.12.0*
      */
-    def activemqVersion = '5.11.1'
     compile("org.apache.activemq:activemq-all:$activemqVersion") {
         exclude(module: 'slf4j-log4j12')
     }
@@ -71,30 +285,13 @@ dependencies {
     /**
      * Apache CXF Runtime JAX-WS Frontend
      * Apache CXF Runtime HTTP Transport
-     *
-     * 3.1.2
-     * 3.1.3
-     * 3.1.4
      */
-    def apacheCxfVersion = '3.1.4'
     compile("org.apache.cxf:cxf-rt-frontend-jaxws:$apacheCxfVersion",
             "org.apache.cxf:cxf-rt-transports-http:$apacheCxfVersion")
 
     /**
-     * Java Servlet API
-     * 8.0.24
-     * 8.0.26
-     * 8.0.28
-     */
-    def tomcatServletApiVersion = '8.0.28'
-    compile("org.apache.tomcat:tomcat-servlet-api:$tomcatServletApiVersion")
-
-    /**
      * Flex Messaging
-     * 4.7.0
-     * 4.7.1
      */
-    def blazedsVersion = '4.7.1'
     compile("org.apache.flex.blazeds:flex-messaging-core:$blazedsVersion",
             "org.apache.flex.blazeds:flex-messaging-common:$blazedsVersion",
             "org.apache.flex.blazeds:flex-messaging-opt:$blazedsVersion",
@@ -105,68 +302,46 @@ dependencies {
     /**
      *  The Apache Cassandra Project develops a highly scalable second-generation distributed database, bringing
      *  together Dynamo's fully distributed design and Bigtable's ColumnFamily-based data model.
-     *  2.2.0
-     *  2.2.1
-     *  2.2.3
      */
-    def cassandraVersion = '2.2.3'
     compile("org.apache.cassandra:cassandra-all:$cassandraVersion") {
         exclude(module: 'logback-classic')
+        exclude(module: 'log4j-over-slf4j')
     }
 
     /**
-     * a JDBC Connection pooling / Statement caching library
-     * 0.9.5.1
+     * A JDBC Connection pooling / Statement caching library
      */
-    def c3p0Version = '0.9.5.1'
     compile("com.mchange:c3p0:$c3p0Version")
 
     /**
      * Code generation library with shaded ASM dependecies
-     * 3.1
-     * 3.2.0
      */
-    def cglibVersion = '3.1'
     compile("cglib:cglib-nodep:$cglibVersion")
 
     /**
      * Ehcache is an open source, standards-based cache used to boost performance,
      * offload the database and simplify scalability. Ehcache is robust, proven and
      * full-featured and this has made it the most widely-used Java-based cache.
-     * 2.9.0
-     * 2.10.1
      */
-    def ehcacheVersion = '2.10.1'
-    runtime "net.sf.ehcache:ehcache:$ehcacheVersion"
+    runtime("net.sf.ehcache:ehcache:$ehcacheVersion")
 
     /**
      * Apache FtpServer
-     * 1.0.6
      */
-    def ftpserverVersion = '1.0.6'
     compile("org.apache.ftpserver:ftpserver:$ftpserverVersion") {
         exclude(module: 'slf4j-log4j12')
     }
 
     /**
      * A library for testing websites programmatically
-     * 1.7.2
      */
-    def httpunitVersion = '1.7.2'
     compile("org.httpunit:httpunit:$httpunitVersion") {
         exclude(module: 'servlet-api')
     }
 
     /**
      * The core O/RM functionality as provided by Hibernate
-     * 5.0.0.CR2
-     * 5.0.0.CR4
-     * 5.0.0.Final
-     * 5.0.1.Final
-     * 5.0.2.Final
-     * 5.0.3.Final
      */
-    def hibernateVersion = '5.0.3.Final'
     compile("org.hibernate:hibernate-core:$hibernateVersion",
             "org.hibernate:hibernate-c3p0:$hibernateVersion",
             "org.hibernate:hibernate-ehcache:$hibernateVersion",
@@ -176,57 +351,44 @@ dependencies {
 
     /**
      * Hibernate Search integration with Hibernate Core
-     * 5.4.0.CR2
-     * 5.5.0.Final
      */
-    def hibernateSearchVersion = '5.5.0.Final'
     compile("org.hibernate:hibernate-search-orm:$hibernateSearchVersion")
 
     /**
      * Javassist (JAVA programming ASSISTant) makes Java bytecode manipulation simple.
      * It is a class library for editing bytecodes in Java.
-     * 3.20.0-GA
      */
-    def javassistVersion = '3.20.0-GA'
     compile("org.javassist:javassist:$javassistVersion")
 
     /**
      * Jaxen is a universal Java XPath engine.
-     * 1.1.6
      */
-    def jaxenVersion = '1.1.6'
     compile("jaxen:jaxen:$jaxenVersion")
 
     /**
-     * JEP is a Java library for parsing and evaluating mathematical expressions.
-     * 2.4.2
+     * JSR 356: Java API for WebSocket
      */
-    def jepVersion = '2.4.2'
+    compile("javax.websocket:javax.websocket-api:$javaxWebsocketVersion")
+
+    /**
+     * JEP is a Java library for parsing and evaluating mathematical expressions.
+     */
     compile("org.scijava:jep:$jepVersion")
 
     /**
      * jPOS is an ISO-8583 based financial transaction library/framework that can be customized
      * and extended in order to implement financial interchanges.
-     * 2.0.2
      */
-    def jposVersion = '2.0.2'
     compile("org.jpos:jpos:$jposVersion")
 
     /**
      * JSON is a light-weight, language independent, data interchange format.
-     * 20141113
-     * 20150729
      */
-    def jsonVersion = '20150729'
     compile("org.json:json:$jsonVersion")
 
     /**
      * Apache Lucene Java Core
-     * '4.10.4'
-     * 5.3.0
-     * 5.3.1
      */
-    def luceneVersion = '5.3.1'
     compile("org.apache.lucene:lucene-core:$luceneVersion",
             "org.apache.lucene:lucene-analyzers-common:$luceneVersion",
             "org.apache.lucene:lucene-queryparser:$luceneVersion",
@@ -235,41 +397,30 @@ dependencies {
 
     /**
      * MySQL JDBC Type 4 driver
-     * 5.1.36
-     * 5.1.37
      */
-    def mysqlConnectorJavaVersion = '5.1.37'
     compile("mysql:mysql-connector-java:$mysqlConnectorJavaVersion")
 
     /**
      * Enables memcached caching in Spring beans via annotations
      */
-    def simpleSpringMemcachedVersion = "3.6.0"
     compile("com.google.code.simple-spring-memcached:simple-spring-memcached:$simpleSpringMemcachedVersion",
             "com.google.code.simple-spring-memcached:xmemcached-provider:$simpleSpringMemcachedVersion")
+
     /**
      * Oracle JDBC Driver For Java Oracle.jdbc.driver.OracleDriver Ojdbc6
-     * 11.2.0.4.0
      */
-    def oracleDriverOjdbc6Version = '11.2.0.4.0'
     compile("com.oracle:ojdbc14:$oracleDriverOjdbc6Version")
 
     /**
      * Apache POI - Java API To Access Microsoft Format Files
-     * 3.12
-     * 3.13
      */
-    def poiVersion = '3.13'
     compile("org.apache.poi:poi:$poiVersion",
             "org.apache.poi:poi-ooxml:$poiVersion",
             "org.apache.poi:poi-scratchpad:$poiVersion")
 
     /**
      * Enterprise Job Scheduler
-     * 2.2.1
-     * 2.2.2
      */
-    def quartzVersion = '2.2.2'
     compile("org.quartz-scheduler:quartz:$quartzVersion") {
         exclude(module: 'c3p0')
     }
@@ -285,13 +436,7 @@ dependencies {
      * Spring Web MVC
      * Spring Instrument Tomcat
      * Spring Messaging
-     *
-     * 4.1.7.RELEASE
-     * 4.2.0.RELEASE
-     * 4.2.1.RELEASE
-     * 4.2.2.RELEASE
      */
-    def springVersion = '4.2.2.RELEASE'
     compile("org.springframework:spring-core:$springVersion",
             "org.springframework:spring-context:$springVersion",
             "org.springframework:spring-context-support:$springVersion",
@@ -305,26 +450,18 @@ dependencies {
 
     /**
      * spring.batch
-     * 3.0.4.RELEASE
-     * 3.0.5.RELEASE
      */
-    def springbatchVersion = '3.0.5.RELEASE'
     compile("org.springframework.batch:spring-batch-core:$springbatchVersion",
             "org.springframework.batch:spring-batch-test:$springbatchVersion")
 
     /**
      * Spring Data Redis
-     * 1.5.1.RELEASE
-     * 1.5.2.RELEASE
-     * 1.6.0.RELEASE
      */
-    def springDataRedisVersion = '1.6.0.RELEASE'
     compile("org.springframework.data:spring-data-redis:$springDataRedisVersion")
 
     /**
      * Spring Support for Flex
      */
-    def springFlexCoreVersion = '1.5.3.RELEASE'
     compile("org.springframework.flex:spring-flex-core:$springFlexCoreVersion")
 
     /**
@@ -343,12 +480,7 @@ dependencies {
      * Spring Integration XMPP Support
      * Spring Integration Syslog Support
      * Spring Integration WebSockets Support
-     *
-     * 4.1.6.RELEASE
-     * 4.2.0.RELEASE
-     * 4.2.1.RELEASE
      */
-    def springIntegrationVersion = '4.2.1.RELEASE'
     compile("org.springframework.integration:spring-integration-core:$springIntegrationVersion",
             "org.springframework.integration:spring-integration-jms:$springIntegrationVersion",
             "org.springframework.integration:spring-integration-jdbc:$springIntegrationVersion",
@@ -370,19 +502,12 @@ dependencies {
 
     /**
      * Spring Integration Cassandra Support
-     *
-     * 0.5.0.RELEAS
-     *
      */
-    def springIntegrationCassandraVersion = '0.5.0.RELEASE'
     compile("org.springframework.integration:spring-integration-cassandra:$springIntegrationCassandraVersion")
 
     /**
      * Spring Integration Kafka Support
-     *
-     * 1.2.1.RELEASE
      */
-    def springIntegrationKafkaVersion = '1.2.1.RELEASE'
     compile("org.springframework.integration:spring-integration-kafka:$springIntegrationKafkaVersion") {
         exclude(module: 'slf4j-log4j12')
     }
@@ -395,112 +520,83 @@ dependencies {
      * Spring Security Test
      * Spring Security Openid
      * Spring Security Cas
-     *
-     * 4.0.2.RELEASE
-     * 4.0.3.RELEASE
      */
-    def springSecurityVersion = '4.0.3.RELEASE'
     compile("org.springframework.security:spring-security-core:$springSecurityVersion",
             "org.springframework.security:spring-security-web:$springSecurityVersion",
             "org.springframework.security:spring-security-taglibs:$springSecurityVersion",
             "org.springframework.security:spring-security-config:$springSecurityVersion",
             "org.springframework.security:spring-security-test:$springSecurityVersion",
-            "org.springframework.security:spring-security-openid:$springSecurityVersion",
-            "org.springframework.security:spring-security-cas:$springSecurityVersion")
+            "org.springframework.security:spring-security-openid:$springSecurityVersion")
+    compile("org.springframework.security:spring-security-cas:$springSecurityVersion") {
+        exclude(module: 'log4j-over-slf4j')
+    }
 
     /**
      * Spring Web Services is a product of the Spring community focused on creating document-driven Web services.
-     * 2.1.4.RELEASE
      */
-    def springwsVersion = '2.1.4.RELEASE'
     compile("org.springframework.ws:spring-ws:$springwsVersion")
 
     /**
      * Struts2 Framework
-     * 2.3.24
-     * 2.3.24.1
-     * "org.apache.struts:struts2-convention-plugin:$struts2Version",
      */
-    def struts2Version = '2.3.24.1'
     compile("org.apache.struts:struts2-core:$struts2Version",
             "org.apache.struts:struts2-spring-plugin:$struts2Version",
             "org.apache.struts:struts2-junit-plugin:$struts2Version",
             "org.apache.struts:struts2-jfreechart-plugin:$struts2Version",
-            //        "org.apache.struts:struts2-rest-plugin:$struts2Version",
-//            "org.apache.struts:struts2-convention-plugin:$struts2Version",
             "org.apache.struts:struts2-dwr-plugin:$struts2Version",
             "org.apache.struts:struts2-json-plugin:$struts2Version")
 
     /**
      * xbean-spring provides a schema-driven proprietary namespace handler for spring contexts
-     * 4.3
-     * 4.4
      */
-    def xbeanSpringVersion = '4.4'
     compile("org.apache.xbean:xbean-spring:$xbeanSpringVersion")
 
     /**
      * Xerces2 is the next generation of high performance, fully compliant XML parsers in the Apache Xerces family.
-     * 2.11.0
      */
-    def xercesImpVersion = '2.11.0'
     compile("xerces:xercesImpl:$xercesImpVersion")
 
     /**
      * XStream extension for Hibernate 3/4 to untie Java objects from Hibernate.
-     * 1.4.8
      */
-    def xstreamVersion = '1.4.8'
     compile("com.thoughtworks.xstream:xstream:$xstreamVersion",
             "com.thoughtworks.xstream:xstream-hibernate:$xstreamVersion")
 
     /**
      * RXTX is a native lib providing serial and parallel communication for the Java Development Toolkit (JDK).
-     * 2.1.7
      */
-    def rxtxVerion = '2.1.7'
     compile("org.rxtx:rxtx:$rxtxVerion")
 
     /**
      * Core barcode encoding/decoding library
-     * 3.2.0
-     * 3.2.1
      */
-    def zxingVersion = '3.2.1'
     compile("com.google.zxing:core:$zxingVersion",
             "com.google.zxing:javase:$zxingVersion")
 
     /**
      * JUnit is a unit testing framework for Java, created by Erich Gamma and Kent Beck.
-     * 4.12
      */
-    def junitVersion = '4.12'
     testCompile("junit:junit:$junitVersion")
 
     /**
      * Tomcat-embed plugin
-     * 7.0.63
-     * 8.0.24
-     * 8.0.26
-     * 8.0.28
      */
-    def tomcatVersion = '8.0.28'
     tomcat "org.apache.tomcat.embed:tomcat-embed-core:$tomcatVersion",
-            "org.apache.tomcat.embed:tomcat-embed-logging-juli:$tomcatVersion",
             "org.apache.tomcat.embed:tomcat-embed-jasper:$tomcatVersion",
-            "org.apache.tomcat.embed:tomcat-embed-websocket:$tomcatVersion",
             "org.apache.tomcat.embed:tomcat-embed-logging-log4j:$tomcatVersion",
             "org.apache.tomcat.embed:tomcat-embed-el:$tomcatVersion"
 
+    compile "org.apache.tomcat.embed:tomcat-embed-logging-juli:$tomcatVersion"
+
+    runtime "org.apache.tomcat.embed:tomcat-embed-websocket:$tomcatVersion"
+
+    compile "org.apache.tomcat:tomcat-servlet-api:$tomcatVersion"
+
     /**
      * The Cargo Core Uberjar
-     * 1.4.15
-     * 1.4.16
      */
-    def cargoVersion = '1.4.16'
-    cargo("org.codehaus.cargo:cargo-core-uberjar:$cargoVersion",
-            "org.codehaus.cargo:cargo-ant:$cargoVersion")
-
+    cargo "org.codehaus.cargo:cargo-core-uberjar:$cargoVersion",
+            "org.codehaus.cargo:cargo-ant:$cargoVersion"
 
 }
 
@@ -525,6 +621,8 @@ configurations {
  */
 sourceSets {
     main {
+        println project.name
+        println project.version
         println "java.srcDirs = ${java.srcDirs}"
         println "resources.srcDirs = ${resources.srcDirs}"
         println "java.files = ${java.files.name}"
@@ -538,28 +636,56 @@ sourceSets {
 
 }
 
+
+tasks.withType(Compile) {
+    options.encoding = "utf8"
+}
+
 /**
  * jar plugin setup
  */
 jar {
-    baseName = 'j2ee_full'
-    version = '2015.11.18'
 }
 
 /**
  * war plugin setup
  */
 war {
-    baseName = 'j2ee_full'
-    version = '2015.11.18'
+
 }
 
 /**
- * tomcat plugin
+ * Cargo is a thin wrapper that allows you to manipulate various type of application containers (Java EE and others) in a standard way.
+ */
+cargo {
+    containerId = 'tomcat8x'
+    port = 8080
+
+    def tomcatDir = "$workset_home/apache-tomcat-8.0.30"
+    def warFile = project.projectDir.toString() + "/build/libs/" + project.name + "-" + project.version + ".war"
+
+    deployable {
+        file = file("$warFile")
+        context = "${project.name}"
+    }
+
+    local {
+        homeDir = file("$tomcatDir")
+    }
+
+    remote {
+        username = 'admin'
+        password = 'admin'
+        hostname = "localhost"
+    }
+
+}
+
+/**
+ * tomcat
  */
 tomcat {
-    httpPort = 8880
-    httpsPort = 8890
+
 }
 
 /**

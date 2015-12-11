@@ -47,12 +47,12 @@ public class IndexAction {
         return command;
     }
 
-    public String getParameterLine() {
-        return parameterLine;
-    }
-
     public void setCommand(String command) {
         this.command = command;
+    }
+
+    public String getParameterLine() {
+        return parameterLine;
     }
 
     public void setParameterLine(String parameterLine) {

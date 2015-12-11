@@ -24,7 +24,7 @@ import java.util.List;
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @Inheritance(strategy = InheritanceType.JOINED)
 @Indexed
-public class UserBase implements Serializable{
+public class UserBase implements Serializable {
 
     /**
      * 用户ID
@@ -110,52 +110,20 @@ public class UserBase implements Serializable{
         return createDate;
     }
 
-    public String getPassWord() {
-        return passWord;
-    }
-
-    public List<UserBase_Authority> getUserBase_authoritys() {
-        return userBase_authoritys;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public String getUserType() {
-        return userType;
-    }
-
-    public boolean isEnable() {
-        return enable;
-    }
-
-    public boolean isNonLocked() {
-        return nonLocked;
-    }
-
-    public boolean isWritepermission() {
-        return writepermission;
-    }
-
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
 
-    public void setEnable(boolean enable) {
-        this.enable = enable;
-    }
-
-    public void setNonLocked(boolean nonLocked) {
-        this.nonLocked = nonLocked;
+    public String getPassWord() {
+        return passWord;
     }
 
     public void setPassWord(String passWord) {
         this.passWord = passWord;
+    }
+
+    public List<UserBase_Authority> getUserBase_authoritys() {
+        return userBase_authoritys;
     }
 
     public void setUserBase_authoritys(
@@ -163,16 +131,48 @@ public class UserBase implements Serializable{
         this.userBase_authoritys = userBase_authoritys;
     }
 
+    public String getUserId() {
+        return userId;
+    }
+
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public String getUserName() {
+        return userName;
     }
 
     public void setUserName(String userName) {
         this.userName = userName;
     }
 
+    public String getUserType() {
+        return userType;
+    }
+
     public void setUserType(String userType) {
         this.userType = userType;
+    }
+
+    public boolean isEnable() {
+        return enable;
+    }
+
+    public void setEnable(boolean enable) {
+        this.enable = enable;
+    }
+
+    public boolean isNonLocked() {
+        return nonLocked;
+    }
+
+    public void setNonLocked(boolean nonLocked) {
+        this.nonLocked = nonLocked;
+    }
+
+    public boolean isWritepermission() {
+        return writepermission;
     }
 
     public void setWritepermission(boolean writepermission) {
