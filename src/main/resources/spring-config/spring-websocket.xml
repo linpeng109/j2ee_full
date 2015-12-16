@@ -10,16 +10,8 @@
                            http://www.springframework.org/schema/integration/websocket
                            http://www.springframework.org/schema/integration/websocket/spring-integration-websocket.xsd">
 
-    <!-- websocket server -->
-    <int-websocket:server-container id="serverWebSocketContainer" path="/time">
-        <int-websocket:sockjs websocket-enabled="true" heartbeat-time="25000"/>
-    </int-websocket:server-container>
-    <int-websocket:inbound-channel-adapter container="serverWebSocketContainer" channel="logger"/>
-    <int-websocket:outbound-channel-adapter container="serverWebSocketContainer"
-                                            channel="serverWebSocketOutboundChannel"/>
-    <int:channel id="serverWebSocketOutboundChannel"/>
-
     <!-- websocket client-->
+    <!--
     <bean id="webSocketClient" class="org.springframework.web.socket.client.standard.StandardWebSocketClient"/>
     <int-websocket:client-container id="clientWebSocketContainer" client="webSocketClient"
                                     uri="ws://localhost:8080/j2ee_full/time"/>
@@ -27,5 +19,5 @@
     <int-websocket:outbound-channel-adapter container="clientWebSocketContainer"
                                             channel="clientWebSocketOutboundChannel"/>
     <int:channel id="clientWebSocketOutboundChannel"/>
-
+-->
 </beans>

@@ -634,8 +634,8 @@ configurations {
  */
 sourceSets {
     main {
-        println project.name
-        println project.version
+        println "project.name = ${project.name}"
+        println "project.version = ${project.version}"
         println "java.srcDirs = ${java.srcDirs}"
         println "resources.srcDirs = ${resources.srcDirs}"
         println "java.files = ${java.files.name}"

@@ -81,6 +81,6 @@
 
     <!-- WEBSOCKET模块 -->
     <!--
-    <import resource="spring-config/spring-websocket.xml"/>
     -->
+    <import resource="spring-config/spring-websocket.xml"/>
 </beans>
