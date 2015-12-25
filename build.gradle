@@ -11,7 +11,7 @@ apply plugin: 'com.bmuschko.cargo-base'
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 
-version = '2015.12.11'
+version = '2015.12.25'
 
 def workset_home = '/home/jupiter/workset'
 
