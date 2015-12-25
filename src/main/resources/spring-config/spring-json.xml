@@ -6,6 +6,5 @@
 	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
 
     <!--JSON处理模块 -->
-    <bean id="jsonHelper" class="com.cn.json.JSONHelper"/>
 
 </beans>
