@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-2.1.4.js"></script>
+    <script>
+        function getDataFromServer() {
+            $.ajax({
+                async:true,
+                url: "http://192.168.0.102:8080/j2ee_full/json/userBaseAction.action",
+                dataType: "jsonp",
+                data: {pageSize: '20', pageNum: '1'},
+                success: function (data) {
+                    var size = data.list.length;
+                    var result = "";
+                    for (i = 0; i < size; ++i) {
+                        var user = data.list[i];
+                        result = "<div>" + user.userName + "</div>" + result;
+                    }
+                    $('span').html(result);
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+<h1>AJAX跨域访问测试</h1>
+<input type="submit" value="获取数据" onclick="getDataFromServer();"/>
+<p/>
+<span></span>
+</body>
+</html>
