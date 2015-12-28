@@ -63,7 +63,7 @@
                 <param name="noCache">false</param>
                 <param name="callbackParameter">callback</param>
                 <param name="encoding">UTF-8</param>
-                <param name="contentType">text/html</param>
+                <param name="contentType">application/x-javascript</param>
 
                 <param name="includeProperties">
                     list\[\d+\]\.userId,
