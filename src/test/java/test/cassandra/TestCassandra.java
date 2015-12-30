@@ -45,7 +45,7 @@ public class TestCassandra extends TestBase {
         logger.debug(String.format("The person table size is [%s] ", size));
     }
 
-    //@Test
+    @Test
     public void testCassandraTemplateSelectByLimt() {
 
         Select select = QueryBuilder.select().from("person");
