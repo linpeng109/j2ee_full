@@ -32,4 +32,8 @@
         <property name="pageSize" value="10"/>
     </bean>
     <bean id="initializeAction" class="com.cn.struts2.InitializeAction" parent="baseAction"/>
+
+    <bean id="websocketAction" class="com.cn.struts2.WebSocketAction" parent="baseAction">
+        <property name="messageHandler" ref="messageHandler"/>
+    </bean>
 </beans>

@@ -41,6 +41,10 @@
             <result name="success" type="dispatcher">/list.jsp</result>
         </action>
 
+        <action name="websocketAction" class="websocketAction">
+            <result name="success" type="dispatcher">/index.jsp</result>
+        </action>
+
     </package>
 
     <!-- JSON´¦Àí -->
