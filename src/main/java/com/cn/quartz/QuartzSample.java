@@ -18,6 +18,6 @@ public class QuartzSample {
     public void diaplayCurrentTime() throws IOException, SAXException {
         Date current = new Date();
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss E");
-        logger.debug("CurrentTime is " + format.format(current));
+        System.out.println("CurrentTime is " + format.format(current));
     }
 }

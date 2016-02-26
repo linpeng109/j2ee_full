@@ -79,8 +79,9 @@
     <!-- JEP模块 -->
     <import resource="spring-config/spring-jep.xml"/>
 
+    <!-- JPUSH模块 -->
+    <import resource="spring-config/spring-jpush.xml"/>
+
     <!-- WEBSOCKET模块 -->
-    <!--
-    -->
     <import resource="spring-config/spring-websocket.xml"/>
 </beans>

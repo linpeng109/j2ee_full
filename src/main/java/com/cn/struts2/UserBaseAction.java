@@ -11,8 +11,8 @@ import java.util.List;
 public class UserBaseAction extends BaseAction {
     final Logger logger = Logger.getLogger(UserBaseAction.class);
 
-    public int pageSize = 20;
-    public int pageNum = 0;
+    public int pageSize;
+    public int pageNum;
     public boolean isCache;
 
     public List<UserBase> list;
@@ -42,6 +42,7 @@ public class UserBaseAction extends BaseAction {
     }
 
     public String execute() {
+        logger.debug(pageNum + ";" + pageSize);
         setList(hibernateDAO.listByPage(UserBase.class, pageSize, pageNum, true));
         return super.SUCCESS;
     }

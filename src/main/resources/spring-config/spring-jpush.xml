@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+    <bean id="jpushUtil" class="com.cn.jpush.JpushUtil">
+        <property name="appkey" value="104b5f6d4ad7bd0c277e85f5"/>
+        <property name="masterSecret" value="705bc368d426f576b5456095"/>
+    </bean>
+</beans>

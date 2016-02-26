@@ -27,8 +27,7 @@
     <!--配置定时触发器 -->
     <bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
         <property name="jobDetail" ref="jobDetail"/>
-        <!-- 每年每月每日每时每分，间隔X秒触发一次 -->
-        <property name="cronExpression" value="1/10 54 14 20 * ? 2016"/>
+        <property name="cronExpression" value="0 0/1 14-20 * * ?"/>
     </bean>
 
     <!--配置时间表 -->

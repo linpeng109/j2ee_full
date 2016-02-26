@@ -92,7 +92,7 @@
         <level value="error"/>
     </logger>
     <logger name="org.springframework.integration.handler">
-        <level value="error"/>
+        <level value="debug"/>
     </logger>
     <logger name="net.rubyeye.xmemcached">
         <level value="error"/>

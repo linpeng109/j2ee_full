@@ -115,6 +115,11 @@ ext {
     jposVersion = '2.0.4'
 
     /**
+     *3.2.8
+     */
+    jpushVersion = "3.2.8"
+
+    /**
      * 20141113/20150729/20151123
      */
     jsonVersion = '20151123'
@@ -412,6 +417,12 @@ dependencies {
      * and extended in order to implement financial interchanges.
      */
     compile("org.jpos:jpos:$jposVersion")
+    
+
+/**
+ * <dependency org="cn.jpush.api" name="jpush-client" rev="3.2.8" />
+ */
+    compile("cn.jpush.api:jpush-client:$jpushVersion")
 
     /**
      * JSON is a light-weight, language independent, data interchange format.
@@ -442,7 +453,7 @@ dependencies {
      */
     compile("com.google.code.simple-spring-memcached:simple-spring-memcached:$simpleSpringMemcachedVersion",
             "com.google.code.simple-spring-memcached:xmemcached-provider:$simpleSpringMemcachedVersion")
-    
+
     /**
      * Oracle JDBC Driver For Java Oracle.jdbc.driver.OracleDriver Ojdbc6
      */

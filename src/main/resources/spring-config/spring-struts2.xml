@@ -28,7 +28,7 @@
         <property name="worldParameter" value="Peng"/>
     </bean>
 
-    <bean id="userBaseAction" class="com.cn.struts2.UserBaseAction" parent="baseAction">
+    <bean id="userBaseAction" class="com.cn.struts2.UserBaseAction" parent="baseAction" scope="prototype">
         <property name="pageSize" value="10"/>
     </bean>
     <bean id="initializeAction" class="com.cn.struts2.InitializeAction" parent="baseAction"/>
