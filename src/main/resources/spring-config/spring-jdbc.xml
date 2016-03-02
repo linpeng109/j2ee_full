@@ -7,7 +7,7 @@
     <int-jdbc:outbound-channel-adapter data-source="dataSource" channel="jdbc_input_channel"
                                        query="insert into MESSAGES (MESSAGE_ID,PAYLOAD,CREATED_DATE) values (:id, :payload, :createdDate)"
                                        sql-parameter-source-factory="spelSource"/>
-
+<int
     <bean id="spelSource"
           class="o.s.integration.jdbc.ExpressionEvaluatingSqlParameterSourceFactory">
         <property name="parameterExpressions">
