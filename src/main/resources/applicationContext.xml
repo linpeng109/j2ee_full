@@ -58,30 +58,22 @@
     <import resource="spring-config/spring-quartz.xml"/>
     <!-- 视频编码模块配置 -->
     <import resource="spring-config/spring-encoder.xml"/>
-
     <!-- XMPP消息模块配置 -->
     <import resource="spring-config/spring-xmpp.xml"/>
-
     <!-- Kafka分布式消息系统模块配置 -->
     <!--
     <import resource="spring-config/spring-kafka.xml" />
     -->
-
     <!-- Cassandra分布式非关系数据库模块配置 -->
     <import resource="spring-config/spring-cassandra.xml"/>
-
     <!-- HTTP模块配置 -->
     <import resource="spring-config/spring-http.xml"/>
-
     <!--Memcache-->
     <import resource="spring-config/spring-memcache.xml"/>
-
     <!-- JEP模块 -->
     <import resource="spring-config/spring-jep.xml"/>
-
     <!-- JPUSH模块 -->
     <import resource="spring-config/spring-jpush.xml"/>
-
     <!-- WEBSOCKET模块 -->
     <import resource="spring-config/spring-websocket.xml"/>
 </beans>

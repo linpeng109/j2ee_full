@@ -13,8 +13,8 @@ import java.util.Date;
 public class JpushUtil {
 
 
-    private String appkey = "104b5f6d4ad7bd0c277e85f5";
-    private String masterSecret = "705bc368d426f576b5456095";
+    private String appkey;
+    private String masterSecret;
 
     public static void main(String[] params) throws APIConnectionException, APIRequestException {
         JpushUtil jpushUtil=new JpushUtil();
@@ -24,7 +24,6 @@ public class JpushUtil {
 
     public void sendNotificationAll() throws APIConnectionException, APIRequestException {
         JPushClient jPushClient = new JPushClient(masterSecret, appkey);
-
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss");
         String formatStr = formatter.format(new Date());
         String alert = "极光推送测试，时间：" + formatStr;

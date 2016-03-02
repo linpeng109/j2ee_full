@@ -11,9 +11,9 @@
     <!--配置任务 -->
     <bean id="jobDetail"
           class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
-        <property name="targetObject" ref="quartzSample"/>
-        <property name="targetMethod" value="diaplayCurrentTime"/>
-        <property name="concurrent" value="false"/>
+        <property name="targetObject" ref="jpushUtil"/>
+        <property name="targetMethod" value="sendNotificationAll"/>
+        <property name="concurrent" value="true"/>
     </bean>
 
     <!--配置间隔触发器 -->
@@ -27,13 +27,13 @@
     <!--配置定时触发器 -->
     <bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
         <property name="jobDetail" ref="jobDetail"/>
-        <property name="cronExpression" value="0 0/1 14-20 * * ?"/>
+        <property name="cronExpression" value="0 0/15 19-20 * * ? 2016"/>
     </bean>
 
     <!--配置时间表 -->
     <bean id="scheduler"
           class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
-        <property name="autoStartup" value="false"/>
+        <property name="autoStartup" value="true"/>
         <property name="triggers">
             <list>
                 <ref bean="cronTrigger"/>
