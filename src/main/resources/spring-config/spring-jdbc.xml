@@ -1,0 +1,21 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:int-jdbc="http://www.springframework.org/schema/integration/jdbc"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+    http://www.springframework.org/schema/integration/jdbc http://www.springframework.org/schema/integration/ip/spring-integration-jdbc.xsd">
+
+    <int-jdbc:outbound-channel-adapter data-source="dataSource" channel="jdbc_input_channel"
+                                       query="insert into MESSAGES (MESSAGE_ID,PAYLOAD,CREATED_DATE) values (:id, :payload, :createdDate)"
+                                       sql-parameter-source-factory="spelSource"/>
+
+    <bean id="spelSource"
+          class="o.s.integration.jdbc.ExpressionEvaluatingSqlParameterSourceFactory">
+        <property name="parameterExpressions">
+            <map>
+                <entry key="id" value="headers['id'].toString()"/>
+                <entry key="createdDate" value="new java.util.Date()"/>
+                <entry key="payload" value="payload"/>
+            </map>
+        </property>
+    </bean>
+</beans>
