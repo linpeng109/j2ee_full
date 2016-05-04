@@ -225,9 +225,9 @@ ext {
     /**
      * org.apache.struts
      * 2.3.24/2.3.24.1
-     * 2.3.24.3
+     * 2.3.24.2
      */
-    struts2Version = '2.3.24.3'
+    struts2Version = '2.3.24.2'
 
     /**
      * org.apache.tomcat.embed
