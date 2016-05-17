@@ -4,10 +4,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
     http://www.springframework.org/schema/integration/jdbc http://www.springframework.org/schema/integration/ip/spring-integration-jdbc.xsd">
 
-    <int-jdbc:outbound-channel-adapter data-source="dataSource" channel="jdbc_input_channel"
-                                       query="insert into MESSAGES (MESSAGE_ID,PAYLOAD,CREATED_DATE) values (:id, :payload, :createdDate)"
-                                       sql-parameter-source-factory="spelSource"/>
-<int
     <bean id="spelSource"
           class="o.s.integration.jdbc.ExpressionEvaluatingSqlParameterSourceFactory">
         <property name="parameterExpressions">

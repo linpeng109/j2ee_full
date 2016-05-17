@@ -115,7 +115,7 @@ ext {
     jposVersion = '2.0.4'
 
     /**
-     *3.2.8
+     * 3.2.8
      */
     jpushVersion = "3.2.8"
 
@@ -149,6 +149,11 @@ ext {
      * 3.12/3.13
      */
     poiVersion = '3.13'
+
+    /**
+     * Qiniu
+     */
+    qiniuVersion = '7.1.0'
 
     /**
      * org.quartz-scheduler
@@ -418,7 +423,6 @@ dependencies {
      * and extended in order to implement financial interchanges.
      */
     compile("org.jpos:jpos:$jposVersion")
-    
 
 /**
  * <dependency org="cn.jpush.api" name="jpush-client" rev="3.2.8" />
@@ -466,6 +470,11 @@ dependencies {
     compile("org.apache.poi:poi:$poiVersion",
             "org.apache.poi:poi-ooxml:$poiVersion",
             "org.apache.poi:poi-scratchpad:$poiVersion")
+
+    /**
+     *
+     */
+    compile("com.qiniu:qiniu-java-sdk:$qiniuVersion")
 
     /**
      * Enterprise Job Scheduler

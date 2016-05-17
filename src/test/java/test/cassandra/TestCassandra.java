@@ -6,6 +6,7 @@ import com.cn.common.implement.RandomModuleImpl;
 import com.datastax.driver.core.querybuilder.QueryBuilder;
 import com.datastax.driver.core.querybuilder.Select;
 import org.apache.log4j.Logger;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.cassandra.core.CassandraTemplate;
@@ -23,7 +24,8 @@ public class TestCassandra extends TestBase {
     @Autowired
     public CassandraTemplate cassandraTemplate;
 
-    //@Test
+    @Test
+    @Ignore
     public void testCassandraTemplateInsert() {
         RandomModule random = new RandomModuleImpl();
         for (int i = 0; i < 10000; ++i) {
@@ -40,12 +42,14 @@ public class TestCassandra extends TestBase {
     }
 
     @Test
+    @Ignore
     public void testCassandraTemplateCount() {
         long size = cassandraTemplate.count("person");
         logger.debug(String.format("The person table size is [%s] ", size));
     }
 
     @Test
+    @Ignore
     public void testCassandraTemplateSelectByLimt() {
 
         Select select = QueryBuilder.select().from("person");
@@ -58,7 +62,8 @@ public class TestCassandra extends TestBase {
 
     }
 
-    //@Test
+    @Test
+    @Ignore
     public void testCassandraTemplateSelectOne() {
         Select select = QueryBuilder.select().from("person");
         UUID uuid = UUID.fromString("ee0bad9f-06f0-4a3a-bf7d-40985678278a");

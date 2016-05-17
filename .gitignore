@@ -11,3 +11,4 @@ logs/*
 transaction.log
 .classpath
 .project
+classes/*

@@ -29,7 +29,9 @@
     <!-- 系统模块配置 -->
     <import resource="spring-config/spring-common.xml"/>
     <!-- JDBC模块配置 -->
+    <!--
     <import resource="spring-config/spring-jdbc.xml"/>
+    -->
     <!-- JSON模块配置 -->
     <import resource="spring-config/spring-json.xml"/>
     <!-- JMS模块配置 -->

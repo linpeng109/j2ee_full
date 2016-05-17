@@ -1,6 +1,7 @@
 package test.http;
 
 import org.apache.log4j.Logger;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.messaging.MessageChannel;
 import test.TestBase;
@@ -16,6 +17,7 @@ public class TestHttp extends TestBase {
     private MessageChannel httpPaserTwoInputChannel;
 
     @Test
+    @Ignore
     public void testRequestChannel() {
 //        Message<String> message = MessageBuilder
 //                .withPayload("Test httpPaser ")
