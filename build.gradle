@@ -67,6 +67,11 @@ ext {
     */
     httpunitVersion = '1.7.2'
 
+    /*
+    * 4.5.2
+    */
+    httpcomponentsVersion = '4.5.2'
+
     /**
      * 5.0.0.CR2/5.0.0.CR4/5.0.0.Final/5.0.1.Final/5.0.2.Final/5.0.3.Final/5.0.5.Final
      */
@@ -321,6 +326,7 @@ dependencies {
      */
     compile("org.apache.activemq:activemq-all:$activemqVersion") {
         exclude(module: 'slf4j-log4j12')
+        exclude(module: 'httpclient')
     }
 
     /**
@@ -349,6 +355,7 @@ dependencies {
     compile("org.apache.cassandra:cassandra-all:$cassandraVersion") {
         exclude(module: 'logback-classic')
         exclude(module: 'log4j-over-slf4j')
+        exclude(module: 'httpclient')
     }
 
     /**
@@ -381,6 +388,11 @@ dependencies {
     compile("org.httpunit:httpunit:$httpunitVersion") {
         exclude(module: 'servlet-api')
     }
+
+    /**
+     * Apache HttpComponents Client
+     */
+    compile("org.apache.httpcomponents:httpclient:$httpcomponentsVersion")
 
     /**
      * The core O/RM functionality as provided by Hibernate
@@ -583,8 +595,7 @@ dependencies {
             "org.springframework.security:spring-security-web:$springSecurityVersion",
             "org.springframework.security:spring-security-taglibs:$springSecurityVersion",
             "org.springframework.security:spring-security-config:$springSecurityVersion",
-            "org.springframework.security:spring-security-test:$springSecurityVersion",
-            "org.springframework.security:spring-security-openid:$springSecurityVersion")
+            "org.springframework.security:spring-security-test:$springSecurityVersion")
     compile("org.springframework.security:spring-security-cas:$springSecurityVersion") {
         exclude(module: 'log4j-over-slf4j')
     }
@@ -673,9 +684,14 @@ configurations {
     compile.resolutionStrategy.force('xml-apis:xml-apis:1.4.01')
     runtime.resolutionStrategy.force('xml-apis:xml-apis:1.4.01')
     testRuntime.resolutionStrategy.force('xml-apis:xml-apis:1.4.01')
+
     compile.resolutionStrategy.force('org.apache.mina:mina-core:2.0.7')
     runtime.resolutionStrategy.force('org.apache.mina:mina-core:2.0.7')
     testRuntime.resolutionStrategy.force('org.apache.mina:mina-core:2.0.7')
+
+    compile.resolutionStrategy.force('org.apache.httpcomponents:httpclient:4.5.2')
+    runtime.resolutionStrategy.force('org.apache.httpcomponents:httpclient:4.5.2')
+    testRuntime.resolutionStrategy.force('org.apache.httpcomponents:httpclient:4.5.2')
 }
 
 /**
