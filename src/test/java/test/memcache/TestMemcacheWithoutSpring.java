@@ -11,6 +11,7 @@ import net.rubyeye.xmemcached.command.BinaryCommandFactory;
 import net.rubyeye.xmemcached.exception.MemcachedException;
 import net.rubyeye.xmemcached.utils.AddrUtil;
 import org.apache.log4j.Logger;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -62,7 +63,7 @@ public class TestMemcacheWithoutSpring extends TestCase {
                 user.setUserId(random.getUUID());
                 user.setUserName(random.getRStr(RandomModule.mystring_china, 2));
                 user.setPassWord(user.getUserName());
-                user.setCreateDate(random.getRandomDate("1999:1:1", "2015:12:30", "yyyy:MM:dd"));
+                user.setCreateDate(random.getRandomDate("1999:1:1", "2018:12:30", "yyyy:MM:dd"));
                 value.add(user);
             }
             boolean result = buildClient().add(key, 5000, value);
@@ -86,6 +87,8 @@ public class TestMemcacheWithoutSpring extends TestCase {
 
     }
 
+    @Test
+    @Ignore
     public void testDelete() {
 
     }

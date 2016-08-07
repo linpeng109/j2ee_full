@@ -57,7 +57,7 @@
     <!-- 数据源及实体类配置 -->
     <import resource="spring-config/spring-hibernate.xml"/>
     <!-- 全文检索模块配置 -->
-    <import resource="spring-config/spring-search.xml"/>
+    <!--import resource="spring-config/spring-search.xml"/-->
     <!-- 任务调度模块配置 -->
     <import resource="spring-config/spring-quartz.xml"/>
     <!-- 视频编码模块配置 -->

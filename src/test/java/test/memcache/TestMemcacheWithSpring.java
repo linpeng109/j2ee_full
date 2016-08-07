@@ -45,7 +45,7 @@ public class TestMemcacheWithSpring extends TestBase {
                 user.setUserId(random.getUUID());
                 user.setUserName(random.getRStr(RandomModule.mystring_china, 2));
                 user.setPassWord(user.getUserName());
-                user.setCreateDate(random.getRandomDate("1999:1:1", "2015:12:30", "yyyy:MM:dd"));
+                user.setCreateDate(random.getRandomDate("1999:1:1", "2018:12:30", "yyyy:MM:dd"));
                 value.add(user);
             }
             defaultMemcachedClient.add(key, 5000, value, SerializationType.JAVA);

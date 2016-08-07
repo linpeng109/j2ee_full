@@ -13,7 +13,7 @@ sourceCompatibility = JavaVersion.VERSION_1_8
 
 version = '2015.12.25'
 
-def workset_home = 'd:/'
+def workset_home = '/home/ceres/workset'
 
 ext {
 

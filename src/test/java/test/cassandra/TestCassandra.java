@@ -25,10 +25,10 @@ public class TestCassandra extends TestBase {
     public CassandraTemplate cassandraTemplate;
 
     @Test
-    @Ignore
+//    @Ignore
     public void testCassandraTemplateInsert() {
         RandomModule random = new RandomModuleImpl();
-        for (int i = 0; i < 10000; ++i) {
+        for (int i = 0; i < 100; ++i) {
             String name = random.getRStr(RandomModule.myint_all, 6);
             int age = random.getRandomInt(100);
             String address = random.getRStr(RandomModule.myint_AZ, 10);
@@ -42,14 +42,14 @@ public class TestCassandra extends TestBase {
     }
 
     @Test
-    @Ignore
+//    @Ignore
     public void testCassandraTemplateCount() {
         long size = cassandraTemplate.count("person");
         logger.debug(String.format("The person table size is [%s] ", size));
     }
 
     @Test
-    @Ignore
+//    @Ignore`
     public void testCassandraTemplateSelectByLimt() {
 
         Select select = QueryBuilder.select().from("person");
@@ -57,16 +57,16 @@ public class TestCassandra extends TestBase {
         List<Person> list = cassandraTemplate.select(select, Person.class);
         for (int i = 0; i < list.size(); ++i) {
             Person person = list.get(i);
-            logger.debug(String.format("name[%s]=[%s]", i, person.getName()));
+            logger.debug(String.format("The persionid is [%s] and it's name is [%s]", person.getId(), person.getName()));
         }
 
     }
 
     @Test
-    @Ignore
+//    @Ignore
     public void testCassandraTemplateSelectOne() {
         Select select = QueryBuilder.select().from("person");
-        UUID uuid = UUID.fromString("ee0bad9f-06f0-4a3a-bf7d-40985678278a");
+        UUID uuid = UUID.fromString("634f884e-2be7-4726-aa4a-fae2db6b9a3d");
         select.where(QueryBuilder.eq("id", uuid));
         Person person = cassandraTemplate.selectOne(select, Person.class);
         logger.debug(String.format("The persionid is [%s] and name is [%s]", person.getId(), person.getName()));

@@ -3,6 +3,7 @@ package test.websocket;
 import com.cn.common.RandomModule;
 import com.cn.common.implement.RandomModuleImpl;
 import org.apache.log4j.Logger;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageChannel;
@@ -22,12 +23,13 @@ public class TestWebSocket extends TestBase {
     public MessageChannel clientWebSocketOutboundChannel;
 
     @Test
+    @Ignore
     public void testWebSocketClient() {
-//        RandomModule random = new RandomModuleImpl();
-//        for (int i = 0; i < 100; ++i) {
-//            String payload = random.getRStr(RandomModule.mystring_china, 3);
-//            Message message = MessageBuilder.withPayload("Test websocket " + payload).build();
-//            clientWebSocketOutboundChannel.send(message);
-//        }
+        RandomModule random = new RandomModuleImpl();
+        for (int i = 0; i < 100; ++i) {
+            String payload = random.getRStr(RandomModule.mystring_china, 3);
+            Message message = MessageBuilder.withPayload("Test websocket " + payload).build();
+            clientWebSocketOutboundChannel.send(message);
+        }
     }
 }

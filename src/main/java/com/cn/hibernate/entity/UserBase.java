@@ -23,7 +23,7 @@ import java.util.List;
 @Cacheable
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @Inheritance(strategy = InheritanceType.JOINED)
-@Indexed
+//@Indexed
 public class UserBase implements Serializable {
 
     /**
@@ -32,14 +32,8 @@ public class UserBase implements Serializable {
     @Id
     @GeneratedValue(generator = "system-uuid")
     @Column(name = "userId", length = 32)
-    @DocumentId(name = "userId")
+   // @DocumentId(name = "userId")
     private String userId;
-
-    /**
-     * 从基础信息中同步过来id
-     */
-    @Column(name = "jichuId", length = 50)
-    private String jichuId;
 
     /**
      * 用户类别 Admin 普通管理员,superAdmin 超级管理员,shopAdmin 网点管理员
@@ -52,14 +46,14 @@ public class UserBase implements Serializable {
      * 用户名称
      */
     @Column(name = "userName", length = 32, unique = true)
-    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.YES)
+    //@Field(index = Index.YES, analyze = Analyze.YES, store = Store.YES)
     private String userName;
 
     /**
      * 用户口令
      */
     @Column(name = "passWord", length = 32)
-    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+    //@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
     private String passWord;
 
     /**
@@ -67,7 +61,7 @@ public class UserBase implements Serializable {
      */
     @Column(name = "createDate")
     @Type(type = "java.util.Date")
-    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+    //@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
     private Date createDate;
 
     /**
@@ -177,14 +171,6 @@ public class UserBase implements Serializable {
 
     public void setWritepermission(boolean writepermission) {
         this.writepermission = writepermission;
-    }
-
-    public String getJichuId() {
-        return jichuId;
-    }
-
-    public void setJichuId(String jichuId) {
-        this.jichuId = jichuId;
     }
 
 }

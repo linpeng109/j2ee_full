@@ -2,6 +2,7 @@ package test.struts;
 
 import com.cn.struts2.InitializeAction;
 import org.apache.log4j.Logger;
+import org.junit.Ignore;
 import org.junit.Test;
 import test.TestBase;
 
@@ -25,8 +26,9 @@ public class TestInitializeAction extends TestBase {
     /**
      * 测试初始化abcd用户
      */
+    @Ignore
     private void testInitializeABCD() {
-        logger.debug(initializeAction.initializeABCD());
+//        logger.debug(initializeAction.initializeABCD());
     }
 
     /**
@@ -46,9 +48,9 @@ public class TestInitializeAction extends TestBase {
 
     @Test
     public void init() {
-//        testInitializeAuthority();
-//        testInitializeABCD();
-        testInitializeUserBase(10);
+        testInitializeAuthority();
+        testInitializeABCD();
+        testInitializeUserBase(100);
     }
 
 }
