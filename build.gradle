@@ -10,20 +10,23 @@ apply plugin: 'com.bmuschko.cargo'
 apply plugin: 'com.bmuschko.cargo-base'
 
 sourceCompatibility = JavaVersion.VERSION_1_8
-
-version = '2015.12.25'
+/**
+ * 2015.12.25/2016.08.07
+ */
+version = '2016.08.07'
 
 def workset_home = '/home/ceres/workset'
 
 ext {
 
     /**
-     * 5.11.1/5.12.0/5.13.0*
-     */
-    activemqVersion = '5.11.1'
+     * 5.11.1/5.12.0/<5.13.0>/5.14.0
+     *
+    */
+    activemqVersion = '5.14.0'
 
     /**
-     * 3.1.2/3.1.3/3.1.4
+     * 3.1.2/3.1.3/3.1.4/3.1.7
      */
     apacheCxfVersion = '3.1.4'
 
@@ -43,19 +46,19 @@ ext {
     cargoVersion = '1.4.16'
 
     /**
-     *  2.2.0/2.2.1/2.2.3/3.0.0
+     *  2.2.0/2.2.1/2.2.3/3.0.0/3.7
      */
-    cassandraVersion = '3.0.0'
+    cassandraVersion = '3.7'
 
     /**
-     * 3.1/3.2.0
+     * 3.1/3.2.0/<3.2.4>
      */
-    cglibVersion = '3.2.0'
+    cglibVersion = '3.2.4'
 
     /**
-     * 2.9.0/2.10.1
+     * 2.9.0/2.10.1/<2.10.2.2.21>
      */
-    ehcacheVersion = '2.10.1'
+    ehcacheVersion = '2.10.2.2.21'
 
     /**
      * 1.0.6
@@ -73,9 +76,9 @@ ext {
     httpcomponentsVersion = '4.5.2'
 
     /**
-     * 5.0.0.CR2/5.0.0.CR4/5.0.0.Final/5.0.1.Final/5.0.2.Final/5.0.3.Final/5.0.5.Final
+     * 5.0.0.CR2/5.0.0.CR4/5.0.0.Final/5.0.1.Final/5.0.2.Final/5.0.3.Final/5.0.5.Final/<5.2.2.Final>
      */
-    hibernateVersion = '5.0.5.Final'
+    hibernateVersion = '5.2.2.Final'
 
     /**
      * 5.4.0.CR2/5.5.0.Final/5.5.1.Final
@@ -115,19 +118,19 @@ ext {
     jepVersion = '2.4.2'
 
     /**
-     * 2.0.2/2.0.4
+     * 2.0.2/2.0.4/<2.0.6>
      */
-    jposVersion = '2.0.4'
+    jposVersion = '2.0.6'
 
     /**
-     * 3.2.8
+     * 3.2.8/3.2.10
      */
-    jpushVersion = "3.2.8"
+    jpushVersion = "3.2.10"
 
     /**
-     * 20141113/20150729/20151123
+     * 20141113/20150729/20151123/<20160212>
      */
-    jsonVersion = '20151123'
+    jsonVersion = '20160212'
 
     /**
      * 4.12
@@ -135,14 +138,14 @@ ext {
     junitVersion = '4.12'
 
     /**
-     * 4.10.4/5.3.0/5.3.1
+     * 4.10.4/5.3.0/5.3.1/<6.1.0>
      */
-    luceneVersion = '5.3.1'
+    luceneVersion = '6.1.0'
 
     /**
-     * 5.1.36/5.1.37
+     * 5.1.36/5.1.37/<6.0.3>
      */
-    mysqlConnectorJavaVersion = '5.1.37'
+    mysqlConnectorJavaVersion = '6.0.3'
 
     /**
      * 11.2.0.4.0
@@ -151,14 +154,15 @@ ext {
 
     /**
      * poi
-     * 3.12/3.13
+     * 3.12/3.13/<3.14>
      */
-    poiVersion = '3.13'
+    poiVersion = '3.14'
 
     /**
      * Qiniu
+     * 7.1.0/<7.1.2>
      */
-    qiniuVersion = '7.1.0'
+    qiniuVersion = '7.1.2'
 
     /**
      * org.quartz-scheduler
@@ -180,21 +184,21 @@ ext {
 
     /**
      * org.springframework
-     * 4.1.7.RELEASE/4.2.0.RELEASE/4.2.1.RELEASE/4.2.2.RELEASE/4.2.3.RELEASE*
+     * 4.1.7.RELEASE/4.2.0.RELEASE/4.2.1.RELEASE/4.2.2.RELEASE/4.2.3.RELEASE/<4.3.2.RELEASE>
      */
-    springVersion = '4.2.3.RELEASE'
+    springVersion = '4.3.2.RELEASE'
 
     /**
      * org.springframework.batch
-     * 3.0.4.RELEASE/3.0.5.RELEASE
+     * 3.0.4.RELEASE/3.0.5.RELEASE/<3.0.7.RELEASE>
      */
-    springbatchVersion = '3.0.5.RELEASE'
+    springbatchVersion = '3.0.7.RELEASE'
 
     /**
      * org.springframework.data
-     * 1.5.1.RELEASE/1.5.2.RELEASE/1.6.0.RELEASE/1.6.1.RELEASE
+     * 1.5.1.RELEASE/1.5.2.RELEASE/1.6.0.RELEASE/1.6.1.RELEASE/<1.7.2.RELEASE>
      */
-    springDataRedisVersion = '1.6.1.RELEASE'
+    springDataRedisVersion = '1.7.2.RELEASE'
 
     /**
      * spring-integration-cassandra
@@ -216,15 +220,15 @@ ext {
 
     /**
      * org.springframework.integration
-     * 4.1.6.RELEASE/4.2.0.RELEASE/4.2.1.RELEASE/4.2.2.RELEASE/4.2.3.RELEASE*
+     * 4.1.6.RELEASE/4.2.0.RELEASE/4.2.1.RELEASE/4.2.2.RELEASE/4.2.3.RELEASE/<4.3.1.RELEASE>
      */
-    springIntegrationVersion = '4.2.3.RELEASE'
+    springIntegrationVersion = '4.3.1.RELEASE'
 
     /**
      * org.springframework.security
-     * 4.0.2.RELEASE/4.0.3.RELEASE
+     * 4.0.2.RELEASE/4.0.3.RELEASE/<4.1.1.RELEASE>
      */
-    springSecurityVersion = '4.0.3.RELEASE'
+    springSecurityVersion = '4.1.1.RELEASE'
 
     /**
      * org.springframework.ws
@@ -235,21 +239,21 @@ ext {
     /**
      * org.apache.struts
      * 2.3.24/2.3.24.1
-     * 2.3.24.3
+     * 2.3.24.3/<2.5.2>
      */
-    struts2Version = '2.3.24.3'
+    struts2Version = '2.5.2'
 
     /**
      * org.apache.tomcat.embed
-     * 7.0.63/8.0.24/8.0.26/8.0.28/8.0.29*
+     * 7.0.63/8.0.24/8.0.26/8.0.28/8.0.29/<8.5.4>
      */
-    tomcatEmbedVersion = '8.0.29'
+    tomcatEmbedVersion = '8.5.4'
 
     /*
      * org.apache.xbean
-     * 4.3/4.4/4.5
+     * 4.3/4.4/<4.5>
      */
-    xbeanSpringVersion = '4.4'
+    xbeanSpringVersion = '4.5'
 
     /**
      * xerces
@@ -259,9 +263,9 @@ ext {
 
     /**
      * com.thoughtworks.xstream
-     * 1.4.8
+     * 1.4.8/<1.4.9>
      */
-    xstreamVersion = '1.4.8'
+    xstreamVersion = '1.4.9'
 
     /**
      * com.google.zxing
@@ -280,9 +284,9 @@ buildscript {
 
     /**
      * com.bmuschko
-     * 2.2.2/2.2.3/2.2.4*
+     * 2.2.2/2.2.3/<2.2.4>
      */
-    def gradleTomcatPluginVersion = '2.2.3'
+    def gradleTomcatPluginVersion = '2.2.4'
     dependencies {
         classpath("com.bmuschko:gradle-tomcat-plugin:$gradleTomcatPluginVersion")
     }
@@ -298,9 +302,9 @@ buildscript {
 
     /**
      * com.bmuschko
-     * 2.1.1/2.2.1
+     * 2.1.1/2.2.1/2.2.2
      */
-    def gradleCargoPluginVersion = '2.2.1'
+    def gradleCargoPluginVersion = '2.2.2'
     dependencies {
         classpath("com.bmuschko:gradle-cargo-plugin:$gradleCargoPluginVersion")
     }
@@ -439,8 +443,8 @@ dependencies {
 /**
  * <dependency org="cn.jpush.api" name="jpush-client" rev="3.2.8" />
  */
-    compile("cn.jpush.api:jpush-client:$jpushVersion")
-
+    compile "cn.jpush.api:jpush-client:$jpushVersion";
+    compile "cn.jpush.api:jiguang-common:0.1.3";
     /**
      * JSON is a light-weight, language independent, data interchange format.
      */
