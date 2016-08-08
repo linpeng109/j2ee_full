@@ -15,20 +15,22 @@ sourceCompatibility = JavaVersion.VERSION_1_8
  */
 version = '2016.08.07'
 
-def workset_home = '/home/ceres/workset'
+def workset_home = 'd:/'
 
 ext {
 
     /**
-     * 5.11.1/5.12.0/<5.13.0>/5.14.0
+     * org.apache.activemq:activemq-all
+     * 5.11.1/5.12.0/<5.13.0>/<5.14.0>
      *
     */
     activemqVersion = '5.14.0'
 
     /**
-     * 3.1.2/3.1.3/3.1.4/3.1.7
+     * org.apache.cxf:cxf-rt-frontend-jaxws
+     * 3.1.2/3.1.3/3.1.4/<3.1.7>
      */
-    apacheCxfVersion = '3.1.4'
+    apacheCxfVersion = '3.1.7'
 
     /**
      * 4.7.0/4.7.1/4.7.2
@@ -36,157 +38,178 @@ ext {
     blazedsVersion = '4.7.2'
 
     /**
-     * 0.9.5.1/0.9.5.2*
-     */
-    c3p0Version = '0.9.5.2'
-
-    /**
-     * 1.4.15/1.4.16
-     */
-    cargoVersion = '1.4.16'
-
-    /**
-     *  2.2.0/2.2.1/2.2.3/3.0.0/3.7
+     * org.apache.cassandra:cassandra-all 
+     * 2.2.0/2.2.1/2.2.3/3.0.0/<3.7>
      */
     cassandraVersion = '3.7'
 
     /**
-     * 3.1/3.2.0/<3.2.4>
+     * com.mchange:c3p0
+     * 0.9.5.1/<0.9.5.2>
      */
-    cglibVersion = '3.2.4'
+    c3p0Version = '0.9.5.2'
 
     /**
+     * net.sf.ehcache:ehcache
      * 2.9.0/2.10.1/<2.10.2.2.21>
      */
     ehcacheVersion = '2.10.2.2.21'
 
     /**
+     * cglib:cglib-nodep
+     * 3.1/3.2.0/<3.2.4>
+     */
+    cglibVersion = '3.2.4'
+    
+    /**
+     * org.apache.ftpserver:ftpserver
      * 1.0.6
      */
     ftpserverVersion = '1.0.6'
 
+    /**
+     * com.alibaba:fastjson
+     * 
+     */
+     fastjsonVersion = '1.2.7'
+   
     /*
+    * org.httpunit:httpunit
     * 1.7.2
     */
     httpunitVersion = '1.7.2'
 
     /*
-    * 4.5.2
-    */
+     * org.apache.httpcomponents
+     * 4.5.2
+     */
     httpcomponentsVersion = '4.5.2'
 
     /**
+     * org.hibernate:hibernate-core
      * 5.0.0.CR2/5.0.0.CR4/5.0.0.Final/5.0.1.Final/5.0.2.Final/5.0.3.Final/5.0.5.Final/<5.2.2.Final>
      */
     hibernateVersion = '5.2.2.Final'
 
     /**
-     * 5.4.0.CR2/5.5.0.Final/5.5.1.Final
-     * */
+     * org.hibernate:hibernate-search-orm
+     * 5.4.0.CR2/5.5.0.Final/<5.5.1.Final>
+     */
     hibernateSearchVersion = '5.5.1.Final'
 
     /**
+     * org.javassist:javassist
      * 3.20.0-GA
      */
     javassistVersion = '3.20.0-GA'
 
     /**
+     * jaxen:jaxen
      * 1.1.6
      */
     jaxenVersion = '1.1.6'
 
     /**
-     * 1.1*
+     * javax.websocket:javax.websocket-api
+     * <1.1>
      */
     javaxWebsocketVersion = '1.1'
 
     /**
-     * 1.9.2
-     * 1.9.13
-     */
-    jacksonVersion = '1.9.2'
-
-    /**
-     * 1.2
-     * 1.3.7
-     */
-    jettisonVersion = '1.3.7'
-
-    /**
+     * org.scijava:jep
      * 2.4.2
      */
     jepVersion = '2.4.2'
 
     /**
+     * org.jpos:jpos
      * 2.0.2/2.0.4/<2.0.6>
      */
     jposVersion = '2.0.6'
 
     /**
-     * 3.2.8/3.2.10
+     * cn.jpush.api:jpush-client
+     * 3.2.8/<3.2.10>
      */
-    jpushVersion = "3.2.10"
+    jpushClientVersion = "3.2.10"
 
     /**
-     * 20141113/20150729/20151123/<20160212>
+     * cn.jpush.api:jiguang-common
+     * <0.1.3>
      */
-    jsonVersion = '20160212'
+    jiguangCommonVersion = "0.1.3"
 
     /**
+     * org.codehaus.jettison:jettison
+     * 1.2/1.3.7
+     */
+    jettisonVersion = '1.3.7'
+
+    /**
+    * org.codehaus.jackson:jackson-core-asl
+    * <1.9.13>
+    */
+    jacksonVersion='1.9.13'
+
+    /**
+     * junit:junit
      * 4.12
      */
     junitVersion = '4.12'
 
     /**
+     * org.apache.lucene:lucene-core
      * 4.10.4/5.3.0/5.3.1/<6.1.0>
      */
-    luceneVersion = '6.1.0'
+    luceneVersion = '5.3.1'
 
     /**
+     * mysql:mysql-connector-java
      * 5.1.36/5.1.37/<6.0.3>
      */
     mysqlConnectorJavaVersion = '6.0.3'
 
     /**
-     * 11.2.0.4.0
-     */
-    oracleDriverOjdbc6Version = '11.2.0.4.0'
-
-    /**
-     * poi
-     * 3.12/3.13/<3.14>
-     */
-    poiVersion = '3.14'
-
-    /**
-     * Qiniu
-     * 7.1.0/<7.1.2>
-     */
-    qiniuVersion = '7.1.2'
-
-    /**
-     * org.quartz-scheduler
-     * 2.2.1/2.2.2
-     */
-    quartzVersion = '2.2.2'
-
-    /**
-     * org.rxtx
-     * 2.1.7
-     */
-    rxtxVerion = '2.1.7'
-
-    /**
-     * com.google.code.simple-spring-memcached
+     * com.google.code.simple-spring-memcached:simple-spring-memcached
      * 3.6.0
      */
     simpleSpringMemcachedVersion = "3.6.0"
 
     /**
+     * com.oracle:ojdbc14
+     * 11.2.0.4.0
+     */
+    oracleDriverOjdbc6Version = '11.2.0.4.0'
+
+    /**
+     * org.apache.poi
+     * 3.12/3.13/<3.14>
+     */
+    poiVersion = '3.14'
+
+    /**
+     * com.qiniu:qiniu-java-sdk
+     * 7.1.0/<7.1.2>
+     */
+    qiniuVersion = '7.1.2'
+
+    /**
+     * org.quartz-scheduler:quartz
+     * 2.2.1/2.2.2
+     */
+    quartzVersion = '2.2.2'
+
+    /**
+     * org.rxtx:rxtx
+     * 2.1.7
+     */
+    rxtxVerion = '2.1.7'
+
+    /**
      * org.springframework
      * 4.1.7.RELEASE/4.2.0.RELEASE/4.2.1.RELEASE/4.2.2.RELEASE/4.2.3.RELEASE/<4.3.2.RELEASE>
      */
-    springVersion = '4.3.2.RELEASE'
+    springVersion = '4.3.1.RELEASE'
 
     /**
      * org.springframework.batch
@@ -247,7 +270,7 @@ ext {
      * org.apache.tomcat.embed
      * 7.0.63/8.0.24/8.0.26/8.0.28/8.0.29/<8.5.4>
      */
-    tomcatEmbedVersion = '8.5.4'
+    tomcatEmbedVersion = '8.0.30'
 
     /*
      * org.apache.xbean
@@ -272,6 +295,14 @@ ext {
      * 3.2.0/3.2.1
      */
     zxingVersion = '3.2.1'
+
+
+    /**
+     * org.codehaus.cargo:cargo-core-uberjar
+     * 1.4.15/1.4.16
+     */
+    cargoVersion = '1.4.16'
+
 }
 
 /**
@@ -283,7 +314,7 @@ buildscript {
     }
 
     /**
-     * com.bmuschko
+     * com.bmuschko:gradle-tomcat-plugin
      * 2.2.2/2.2.3/<2.2.4>
      */
     def gradleTomcatPluginVersion = '2.2.4'
@@ -301,7 +332,7 @@ buildscript {
     }
 
     /**
-     * com.bmuschko
+     * com.bmuschko:gradle-cargo-plugin
      * 2.1.1/2.2.1/2.2.2
      */
     def gradleCargoPluginVersion = '2.2.2'
@@ -350,8 +381,6 @@ dependencies {
             "org.apache.flex.blazeds:flex-messaging-remoting:$blazedsVersion",
             "org.apache.flex.blazeds:blazeds:$blazedsVersion")
 
-    //compile 'org.eclipse.jetty.websocket:websocket-client:9.3.6.v20151106'
-
     /**
      *  The Apache Cassandra Project develops a highly scalable second-generation distributed database, bringing
      *  together Dynamo's fully distributed design and Bigtable's ColumnFamily-based data model.
@@ -385,6 +414,11 @@ dependencies {
     compile("org.apache.ftpserver:ftpserver:$ftpserverVersion") {
         exclude(module: 'slf4j-log4j12')
     }
+
+   /**
+    * Fastjson is a JSON processor (JSON parser + JSON generator) written in Java
+    */
+    compile "com.alibaba:fastjson:$fastjsonVersion"
 
     /**
      * A library for testing websites programmatically
@@ -440,21 +474,32 @@ dependencies {
      */
     compile("org.jpos:jpos:$jposVersion")
 
-/**
- * <dependency org="cn.jpush.api" name="jpush-client" rev="3.2.8" />
- */
-    compile "cn.jpush.api:jpush-client:$jpushVersion";
-    compile "cn.jpush.api:jiguang-common:0.1.3";
+    /**
+     * JPush's officially supported Java client library for accessing JPush APIs.
+     */
+    compile "cn.jpush.api:jpush-client:$jpushClientVersion";
+
+    /**
+     * Jiguang common dependecies for jiguang java client.
+     */
+    compile "cn.jpush.api:jiguang-common:$jiguangCommonVersion";
+
     /**
      * JSON is a light-weight, language independent, data interchange format.
      */
-//    compile("org.json:json:$jsonVersion")
     compile "org.codehaus.jackson:jackson-core-asl:$jacksonVersion",
-            "org.codehaus.jackson:jackson-mapper-asl:$jacksonVersion"
+            "org.codehaus.jackson:jackson-mapper-asl:$jacksonVersion";
 
-    compile "org.codehaus.jettison:jettison:$jettisonVersion"
+   /**
+    * A StAX implementation for JSON
+    */
+    compile "org.codehaus.jettison:jettison:$jettisonVersion";
 
-    compile 'com.alibaba:fastjson:1.2.7'
+    /**
+     * JUnit is a unit testing framework for Java, created by Erich Gamma and Kent Beck.
+     */
+    //testCompile("junit:junit:$junitVersion")
+
     /**
      * Apache Lucene Java Core
      */
@@ -500,6 +545,11 @@ dependencies {
     }
 
     /**
+     * RXTX is a native lib providing serial and parallel communication for the Java Development Toolkit (JDK).
+     */
+    compile("org.rxtx:rxtx:$rxtxVerion")
+
+    /**
      * Spring Core
      * Spring Context
      * Spring Context Support
@@ -516,11 +566,13 @@ dependencies {
             "org.springframework:spring-context-support:$springVersion",
             "org.springframework:spring-jms:$springVersion",
             "org.springframework:spring-orm:$springVersion",
-            "org.springframework:spring-test:$springVersion",
             "org.springframework:spring-web:$springVersion",
             "org.springframework:spring-webmvc:$springVersion",
             "org.springframework:spring-instrument-tomcat:$springVersion",
             "org.springframework:spring-messaging:$springVersion")
+
+	    
+        runtime   "org.springframework:spring-test:$springVersion"
 
     /**
      * spring.batch
@@ -635,10 +687,6 @@ dependencies {
     compile("com.thoughtworks.xstream:xstream:$xstreamVersion",
             "com.thoughtworks.xstream:xstream-hibernate:$xstreamVersion")
 
-    /**
-     * RXTX is a native lib providing serial and parallel communication for the Java Development Toolkit (JDK).
-     */
-    compile("org.rxtx:rxtx:$rxtxVerion")
 
     /**
      * Core barcode encoding/decoding library
@@ -646,10 +694,6 @@ dependencies {
     compile("com.google.zxing:core:$zxingVersion",
             "com.google.zxing:javase:$zxingVersion")
 
-    /**
-     * JUnit is a unit testing framework for Java, created by Erich Gamma and Kent Beck.
-     */
-    testCompile("junit:junit:$junitVersion")
 
     /**
      * Tomcat-embed plugin
@@ -661,14 +705,6 @@ dependencies {
             "org.apache.tomcat.embed:tomcat-embed-logging-juli:$tomcatEmbedVersion",
             "org.apache.tomcat.embed:tomcat-embed-websocket:$tomcatEmbedVersion"
     compile "org.apache.tomcat:tomcat-servlet-api:$tomcatEmbedVersion"
-
-//    tomcat "org.apache.tomcat.embed:tomcat-embed-core:$tomcatEmbedVersion",
-//            "org.apache.tomcat.embed:tomcat-embed-jasper:$tomcatEmbedVersion",
-//            "org.apache.tomcat.embed:tomcat-embed-logging-log4j:$tomcatEmbedVersion",
-//            "org.apache.tomcat.embed:tomcat-embed-el:$tomcatEmbedVersion"
-//    compile "org.apache.tomcat.embed:tomcat-embed-logging-juli:$tomcatEmbedVersion"
-//    runtime "org.apache.tomcat.embed:tomcat-embed-websocket:$tomcatEmbedVersion"
-//    compile "org.apache.tomcat:tomcat-servlet-api:$tomcatEmbedVersion"
 
     /**
      * The Cargo Core Uberjar

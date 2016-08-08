@@ -63,7 +63,7 @@
     <!-- 视频编码模块配置 -->
     <import resource="spring-config/spring-encoder.xml"/>
     <!-- XMPP消息模块配置 -->
-    <import resource="spring-config/spring-xmpp.xml"/>
+    <!--import resource="spring-config/spring-xmpp.xml"/-->
     <!-- Kafka分布式消息系统模块配置 -->
     <!--
     <import resource="spring-config/spring-kafka.xml" />
