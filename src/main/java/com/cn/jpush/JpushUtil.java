@@ -1,8 +1,8 @@
 package com.cn.jpush;
 
-import cn.jpush.api.JPushClient;
 import cn.jiguang.common.resp.APIConnectionException;
 import cn.jiguang.common.resp.APIRequestException;
+import cn.jpush.api.JPushClient;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -17,7 +17,7 @@ public class JpushUtil {
     private String masterSecret;
 
     public static void main(String[] params) throws APIConnectionException, APIRequestException {
-        JpushUtil jpushUtil=new JpushUtil();
+        JpushUtil jpushUtil = new JpushUtil();
         jpushUtil.sendNotificationAll();
 
     }

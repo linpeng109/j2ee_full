@@ -52,7 +52,7 @@ public class WebSocketServerEndpoint {
 
     @OnError
     public void onError(Session session, Throwable throwable) {
-        this.messageHandler.onError(session,throwable);
+        this.messageHandler.onError(session, throwable);
     }
 
 }

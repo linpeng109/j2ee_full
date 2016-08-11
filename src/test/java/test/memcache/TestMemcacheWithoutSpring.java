@@ -3,7 +3,6 @@ package test.memcache;
 import com.cn.common.RandomModule;
 import com.cn.common.implement.RandomModuleImpl;
 import com.cn.hibernate.entity.UserBase;
-import junit.framework.TestCase;
 import net.rubyeye.xmemcached.MemcachedClient;
 import net.rubyeye.xmemcached.MemcachedClientBuilder;
 import net.rubyeye.xmemcached.XMemcachedClientBuilder;
@@ -13,6 +12,9 @@ import net.rubyeye.xmemcached.utils.AddrUtil;
 import org.apache.log4j.Logger;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -22,7 +24,9 @@ import java.util.concurrent.TimeoutException;
 /**
  * Created by jupiter on 15-12-1.
  */
-public class TestMemcacheWithoutSpring extends TestCase {
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:applicationContext.xml")
+public class TestMemcacheWithoutSpring {
     private Logger logger = Logger.getLogger(TestMemcacheWithoutSpring.class);
 
     private String memcacheHost = "115.182.16.115";

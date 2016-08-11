@@ -6,22 +6,22 @@ import com.cn.common.implement.RandomModuleImpl;
 import com.datastax.driver.core.querybuilder.QueryBuilder;
 import com.datastax.driver.core.querybuilder.Select;
 import org.apache.log4j.Logger;
-import org.junit.Ignore;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.junit.runner.RunWith;
 import org.springframework.data.cassandra.core.CassandraTemplate;
-import test.TestBase;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * Created by linpeng109 on 15-8-13.
- */
-public class TestCassandra extends TestBase {
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:applicationContext.xml")
+public class TestCassandra {
     final Logger logger = Logger.getLogger(TestCassandra.class);
 
-    @Autowired
+    @Resource
     public CassandraTemplate cassandraTemplate;
 
     @Test

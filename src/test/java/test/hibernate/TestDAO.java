@@ -4,8 +4,10 @@ import com.cn.hibernate.entity.UserBase;
 import com.cn.hibernate.util.HibernateDAO;
 import org.apache.log4j.Logger;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
-import test.TestBase;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -13,7 +15,10 @@ import java.util.List;
 /**
  * Created by linpeng109 on 15-8-18.
  */
-public class TestDAO extends TestBase {
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:applicationContext.xml")
+public class TestDAO {
 
     private final Logger logger = Logger.getLogger(TestDAO.class);
 

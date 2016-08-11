@@ -78,7 +78,7 @@
 
     <filter>
         <filter-name>Struts</filter-name>
-        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+        <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>
     </filter>
 
     <!-- FILTER映射（注意保持顺序） -->

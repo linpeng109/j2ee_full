@@ -65,9 +65,7 @@
     <!-- XMPP消息模块配置 -->
     <!--import resource="spring-config/spring-xmpp.xml"/-->
     <!-- Kafka分布式消息系统模块配置 -->
-    <!--
     <import resource="spring-config/spring-kafka.xml" />
-    -->
     <!-- Cassandra分布式非关系数据库模块配置 -->
     <import resource="spring-config/spring-cassandra.xml"/>
     <!-- HTTP模块配置 -->

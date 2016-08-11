@@ -4,15 +4,19 @@ import com.cn.common.RandomModule;
 import com.cn.jep.JepSample;
 import org.apache.log4j.Logger;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.nfunk.jep.ParseException;
-import test.TestBase;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
 
 /**
  * Created by jupiter on 15-12-2.
  */
-public class TestJepSample extends TestBase {
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:applicationContext.xml")
+public class TestJepSample {
     /**
      * 日志
      */

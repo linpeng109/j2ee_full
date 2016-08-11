@@ -8,7 +8,9 @@ import com.google.code.ssm.api.format.SerializationType;
 import com.google.code.ssm.providers.CacheException;
 import org.apache.log4j.Logger;
 import org.junit.Test;
-import test.TestBase;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
 import java.text.ParseException;
@@ -18,7 +20,9 @@ import java.util.concurrent.TimeoutException;
 /**
  * Created by jupiter on 15-11-29.
  */
-public class TestMemcacheWithSpring extends TestBase {
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:applicationContext.xml")
+public class TestMemcacheWithSpring {
     /**
      * 依赖注入获取memcache操作客户端
      */

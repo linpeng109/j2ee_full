@@ -4,14 +4,18 @@ import com.cn.struts2.InitializeAction;
 import org.apache.log4j.Logger;
 import org.junit.Ignore;
 import org.junit.Test;
-import test.TestBase;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
 
 /**
  * Created by linpeng109 on 15-8-24.
  */
-public class TestInitializeAction extends TestBase {
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:applicationContext.xml")
+public class TestInitializeAction {
     /**
      * 日志
      */

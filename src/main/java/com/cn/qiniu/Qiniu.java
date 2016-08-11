@@ -5,14 +5,13 @@ package com.cn.qiniu;
  * 七牛云图片服务器应用
  */
 
-import com.qiniu.util.Auth;
-
-import java.io.IOException;
-
 import com.qiniu.common.QiniuException;
 import com.qiniu.http.Response;
 import com.qiniu.storage.UploadManager;
+import com.qiniu.util.Auth;
 import org.apache.log4j.Logger;
+
+import java.io.IOException;
 
 public class Qiniu {
     //Logger

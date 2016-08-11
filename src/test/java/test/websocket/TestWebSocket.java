@@ -5,17 +5,20 @@ import com.cn.common.implement.RandomModuleImpl;
 import org.apache.log4j.Logger;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.support.MessageBuilder;
-import test.TestBase;
-
-import javax.annotation.Resource;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * Created by jupiter on 15-12-7.
  */
-public class TestWebSocket extends TestBase {
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:applicationContext.xml")
+public class TestWebSocket {
 
     public Logger logger = Logger.getLogger(TestWebSocket.class);
 

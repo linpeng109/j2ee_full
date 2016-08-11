@@ -17,7 +17,6 @@ import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -63,14 +62,14 @@ public class Yunpian {
         //设置您要发送的内容(内容必须和某个模板匹配。以下例子匹配的是系统提供的1号模板）
         String text = "您的验证码是1234";
         //发短信调用示例
-         System.out.println(Yunpian.sendSms(apikey, text, mobile));
+        System.out.println(Yunpian.sendSms(apikey, text, mobile));
 
         /**************** 使用指定模板接口发短信(不推荐，建议使用智能匹配模板接口) *****************/
         //设置模板ID，如使用1号模板:【#company#】您的验证码是#code#
-       // long tpl_id = 1;
+        // long tpl_id = 1;
         //设置对应的模板变量值
 
-       // String tpl_value = URLEncoder.encode("#code#", ENCODING) + "="
+        // String tpl_value = URLEncoder.encode("#code#", ENCODING) + "="
 //                + URLEncoder.encode("1234", ENCODING) + "&"
 //                + URLEncoder.encode("#company#", ENCODING) + "="
 //                + URLEncoder.encode("云片网", ENCODING);

@@ -4,18 +4,22 @@ import com.cn.security.AuthenticationUtil;
 import com.cn.security.SecuritySamples;
 import org.apache.log4j.Logger;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.security.test.context.support.WithUserDetails;
-import test.TestBase;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
 
 /**
  * Created by jupiter on 15-10-9.
  */
-public class TestSecurity extends TestBase {
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:applicationContext.xml")
+public class TestSecurity {
     private static Logger logger = Logger.getLogger(TestSecurity.class);
 
     @Resource

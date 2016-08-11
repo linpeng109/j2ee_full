@@ -4,8 +4,6 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
-import org.hibernate.search.annotations.*;
-import org.hibernate.search.annotations.Index;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -32,7 +30,7 @@ public class UserBase implements Serializable {
     @Id
     @GeneratedValue(generator = "system-uuid")
     @Column(name = "userId", length = 32)
-   // @DocumentId(name = "userId")
+    // @DocumentId(name = "userId")
     private String userId;
 
     /**

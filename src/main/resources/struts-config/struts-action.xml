@@ -62,7 +62,7 @@
 
         <!-- ÓÃ»§action-->
         <action name="userBaseAction" class="userBaseAction">
-            <result name="success" type="json" >
+            <result name="success" type="json">
 
                 <param name="noCache">false</param>
                 <param name="callbackParameter">callback</param>

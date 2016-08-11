@@ -52,13 +52,14 @@ public class WebSocketAction extends BaseAction {
     public String sendMessageToClient() throws IOException {
         Session session = messageHandler.getSessionById(this.getSessionId());
         if (session != null) {
-            messageHandler.sendMessageToClient(sessionId,messageText);
+            messageHandler.sendMessageToClient(sessionId, messageText);
             return super.SUCCESS;
         } else {
             logger.error("session is null");
         }
         return super.ERROR;
     }
+
     public String sendMessageToAll() throws IOException {
 
         messageHandler.sendMessageToAll(messageText);
