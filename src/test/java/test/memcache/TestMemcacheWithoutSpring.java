@@ -29,7 +29,7 @@ import java.util.concurrent.TimeoutException;
 public class TestMemcacheWithoutSpring {
     private Logger logger = Logger.getLogger(TestMemcacheWithoutSpring.class);
 
-    private String memcacheHost = "115.182.16.115";
+    private String memcacheHost = "192.168.0.102";
     private String memcachePort = "11211";
     private int memcachePoolSize = 10;
     private boolean failureMode = true;

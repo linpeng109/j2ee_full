@@ -22,15 +22,15 @@ ext {
 
     /**
      * org.apache.activemq:activemq-all
-     * <5.11.1>/5.12.0#/5.13.0#/5.14.0#
+     * <5.11.1>/5.12.0#/5.13.0#/5.14.0#/5.14.1#
      */
-    activemqVersion = '5.11.1'
+    activemqVersion = '5.14.1'
 
     /**
      * org.apache.cxf:cxf-rt-frontend-jaxws
-     * 3.1.2/3.1.3/3.1.4/<3.1.7>
+     * 3.1.2/3.1.3/3.1.4/<3.1.7>/<3.1.8>
      */
-    apacheCxfVersion = '3.1.7'
+    apacheCxfVersion = '3.1.8'
 
     /**
      * 4.7.0/4.7.1/4.7.2
@@ -39,9 +39,9 @@ ext {
 
     /**
      * org.apache.cassandra:cassandra-all 
-     * 2.2.0/2.2.1/2.2.3/3.0.0/<3.7>
+     * 2.2.0/2.2.1/2.2.3/3.0.0/<3.7>/<3.9>
      */
-    cassandraVersion = '3.7'
+    cassandraVersion = '3.9'
 
     /**
      * com.mchange:c3p0
@@ -51,9 +51,9 @@ ext {
 
     /**
      * net.sf.ehcache:ehcache
-     * 2.9.0/2.10.1/<2.10.2.2.21>
+     * 2.9.0/2.10.1/<2.10.2.2.21>/<2.10.3>
      */
-    ehcacheVersion = '2.10.2.2.21'
+    ehcacheVersion = '2.10.3'
 
     /**
      * cglib:cglib-nodep
@@ -63,45 +63,45 @@ ext {
 
     /**
      * org.apache.ftpserver:ftpserver
-     * 1.0.6
+     * 1.0.6/<1.1.0>
      */
-    ftpserverVersion = '1.0.6'
+    ftpserverVersion = '1.1.0'
 
     /**
      * com.alibaba:fastjson
-     *
+     *1.2.7/<1.2.21>
      */
-    fastjsonVersion = '1.2.7'
+    fastjsonVersion = '1.2.21'
 
     /*
     * org.httpunit:httpunit
-    * 1.7.2
+    * <1.7.2>
     */
     httpunitVersion = '1.7.2'
 
     /*
      * org.apache.httpcomponents:httpclient
-     * 4.5.2
+     * <4.5.2>
      */
     httpcomponentsVersion = '4.5.2'
 
     /**
      * org.hibernate:hibernate-core
-     * 5.0.0.CR2/5.0.0.CR4/5.0.0.Final/5.0.1.Final/5.0.2.Final/5.0.3.Final/5.0.5.Final/<5.2.2.Final>
+     * 5.0.0.CR2/5.0.0.CR4/5.0.0.Final/5.0.1.Final/5.0.2.Final/5.0.3.Final/5.0.5.Final/<5.2.2.Final>/<5.2.4.Final>
      */
-    hibernateVersion = '5.2.2.Final'
+    hibernateVersion = '5.2.4.Final'
 
     /**
      * org.hibernate:hibernate-search-orm
-     * 5.4.0.CR2/5.5.0.Final/<5.5.1.Final>
+     * 5.4.0.CR2/5.5.0.Final/<5.5.1.Final>/<5.5.5.Final>
      */
-    hibernateSearchVersion = '5.5.1.Final'
+    hibernateSearchVersion = '5.5.5.Final'
 
     /**
      * org.javassist:javassist
-     * <3.20.0-GA>
+     * <3.20.0-GA>/<3.22.0-CR1>
      */
-    javassistVersion = '3.20.0-GA'
+    javassistVersion = '3.22.0-CR1'
 
     /**
      * jaxen:jaxen
@@ -117,33 +117,33 @@ ext {
 
     /**
      * org.scijava:jep
-     * 2.4.2
+     * <2.4.2>
      */
     jepVersion = '2.4.2'
 
     /**
      * org.jpos:jpos
-     * 2.0.2/2.0.4/<2.0.6>
+     * 2.0.2/2.0.4/<2.0.6>/<2.0.8>#
      */
     jposVersion = '2.0.6'
 
     /**
      * cn.jpush.api:jpush-client
-     * 3.2.8/<3.2.10>
+     * 3.2.8/<3.2.10>/<3.2.11>
      */
-    jpushClientVersion = "3.2.10"
+    jpushClientVersion = "3.2.11"
 
     /**
      * cn.jpush.api:jiguang-common
-     * <0.1.3>
+     * <0.1.3>/<0.1.6>
      */
-    jiguangCommonVersion = "0.1.3"
+    jiguangCommonVersion = "0.1.6"
 
     /**
      * org.codehaus.jettison:jettison
-     * 1.2/1.3.7
+     * 1.2/1.3.7/<1.3.8>
      */
-    jettisonVersion = '1.3.7'
+    jettisonVersion = '1.3.8'
 
     /**
      * org.codehaus.jackson:jackson-core-asl
@@ -153,27 +153,27 @@ ext {
 
     /**
      * junit:junit
-     * 4.12
+     * <4.12>
      */
     junitVersion = '4.12'
 
     /**
      * org.apache.lucene:lucene-core
-     * 4.10.4/5.3.0/5.3.1/<6.1.0>
+     * 4.10.4/5.3.0/<5.3.1>/6.1.0#/<6.3.0>
      */
-    luceneVersion = '5.3.1'
+    luceneVersion = '6.3.0'
 
     /**
      * mysql:mysql-connector-java
-     * 5.1.36/5.1.37/<6.0.3>
+     * 5.1.36/5.1.37/<6.0.3>/<6.0.5>
      */
-    mysqlConnectorJavaVersion = '6.0.3'
+    mysqlConnectorJavaVersion = '6.0.5'
 
     /**
      * com.google.code.simple-spring-memcached:simple-spring-memcached
-     * 3.6.0
+     * 3.6.0/<3.6.1>
      */
-    simpleSpringMemcachedVersion = "3.6.0"
+    simpleSpringMemcachedVersion = "3.6.1"
 
     /**
      * com.oracle:ojdbc14
@@ -183,21 +183,21 @@ ext {
 
     /**
      * org.apache.poi
-     * 3.12/3.13/<3.14>
+     * 3.12/3.13/<3.14>/<3.15>
      */
-    poiVersion = '3.14'
+    poiVersion = '3.15'
 
     /**
      * com.qiniu:qiniu-java-sdk
-     * 7.1.0/<7.1.2>
+     * 7.1.0/<7.1.2>/<7.2.2>
      */
-    qiniuVersion = '7.1.2'
+    qiniuVersion = '7.2.2'
 
     /**
      * org.quartz-scheduler:quartz
-     * 2.2.1/<2.2.2>
+     * 2.2.1/<2.2.2>/<2.2.3>
      */
-    quartzVersion = '2.2.2'
+    quartzVersion = '2.2.3'
 
     /**
      * org.rxtx:rxtx
@@ -207,9 +207,9 @@ ext {
 
     /**
      * org.springframework:spring-core
-     * 4.1.7.RELEASE/4.2.0.RELEASE/4.2.1.RELEASE/4.2.2.RELEASE/4.2.3.RELEASE*
+     * 4.1.7.RELEASE/4.2.0.RELEASE/4.2.1.RELEASE/4.2.2.RELEASE/<4.3.2.RELEASE>/<4.3.4.RELEASE>
      */
-    springVersion = '4.3.2.RELEASE'
+    springVersion = '4.3.4.RELEASE'
 
     /**
      * org.springframework.batch:spring-batch-core
@@ -219,7 +219,7 @@ ext {
 
     /**
      * org.springframework.data:spring-data-redis
-     * 1.5.1.RELEASE/1.5.2.RELEASE/1.6.0.RELEASE/1.6.1.RELEASE/1.6.4.RELEASE/1.7.1.RELEASE#/1.7.2.RELEASE#
+     * 1.5.1.RELEASE/1.5.2.RELEASE/1.6.0.RELEASE/1.6.1.RELEASE/<1.6.4.RELEASE>/1.7.1.RELEASE#/1.7.2.RELEASE#/1.7.5.RELEASE
      */
     springDataRedisVersion = '1.6.4.RELEASE'
 
@@ -231,27 +231,27 @@ ext {
 
     /**
      * org.springframework.security:spring-security-core
-     * 4.0.2.RELEASE/4.0.3.RELEASE/<4.1.1.RELEASE>
+     * 4.0.2.RELEASE/4.0.3.RELEASE/<4.1.1.RELEASE>/<4.2.0.RELEASE>
      */
-    springSecurityVersion = '4.1.1.RELEASE'
+    springSecurityVersion = '4.2.0.RELEASE'
 
     /**
      * org.springframework.ws
-     * 2.1.4.RELEASE
+     * 2.1.4.RELEASE/<>
      */
     springwsVersion = '2.1.4.RELEASE'
 
     /**
      * org.springframework.integration:spring-integration-core
-     * 4.1.6.RELEASE/4.2.0.RELEASE/4.2.1.RELEASE/4.2.2.RELEASE/4.2.3.RELEASE/<4.3.1.RELEASE>
+     * 4.1.6.RELEASE/4.2.0.RELEASE/4.2.1.RELEASE/4.2.2.RELEASE/4.2.3.RELEASE/<4.3.1.RELEASE>/<4.3.5.RELEASE>
      */
-    springIntegrationVersion = '4.3.1.RELEASE'
+    springIntegrationVersion = '4.3.5.RELEASE'
 
     /**
      * org.springframework.integration:spring-integration-kafka
-     * 1.2.1.RELEASE/1.3.0.RELEASE/<2.0.0.RELEASE>
+     * 1.2.1.RELEASE/1.3.0.RELEASE/<2.0.0.RELEASE>/<2.1.0.RELEASE>
      */
-    springIntegrationKafkaVersion = '2.0.0.RELEASE'
+    springIntegrationKafkaVersion = '2.1.0.RELEASE'
 
     /**
      * org.springframework.integration:spring-integration-cassandra
@@ -261,19 +261,19 @@ ext {
 
     /**
      * org.apache.struts:struts2-core
-     * 2.3.24/2.3.24.1/2.3.24.3/<2.5.2>
+     * 2.3.24/2.3.24.1/2.3.24.3/<2.5.2>/<2.5.5>
      */
-    struts2Version = '2.5.2'
+    struts2Version = '2.5.5'
 
     /**
      * org.apache.tomcat.embed
-     * 7.0.63/8.0.24/8.0.26/8.0.28/8.0.29/<8.0.30>
+     * 7.0.63/8.0.24/8.0.26/8.0.28/8.0.29/<8.0.30>/<8.0.39>
      */
-    tomcatEmbedVersion = '8.0.30'
+    tomcatEmbedVersion = '8.0.39'
 
     /*
      * org.apache.xbean:xbean-spring
-     * 4.3/4.4/4.5
+     * 4.3/4.4/<4.5>
      */
     xbeanSpringVersion = '4.5'
 
@@ -291,15 +291,15 @@ ext {
 
     /**
      * com.google.zxing
-     * 3.2.0/3.2.1
+     * 3.2.0/3.2.1/<3.3.0>
      */
-    zxingVersion = '3.2.1'
+    zxingVersion = '3.3.0'
 
     /**
      * org.codehaus.cargo:cargo-core-uberjar
-     * 1.4.15/1.4.16
+     * 1.4.15/1.4.16/<1.6.1>
      */
-    cargoVersion = '1.4.16'
+    cargoVersion = '1.6.1'
 }
 
 /**
