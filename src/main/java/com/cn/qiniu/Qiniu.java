@@ -7,11 +7,11 @@ package com.cn.qiniu;
 
 import com.qiniu.common.QiniuException;
 import com.qiniu.http.Response;
+import com.qiniu.storage.Configuration;
 import com.qiniu.storage.UploadManager;
 import com.qiniu.util.Auth;
 import org.apache.log4j.Logger;
 import com.qiniu.common.Zone;
-//import com.qiniu.storage.Configuration;
 
 import java.io.IOException;
 
@@ -36,9 +36,9 @@ public class Qiniu {
     Auth auth = Auth.create(ACCESS_KEY, SECRET_KEY);
 
     //创建上传对象
-    //Zone z = Zone.autoZone();
-    //Configuration c = new Configuration(z);
-    UploadManager uploadManager = new UploadManager();
+    Zone z = Zone.autoZone();
+    Configuration c = new Configuration(z);
+    UploadManager uploadManager = new UploadManager(c);
 
     //简单上传，使用默认策略，只需要设置上传的空间名就可以了
     public String getUpToken() {

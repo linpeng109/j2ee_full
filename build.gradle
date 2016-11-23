@@ -14,7 +14,7 @@ sourceCompatibility = JavaVersion.VERSION_1_8
 /**
  * 2015.12.25/2016.08.07
  */
-version = '2016.08.07'
+version = '2016.11.23'
 
 def workset_home = 'd:/'
 
@@ -137,7 +137,7 @@ ext {
      * cn.jpush.api:jiguang-common
      * <0.1.3>/<0.1.6>
      */
-    jiguangCommonVersion = "0.1.6"
+    //jiguangCommonVersion = "0.1.6"
 
     /**
      * org.codehaus.jettison:jettison
@@ -237,9 +237,9 @@ ext {
 
     /**
      * org.springframework.ws
-     * 2.1.4.RELEASE/<>
+     * 2.1.4.RELEASE/<2.4.0.RELEASE>
      */
-    springwsVersion = '2.1.4.RELEASE'
+    //springwsVersion = '2.4.0.RELEASE'
 
     /**
      * org.springframework.integration:spring-integration-core
@@ -344,6 +344,7 @@ buildscript {
 repositories {
     jcenter()
     mavenCentral()
+    maven { url "http://repo.spring.io/release" }
     ivy {
         url("$workset_home/ivy_repository")
     }
@@ -471,12 +472,12 @@ dependencies {
     /**
      * JPush's officially supported Java client library for accessing JPush APIs.
      */
-    compile "cn.jpush.api:jpush-client:$jpushClientVersion";
+    compile("cn.jpush.api:jpush-client:$jpushClientVersion")
 
     /**
      * Jiguang common dependecies for jiguang java client.
      */
-    compile "cn.jpush.api:jiguang-common:$jiguangCommonVersion";
+    //compile "cn.jpush.api:jiguang-common:$jiguangCommonVersion";
 
     /**
      * JSON is a light-weight, language independent, data interchange format.
@@ -640,7 +641,7 @@ dependencies {
     /**
      * Spring Web Services is a product of the Spring community focused on creating document-driven Web services.
      */
-    compile("org.springframework.ws:spring-ws:$springwsVersion")
+    //compile("org.springframework.ws:spring-ws:$springwsVersion")
 
     /**
      * Struts2 Framework

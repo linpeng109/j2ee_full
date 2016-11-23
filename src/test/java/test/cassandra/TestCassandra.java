@@ -8,8 +8,10 @@ import com.datastax.driver.core.querybuilder.Select;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.cassandra.core.CassandraTemplate;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
@@ -17,8 +19,8 @@ import java.util.List;
 import java.util.UUID;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:applicationContext.xml")
-public class TestCassandra {
+@ContextConfiguration(locations = {"classpath:applicationContext.xml"})
+public class TestCassandra extends AbstractJUnit4SpringContextTests {
     final Logger logger = Logger.getLogger(TestCassandra.class);
 
     @Resource
@@ -68,6 +70,7 @@ public class TestCassandra {
         Select select = QueryBuilder.select().from("person");
         UUID uuid = UUID.fromString("634f884e-2be7-4726-aa4a-fae2db6b9a3d");
         select.where(QueryBuilder.eq("id", uuid));
+//        cassandraTemplate.selectOne()
         Person person = cassandraTemplate.selectOne(select, Person.class);
         logger.debug(String.format("The persionid is [%s] and name is [%s]", person.getId(), person.getName()));
     }
