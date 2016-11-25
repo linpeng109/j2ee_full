@@ -8,7 +8,6 @@ import com.datastax.driver.core.querybuilder.Select;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.cassandra.core.CassandraTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
@@ -20,7 +19,7 @@ import java.util.UUID;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:applicationContext.xml"})
-public class TestCassandra extends AbstractJUnit4SpringContextTests {
+public class TestCassandra {
     final Logger logger = Logger.getLogger(TestCassandra.class);
 
     @Resource

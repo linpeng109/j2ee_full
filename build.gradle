@@ -24,7 +24,7 @@ ext {
      * org.apache.activemq:activemq-all
      * <5.11.1>/5.12.0#/5.13.0#/5.14.0#/5.14.1#
      */
-    activemqVersion = '5.14.1'
+    activemqVersion = '5.11.1'
 
     /**
      * org.apache.cxf:cxf-rt-frontend-jaxws
@@ -159,9 +159,9 @@ ext {
 
     /**
      * org.apache.lucene:lucene-core
-     * 4.10.4/5.3.0/<5.3.1>/6.1.0#/<6.3.0>
+     * 4.10.4/5.3.0/<5.3.1>/6.1.0#/6.3.0#
      */
-    luceneVersion = '6.3.0'
+    luceneVersion = '5.3.1'
 
     /**
      * mysql:mysql-connector-java
@@ -362,6 +362,9 @@ dependencies {
         exclude(module: 'httpclient')
     }
 
+    compile 'org.springframework.data:spring-data-cassandra:1.4.5.RELEASE'
+    compile 'com.datastax.cassandra:cassandra-driver-dse:3.0.0-rc1'
+
     /**
      * Apache CXF Runtime JAX-WS Frontend
      * Apache CXF Runtime HTTP Transport
@@ -411,9 +414,9 @@ dependencies {
     /**
      * Apache FtpServer
      */
-    compile("org.apache.ftpserver:ftpserver:$ftpserverVersion") {
-        exclude(module: 'slf4j-log4j12')
-    }
+//    compile("org.apache.ftpserver:ftpserver:$ftpserverVersion") {
+//        exclude(module: 'slf4j-log4j12')
+//    }
 
     /**
      * A library for testing websites programmatically
