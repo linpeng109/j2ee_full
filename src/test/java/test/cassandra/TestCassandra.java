@@ -1,5 +1,6 @@
 package test.cassandra;
 
+import com.cn.cassandra.CassandraDAO;
 import com.cn.cassandra.tables.Person;
 import com.cn.common.RandomModule;
 import com.cn.common.implement.RandomModuleImpl;
@@ -8,9 +9,7 @@ import com.datastax.driver.core.querybuilder.Select;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.data.cassandra.core.CassandraTemplate;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
@@ -23,10 +22,9 @@ public class TestCassandra {
     final Logger logger = Logger.getLogger(TestCassandra.class);
 
     @Resource
-    public CassandraTemplate cassandraTemplate;
+    public CassandraDAO cassandraTemplate;
 
     @Test
-//    @Ignore
     public void testCassandraTemplateInsert() {
         RandomModule random = new RandomModuleImpl();
         for (int i = 0; i < 100; ++i) {
@@ -34,7 +32,7 @@ public class TestCassandra {
             int age = random.getRandomInt(100);
             String address = random.getRStr(RandomModule.myint_AZ, 10);
             Person person = new Person(name, age, address);
-            cassandraTemplate.insert(person);
+            cassandraTemplate.getCassandraTemplate().insert(person);
         }
     }
 
@@ -43,19 +41,17 @@ public class TestCassandra {
     }
 
     @Test
-//    @Ignore
     public void testCassandraTemplateCount() {
-        long size = cassandraTemplate.count("person");
+        long size = cassandraTemplate.getCassandraTemplate().count("person");
         logger.debug(String.format("The person table size is [%s] ", size));
     }
 
     @Test
-//    @Ignore`
     public void testCassandraTemplateSelectByLimt() {
 
         Select select = QueryBuilder.select().from("person");
         select.limit(100);
-        List<Person> list = cassandraTemplate.select(select, Person.class);
+        List<Person> list = cassandraTemplate.getCassandraTemplate().select(select, Person.class);
         for (int i = 0; i < list.size(); ++i) {
             Person person = list.get(i);
             logger.debug(String.format("The persionid is [%s] and it's name is [%s]", person.getId(), person.getName()));
@@ -64,13 +60,11 @@ public class TestCassandra {
     }
 
     @Test
-//    @Ignore
     public void testCassandraTemplateSelectOne() {
         Select select = QueryBuilder.select().from("person");
-        UUID uuid = UUID.fromString("634f884e-2be7-4726-aa4a-fae2db6b9a3d");
+        UUID uuid = UUID.fromString("591f180b-cf42-4f60-9e4a-374e75a6221c");
         select.where(QueryBuilder.eq("id", uuid));
-//        cassandraTemplate.selectOne()
-        Person person = cassandraTemplate.selectOne(select, Person.class);
+        Person person = cassandraTemplate.getCassandraTemplate().selectOne(select, Person.class);
         logger.debug(String.format("The persionid is [%s] and name is [%s]", person.getId(), person.getName()));
     }
 }

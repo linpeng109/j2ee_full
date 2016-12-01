@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:activemq="http://activemq.apache.org/schema/core"
        xmlns:si="http://www.springframework.org/schema/integration"
        xmlns:jms="http://www.springframework.org/schema/integration/jms"
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
-		http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd
-		http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+				http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
 		http://www.springframework.org/schema/integration/jms http://www.springframework.org/schema/integration/jms/spring-integration-jms.xsd">
 
     <!-- 建立JMS消息连接工厂 -->
-    <activemq:connectionFactory id="remoteConnectionFactory"
-                                brokerURL="${connectionFactory.brokerURL}" userName="${connectionFactory.userName}"
-                                password="${connectionFactory.password}"
-                                maxThreadPoolSize="1000"/>
+    <bean id="targetConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="tcp://192.168.0.102:61616"/>
+        <property name="userName" value="admin"/>
+        <property name="password" value="admin"/>
+    </bean>
+
+    <bean id="pooledConnectionFactory" class="org.apache.activemq.jms.pool.PooledConnectionFactory">
+        <property name="connectionFactory" ref="targetConnectionFactory"/>
+        <property name="maxConnections" value="10"/>
+    </bean>
+    <bean id="connectionFactory" class="org.springframework.jms.connection.SingleConnectionFactory">
+        <property name="targetConnectionFactory" ref="pooledConnectionFactory"/>
+    </bean>
 
     <!-- 配置Topic目标 -->
     <bean id="topicDestination" class="org.apache.activemq.command.ActiveMQTopic">
@@ -27,19 +34,20 @@
 
     <!-- 配置消息驱动（接收）通道适配器 -->
     <jms:message-driven-channel-adapter
-            message-converter="activeMQTextMessageConverter" connection-factory="remoteConnectionFactory"
+            message-converter="activeMQTextMessageConverter" connection-factory="connectionFactory"
             destination="topicDestination" channel="logger" extract-payload="false"/>
 
     <!-- 消息接收通道 -->
     <si:channel id="jmsReceiveChannel"/>
 
+    <!-- 消息接收通道 -->
+    <si:channel id="jmsSendChannel"/>
+
     <!-- 消息转换器 -->
     <bean id="activeMQTextMessageConverter" class="com.cn.jms.ActiveMQTextMessageConverter"/>
 
     <!-- 消息发送通道 -->
-    <jms:publish-subscribe-channel id="jmsSendChannel"
-                                   message-converter="activeMQTextMessageConverter"
-                                   connection-factory="remoteConnectionFactory"
-                                   topic="topicDestination"/>
+    <jms:outbound-gateway auto-startup="true" connection-factory="connectionFactory" request-channel="jmsSendChannel"
+                          message-converter="activeMQTextMessageConverter" request-destination-name="topicDestination"/>
 
 </beans>

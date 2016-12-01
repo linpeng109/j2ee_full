@@ -82,7 +82,7 @@ public class TestSecurity {
     }
 
     @Test
-    @WithMockUser(username = "abcde", authorities = {"ROLE_ADMIN"})
+    @WithMockUser(username = "abcd", authorities = {"ROLE_ADMIN"})
     public void testSecurityBy_mockUser() {
         logger.debug("testSecurityBy_mockUser......");
         securitySamples.securityMethod();

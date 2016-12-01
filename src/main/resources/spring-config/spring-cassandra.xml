@@ -4,10 +4,9 @@
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/data/cassandra http://www.springframework.org/schema/data/cassandra/spring-cassandra-1.0.xsd">
-    <cassandra:cluster contact-points="${cassandra.cluster.contact-points}" port="${cassandra.cluster.port}"/>
-    <cassandra:mapping/>
-    <cassandra:converter/>
-    <cassandra:session keyspace-name="${cassandra.session.keyspace-name}"/>
-    <cassandra:template id="cassandraTemplate"/>
-    <cassandra:repositories base-package="com.cn.cassandra.tables"/>
+    <bean id="cassandraDAO" class="com.cn.cassandra.CassandraDAO">
+        <property name="address" value="192.168.0.102"/>
+        <property name="port" value="9042"/>
+        <property name="keyspace" value="j2ee_cassandra"/>
+    </bean>
 </beans>
