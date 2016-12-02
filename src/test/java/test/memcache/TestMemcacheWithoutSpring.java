@@ -45,9 +45,7 @@ public class TestMemcacheWithoutSpring {
      */
     private String key = random.getUUID();
 
-
     private MemcachedClient client;
-
 
     public MemcachedClient buildClient() throws IOException {
         MemcachedClientBuilder builder = new XMemcachedClientBuilder(AddrUtil.getAddresses(memcacheHost + ":" + memcachePort));
