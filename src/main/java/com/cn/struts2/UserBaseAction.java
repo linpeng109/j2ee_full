@@ -1,6 +1,7 @@
 package com.cn.struts2;
 
 import com.cn.hibernate.entity.UserBase;
+import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
  * Created by linpeng109 on 15-8-25.
  */
 public class UserBaseAction extends BaseAction {
-    final Logger logger = Logger.getLogger(UserBaseAction.class);
+    static Logger logger = LogManager.getLogger(UserBaseAction.class);
 
     public int pageSize;
     public int pageNum;

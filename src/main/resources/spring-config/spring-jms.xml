@@ -10,8 +10,8 @@
     <!-- 建立JMS消息连接工厂 -->
     <bean id="targetConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
         <property name="brokerURL" value="tcp://192.168.0.102:61616"/>
-        <property name="userName" value="admin"/>
-        <property name="password" value="admin"/>
+        <property name="userName" value="j2ee_full"/>
+        <property name="password" value="j2ee_full"/>
     </bean>
 
     <bean id="pooledConnectionFactory" class="org.apache.activemq.jms.pool.PooledConnectionFactory">
@@ -24,12 +24,12 @@
 
     <!-- 配置Topic目标 -->
     <bean id="topicDestination" class="org.apache.activemq.command.ActiveMQTopic">
-        <constructor-arg value="topic.demo"/>
+        <constructor-arg value="topic.j2ee_full"/>
     </bean>
 
     <!-- 配置Queue目标 -->
     <bean id="queueDestination" class="org.apache.activemq.command.ActiveMQQueue">
-        <constructor-arg value="queue.demo"/>
+        <constructor-arg value="queue.j2ee_full"/>
     </bean>
 
     <!-- 配置消息驱动（接收）通道适配器 -->

@@ -17,7 +17,7 @@ public class InitializeAction extends BaseAction {
     /**
      * 日志
      */
-    final Logger logger = Logger.getLogger(InitializeAction.class);
+    static Logger logger = Logger.getLogger(InitializeAction.class);
 
     /**
      * 初始化权限列表
@@ -84,8 +84,8 @@ public class InitializeAction extends BaseAction {
         for (int i = 0; i < userNumber; ++i) {
             UserBase user = new UserBase();
             String username = randomModule.getRStr(RandomModule.mystring_china, 2)
-                    + randomModule.getRStr(RandomModule.myint_az, 2)
-                    + randomModule.getRStr(RandomModule.myint_09, 3);
+                    + randomModule.getRStr(RandomModule.myint_az, 4)
+                    + randomModule.getRStr(RandomModule.myint_09, 5);
             user.setUserName(username);
             user.setPassWord(username);
             user.setWritepermission(randomModule.getRandomBoolean());

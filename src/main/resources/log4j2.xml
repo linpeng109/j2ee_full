@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn">
+    <Appenders>
+        <RollingFile name="RollingFile" fileName="logs/log4j2.log" filePattern="logs/log4j2-%d{MM-dd-yyyy}.log.gz"
+                     ignoreExceptions="false">
+            <PatternLayout>
+                <Pattern>%d{yyyy.MM.dd-HH:mm:ss} [%t] %-5p %l  - %m%n</Pattern>
+            </PatternLayout>
+            <TimeBasedTriggeringPolicy/>
+        </RollingFile>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout>
+                <Pattern>%d{yyyy.MM.dd-HH:mm:ss} [%t] %-5p %l  - %m%n</Pattern>
+            </PatternLayout>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Logger name="org.apache" level="error">
+        </Logger>
+        <Logger name="org.apache.activemq" level="error">
+        </Logger>
+        <Logger name="com.datastax.driver.core" level="error">
+        </Logger>
+        <Logger name="com.mchange.v2" level="error">
+        </Logger>
+        <Logger name="com.google.code.ssm.*" level="error">
+        </Logger>
+        <Logger name="org.directwebremoting" level="error">
+        </Logger>
+        <Logger name="org.jasig.cas.client.session" level="error">
+        </Logger>
+        <Logger name="net.sf.ehcache" level="error">
+        </Logger>
+        <Logger name="freemarker" level="error">
+        </Logger>
+        <Logger name="org.hibernate" level="error">
+        </Logger>
+        <Logger name="org.jboss" level="error">
+        </Logger>
+        <Logger name="org.jgroups" level="error">
+        </Logger>
+        <Logger name="org.quartz" level="error">
+        </Logger>
+        <Logger name="org.mortbay" level="error">
+        </Logger>
+        <Logger name="org.springframework" level="error">
+        </Logger>
+        <Logger name="org.springframework.security" level="error">
+        </Logger>
+        <Logger name="springframework.security.web.authentication" level="error">
+        </Logger>
+        <Logger name="org.springframework.security.web.authentication.logout" level="error">
+        </Logger>
+        <Logger name="org.springframework.integration.handler" level="error">
+        </Logger>
+        <Logger name="net.rubyeye.xmemcached" level="error">
+        </Logger>
+        <Logger name="com.google.code" level="error">
+        </Logger>
+        <Logger name="kafka.producer" level="error">
+        </Logger>
+        <Logger name="kafka.consumer" level="error">
+        </Logger>
+        <Logger name="org.apache.struts2" level="error">
+        </Logger>
+        <Logger name="com.opensymphony.xwork2" level="error">
+        </Logger>
+        <Root level="INFO">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFile"/>
+        </Root>
+    </Loggers>
+</Configuration>

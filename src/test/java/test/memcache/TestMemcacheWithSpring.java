@@ -7,6 +7,7 @@ import com.google.code.ssm.Cache;
 import com.google.code.ssm.api.format.SerializationType;
 import com.google.code.ssm.providers.CacheException;
 import org.apache.log4j.Logger;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -40,6 +41,7 @@ public class TestMemcacheWithSpring {
     private String key = random.getUUID();
 
     @Test
+    @Ignore
     public void testAdd() throws ParseException, TimeoutException, CacheException {
         for (int i = 0; i < 50; ++i) {
             String key = "key_" + i;
@@ -58,6 +60,7 @@ public class TestMemcacheWithSpring {
     }
 
     @Test
+    @Ignore
     public void testGet() throws TimeoutException, CacheException {
 
         for (int i = 0; i < 50; ++i) {

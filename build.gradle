@@ -12,7 +12,7 @@ apply plugin: 'com.bmuschko.cargo-base'
 sourceCompatibility = JavaVersion.VERSION_1_8
 
 /**
- * 2015.12.25/2016.08.07
+ * 2015.12.25/2016.08.07/2016.11.23
  */
 version = '2016.11.23'
 
@@ -240,7 +240,7 @@ dependencies {
      * JEP is a Java library for parsing and evaluating mathematical expressions.
      *
      */
-    def jepVersion='2.4.2'
+    def jepVersion = '2.4.2'
     compile("org.scijava:jep:$jepVersion")
 
     /**
@@ -287,6 +287,14 @@ dependencies {
      */
     def fastjsonVersion = '1.2.21'
     compile "com.alibaba:fastjson:$fastjsonVersion"
+
+    /**
+     * org.apache.logging.log4j:log4j-core
+     * 2.7
+     */
+    def log4jVersion = '2.7'
+    compile "org.apache.logging.log4j:log4j-core:$log4jVersion"
+    compile "org.apache.logging.log4j:log4j-slf4j-impl:$log4jVersion"
 
     /**
      * Apache Lucene Java Core

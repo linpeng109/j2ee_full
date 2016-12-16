@@ -30,9 +30,8 @@ public class TestInitializeAction {
     /**
      * 测试初始化abcd用户
      */
-    @Ignore
-    private void testInitializeABCD() {
-//        logger.debug(initializeAction.initializeABCD());
+    public void testInitializeABCD() {
+        logger.debug(initializeAction.initializeABCD());
     }
 
     /**
@@ -52,8 +51,8 @@ public class TestInitializeAction {
 
     @Test
     public void init() {
-        testInitializeAuthority();
-        testInitializeABCD();
+//        testInitializeAuthority();
+//        testInitializeABCD();
         testInitializeUserBase(100);
     }
 

@@ -56,6 +56,7 @@ public class TestMemcacheWithoutSpring {
     }
 
     @Test
+    @Ignore
     public void testAdd() throws InterruptedException, MemcachedException, TimeoutException, ParseException, IOException {
         for (int i = 0; i < 50; ++i) {
             String key = "key_" + i;
@@ -76,6 +77,7 @@ public class TestMemcacheWithoutSpring {
     }
 
     @Test
+    @Ignore
     public void testGet() throws InterruptedException, MemcachedException, TimeoutException, IOException {
 
         for (int i = 0; i < 50; ++i) {

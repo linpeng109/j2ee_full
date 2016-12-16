@@ -22,10 +22,6 @@
     <!--
     <import resource="spring-config/spring-webservice.xml"/>
     -->
-    <!-- JMS模块配置 -->
-    <!--
-    <import resource="spring-config/spring-jms.xml" />
-    -->
     <!-- 系统模块配置 -->
     <import resource="spring-config/spring-common.xml"/>
     <!-- JDBC模块配置 -->
@@ -35,7 +31,9 @@
     <!-- JSON模块配置 -->
     <import resource="spring-config/spring-json.xml"/>
     <!-- JMS模块配置 -->
+    <!--
     <import resource="spring-config/spring-jms.xml"/>
+    -->
     <!-- 密文模块配置 -->
     <import resource="spring-config/spring-crypto.xml"/>
     <!-- 用户及权限模块配置 -->
@@ -57,21 +55,31 @@
     <!-- 数据源及实体类配置 -->
     <import resource="spring-config/spring-hibernate.xml"/>
     <!-- 全文检索模块配置 -->
-    <!--import resource="spring-config/spring-search.xml"/-->
+    <!--
+    <import resource="spring-config/spring-search.xml"/>
+    -->
     <!-- 任务调度模块配置 -->
     <import resource="spring-config/spring-quartz.xml"/>
     <!-- 视频编码模块配置 -->
+    <!--
     <import resource="spring-config/spring-encoder.xml"/>
+    -->
     <!-- XMPP消息模块配置 -->
-    <!--import resource="spring-config/spring-xmpp.xml"/-->
+    <!--
+    <import resource="spring-config/spring-xmpp.xml"/>
+    -->
     <!-- Kafka分布式消息系统模块配置 -->
     <import resource="spring-config/spring-kafka.xml"/>
     <!-- Cassandra分布式非关系数据库模块配置 -->
     <import resource="spring-config/spring-cassandra.xml"/>
     <!-- HTTP模块配置 -->
+    <!--
     <import resource="spring-config/spring-http.xml"/>
+    -->
     <!--Memcache-->
+    <!--
     <import resource="spring-config/spring-memcache.xml"/>
+    -->
     <!-- JEP模块 -->
     <import resource="spring-config/spring-jep.xml"/>
     <!-- JPUSH模块 -->
